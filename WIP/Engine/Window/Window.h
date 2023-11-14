@@ -8,7 +8,7 @@ WINDOW_PROPERTIES:
 */
 struct WindowProperties
 {
-	WindowProperties(const std::string& title = "Scarlett Engine", uint16 width = 1280, uint16 height = 720) :
+	WindowProperties(const std::string& title = "Engine", uint16 width = 1280, uint16 height = 720) :
 		title(title),
 		width(width),
 		height(height)
@@ -36,6 +36,9 @@ public:
 	static Window* Create(const WindowProperties& properties = WindowProperties());
 	void Update();
 	void Destroy();
+	
+	// Temp
+	inline void SetRenderer(SDL_Renderer*& ren) { ren = SDL_CreateRenderer(m_windowHandle, 0, 0); if(ren == nullptr) Log::FatalError("err", ERR_CODE::SDL_ERROR); }
 
 	// Accessors.
 	inline uint16 GetWidth()	const { return m_width; }

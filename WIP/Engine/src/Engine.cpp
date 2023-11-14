@@ -44,6 +44,8 @@ void Engine::Run()
 		default:
 			break;
 		}
+
+		Render();
 	}
 }
 
@@ -52,4 +54,9 @@ void Engine::Destroy()
 	SDL_Quit();
 
 	delete m_instance;
+}
+
+void Engine::Render()
+{
+	
 }

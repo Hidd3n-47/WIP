@@ -1,5 +1,6 @@
 #pragma once
 
+// Assertions.
 #ifdef _DEBUG
 #define ASSERT(x, ...) { if(!(x)) { std::cout << "Assertion Failed: " << __VA_ARGS__ << std::endl; __debugbreak(); } }
 #else

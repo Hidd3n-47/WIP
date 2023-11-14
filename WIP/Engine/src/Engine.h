@@ -15,10 +15,10 @@ public:
 	inline static Engine* Instance() { return m_instance == nullptr ? m_instance = new Engine() : m_instance; }
 
 	void Init();
-
 	void Run();
-
 	void Destroy();
+
+	void Render();
 
 	inline void StopRunning() { m_running = false; }
 private:
