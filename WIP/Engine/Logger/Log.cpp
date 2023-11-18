@@ -3,6 +3,8 @@
 
 #include "src/Engine.h"
 
+namespace jci {
+
 void Log::DebugLog(const std::string& msg)
 {
 #ifdef _DEBUG
@@ -41,3 +43,5 @@ void Log::FatalError(const std::string& errMsg, ERR_CODE errCode)
 
 	Engine::Instance()->StopRunning();
 }
+
+} // Namespace jci.

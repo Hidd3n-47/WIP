@@ -11,6 +11,8 @@ LOG:
 	A static class responsible for logging messages to the sub-console.
 =========================================================================================
 */
+namespace jci {
+
 class Log
 {
 public:
@@ -27,3 +29,5 @@ public:
 	// Logs a fatal error message to the console. Fatal error message closes the game after message prompt.
 	static void FatalError(const std::string& errMsg, ERR_CODE errCode = ERR_CODE::DEFAULT);
 };
+
+} // Namespace jci.

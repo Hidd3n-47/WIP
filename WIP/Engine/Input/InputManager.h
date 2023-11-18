@@ -5,24 +5,31 @@
 =========================================================================================
 INPUT_MANAGER:
 	Handles the engine's input.
+	Use the Destroy() method to clean up memory.
 =========================================================================================
 */
+namespace jci {
+
 class InputManager
 {
 public:
 	inline static InputManager* Instance() { return m_instance == nullptr ? m_instance = new InputManager() : m_instance; }
-	//InputManager();
-	//~InputManager() { }
 
-	inline void PressKey(uint16 keyId)		{ m_keyMap[keyId] = true; }
-	inline void ReleaseKey(uint16 keyId)		{ m_keyMap[keyId] = false; }
+	void Update();
+
+	inline void PressKey(uint16 keyId) { m_keyMap[keyId] = true; }
+	inline void ReleaseKey(uint16 keyId) { m_keyMap[keyId] = false; }
 
 	bool IsKeyPressed(uint16 keyId);
+
+	inline void Destory() { delete m_instance; }
 private:
 	inline InputManager() { /* Empty. */ }
-	inline ~InputManager() { delete m_instance; }
+	inline ~InputManager() { /* Empty. */ }
 
 	static InputManager* m_instance;
 
 	std::unordered_map<uint16, bool> m_keyMap;
 };
+
+} // Namespace jci.
