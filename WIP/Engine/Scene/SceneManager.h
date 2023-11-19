@@ -10,6 +10,7 @@ SCENE_MANAGER:
 	- Deletes scenes (i.e. this manager handles ownership of scenes)
 	- Gets scenes.
 	- Re-name scenes.
+	- Can have a total of 65,535 scenes created.
 	Use the Destroy() method to clean up memory.
 =========================================================================================
 */
@@ -18,7 +19,7 @@ namespace jci {
 class SceneManager
 {
 public:
-	static SceneManager* Instance() { return m_instance == nullptr ? m_instance = new SceneManager() : m_instance; }
+	inline static SceneManager* Instance() { return m_instance == nullptr ? m_instance = new SceneManager() : m_instance; }
 
 	/***
 	* Create a new Scene for the engine.
@@ -40,11 +41,7 @@ public:
 	*
 	*/
 	inline void UpdateCurrentScene() { ASSERT(m_currentScene, "Cannot update a scene that is nullptr.");  m_currentScene->Update(); }
-	/***
-	* Create an empty game object and add it to the currently active scene.
-	*	-> TODO (Christian): make this take in GameObjectProperties to set basic information about the gameobject.
-	*/
-	GameObject* CreateEmptyGameObject();
+	
 
 	// Accessors.
 	/***
@@ -80,9 +77,9 @@ public:
 	*/
 	inline void SetCurrentScene(Scene* scene) { m_currentScene = scene; }
 
-	inline void Destory() { delete m_instance; }
+	void Destory();
 private:
-	SceneManager() { /* Empty. */ }
+	SceneManager() = default;
 	~SceneManager();
 
 	static SceneManager* m_instance;

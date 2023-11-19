@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Engine/Scene/SceneManager.h>
+#include <Engine/ECS/GameObject.h>
 
 class Application
 {
@@ -14,5 +16,8 @@ private:
 	~Application() = default;
 
 	static Application* m_instance;
+	jci::Scene* m_currentScene;
+	jci::GameObject* m_test1;
+	jci::GameObject* m_test2;
 };
 

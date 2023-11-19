@@ -34,7 +34,7 @@ public:
 	inline void ResizeWindow(int32 width, int32 height) { m_window->Resize(width, height); }
 private:
 	Engine() = default;
-	~Engine() { /* Empty. */ }
+	~Engine() = default;
 
 	static Engine* m_instance;
 

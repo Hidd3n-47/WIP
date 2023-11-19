@@ -21,7 +21,7 @@ Scene* SceneManager::CreateScene(const std::string& name)
 	// TODO (Christian): Ensure that two scenes cannot have the same name.
 	Scene* scene = new Scene(name, m_sceneId);
 	m_scenes[m_sceneId++] = scene;
-
+	ASSERT(m_sceneId != (1 << 16) - 1, "Reached maxed amount of scenes created.");
 	return scene;
 }
 
@@ -101,12 +101,10 @@ void SceneManager::SetSceneName(uint16 id, const std::string newName)
 	ASSERT(false, "Scene with id '" + std::to_string(id) + "' is not a current scene.");
 }
 
-GameObject* SceneManager::CreateEmptyGameObject()
-{
-	ASSERT(m_currentScene, "Cannot add a Game Object to a scene that is nullptr.");
-	GameObject* go = new GameObject();
-	m_currentScene->m_gameObjects.push_back(go);
-	return go;
+void SceneManager::Destory()
+{ 
+	delete m_instance; 
 }
+
 
 } // Namespace jci.

@@ -2,6 +2,7 @@
 
 namespace jci {
 
+// TODO (Christian): Update the camera matrix when the screen is re-sized.
 class Camera
 {
 public:

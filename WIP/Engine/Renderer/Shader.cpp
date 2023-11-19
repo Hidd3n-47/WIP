@@ -15,9 +15,6 @@ Shader::Shader(const std::string& vertexShaderFilePath, const std::string& fragm
 	std::string vertexShader = ParseShader(m_vertexFilePath);
 	std::string fragmentShader = ParseShader(m_fragmentFilePath);
 
-	//CompileShader(GL_VERTEX_SHADER, vertexShader);
-	//CompileShader(GL_FRAGMENT_SHADER, fragmentShader);
-
 	CreateShaders(vertexShader, fragmentShader);
 }
 
@@ -46,6 +43,11 @@ void Shader::UploadUniformFloat4(const std::string& name, float f0, float f1, fl
 	glUniform4f(GetUniformLocation(name), f0, f1, f2, f3);
 }
 
+void Shader::UploadUniformVec2(const std::string& name, vec2 vector)
+{
+	glUniform2f(GetUniformLocation(name), vector.x, vector.y);
+}
+
 void Shader::UploadUniformMat4(const std::string& name, const mat4& matrix)
 {
 	glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, &matrix[0][0]);
@@ -61,7 +63,9 @@ std::string Shader::ParseShader(const std::string& file)
 		ss << line << '\n';
 	}
 
-	return ss.str();
+	std::string str = ss.str();
+	ss.flush();
+	return str;
 }
 
 unsigned int Shader::CompileShader(unsigned int type, const std::string& source)
@@ -78,7 +82,8 @@ unsigned int Shader::CompileShader(unsigned int type, const std::string& source)
 	{
 		int length;
 		glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length);
-		char* message = (char*)alloca(length * sizeof(char));
+		char message[512];
+		//char* message = (char*)alloca(length * sizeof(char));
 		glGetShaderInfoLog(id, length, &length, message);
 		DLOG("Failed to complie Shader at: " + source);
 		std::cout << message << std::endl;
@@ -106,7 +111,8 @@ void Shader::CreateShaders(const std::string& vertex, const std::string frag)
 	{
 		int length;
 		glGetProgramiv(m_id, GL_INFO_LOG_LENGTH, &length);
-		char* message = (char*)alloca(length * sizeof(char));
+		//char* message = (char*)alloca(length * sizeof(char));
+		char message[512];
 		glGetShaderInfoLog(m_id, length, &length, message);
 		DLOG("Failed to link the shader to the program.");
 		std::cout << message << std::endl;
@@ -115,10 +121,8 @@ void Shader::CreateShaders(const std::string& vertex, const std::string frag)
 	}
 	//glValidateProgram(m_id);
 
-	/*glDeleteShader(vs);
-	glDeleteShader(fs);*/
-	glDetachShader(m_id, vs);
-	glDetachShader(m_id, fs);
+	glDeleteShader(vs);
+	glDeleteShader(fs);
 }
 
 int Shader::GetUniformLocation(const std::string& name)
