@@ -22,7 +22,7 @@ public:
 
 	bool IsKeyPressed(uint16 keyId);
 
-	inline void Destory() { delete m_instance; }
+	inline void Destroy() { delete m_instance; }
 private:
 	inline InputManager() { /* Empty. */ }
 	inline ~InputManager() { /* Empty. */ }

@@ -12,6 +12,7 @@ SceneManager::~SceneManager()
 	for (auto it = m_scenes.begin(); it != m_scenes.end(); it++)
 	{
 		delete it->second;
+		it->second = nullptr;
 	}
 	m_scenes.clear();
 }
@@ -32,6 +33,7 @@ void SceneManager::DestroyScene(const std::string& name)
 		if (it->second->m_name == name)
 		{
 			delete it->second;
+			it->second = nullptr;
 			m_scenes.erase(it);
 			return;
 		}

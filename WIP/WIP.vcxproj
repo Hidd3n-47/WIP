@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\Collision\CollisionManager.cpp" />
     <ClCompile Include="Engine\ECS\BoxCollider.cpp" />
     <ClCompile Include="Game\src\Application.cpp" />
     <ClCompile Include="Engine\Camera\Camera.cpp" />
@@ -167,9 +168,11 @@
     <ClCompile Include="Engine\ECS\Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine\Collision\CollisionManager.h" />
     <ClInclude Include="Engine\ECS\BoxCollider.h" />
     <ClInclude Include="Engine\ECS\ComponentTypes.h" />
     <ClInclude Include="Engine\ECS\Transform.h" />
+    <ClInclude Include="Engine\Utilities\Utils.h" />
     <ClInclude Include="Game\src\Application.h" />
     <ClInclude Include="Engine\Camera\Camera.h" />
     <ClInclude Include="Engine\ECS\GameObject.h" />

@@ -13,3 +13,7 @@
 #else
 #define DLOG(x)
 #endif
+	
+#define COMPONENT(x) \
+inline static uint16 GetIdMask() { return 1 << (int)x; } \
+inline static std::string GetName() { return #x; }

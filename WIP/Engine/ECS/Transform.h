@@ -1,4 +1,5 @@
 #pragma once
+#include "pch.h"
 
 #include "IComponent.h"
 
@@ -17,12 +18,13 @@ public:
 	Transform() = default;
 	~Transform() = default;
 
-	inline virtual void OnComponentAdd(GameObject* gameObject)	final	{ m_gameObject = gameObject; }
-	inline virtual void OnComponentRemove()						final	{ /* Empty. */ }
+	inline virtual void OnComponentAdd(GameObject* gameObject)	final { m_gameObject = gameObject; }
+	inline virtual void OnComponentRemove()						final { /* Empty. */ }
 	
 	virtual GameObject* GetGameObject() final { return m_gameObject; }
 
-	inline static uint16 GetIdMask() { return 1 << (int)ComponentTypes::Transform; }
+	COMPONENT(ComponentTypes::Transform);
+
 
 	// Accessors.
 	/***

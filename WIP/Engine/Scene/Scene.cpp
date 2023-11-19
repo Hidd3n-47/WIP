@@ -17,9 +17,11 @@ Scene::~Scene()
 	{
 		GameObject* go = m_gameObjects[i];
 		delete go;
+		go = nullptr;
 	}
 
 	delete m_camera;
+	m_camera = nullptr;
 
 	DLOG("Destroyed scene with name: " + m_name);
 }

@@ -17,7 +17,7 @@ public:
 
 	inline virtual GameObject* GetGameObject() final { return m_gameObject; }
 
-	inline static uint16 GetIdMask() { return 1 << (int)ComponentTypes::SpriteRenderer; }
+	COMPONENT(ComponentTypes::SpriteRenderer);
 
 	inline vec2 GetPosition() const { return m_position; }
 	inline vec2 GetSize() const { return m_size; }

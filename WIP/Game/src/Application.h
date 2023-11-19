@@ -10,7 +10,7 @@ public:
 
 	void Create();
 	void Update();
-	inline void Destory() { delete m_instance; }
+	inline void Destroy() { delete m_instance; }
 private:
 	Application() = default;
 	~Application() = default;
@@ -19,5 +19,6 @@ private:
 	jci::Scene* m_currentScene;
 	jci::GameObject* m_test1;
 	jci::GameObject* m_test2;
+	jci::GameObject* m_test3;
 };
 

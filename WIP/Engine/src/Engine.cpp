@@ -1,11 +1,12 @@
 #include "pch.h"
 #include "Engine.h"
 
-#include "Input/InputManager.h"
-#include "Renderer/Renderer.h"
 #include "Renderer/Texture.h"
-#include "Renderer/RendererManager.h"
+#include "Renderer/Renderer.h"
+#include "Input/InputManager.h"
 #include "Scene/SceneManager.h"
+#include "Renderer/RendererManager.h"
+#include "Collision/CollisionManager.h"
 
 #include "ECS/GameObject.h"
 #include "ECS/SpriteRenderer.h"
@@ -62,6 +63,8 @@ void Engine::Run()
 
 		Application::Instance()->Update(); // delta time.
 
+		CollisionManager::Instance()->Update();
+
 		AfterUpdate();
 
 		Render(); // Question: should the rendere be before or after the 'AfterUpdate'.
@@ -70,9 +73,12 @@ void Engine::Run()
 
 void Engine::Destroy()
 {
-	Application::Instance()->Destory();
+	Application::Instance()->Destroy();
 
-	InputManager::Instance()->Destory();
+	InputManager::Instance()->Destroy();
+
+	CollisionManager::Instance()->Destroy();
+
 	SceneManager::Instance()->Destory();
 
 	RendererManager::Instance()->Destroy();

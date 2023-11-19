@@ -2,7 +2,6 @@
 
 #include "ComponentTypes.h"
 
-
 // TODO (Christian): look at restriciting the delete method.
 namespace jci {
 

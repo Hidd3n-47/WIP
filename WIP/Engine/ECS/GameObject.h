@@ -46,15 +46,16 @@ public:
 	}
 	~GameObject()
 	{
-		DLOG("Destroyed GameObject with id: " + std::to_string(m_id));
-
-
 		for (int i = 0; i < m_components.size(); i++)
 		{
 			IComponent* comp = m_components[i];
-			m_components[i]->OnComponentRemove();
+			comp->OnComponentRemove();
 			delete comp;
+			comp = nullptr;
+			DLOG("Removed component from Game Object: " + std::to_string(m_id) + " [Deleted: " + std::to_string(i + 1) + "]");
 		}
+
+		DLOG("Destroyed GameObject with id: " + std::to_string(m_id));
 	}
 
 	template<class T>
@@ -68,10 +69,10 @@ public:
 		}
 		catch (int)
 		{
-			ASSERT(false, "Invalid type passed in, type must be a Component and have a static mask method.");
+			ASSERT(false, "Invalid type passed in, type must be a Component and have a static GetIdMask method.");
 		}
 		
-		if (m_componentMask & mask)
+		if ((m_componentMask & mask) != 0)
 		{
 			DLOG("Game object '" + std::to_string(m_id) + "' already has component with id: " + std::to_string(mask));
 			return GetComponent<T>();
@@ -82,6 +83,9 @@ public:
 		comp->OnComponentAdd(this);
 
 		m_componentMask |= mask;
+
+		DLOG("Added component with id: " + T::GetName() + " to Game Object: " + std::to_string(m_id) + " [Total: " + std::to_string(m_components.size()) + "]");
+
 		return comp;
 	}
 
@@ -96,7 +100,7 @@ public:
 		}
 		catch (int)
 		{
-			ASSERT(false, "Invalid type passed in, type must be a Component and have a static mask method.");
+			ASSERT(false, "Invalid type passed in, type must be a Component and have a static GetIdMask method.");
 		}
 
 		if (!(m_componentMask & mask))
@@ -127,7 +131,7 @@ public:
 		}
 		catch (int)
 		{
-			ASSERT(false, "Invalid type passed in, type must be a Component and have a static mask method.");
+			ASSERT(false, "Invalid type passed in, type must be a Component and have a static GetIdMask method.");
 		}
 
 		if (!(m_componentMask & mask))
@@ -154,7 +158,12 @@ public:
 		m_components.erase(it);
 
 		m_componentMask &= (~mask);
+
+		DLOG("Removed component with id: " + T::GetName() + " from Game Object: " + std::to_string(m_id) + " [Total: " + std::to_string(m_components.size()) + "]");
 	}
+
+	// Accessors.
+	inline uint16 GetId() const { return m_id; }
 private:
 	std::vector<IComponent*> m_components;
 	std::vector<GameObject*> m_children; // TODO (Christian): Implement this.
