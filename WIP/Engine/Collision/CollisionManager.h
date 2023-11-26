@@ -2,7 +2,7 @@
 
 namespace jci {
 
-class Entity;
+class GameObject;
 enum class BodyType;
 
 class CollisionManager
@@ -15,9 +15,9 @@ public:
 	// TODO (Christian): Add this to remove objects from the respective vectors.
 	void AfterUpdate();
 
-	void AddObject(Entity* Entity, BodyType bodyType);
-	void RemoveObject(Entity* Entity, BodyType bodyType);
-	void UpdateBodyType(Entity* Entity, BodyType oldBodyType, BodyType newBodyType);
+	void AddObject(GameObject* gameObject, BodyType bodyType);
+	void RemoveObject(GameObject* gameObject, BodyType bodyType);
+	void UpdateBodyType(GameObject* gameObject, BodyType oldBodyType, BodyType newBodyType);
 
 	inline void Destroy() { Flush(); delete m_instance; }
 
@@ -28,11 +28,11 @@ private:
 
 	static CollisionManager* m_instance;
 
-	std::vector<Entity*> m_staticBodies;
-	std::vector<Entity*> m_kinematicBodies;
+	std::vector<GameObject*> m_staticBodies;
+	std::vector<GameObject*> m_kinematicBodies;
 
 	enum class KinematicLocation { Left, Both };
-	void HandleCollision(Entity* box1, Entity* box2, KinematicLocation location);
+	void HandleCollision(GameObject* box1, GameObject* box2, KinematicLocation location);
 	bool AabbCollisionOccured(const vec4& b1, const vec4& b2, float& dx, float& dy, vec2& direction);
 };
 

@@ -11,5 +11,6 @@
 #include <gl/glew.h>
 
 #include "wip.h"
+#include "PrimativeTypes.h"
 #include "Logger/Log.h"
 #include "Utilities/Utils.h"

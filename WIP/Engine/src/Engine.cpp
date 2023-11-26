@@ -5,12 +5,11 @@
 #include "Renderer/Renderer.h"
 #include "Input/InputManager.h"
 #include "Scene/SceneManager.h"
-#include "ECS/EntityManager.h"
 #include "Renderer/RendererManager.h"
 #include "Collision/CollisionManager.h"
 
-#include "ECS/Entity.h"
-#include "ECS/Component/SpriteRenderer.h"
+#include "ECS/GameObject.h"
+#include "ECS/SpriteRenderer.h"
 
 #include "Game/src/Application.h"
 
@@ -42,8 +41,6 @@ void Engine::Init()
 	Renderer::Init();
 
 	SceneManager::Instance()->SetCurrentScene(SceneManager::Instance()->CreateScene("MainScene"));
-
-	EntityManager::Instance()->Init();
 
 	Application::Instance()->Create();
 
@@ -81,8 +78,6 @@ void Engine::Destroy()
 	InputManager::Instance()->Destroy();
 
 	CollisionManager::Instance()->Destroy();
-
-	EntityManager::Instance()->Destoy();
 
 	SceneManager::Instance()->Destory();
 

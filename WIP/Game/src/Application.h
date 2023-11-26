@@ -1,7 +1,7 @@
 #pragma once
 
 #include <Engine/Scene/SceneManager.h>
-#include <Engine/ECS/Entity.h>
+#include <Engine/ECS/GameObject.h>
 
 class Application
 {
@@ -17,8 +17,8 @@ private:
 
 	static Application* m_instance;
 	jci::Scene* m_currentScene;
-	jci::Entity* m_test1;
-	jci::Entity* m_test2;
-	jci::Entity* m_test3;
+	jci::GameObject* m_test1;
+	jci::GameObject* m_test2;
+	jci::GameObject* m_test3;
 };
 

@@ -141,9 +141,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Engine\ECS\Component\ComponentManager.cpp" />
     <ClCompile Include="Engine\Collision\CollisionManager.cpp" />
-    <ClCompile Include="Engine\ECS\Component\BoxCollider.cpp" />
+    <ClCompile Include="Engine\ECS\BoxCollider.cpp" />
     <ClCompile Include="Game\src\Application.cpp" />
     <ClCompile Include="Engine\Camera\Camera.cpp" />
     <ClCompile Include="Engine\src\Engine.cpp" />
@@ -157,29 +156,26 @@
     <ClCompile Include="Engine\Window\Window.cpp" />
     <ClCompile Include="Engine\Scene\SceneManager.cpp" />
     <ClCompile Include="Engine\Scene\Scene.cpp" />
-    <ClCompile Include="Engine\ECS\EntityManager.cpp" />
+    <ClCompile Include="Engine\ECS\GameObjectManager.cpp" />
     <ClCompile Include="Engine\Renderer\Shader.cpp" />
     <ClCompile Include="Engine\Renderer\Renderer.cpp" />
-    <ClCompile Include="Engine\ECS\Component\SpriteRenderer.cpp" />
+    <ClCompile Include="Engine\ECS\SpriteRenderer.cpp" />
     <ClCompile Include="Engine\Renderer\Texture.cpp" />
     <ClCompile Include="deps\include\stb_image\stb_image.cpp" />
     <ClCompile Include="Engine\Renderer\IndexBuffer.cpp" />
     <ClCompile Include="Engine\Renderer\VertexBuffer.cpp" />
     <ClCompile Include="Engine\Renderer\RendererManager.cpp" />
-    <ClCompile Include="Engine\ECS\Component\Transform.cpp" />
+    <ClCompile Include="Engine\ECS\Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\ECS\Component\ComponentArray.h" />
-    <ClInclude Include="Engine\ECS\Component\ComponentManager.h" />
     <ClInclude Include="Engine\Collision\CollisionManager.h" />
-    <ClInclude Include="Engine\ECS\Component\BoxCollider.h" />
-    <ClInclude Include="Engine\ECS\Component\ComponentTypes.h" />
-    <ClInclude Include="Engine\ECS\Component\IComponentArray.h" />
-    <ClInclude Include="Engine\ECS\Component\Transform.h" />
+    <ClInclude Include="Engine\ECS\BoxCollider.h" />
+    <ClInclude Include="Engine\ECS\ComponentTypes.h" />
+    <ClInclude Include="Engine\ECS\Transform.h" />
     <ClInclude Include="Engine\Utilities\Utils.h" />
     <ClInclude Include="Game\src\Application.h" />
     <ClInclude Include="Engine\Camera\Camera.h" />
-    <ClInclude Include="Engine\ECS\Entity.h" />
+    <ClInclude Include="Engine\ECS\GameObject.h" />
     <ClInclude Include="Engine\src\Memory.h" />
     <ClInclude Include="Engine\src\Engine.h" />
     <ClInclude Include="Engine\src\wip.h" />
@@ -190,11 +186,11 @@
     <ClInclude Include="Engine\Window\Window.h" />
     <ClInclude Include="Engine\Scene\SceneManager.h" />
     <ClInclude Include="Engine\Scene\Scene.h" />
-    <ClInclude Include="Engine\ECS\EntityManager.h" />
+    <ClInclude Include="Engine\ECS\GameObjectManager.h" />
     <ClInclude Include="Engine\Renderer\Shader.h" />
     <ClInclude Include="Engine\Renderer\Renderer.h" />
-    <ClInclude Include="Engine\ECS\Component\IComponent.h" />
-    <ClInclude Include="Engine\ECS\Component\SpriteRenderer.h" />
+    <ClInclude Include="Engine\ECS\IComponent.h" />
+    <ClInclude Include="Engine\ECS\SpriteRenderer.h" />
     <ClInclude Include="Engine\Renderer\Texture.h" />
     <ClInclude Include="deps\include\stb_image\stb_image.h" />
     <ClInclude Include="Engine\Renderer\IndexBuffer.h" />

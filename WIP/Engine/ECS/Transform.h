@@ -18,10 +18,10 @@ public:
 	Transform() = default;
 	~Transform() = default;
 
-	inline virtual void OnComponentAdd(Entity* Entity)	final { m_Entity = Entity; }
+	inline virtual void OnComponentAdd(GameObject* gameObject)	final { m_gameObject = gameObject; }
 	inline virtual void OnComponentRemove()						final { /* Empty. */ }
 	
-	virtual Entity* GetEntity() final { return m_Entity; }
+	virtual GameObject* GetGameObject() final { return m_gameObject; }
 
 	COMPONENT(ComponentTypes::Transform);
 
@@ -65,7 +65,7 @@ public:
 	*/
 	inline void AddToPosition(vec2 addition) { m_position += addition; }
 private:
-	Entity* m_Entity	= nullptr;
+	GameObject* m_gameObject	= nullptr;
 	vec2 m_position				= vec2(0.0f);
 	vec2 m_scale				= vec2(1.0f);
 	float m_rotation			= 0.0f;

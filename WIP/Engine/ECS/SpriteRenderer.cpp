@@ -5,10 +5,10 @@
 
 namespace jci {
 
-void SpriteRenderer::OnComponentAdd(Entity* Entity)
+void SpriteRenderer::OnComponentAdd(GameObject* gameObject)
 {
 	// Add to the renderering queue.
-	m_Entity = Entity;
+	m_gameObject = gameObject;
 	m_texture = new Texture("Assets/Texture/circ.png");
 	RendererManager::Instance()->AddQuadToQueue(this);
 }

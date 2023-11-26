@@ -1,17 +1,17 @@
 #pragma once
 
 #include "Camera/Camera.h"
-#include "ECS/Entity.h"
+#include "ECS/GameObject.h"
 /***
 =========================================================================================
 SCENE:
-	A collection of Entitys together to make a level.
+	A collection of GameObjects together to make a level.
 	Scene's can only have 1 main orthographic camera.
 =========================================================================================
 */
 namespace jci {
 
-class Entity;
+class GameObject;
 
 class Scene
 {
@@ -20,7 +20,7 @@ public:
 	Scene(const std::string& name, uint16 id);
 	~Scene();
 
-	Entity* CreateEmptyEntity();
+	GameObject* CreateEmptyGameObject();
 
 	void Update();
 
@@ -42,7 +42,9 @@ public:
 	inline Camera* GetCamera() const { return m_camera; };
 private:
 	std::string m_name;
-	entId m_id;
+	uint16 m_id;
+	uint16 m_gameObjectIndex = 0;
+	std::vector<GameObject*> m_gameObjects;
 	Camera* m_camera;
 };
 

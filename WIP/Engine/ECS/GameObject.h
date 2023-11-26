@@ -1,50 +1,71 @@
 #pragma once
 #include "pch.h"
 
-//using Entity = uint32;
+//using GameObject = uint32;
 //
 //const uint32 generationBits = 12;
-//const uint32 indexBits = sizeof(Entity) * 8 - generationBits;
+//const uint32 indexBits = sizeof(GameObject) * 8 - generationBits;
 //
-//const uint32 indexMask = (1 << indexBits) - 1; // 1,048,576 Entitys
+//const uint32 indexMask = (1 << indexBits) - 1; // 1,048,576 gameobjects
 //const uint32 generationMask = (1 << generationBits) - 1; // 4,096 generations
 //const uint32 invalidId = 1;
 //
-//inline bool isValid(Entity id)
+//inline bool isValid(GameObject id)
 //{
 //	return id != invalidId;
 //}
 //
-//inline Entity generation(Entity id)
+//inline GameObject generation(GameObject id)
 //{
 //	return (id >> indexBits) & generationMask;
 //}
 //
-//inline Entity newGeneration(Entity id)
+//inline GameObject newGeneration(GameObject id)
 //{
-//	const Entity generation(generation(id) + 1);
+//	const GameObject generation(generation(id) + 1);
 //	ASSERT(generation < pow(2, generationBits) - 1, "");
 //	return id | (generation << indexBits);
 //}
-#include "Component/ComponentManager.h"
-#include "Component/IComponent.h"
-#include "Component/Transform.h"
+
+#include "IComponent.h"
+
+#include "Transform.h"
 
 namespace jci {
 
-class Entity
+// TODO (Christian): look at restriciting the delete method.
+class GameObject
 {
 public:
-	friend class EntityManager;
+	GameObject(uint16 id) :
+		m_id(id)
+	{
+		DLOG("Created GameObject with id: " + std::to_string(m_id));
+		AddComponent<Transform>();
 
-	template<class T, class U>
-	inline U* AddComponent(U component)
+	}
+	~GameObject()
+	{
+		for (int i = 0; i < m_components.size(); i++)
+		{
+			IComponent* comp = m_components[i];
+			comp->OnComponentRemove();
+			delete comp;
+			comp = nullptr;
+			DLOG("Removed component from Game Object: " + std::to_string(m_id) + " [Deleted: " + std::to_string(i + 1) + "]");
+		}
+
+		DLOG("Destroyed GameObject with id: " + std::to_string(m_id));
+	}
+
+	template<class T>
+	inline T* AddComponent()
 	{
 		// TODO (Christian): make this more efficient.
 		int mask;
 		try
 		{
-			mask = U::GetIdMask();
+			mask = T::GetIdMask();
 		}
 		catch (int)
 		{
@@ -53,11 +74,9 @@ public:
 		
 		if ((m_componentMask & mask) != 0)
 		{
-			DLOG("Entity '" + std::to_string(m_id) + "' already has component with id: " + std::to_string(mask));
+			DLOG("Game object '" + std::to_string(m_id) + "' already has component with id: " + std::to_string(mask));
 			return GetComponent<T>();
 		}
-
-
 
 		T* comp = new T();
 		m_components.push_back(comp);
@@ -65,9 +84,9 @@ public:
 
 		m_componentMask |= mask;
 
-		DLOG("Added component with id: " + U::GetName() + " to Entity: " + std::to_string(m_id) + " [Total: " + std::to_string(m_components.size()) + "]");
+		DLOG("Added component with id: " + T::GetName() + " to Game Object: " + std::to_string(m_id) + " [Total: " + std::to_string(m_components.size()) + "]");
 
-		//return ComponentManager::Instance()->AddComponent(T, component);
+		return comp;
 	}
 
 	// TODO (Chrisian): Improve efficiency of this.
@@ -117,7 +136,7 @@ public:
 
 		if (!(m_componentMask & mask))
 		{
-			ASSERT(false, "Entity '" + std::to_string(m_id) + "' does not have component with id: " + std::to_string(mask) + " hence cannot remove it.");
+			ASSERT(false, "Game object '" + std::to_string(m_id) + "' does not have component with id: " + std::to_string(mask) + " hence cannot remove it.");
 			return;
 		}
 
@@ -140,39 +159,16 @@ public:
 
 		m_componentMask &= (~mask);
 
-		DLOG("Removed component with id: " + T::GetName() + " from Entity: " + std::to_string(m_id) + " [Total: " + std::to_string(m_components.size()) + "]");
+		DLOG("Removed component with id: " + T::GetName() + " from Game Object: " + std::to_string(m_id) + " [Total: " + std::to_string(m_components.size()) + "]");
 	}
 
 	// Accessors.
-	inline entId GetId() const { return m_id; }
+	inline uint16 GetId() const { return m_id; }
 private:
-	Entity() = default;
-
-	Entity(entId id) :
-		m_id(id)
-	{
-		DLOG("Created Entity with id: " + std::to_string(m_id));
-		ComponentManager::Instance()->AddComponent(ComponentTypes::Transform, Transform());
-
-	}
-	~Entity()
-	{
-		for (int i = 0; i < m_components.size(); i++)
-		{
-			IComponent* comp = m_components[i];
-			comp->OnComponentRemove();
-			delete comp;
-			comp = nullptr;
-			DLOG("Removed component from Entity: " + std::to_string(m_id) + " [Deleted: " + std::to_string(i + 1) + "]");
-		}
-
-		DLOG("Destroyed Entity with id: " + std::to_string(m_id));
-	}
-
 	std::vector<IComponent*> m_components;
-	std::vector<Entity*> m_children; // TODO (Christian): Implement this.
-	Entity* m_parent = nullptr;
-	entId m_id;
+	std::vector<GameObject*> m_children; // TODO (Christian): Implement this.
+	GameObject* m_parent = nullptr;
+	uint16 m_id;
 	uint16 m_componentMask;
 };
 

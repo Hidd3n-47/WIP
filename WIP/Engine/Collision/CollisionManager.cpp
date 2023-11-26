@@ -1,8 +1,8 @@
 #include "pch.h"
 #include "CollisionManager.h"
 
-#include "ECS/Entity.h"
-#include "ECS/Component/BoxCollider.h"
+#include "ECS/GameObject.h"
+#include "ECS/BoxCollider.h"
 
 namespace jci {
 
@@ -31,32 +31,32 @@ void CollisionManager::Update()
 	}
 }
 
-void CollisionManager::AddObject(Entity* Entity, BodyType bodyType)
+void CollisionManager::AddObject(GameObject* gameObject, BodyType bodyType)
 {
 	if (bodyType == BodyType::Kinematic)
 	{
-		m_kinematicBodies.push_back(Entity);
+		m_kinematicBodies.push_back(gameObject);
 		return;
 	}
 
 	if (bodyType == BodyType::Static)
 	{
-		m_staticBodies.push_back(Entity);
+		m_staticBodies.push_back(gameObject);
 		return;
 	}
 
 	ASSERT(false, "Unhandled Body Type passed in to be added to the collision system.");
 }
 
-void CollisionManager::RemoveObject(Entity* Entity, BodyType bodyType)
+void CollisionManager::RemoveObject(GameObject* gameObject, BodyType bodyType)
 {
 	if (bodyType == BodyType::Static)
 	{
-		Utils::RemoveFromVectorByBackCopy(Entity, m_staticBodies);
+		Utils::RemoveFromVectorByBackCopy(gameObject, m_staticBodies);
 	}
 	else if (bodyType == BodyType::Kinematic)
 	{
-		Utils::RemoveFromVectorByBackCopy(Entity, m_kinematicBodies);
+		Utils::RemoveFromVectorByBackCopy(gameObject, m_kinematicBodies);
 	}
 	else
 	{
@@ -64,14 +64,14 @@ void CollisionManager::RemoveObject(Entity* Entity, BodyType bodyType)
 	}
 }
 
-void CollisionManager::UpdateBodyType(Entity* Entity, BodyType oldBodyType, BodyType newBodyType)
+void CollisionManager::UpdateBodyType(GameObject* gameObject, BodyType oldBodyType, BodyType newBodyType)
 {
-	RemoveObject(Entity, oldBodyType);
+	RemoveObject(gameObject, oldBodyType);
 
-	AddObject(Entity, newBodyType);
+	AddObject(gameObject, newBodyType);
 }
 
-void CollisionManager::HandleCollision(Entity* box1, Entity* box2, KinematicLocation location)
+void CollisionManager::HandleCollision(GameObject* box1, GameObject* box2, KinematicLocation location)
 {
 	Transform* trans1 = box1->GetComponent<Transform>();
 	vec4 b1 = vec4(trans1->GetPosition(), box1->GetComponent<BoxCollider>()->GetSize() * trans1->GetScale() * 0.5f);

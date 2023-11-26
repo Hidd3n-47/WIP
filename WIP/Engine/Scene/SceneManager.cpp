@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "SceneManager.h"
 
-#include "ECS/Entity.h"
+#include "ECS/GameObject.h"
 
 namespace jci {
 

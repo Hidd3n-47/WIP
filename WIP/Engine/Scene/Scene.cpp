@@ -1,8 +1,6 @@
 #include "pch.h"
 #include "Scene.h"
 
-#include "ECS/EntityManager.h"
-
 namespace jci {
 
 Scene::Scene(const std::string& name, uint16 id) :
@@ -15,15 +13,25 @@ Scene::Scene(const std::string& name, uint16 id) :
 
 Scene::~Scene()
 {
+	for (int i = 0; i < m_gameObjects.size(); i++)
+	{
+		GameObject* go = m_gameObjects[i];
+		delete go;
+		go = nullptr;
+	}
+
 	delete m_camera;
 	m_camera = nullptr;
 
 	DLOG("Destroyed scene with name: " + m_name);
 }
 
-Entity* Scene::CreateEmptyEntity()
+GameObject* Scene::CreateEmptyGameObject()
 {
-	return EntityManager::Instance()->CreateEntity();
+	GameObject* go = new GameObject(m_gameObjectIndex++);
+	ASSERT(m_gameObjectIndex != (1 << 16) - 1, "Reached maxed amount of Game Objects created.");
+	m_gameObjects.push_back(go);
+	return go;
 }
 
 // Question: Do the scenes need an update method?
