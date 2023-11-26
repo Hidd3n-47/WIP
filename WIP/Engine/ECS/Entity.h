@@ -1,28 +1,28 @@
 #pragma once
 #include "pch.h"
 
-//using GameObject = uint32;
+//using Entity = uint32;
 //
 //const uint32 generationBits = 12;
-//const uint32 indexBits = sizeof(GameObject) * 8 - generationBits;
+//const uint32 indexBits = sizeof(Entity) * 8 - generationBits;
 //
 //const uint32 indexMask = (1 << indexBits) - 1; // 1,048,576 gameobjects
 //const uint32 generationMask = (1 << generationBits) - 1; // 4,096 generations
 //const uint32 invalidId = 1;
 //
-//inline bool isValid(GameObject id)
+//inline bool isValid(Entity id)
 //{
 //	return id != invalidId;
 //}
 //
-//inline GameObject generation(GameObject id)
+//inline Entity generation(Entity id)
 //{
 //	return (id >> indexBits) & generationMask;
 //}
 //
-//inline GameObject newGeneration(GameObject id)
+//inline Entity newGeneration(Entity id)
 //{
-//	const GameObject generation(generation(id) + 1);
+//	const Entity generation(generation(id) + 1);
 //	ASSERT(generation < pow(2, generationBits) - 1, "");
 //	return id | (generation << indexBits);
 //}
@@ -34,17 +34,17 @@
 namespace jci {
 
 // TODO (Christian): look at restriciting the delete method.
-class GameObject
+class Entity
 {
 public:
-	GameObject(uint16 id) :
+	Entity(uint16 id) :
 		m_id(id)
 	{
-		DLOG("Created GameObject with id: " + std::to_string(m_id));
+		DLOG("Created Entity with id: " + std::to_string(m_id));
 		AddComponent<Transform>();
 
 	}
-	~GameObject()
+	~Entity()
 	{
 		for (int i = 0; i < m_components.size(); i++)
 		{
@@ -55,7 +55,7 @@ public:
 			DLOG("Removed component from Game Object: " + std::to_string(m_id) + " [Deleted: " + std::to_string(i + 1) + "]");
 		}
 
-		DLOG("Destroyed GameObject with id: " + std::to_string(m_id));
+		DLOG("Destroyed Entity with id: " + std::to_string(m_id));
 	}
 
 	template<class T>
@@ -166,8 +166,8 @@ public:
 	inline uint16 GetId() const { return m_id; }
 private:
 	std::vector<IComponent*> m_components;
-	std::vector<GameObject*> m_children; // TODO (Christian): Implement this.
-	GameObject* m_parent = nullptr;
+	std::vector<Entity*> m_children; // TODO (Christian): Implement this.
+	Entity* m_parent = nullptr;
 	uint16 m_id;
 	uint16 m_componentMask;
 };

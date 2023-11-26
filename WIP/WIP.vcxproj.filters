@@ -39,9 +39,6 @@
     <ClCompile Include="Engine\Scene\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\ECS\GameObjectManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Renderer\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -113,10 +110,7 @@
     <ClInclude Include="Engine\src\Memory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\ECS\GameObjectManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\ECS\GameObject.h">
+    <ClInclude Include="Engine\ECS\Entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Renderer\Shader.h">

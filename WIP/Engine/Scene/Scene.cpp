@@ -13,9 +13,9 @@ Scene::Scene(const std::string& name, uint16 id) :
 
 Scene::~Scene()
 {
-	for (int i = 0; i < m_gameObjects.size(); i++)
+	for (int i = 0; i < m_entitys.size(); i++)
 	{
-		GameObject* go = m_gameObjects[i];
+		Entity* go = m_entitys[i];
 		delete go;
 		go = nullptr;
 	}
@@ -26,11 +26,11 @@ Scene::~Scene()
 	DLOG("Destroyed scene with name: " + m_name);
 }
 
-GameObject* Scene::CreateEmptyGameObject()
+Entity* Scene::CreateEmptyEntity()
 {
-	GameObject* go = new GameObject(m_gameObjectIndex++);
-	ASSERT(m_gameObjectIndex != (1 << 16) - 1, "Reached maxed amount of Game Objects created.");
-	m_gameObjects.push_back(go);
+	Entity* go = new Entity(m_entityIndex++);
+	ASSERT(m_entityIndex != (1 << 16) - 1, "Reached maxed amount of Game Objects created.");
+	m_entitys.push_back(go);
 	return go;
 }
 

@@ -8,7 +8,7 @@
 #include "Renderer/RendererManager.h"
 #include "Collision/CollisionManager.h"
 
-#include "ECS/GameObject.h"
+#include "ECS/Entity.h"
 #include "ECS/SpriteRenderer.h"
 
 #include "Game/src/Application.h"

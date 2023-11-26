@@ -11,9 +11,9 @@ Application* Application::m_instance = nullptr;
 void Application::Create()
 {
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
-	m_test1 = m_currentScene->CreateEmptyGameObject();
-	m_test2 = m_currentScene->CreateEmptyGameObject();
-	m_test3 = m_currentScene->CreateEmptyGameObject();
+	m_test1 = m_currentScene->CreateEmptyEntity();
+	m_test2 = m_currentScene->CreateEmptyEntity();
+	m_test3 = m_currentScene->CreateEmptyEntity();
 	m_test1->GetComponent<jci::Transform>()->SetPosition({  1.0f,  1.0f });
 	m_test2->GetComponent<jci::Transform>()->SetPosition({ -2.0f, -1.0f });
 	m_test3->GetComponent<jci::Transform>()->SetPosition({ -0.5f, -1.0f });

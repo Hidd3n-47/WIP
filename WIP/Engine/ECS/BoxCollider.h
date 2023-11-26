@@ -13,10 +13,10 @@ enum class BodyType
 class BoxCollider : public IComponent
 {
 public:
-	void OnComponentAdd(GameObject* gameObject) final;
+	void OnComponentAdd(Entity* entity) final;
 	void OnComponentRemove() final;
 
-	virtual GameObject* GetGameObject() final { return m_gameObject; }
+	virtual Entity* GetEntity() final { return m_entity; }
 
 	COMPONENT(ComponentTypes::BoxCollider);
 
@@ -28,7 +28,7 @@ public:
 	inline void SetSize(vec2 size) { m_size = size; }
 	void SetBodyType(BodyType type);
 private:
-	GameObject* m_gameObject	= nullptr;
+	Entity* m_entity	= nullptr;
 	vec2 m_size					= vec2(1.0f);
 	BodyType m_bodyType			= BodyType::Static;
 };

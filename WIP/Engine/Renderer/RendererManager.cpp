@@ -2,7 +2,7 @@
 #include "RendererManager.h"
 
 #include "Renderer.h"
-#include "ECS/GameObject.h"
+#include "ECS/Entity.h"
 #include "ECS/Transform.h"
 #include "ECS/SpriteRenderer.h"
 
@@ -35,7 +35,7 @@ void RendererManager::RenderUpdate()
 	for (SpriteRenderer* s : m_quads)
 	{
 		s->GetTexture()->Bind();
-		Renderer::DrawQuad(s->GetGameObject()->GetComponent<Transform>()->GetPosition(), s->GetSize(), vec4(s->GetColor(), 1.0f), s->GetTexture());
+		Renderer::DrawQuad(s->GetEntity()->GetComponent<Transform>()->GetPosition(), s->GetSize(), vec4(s->GetColor(), 1.0f), s->GetTexture());
 	}
 }
 

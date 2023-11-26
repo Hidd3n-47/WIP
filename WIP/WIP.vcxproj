@@ -156,7 +156,6 @@
     <ClCompile Include="Engine\Window\Window.cpp" />
     <ClCompile Include="Engine\Scene\SceneManager.cpp" />
     <ClCompile Include="Engine\Scene\Scene.cpp" />
-    <ClCompile Include="Engine\ECS\GameObjectManager.cpp" />
     <ClCompile Include="Engine\Renderer\Shader.cpp" />
     <ClCompile Include="Engine\Renderer\Renderer.cpp" />
     <ClCompile Include="Engine\ECS\SpriteRenderer.cpp" />
@@ -175,7 +174,7 @@
     <ClInclude Include="Engine\Utilities\Utils.h" />
     <ClInclude Include="Game\src\Application.h" />
     <ClInclude Include="Engine\Camera\Camera.h" />
-    <ClInclude Include="Engine\ECS\GameObject.h" />
+    <ClInclude Include="Engine\ECS\Entity.h" />
     <ClInclude Include="Engine\src\Memory.h" />
     <ClInclude Include="Engine\src\Engine.h" />
     <ClInclude Include="Engine\src\wip.h" />
@@ -186,7 +185,6 @@
     <ClInclude Include="Engine\Window\Window.h" />
     <ClInclude Include="Engine\Scene\SceneManager.h" />
     <ClInclude Include="Engine\Scene\Scene.h" />
-    <ClInclude Include="Engine\ECS\GameObjectManager.h" />
     <ClInclude Include="Engine\Renderer\Shader.h" />
     <ClInclude Include="Engine\Renderer\Renderer.h" />
     <ClInclude Include="Engine\ECS\IComponent.h" />
