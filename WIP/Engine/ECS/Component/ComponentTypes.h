@@ -1,8 +1,13 @@
 #pragma once
 
+namespace jci {
+
 enum class ComponentTypes
 {
 	Transform = 0,
 	SpriteRenderer,
-	BoxCollider
+	BoxCollider,
+	Count
 };
+
+} // Namespace jci.

@@ -39,7 +39,7 @@
     <ClCompile Include="Engine\Scene\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\ECS\GameObjectManager.cpp">
+    <ClCompile Include="Engine\ECS\EntityManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Renderer\Shader.cpp">
@@ -51,7 +51,7 @@
     <ClCompile Include="Engine\Renderer\Renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\ECS\SpriteRenderer.cpp">
+    <ClCompile Include="Engine\ECS\Component\SpriteRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game\src\Application.cpp">
@@ -72,13 +72,16 @@
     <ClCompile Include="Engine\Renderer\RendererManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\ECS\Transform.cpp">
+    <ClCompile Include="Engine\ECS\Component\Transform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\ECS\BoxCollider.cpp">
+    <ClCompile Include="Engine\ECS\Component\BoxCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Collision\CollisionManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\ECS\Component\ComponentManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -113,10 +116,10 @@
     <ClInclude Include="Engine\src\Memory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\ECS\GameObjectManager.h">
+    <ClInclude Include="Engine\ECS\EntityManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\ECS\GameObject.h">
+    <ClInclude Include="Engine\ECS\Entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Renderer\Shader.h">
@@ -128,10 +131,10 @@
     <ClInclude Include="Engine\Renderer\Renderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\ECS\IComponent.h">
+    <ClInclude Include="Engine\ECS\Component\IComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\ECS\SpriteRenderer.h">
+    <ClInclude Include="Engine\ECS\Component\SpriteRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\src\Application.h">
@@ -152,19 +155,28 @@
     <ClInclude Include="Engine\Renderer\RendererManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\ECS\Transform.h">
+    <ClInclude Include="Engine\ECS\Component\Transform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\ECS\ComponentTypes.h">
+    <ClInclude Include="Engine\ECS\Component\ComponentTypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\ECS\BoxCollider.h">
+    <ClInclude Include="Engine\ECS\Component\BoxCollider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Collision\CollisionManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Utilities\Utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\ECS\Component\ComponentManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\ECS\Component\ComponentArray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\ECS\Component\IComponentArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
