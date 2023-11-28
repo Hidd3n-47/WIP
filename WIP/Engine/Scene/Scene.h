@@ -22,7 +22,7 @@ public:
 
 	Entity* CreateEmptyEntity();
 
-	void Update();
+	void Update(float dt);
 
 	// Accessors.
 	/***

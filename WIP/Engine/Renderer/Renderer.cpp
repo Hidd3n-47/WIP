@@ -16,13 +16,12 @@ void Renderer::Init()
 
 }
 
-void Renderer::DrawQuad(vec2 position, vec2 size, const vec4& color, Texture* textuer) // Set texure to default to be white texture.
+void Renderer::DrawQuad(vec2 position, vec2 size, vec2 scale, const vec4& color, Texture* texture) // Set texure to default to be white texture.
 {
 	uint32 m_vertexArray;
 	glGenVertexArrays(1, &m_vertexArray);
 	glBindVertexArray(m_vertexArray);
 
-	size *= 0.5f;
 	/*float vertices[] =
 	{
 		position.x - size.x, position.y - size.y, color.r, color.g, color.b, 0.0f, 0.0f,
@@ -32,11 +31,14 @@ void Renderer::DrawQuad(vec2 position, vec2 size, const vec4& color, Texture* te
 	};*/
 	float vertices[] =
 	{
-		0.0f, 0.0f, color.r, color.g, color.b, 0.0f, 0.0f,
-		1.0f, 0.0f, color.r, color.g, color.b, 1.0f, 0.0f,
-		1.0f, 1.0f, color.r, color.g, color.b, 1.0f, 1.0f,
-		0.0f, 1.0f, color.r, color.g, color.b, 0.0f, 1.0f
+		0.0f * scale.x, 0.0f * scale.y, color.r, color.g, color.b, 0.0f, 0.0f,
+		size.x * scale.x, 0.0f * scale.y, color.r, color.g, color.b, 1.0f, 0.0f,
+		size.x * scale.x, size.y * scale.y, color.r, color.g, color.b, 1.0f, 1.0f,
+		0.0f * scale.x, size.y * scale.y, color.r, color.g, color.b, 0.0f, 1.0f
 	};
+
+	size *= 0.5f;
+
 	VertexBuffer vertexBuffer(vertices, sizeof(vertices));
 	vertexBuffer.Bind();
 
@@ -60,7 +62,7 @@ void Renderer::DrawQuad(vec2 position, vec2 size, const vec4& color, Texture* te
 	shader.UploadUniformInt("u_texture", 0);
 
 	shader.UploadUniformMat4("u_orthoProjMatrix", SceneManager::Instance()->GetCurrentScene()->GetCamera()->GetViewProjMat());
-	shader.UploadUniformVec2("u_position", position - 0.5f * size);
+	shader.UploadUniformVec2("u_position", position - size * scale);
 
 	//shader.Bind();
 	glBindVertexArray(m_vertexArray);

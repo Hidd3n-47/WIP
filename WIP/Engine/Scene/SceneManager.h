@@ -40,7 +40,7 @@ public:
 	* Call the Update method on the currently active Scene.
 	*
 	*/
-	inline void UpdateCurrentScene() { ASSERT(m_currentScene, "Cannot update a scene that is nullptr.");  m_currentScene->Update(); }
+	inline void UpdateCurrentScene(float dt) { ASSERT(m_currentScene, "Cannot update a scene that is nullptr.");  m_currentScene->Update(dt); }
 	
 
 	// Accessors.

@@ -31,6 +31,7 @@ private:
 	Entity* m_entity	= nullptr;
 	vec2 m_size					= vec2(1.0f);
 	BodyType m_bodyType			= BodyType::Static;
+	bool		m_trigger	 = false;
 };
 
 } // Namespace jci.

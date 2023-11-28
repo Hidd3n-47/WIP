@@ -35,7 +35,7 @@ Entity* Scene::CreateEmptyEntity()
 }
 
 // Question: Do the scenes need an update method?
-void Scene::Update()
+void Scene::Update(float dt)
 {
 	// Update.
 }
