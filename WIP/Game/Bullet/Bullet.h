@@ -11,12 +11,10 @@ namespace jci {
 	class Entity;
 }
 
-class Bullet
+struct Bullet
 {
-public:
 	Bullet(jci::Entity* e, vec2 d);
-	//void AddPos();
-private:
+
 	jci::Entity* body;
 	vec2 direction;
 };

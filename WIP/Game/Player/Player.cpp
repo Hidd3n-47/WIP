@@ -38,8 +38,8 @@ void Player::FireGun(int x, int y)
 	bulletObj->AddComponent<jci::SpriteRenderer>();
 	bulletObj->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
 	vec2 moveDirection = vec2(0.0f);
-	moveDirection.x = x - jci::InputManager::Instance()->GetMousePosition().x;
-	moveDirection.y = y - jci::InputManager::Instance()->GetMousePosition().y;
+	moveDirection.x = jci::InputManager::Instance()->GetMousePosition().x;
+	moveDirection.y = jci::InputManager::Instance()->GetMousePosition().y;
 	Bullet* aBullet = new Bullet(bulletObj, moveDirection);
 	bulletPool.push_back(aBullet);
 	//bulletPool.at(num)->GetComponent<jci::Transform>()->SetPosition({});
@@ -77,8 +77,8 @@ void Player::Update()
 		FireGun(direction.x, direction.y);
 	}
 	jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->SetPosition(playChar->GetComponent<jci::Transform>()->GetPosition());
-	for (int i = 0; i < bulletPool.size() - 1; i++)
+	for(Bullet* b : bulletPool)
 	{
-		bulletPool.at(i)->GetComponent<jci::Transform>()->AddToPosition(direction);
+		b->body->GetComponent<jci::Transform>()->AddToPosition(b->direction);
 	}
 }
