@@ -98,6 +98,7 @@ void Levels::LoadLevel(std::string fileString)
 		}
 		else if (i == "1")
 		{
+			jci::DLOG("Front left wall");
 			//script to create wall at locations
 			createWall(currentX, currentY);
 			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Front left wall.png"));
@@ -106,6 +107,7 @@ void Levels::LoadLevel(std::string fileString)
 		}
 		else if (i == "2")
 		{
+			jci::DLOG("Floor");
 			//script to create floors at locations
 			createFloor(currentX, currentY);
 			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Floor.png"));
@@ -113,6 +115,7 @@ void Levels::LoadLevel(std::string fileString)
 		}
 		else if (i == "3")
 		{
+			jci::DLOG("Front right wall");
 			//script to create wall at locations
 			createWall(currentX, currentY);
 			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Front right wall.png"));
@@ -120,6 +123,7 @@ void Levels::LoadLevel(std::string fileString)
 		}
 		else if (i == "4")
 		{
+			jci::DLOG("Front wall");
 			//script to create wall at locations
 			createWall(currentX, currentY);
 			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Front wall.png"));
@@ -127,6 +131,7 @@ void Levels::LoadLevel(std::string fileString)
 		}
 		else if (i == "5")
 		{
+			jci::DLOG("Left wall");
 			//script to create wall at locations
 			createWall(currentX, currentY);
 			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Left wall.png"));
@@ -134,6 +139,7 @@ void Levels::LoadLevel(std::string fileString)
 		}
 		else if (i == "6")
 		{
+			jci::DLOG("Right wall");
 			//script to create wall at locations
 			createWall(currentX, currentY);
 			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Right wall.png"));
@@ -141,6 +147,7 @@ void Levels::LoadLevel(std::string fileString)
 		}
 		else if (i == "7")
 		{
+			jci::DLOG("Back left wall");
 			//script to create wall at locations
 			createWall(currentX, currentY);
 			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Back left wall.png"));
@@ -148,6 +155,7 @@ void Levels::LoadLevel(std::string fileString)
 		}
 		else if (i == "8")
 		{
+			jci::DLOG("Back right wall");
 			//script to create wall at locations
 			createWall(currentX, currentY);
 			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Back right wall.png"));
@@ -155,6 +163,7 @@ void Levels::LoadLevel(std::string fileString)
 		}
 		else if (i == "9")
 		{
+			jci::DLOG("Back wall");
 			//script to create wall at locations
 			createWall(currentX, currentY);
 			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Back wall.png"));
@@ -162,6 +171,7 @@ void Levels::LoadLevel(std::string fileString)
 		}
 		else if (i == "9")
 		{
+			jci::DLOG("Back wall 2");
 			//script to create wall at locations
 			createWall(currentX, currentY);
 			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Back wall.png"));
@@ -169,6 +179,7 @@ void Levels::LoadLevel(std::string fileString)
 		}
 		else if (i == "10")
 		{
+			jci::DLOG("Door");
 			createDoor(currentX, currentY);
 			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Door.png"));
 			currentX += width;
@@ -176,7 +187,7 @@ void Levels::LoadLevel(std::string fileString)
 		else if (i == "11")//inv topleft
 		{
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Inv front left.png"));
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Inv front left wall.png"));
 			currentX += width;
 		}
 		else if (i == "12")//inv front right
@@ -186,23 +197,21 @@ void Levels::LoadLevel(std::string fileString)
 			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Inv front right.png"));
 			currentX += width;
 		}
-
 		else if (i == "13")//inv back left
 		{
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Inv back left.png"));
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Inv back left wall.png"));
 			currentX += width;
 		}
-
 		else if (i == "14")// inv back right
 		{
 			createWall(currentX, currentY);
 			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Inv back right.png"));
 			currentX += width;
 		}
-
 		else if (i == "89")
 		{
+			jci::DLOG("Floor");
 			createSpawnPoint(currentX, currentY);
 			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Floor.png"));
 			currentX += width;//iterate length of singular square

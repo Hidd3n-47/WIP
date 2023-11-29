@@ -210,6 +210,27 @@
     <None Include="Assets\Shader\shader.frag" />
     <None Include="Assets\Shader\shader.vert" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Texture\Back left wall.png" />
+    <Image Include="Assets\Texture\Back right wall.png" />
+    <Image Include="Assets\Texture\Back wall.png" />
+    <Image Include="Assets\Texture\circ.png" />
+    <Image Include="Assets\Texture\Door.png" />
+    <Image Include="Assets\Texture\Floor.png" />
+    <Image Include="Assets\Texture\Front left wall.png" />
+    <Image Include="Assets\Texture\Front right wall.png" />
+    <Image Include="Assets\Texture\Front wall.png" />
+    <Image Include="Assets\Texture\Inv back left wall.png" />
+    <Image Include="Assets\Texture\Inv back right wall.png" />
+    <Image Include="Assets\Texture\Inv front left wall.png" />
+    <Image Include="Assets\Texture\Inv front right wall.png" />
+    <Image Include="Assets\Texture\Left wall.png" />
+    <Image Include="Assets\Texture\Open Door.png" />
+    <Image Include="Assets\Texture\Right wall.png" />
+    <Image Include="Assets\Texture\square.png" />
+    <Image Include="Assets\Texture\squareWITHANF!!.png" />
+    <Image Include="Assets\Texture\squareWITHAW!!.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

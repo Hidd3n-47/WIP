@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "Window.h"
 
+#include "Time/Time.h"
+
 namespace jci {
 
 Window::Window(const std::string& title /* = "Engine" */, uint16 width /* = 1280 */, uint16 height /* = 720 */) :
@@ -20,6 +22,7 @@ void Window::Update()
 {
 	// TODO (Christian): Swap the buffers.
 	SDL_GL_SwapWindow(m_windowHandle);
+	SDL_SetWindowTitle(m_windowHandle, ("WIP " + std::to_string(Time::Instance()->GetFps())).c_str());
 }
 
 void Window::Destroy()

@@ -15,6 +15,8 @@ namespace jci {
 class Transform : public IComponent
 {
 public:
+	COMPONENT(ComponentTypes::Transform);
+
 	Transform() = default;
 	~Transform() = default;
 
@@ -22,8 +24,6 @@ public:
 	inline virtual void OnComponentRemove()						final { /* Empty. */ }
 	
 	virtual Entity* GetEntity() final { return m_entity; }
-
-	COMPONENT(ComponentTypes::Transform);
 
 
 	// Accessors.
@@ -66,9 +66,9 @@ public:
 	inline void AddToPosition(vec2 addition) { m_position += addition; }
 private:
 	Entity* m_entity	= nullptr;
-	vec2 m_position				= vec2(0.0f);
-	vec2 m_scale				= vec2(1.0f);
-	float m_rotation			= 0.0f;
+	vec2	m_position	= vec2(0.0f);
+	vec2	m_scale		= vec2(1.0f);
+	float	m_rotation	= 0.0f;
 };
 
 } // Namespace jci
