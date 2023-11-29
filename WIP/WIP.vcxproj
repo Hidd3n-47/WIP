@@ -167,7 +167,6 @@
     <ClCompile Include="Engine\Renderer\VertexBuffer.cpp" />
     <ClCompile Include="Engine\Renderer\RendererManager.cpp" />
     <ClCompile Include="Engine\ECS\Transform.cpp" />
-    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Collision\CollisionManager.h" />
@@ -200,7 +199,6 @@
     <ClInclude Include="Engine\Renderer\IndexBuffer.h" />
     <ClInclude Include="Engine\Renderer\VertexBuffer.h" />
     <ClInclude Include="Engine\Renderer\RendererManager.h" />
-    <ClInclude Include="Player.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shader\shader.frag" />
