@@ -35,11 +35,18 @@ void Player::FireGun(int x, int y)
 	jci::Entity* bulletObj;
 	bulletObj = m_currentScene->CreateEmptyEntity();
 	bulletObj->GetComponent<jci::Transform>()->SetPosition({ x,  y });
-	bulletObj->AddComponent<jci::SpriteRenderer>();
-	bulletObj->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
+	bulletObj->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Bullet.png"));
+	bulletObj->GetComponent<jci::SpriteRenderer>()->SetSize({0.1f, 0.05f});
+	//bulletObj->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
+	//bulletObj->GetComponent<jci::BoxCollider>()->SetSize({ 0.1f, 0.05f });
 	vec2 moveDirection = vec2(0.0f);
-	moveDirection.x = jci::InputManager::Instance()->GetMousePosition().x;
-	moveDirection.y = jci::InputManager::Instance()->GetMousePosition().y;
+	
+	/*moveDirection.x = x - jci::InputManager::Instance()->GetMousePosition().x;
+	moveDirection.y = y - jci::InputManager::Instance()->GetMousePosition().y;  //THIS MAKES THE BULLET SPAWN AT -420?????
+	glm::normalize(moveDirection);*/
+	
+	moveDirection.x = 0.05;
+	moveDirection.y = 0;
 	Bullet* aBullet = new Bullet(bulletObj, moveDirection);
 	bulletPool.push_back(aBullet);
 	//bulletPool.at(num)->GetComponent<jci::Transform>()->SetPosition({});
@@ -74,11 +81,12 @@ void Player::Update()
 
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Left))
 	{
-		FireGun(direction.x, direction.y);
+		FireGun(playChar->GetComponent<jci::Transform>()->GetPosition().x, playChar->GetComponent<jci::Transform>()->GetPosition().y);
 	}
 	jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->SetPosition(playChar->GetComponent<jci::Transform>()->GetPosition());
 	for(Bullet* b : bulletPool)
 	{
 		b->body->GetComponent<jci::Transform>()->AddToPosition(b->direction);
+		jci::DLOG("(" + std::to_string(b->body->GetComponent<jci::Transform>()->GetPosition().x) + "," + std::to_string(b->body->GetComponent<jci::Transform>()->GetPosition().y) + ")");
 	}
 }

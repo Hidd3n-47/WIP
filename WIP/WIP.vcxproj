@@ -218,6 +218,8 @@
     <Image Include="Assets\Texture\Back left wall.png" />
     <Image Include="Assets\Texture\Back right wall.png" />
     <Image Include="Assets\Texture\Back wall.png" />
+    <Image Include="Assets\Texture\Blank.png" />
+    <Image Include="Assets\Texture\Bullet.png" />
     <Image Include="Assets\Texture\circ.png" />
     <Image Include="Assets\Texture\Door.png" />
     <Image Include="Assets\Texture\Floor.png" />

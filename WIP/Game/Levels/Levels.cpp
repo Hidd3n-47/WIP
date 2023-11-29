@@ -110,7 +110,7 @@ void Levels::LoadLevel(std::string fileString)
 			jci::DLOG("Floor");
 			//script to create floors at locations
 			createFloor(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Floor.png"));
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>() ->SetTexture(new jci::Texture("Assets/Texture/Floor.png"));
 			currentX += width;//iterate length of singular square
 		}
 		else if (i == "3")
