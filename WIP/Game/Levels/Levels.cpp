@@ -18,29 +18,6 @@ Levels::~Levels()
 	LevelSquare.clear();
 }
 
-float Levels::getMaxLength(std::vector<std::string> string)
-{
-	//expects parsed string
-	bool notFound = true;
-	int maxLength = 0;
-	do
-	{
-		if (string.at(maxLength) == "\n")
-		{
-			notFound = false;
-		}
-		maxLength++;
-	} while (notFound);
-	return maxLength;
-}
-
-float Levels::getRows(std::string string)
-{
-	//expects original unparsed mapstring
-	float rows = split(string, '\n').size();
-	return rows;
-}
-
 void Levels::createWall(float x, float y)
 {
 	jci::Entity* newWall = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
@@ -63,6 +40,20 @@ void Levels::createFloor(float x, float y)
 void Levels::createDoor(float x, float y)
 {
 	//CREATE DOOR;
+	jci::Entity* newDoor = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
+	newDoor->GetComponent<jci::Transform>()->SetPosition({ x,  y });
+	LevelSquare.push_back(newDoor);
+
+}
+
+void Levels::createSpawnPoint(float x, float y)
+{
+	jci::Entity* newFloor = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
+	newFloor->GetComponent<jci::Transform>()->SetPosition({ x,  y });
+	LevelSquare.push_back(newFloor);
+//floor with extra steps;
+	spawnPointX = x;
+	spawnPointY = y;
 }
 
 std::vector<std::string> Levels::split(const std::string& string, const char splitter)//function that splits input string into a vector;
@@ -85,14 +76,13 @@ void Levels::LoadLevelFromFile(std::string filepath)
 void Levels::LoadLevel(std::string fileString)
 {
 	std::vector<std::string>parsedString = split(fileString, ',');//split via spaces first
-	float length = getMaxLength(parsedString);//in this context the input is 1x30
-	float rows = getRows(fileString);//this and the above are used to do math to center level on camera via coordinate maths
+	//ASSERT(false, fileString);
 	float currentX = 0;
 	float currentY = 0;
 	for (auto i : parsedString)
 	{
 		//take parsedString and start creating the level squares;
-		if (i == "\n")//if new line...
+		if (i == "99\n99" || i == "99\n" || i == "\n")//if new line...
 		{
 			currentY -= height;//step down next layer
 			currentX = 0;//this is for centering wall length around camera
@@ -180,6 +170,14 @@ void Levels::LoadLevel(std::string fileString)
 		{
 			createDoor(currentX, currentY);
 			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Door.png"));
+			currentX += width;
+		}
+		else if (i == "89")
+		{
+			createSpawnPoint(currentX, currentY);
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Floor.png"));
+			currentX += width;//iterate length of singular square
+
 		}
 		else if (i == "99")
 		{
@@ -188,10 +186,21 @@ void Levels::LoadLevel(std::string fileString)
 		}
 		else
 		{
+			ASSERT(false, "John's Error: Square's key is invalid \"You made your map wrong!!\"");
 			jci::Log::DebugLog("John's Error: Square's key is invalid!");
 		}
 
 	}
 
 
+}
+
+int Levels::getSpawnPointX()
+{
+	return spawnPointX;
+}
+
+int Levels::getSpawnPointY()
+{
+	return spawnPointY;
 }

@@ -20,12 +20,12 @@ Player::~Player()
 
 }
 
-void Player::Create(jci::Scene* scene)
+void Player::Create(jci::Scene* scene, Levels map)
 {
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	//scene = jci::SceneManager::Instance()->GetCurrentScene();
 	playChar = m_currentScene->CreateEmptyEntity();
-	playChar->GetComponent<jci::Transform>()->SetPosition({ 0.0f,  0.0f });
+	playChar->GetComponent<jci::Transform>()->SetPosition({ map.getSpawnPointX(),  map.getSpawnPointY() });
 	playChar->AddComponent<jci::SpriteRenderer>();
 	playChar->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
 }

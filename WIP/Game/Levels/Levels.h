@@ -13,37 +13,23 @@ public:
 	Levels();
 	~Levels();
 
-	float getMaxLength(std::vector<std::string> string);//get max length of string (used to determine x value)
-	float getRows(std::string string);//get amount of rows in string (used to determine y value) //this and the above are used to do math to center level on camera via coordinate maths
 	void createWall(float x, float y);
 	void createFloor(float x, float y);
-	void createDoor(float x, float y);
+	void createDoor(float x, float y);//Need to add behaviour
+	void createSpawnPoint(float x, float y);//Spawn point
 	std::vector<std::string> split(const std::string& string, const char splitter);//string parser;
 	void LoadLevelFromFile(std::string filepath);
 	void LoadLevel(std::string fileString);
+	int getSpawnPointX();
+	int getSpawnPointY();
 
-	/*//////////////////////////////////////FORMAT/////////////////////////////////////
-	* Levels are loaded by splitting fileString multiple ways;
-	* Easiest put is example: "1x5 \n 1 2x3 1 \n 1x5"
-	* Translates into: Wallx5 newline Wall Floorx3 Wall newline Wallx5
-	* See Key at bottom of file
-	* 
-	* Load level takes the string input, first splitting it by spaces and then placing each item into a vector array of strings
-	* Vector array of strings is then parsed again, any item with an 'x' inside is considered a multiplier and will run the first value's equivalent key object that number of times
-	* A.k.A "1x5" becomes 5 walls
-	* 
-	* Any singular number without a multiplier is treated as just an individual space
-	* 
-	* And any \n or in txt files: newline(s) are considered starting a new row
-	* 
-	* ///////////////////////////IMPORTANT///////////////////////////////
-	* The first line of the map is used to calculate the x and y values of the ENTIRE map's squares
-	* It starts the first square at half the max length of the first map and ALWAYS ASSUMES that the first line is ENTIRELY WALLS
-	* If this is a problem do send John a message or work it out if you can make sense of what I just wrote, hardly a clue myself
-	* 
-	* ALSO, breakpoints are unfinished lines that must be finished
-	*/
+/*/////////////////////////////////////////////////////FORMAT////////////////////////////////////////////////////
+1.Create a new CSV file
+2.ENSURE LEVEL IS FULLY ENCASED IN EMPTY SPACES
+3.ENSURE THERE IS ONE SPAWN POINT
+4.that's basically it
 
+*/
 
 	//square sizes used for calculating x and ys...
 	const float width = 1;
@@ -62,7 +48,12 @@ public:
 	const int botrightwall = 8;
 	const int botwall = 9;
 	const int door = 10;
+	const int empty = 99;
+	const int spawnPoint = 89;
 	*/
+
+	float spawnPointX;
+	float spawnPointY;
 	
 };
 

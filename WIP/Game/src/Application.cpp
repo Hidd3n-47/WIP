@@ -12,7 +12,7 @@ void Application::Create()
 {
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	Levels map;
-	map.LoadLevel("1 4x6 3 \n 5 2x6 6 \n 5 2x6 6 \n 5 2x6 6 \n 7 9x6 8" );
+	map.LoadLevelFromFile("Assets/Levels/NOLAGROOM.csv");
 	m_test1 = m_currentScene->CreateEmptyEntity();
 	//m_test2 = m_currentScene->CreateEmptyEntity();
 	//m_test3 = m_currentScene->CreateEmptyEntity();
@@ -31,7 +31,7 @@ void Application::Create()
 	/*m_test2->AddComponent<jci::BoxCollider>();
 	m_test3->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);*/
 	p1 = new Player();
-	p1->Create(m_currentScene);
+	p1->Create(m_currentScene, map);
 }
 
 void Application::Update(float dt)

@@ -205,6 +205,8 @@
     <ClInclude Include="Engine\Renderer\RendererManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Levels\NOLAGROOM.csv" />
+    <None Include="Assets\Levels\TestRoom.csv" />
     <None Include="Assets\Shader\shader.frag" />
     <None Include="Assets\Shader\shader.vert" />
   </ItemGroup>
