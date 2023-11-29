@@ -2,7 +2,7 @@
 
 #include <Engine/Scene/SceneManager.h>
 #include <Engine/ECS/Entity.h>
-#include "Player.h"
+#include <Game/Player/Player.h>
 
 class Application
 {

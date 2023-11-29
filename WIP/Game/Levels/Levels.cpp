@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "Levels.h"
+#include <Game/Levels/Levels.h>
 #include <sstream>
 #include <Engine/ECS/BoxCollider.h>
 #include <Engine/ECS/SpriteRenderer.h>
@@ -36,7 +36,7 @@ void Levels::createWall(float x, float y)
 	jci::Entity* newWall = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
 	newWall->GetComponent<jci::Transform>()->SetPosition({ x,  y });
 	newWall->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
-	newWall->AddComponent<jci::SpriteRenderer>()->SetColor({ 0.4f, 0.4f, 0.4f });//REPLACE THIS LINE WITH WALL TEXTURE
+	newWall->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/squareWITHAW!!.png"));
 
 
 }
@@ -45,7 +45,7 @@ void Levels::createFloor(float x, float y)
 {
 	jci::Entity* newFloor = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
 	newFloor->GetComponent<jci::Transform>()->SetPosition({ x,  y });
-	newFloor->AddComponent<jci::SpriteRenderer>()->SetColor({ 0.4f, 0.4f, 0.4f });//REPLACE THIS LINE WITH WALL TEXTURE
+	newFloor->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/squareWITHANF!!.png"));
 
 }
 
@@ -89,9 +89,11 @@ void Levels::LoadLevel(std::string fileString)
 				{
 				case 1://wall
 					//script to create wall at locations
+					createWall(currentX, currentY);
 					break;
 				case 2://floor
 					//script to create floor at locations
+					createFloor(currentX, currentY);
 					break;
 				default:
 					jci::Log::DebugLog("John's Error: Square's key is invalid!");
@@ -111,11 +113,13 @@ void Levels::LoadLevel(std::string fileString)
 			else if (i == "1")
 			{
 				//script to create wall at locations
+				createWall(currentX, currentY);
 
 			}
 			else if (i == "2")
 			{
 				//script to create floors at locations
+				createFloor(currentX, currentY);
 			}
 			else
 			{

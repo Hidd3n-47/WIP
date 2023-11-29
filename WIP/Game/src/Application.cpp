@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "Application.h"
-
+#include <Game/Levels/Levels.h>
 #include <Engine/Input/InputManager.h>
 #include <Engine/ECS/Transform.h>
 #include <Engine/ECS/BoxCollider.h>
@@ -19,6 +19,8 @@ void Application::Create()
 	m_test3->GetComponent<jci::Transform>()->SetPosition({ -0.5f, -1.0f });
 	m_test2->AddComponent<jci::SpriteRenderer>()->SetColor({ 0.4f, 0.4f, 0.4f });
 	m_test3->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/square.png"));
+	Levels map;
+	map.LoadDEBUGLevel();
 
 	/*m_test1->AddComponent<jci::SpriteRenderer>();
 	m_test1->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);*/
