@@ -10,6 +10,11 @@ Levels::Levels()
 
 Levels::~Levels()
 {
+	for (auto i : LevelSquare)
+	{
+		delete i;
+	}
+	LevelSquare.clear();
 }
 
 float Levels::getMaxLength(std::string string)
