@@ -27,14 +27,14 @@ void Player::Create(jci::Scene* scene, Levels map)
 	playChar->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
 }
 
-void Player::FireGun(int x, int y)
+void Player::FireGun()
 {
 	jci::DLOG("Firing");
 	//find angle: (y-jci::InputManager::Instance()->GetMousePosition().y)/(x-jci::InputManager::Instance()->GetMousePosition().x)
 	int num = bulletPool.size() - 1;
 	jci::Entity* bulletObj;
 	bulletObj = m_currentScene->CreateEmptyEntity();
-	bulletObj->GetComponent<jci::Transform>()->SetPosition({ x,  y });
+	bulletObj->GetComponent<jci::Transform>()->SetPosition(playChar->GetComponent<jci::Transform>()->GetPosition());
 	bulletObj->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Bullet.png"));
 	bulletObj->GetComponent<jci::SpriteRenderer>()->SetSize({0.1f, 0.05f});
 	//bulletObj->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
@@ -81,7 +81,7 @@ void Player::Update()
 
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Left))
 	{
-		FireGun(playChar->GetComponent<jci::Transform>()->GetPosition().x, playChar->GetComponent<jci::Transform>()->GetPosition().y);
+		FireGun();
 	}
 	jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->SetPosition(playChar->GetComponent<jci::Transform>()->GetPosition());
 	for(Bullet* b : bulletPool)

@@ -23,7 +23,7 @@ public:
 	~Player();
 	//inline static Player* Instance() { return m_instance == nullptr ? m_instance = new Player() : m_instance; }
 	void Create(jci::Scene* scene, Levels map);
-	void FireGun(int x, int y);
+	void FireGun();
 	void Update();
 	//inline void Destroy() { delete m_instance; }
 	jci::Scene* m_currentScene;
