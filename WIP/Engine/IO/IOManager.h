@@ -20,6 +20,11 @@ public:
 	* Vector stores each line seperately.
 	*/
 	void LoadTextFile(std::vector<std::string>& fileContents, const std::string& filePath);
+	/***
+	* Load a given text file at given file path and stores contents in a vector.
+	* Returns a single string with '\n' characters for new line.
+	*/
+	std::string LoadTextFile(const std::string& filePath);
 
 private:
 	IOManager() = default;

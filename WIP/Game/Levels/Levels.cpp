@@ -3,6 +3,7 @@
 #include <sstream>
 #include <Engine/ECS/BoxCollider.h>
 #include <Engine/ECS/SpriteRenderer.h>
+#include <Engine/IO/IOManager.h>
 
 Levels::Levels()
 {
@@ -70,6 +71,11 @@ void Levels::LoadDEBUGLevel()
 	//take in room string
 	std::string debugLevelString = "1x30 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1x30";
 	LoadLevel(debugLevelString);
+}
+
+void Levels::LoadLevelFromFile(std::string filepath)
+{
+	LoadLevel(jci::IOManager::Instance()->LoadTextFile(filepath));
 }
 
 void Levels::LoadLevel(std::string fileString)
