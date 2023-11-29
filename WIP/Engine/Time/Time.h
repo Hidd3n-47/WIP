@@ -19,6 +19,12 @@ public:
 	*/
 	float Tick();
 
+	/***
+	* Get the fps at a given frame in time.
+	* 
+	*/
+	inline float GetFps() const { return 1.0f / m_deltaTime; }
+
 	// Accessors.
 	/***
 	* Get the time between frames in engine update.
