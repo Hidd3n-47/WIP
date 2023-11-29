@@ -1,5 +1,7 @@
 #include "pch.h"
 
+#include "Engine/IO/IOManager.h"
+
 #define _CRTDBG_MAP_ALLOC
 #include "src/Memory.h"
 

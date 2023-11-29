@@ -19,6 +19,7 @@ public:
 	void createFloor(float x, float y);
 	std::vector<std::string> split(const std::string& string, const char splitter);//string parser;
 	void LoadDEBUGLevel();
+	void LoadLevelFromFile(std::string filepath);
 	void LoadLevel(std::string fileString);
 
 	/*//////////////////////////////////////FORMAT/////////////////////////////////////

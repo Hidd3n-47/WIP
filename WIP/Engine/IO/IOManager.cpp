@@ -25,4 +25,26 @@ void IOManager::LoadTextFile(std::vector<std::string>& fileContents, const std::
 	m_fileReadOnly.close();
 }
 
+std::string IOManager::LoadTextFile(const std::string& filePath)
+{
+	m_fileReadOnly.open(filePath.c_str(), std::ios::in);
+
+	if (m_fileReadOnly.fail())
+	{
+		ASSERT(false, "Failed to open file.\nFile Path: " + filePath);
+		Log::FatalError("Failed to open file.\nFile Path: " + filePath, ERR_CODE::FAILED_TO_OPEN_FILE);
+	}
+
+	std::string content;
+	std::string line;
+
+	while (std::getline(m_fileReadOnly, line, '\n'))
+	{
+		content += line + "\n";
+	}
+
+	m_fileReadOnly.close();
+	return content;
+}
+
 } // Namespace jci.
