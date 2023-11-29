@@ -12,7 +12,7 @@ void Application::Create()
 {
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	Levels map;
-	map.LoadLevelFromFile("Assets/Levels/TestRoom.csv");
+	map.LoadLevelFromFile("Assets/Levels/NOLAGROOM.csv");
 	m_test1 = m_currentScene->CreateEmptyEntity();
 	//m_test2 = m_currentScene->CreateEmptyEntity();
 	//m_test3 = m_currentScene->CreateEmptyEntity();
