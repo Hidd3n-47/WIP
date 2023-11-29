@@ -35,7 +35,9 @@ void RendererManager::RenderUpdate()
 	for (SpriteRenderer* s : m_quads)
 	{
 		s->GetTexture()->Bind();
-		Renderer::DrawQuad(s->GetEntity()->GetComponent<Transform>()->GetPosition(), s->GetSize(), vec4(s->GetColor(), 1.0f), s->GetTexture());
+		//Renderer::DrawQuad(s->GetEntity()->GetComponent<Transform>()->GetPosition(), s->GetSize(), vec4(s->GetColor(), 1.0f), s->GetTexture());
+		Transform* t = s->GetEntity()->GetComponent<Transform>();
+		Renderer::DrawQuad(t->GetPosition(), s->GetSize(), t->GetScale(), vec4(s->GetColor(), 1.0f), s->GetTexture());
 	}
 }
 

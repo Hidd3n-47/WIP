@@ -18,7 +18,7 @@ void Application::Create()
 	m_test2->GetComponent<jci::Transform>()->SetPosition({ -2.0f, -1.0f });
 	m_test3->GetComponent<jci::Transform>()->SetPosition({ -0.5f, -1.0f });
 	m_test2->AddComponent<jci::SpriteRenderer>()->SetColor({ 0.4f, 0.4f, 0.4f });
-	m_test3->AddComponent<jci::SpriteRenderer>()->SetColor({ 0.6f, 0.0f, 0.6f });
+	m_test3->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/square.png"));
 
 	/*m_test1->AddComponent<jci::SpriteRenderer>();
 	m_test1->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);*/
@@ -28,22 +28,24 @@ void Application::Create()
 	p1->Create(m_currentScene);
 }
 
-void Application::Update()
+void Application::Update(float dt)
 {
+
 	p1->Update();
 	/*if (jci::InputManager::Instance()->IsKeyPressed(SDL_KeyCode::SDLK_w))
+
 	{
 		m_test1->GetComponent<jci::Transform>()->AddToPosition({ 0.0f, 0.05f });
 	}
-	if (jci::InputManager::Instance()->IsKeyPressed(SDL_KeyCode::SDLK_s))
+	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_s))
 	{
 		m_test1->GetComponent<jci::Transform>()->AddToPosition({ 0.0f, -0.05f });
 	}
-	if (jci::InputManager::Instance()->IsKeyPressed(SDL_KeyCode::SDLK_a))
+	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_a))
 	{
 		m_test1->GetComponent<jci::Transform>()->AddToPosition({ -0.05f, 0.0f });
 	}
-	if (jci::InputManager::Instance()->IsKeyPressed(SDL_KeyCode::SDLK_d))
+	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_d))
 	{
 		m_test1->GetComponent<jci::Transform>()->AddToPosition({ 0.05f, 0.0f });
 	}*/

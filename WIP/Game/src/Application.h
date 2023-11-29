@@ -10,7 +10,7 @@ public:
 	inline static Application* Instance() { return m_instance == nullptr ? m_instance = new Application() : m_instance; }
 
 	void Create();
-	void Update();
+	void Update(float dt);
 	inline void Destroy() { delete m_instance; }
 private:
 	Application() = default;

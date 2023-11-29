@@ -1,8 +1,17 @@
 #pragma once
 
+
+namespace jci {
+/***
+=========================================================================================
+ERR_CODE:
+	Error codes for engine.
+=========================================================================================
+*/
 enum class ERR_CODE {
-	DEFAULT		= -1,
-	SDL_ERROR	= 1
+	DEFAULT = -1,
+	SDL_ERROR = 1,
+	FAILED_TO_OPEN_FILE = 2
 };
 
 /***
@@ -11,8 +20,6 @@ LOG:
 	A static class responsible for logging messages to the sub-console.
 =========================================================================================
 */
-namespace jci {
-
 class Log
 {
 public:

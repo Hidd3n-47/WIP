@@ -1,15 +1,13 @@
 #include "pch.h"
 #include "Engine.h"
 
+#include "Time/Time.h"
 #include "Renderer/Texture.h"
 #include "Renderer/Renderer.h"
 #include "Input/InputManager.h"
 #include "Scene/SceneManager.h"
 #include "Renderer/RendererManager.h"
 #include "Collision/CollisionManager.h"
-
-#include "ECS/Entity.h"
-#include "ECS/SpriteRenderer.h"
 
 #include "Game/src/Application.h"
 
@@ -55,19 +53,21 @@ void Engine::Run()
 {
 	while (m_running)
 	{
+		float dt = Time::Instance()->Tick();
+
 		m_window->Update();
 
 		InputManager::Instance()->Update();
 
-		SceneManager::Instance()->UpdateCurrentScene(); // delta time.
+		SceneManager::Instance()->UpdateCurrentScene(dt);
 
-		Application::Instance()->Update(); // delta time.
+		Application::Instance()->Update(dt);
 
-		CollisionManager::Instance()->Update();
+		CollisionManager::Instance()->Update(dt); // Question: Is dt needed in collision Manager?
 
 		AfterUpdate();
 
-		Render(); // Question: should the rendere be before or after the 'AfterUpdate'.
+		Render();
 	}
 }
 

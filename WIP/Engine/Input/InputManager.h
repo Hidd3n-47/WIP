@@ -1,6 +1,7 @@
 #pragma once
 
-// Question (Christian): Should input manager be singleton? if so multi-threadding?
+#include "InputKeyCodes.h"
+
 /***
 =========================================================================================
 INPUT_MANAGER:
