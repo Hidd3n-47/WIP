@@ -30,24 +30,33 @@ void Player::Create(jci::Scene* scene)
 	playChar->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
 }
 
+void Player::FireGun()
+{
+	jci::DLOG("Firing");
+}
+
 void Player::Update()
 {
-	if (jci::InputManager::Instance()->IsKeyPressed(SDL_KeyCode::SDLK_w))
+	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_w))
 	{
 		playChar->GetComponent<jci::Transform>()->AddToPosition({ 0.0f, 0.05f });
 	}
-	if (jci::InputManager::Instance()->IsKeyPressed(SDL_KeyCode::SDLK_s))
+	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_s))
 	{
 		playChar->GetComponent<jci::Transform>()->AddToPosition({ 0.0f, -0.05f });
 	}
-	if (jci::InputManager::Instance()->IsKeyPressed(SDL_KeyCode::SDLK_a))
+	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_a))
 	{
 		playChar->GetComponent<jci::Transform>()->AddToPosition({ -0.05f, 0.0f });
 	}
-	if (jci::InputManager::Instance()->IsKeyPressed(SDL_KeyCode::SDLK_d))
+	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_d))
 	{
 		playChar->GetComponent<jci::Transform>()->AddToPosition({ 0.05f, 0.0f });
 	}
-
+	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_e))
+	{
+		FireGun();
+	}
 	jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->SetPosition(playChar->GetComponent<jci::Transform>()->GetPosition());
+
 }
