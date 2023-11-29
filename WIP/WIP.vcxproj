@@ -145,6 +145,8 @@
     <ClCompile Include="Engine\ECS\BoxCollider.cpp" />
     <ClCompile Include="Engine\IO\IOManager.cpp" />
     <ClCompile Include="Engine\Time\Time.cpp" />
+    <ClCompile Include="Game\Levels\Levels.cpp" />
+    <ClCompile Include="Game\Player\Player.cpp" />
     <ClCompile Include="Game\src\Application.cpp" />
     <ClCompile Include="Engine\Camera\Camera.cpp" />
     <ClCompile Include="Engine\src\Engine.cpp" />
@@ -177,6 +179,8 @@
     <ClInclude Include="Engine\IO\IOManager.h" />
     <ClInclude Include="Engine\Time\Time.h" />
     <ClInclude Include="Engine\Utilities\Utils.h" />
+    <ClInclude Include="Game\Levels\Levels.h" />
+    <ClInclude Include="Game\Player\Player.h" />
     <ClInclude Include="Game\src\Application.h" />
     <ClInclude Include="Engine\Camera\Camera.h" />
     <ClInclude Include="Engine\ECS\Entity.h" />

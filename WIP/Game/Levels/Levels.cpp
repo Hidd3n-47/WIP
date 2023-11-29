@@ -35,8 +35,9 @@ void Levels::createWall(float x, float y)
 {
 	jci::Entity* newWall = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
 	newWall->GetComponent<jci::Transform>()->SetPosition({ x,  y });
-	newWall->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
+	newWall->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Static);
 	newWall->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/squareWITHAW!!.png"));
+	LevelSquare.push_back(newWall);
 
 
 }
@@ -46,6 +47,8 @@ void Levels::createFloor(float x, float y)
 	jci::Entity* newFloor = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
 	newFloor->GetComponent<jci::Transform>()->SetPosition({ x,  y });
 	newFloor->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/squareWITHANF!!.png"));
+	LevelSquare.push_back(newFloor);
+
 
 }
 
@@ -74,12 +77,12 @@ void Levels::LoadLevel(std::string fileString)
 	std::vector<std::string>parsedString = split(fileString, ' ');//split via spaces first
 	float length = getMaxLength(parsedString.at(0));//in this context the input is 1x30
 	float rows = getRows(fileString);//this and the above are used to do math to center level on camera via coordinate maths
-	float currentX = (0 - ((length * width) / 2));//this is for centering wall length around camera // spawning walls from left to right assuming 0 is center of screen
-	float currentY = (0 + ((rows * height) / 2));//this is for centering wall length around camera // spawning walls from top to bottom assuming 0 is center of screen
+	float currentX = (0 - ((length * width) / 2) + 0.5);//this is for centering wall length around camera // spawning walls from left to right assuming 0 is center of screen
+	float currentY = (0 + ((rows * height) / 2) - 0.5);//this is for centering wall length around camera // spawning walls from top to bottom assuming 0 is center of screen
 	for (auto i : parsedString)
 	{
 		//take parsedString and start creating the level squares;
-		if (split(i, 'x').size() > 1)//if multiply step
+		if (split(i, 'x').size() == 2)//if multiply step
 		{
 			std::vector<std::string>smallString = split(i, 'x');//split via any multipliers
 			int times = stoi(smallString.at(1));//int times is the amount of times to create this type of square;
@@ -108,24 +111,25 @@ void Levels::LoadLevel(std::string fileString)
 			if (i == "\n")//if new line...
 			{
 				currentY -= height;//step down next layer
-				currentX = (0 - ((length * width) / 2));//this is for centering wall length around camera
+				currentX = (0 - ((length * width) / 2) + 0.5);//this is for centering wall length around camera
 			}
 			else if (i == "1")
 			{
 				//script to create wall at locations
 				createWall(currentX, currentY);
+				currentX += width;//iterate length of singular square
 
 			}
 			else if (i == "2")
 			{
 				//script to create floors at locations
 				createFloor(currentX, currentY);
+				currentX += width;//iterate length of singular square
 			}
 			else
 			{
 				jci::Log::DebugLog("John's Error: Square's key is invalid!");
 			}
-			currentX += width;//iterate length of singular square
 		}
 	}
 

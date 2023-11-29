@@ -25,7 +25,7 @@ void Player::Create(jci::Scene* scene)
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	//scene = jci::SceneManager::Instance()->GetCurrentScene();
 	playChar = m_currentScene->CreateEmptyEntity();
-	playChar->GetComponent<jci::Transform>()->SetPosition({ 1.0f,  1.0f });
+	playChar->GetComponent<jci::Transform>()->SetPosition({ 0.0f,  0.0f });
 	playChar->AddComponent<jci::SpriteRenderer>();
 	playChar->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
 }
