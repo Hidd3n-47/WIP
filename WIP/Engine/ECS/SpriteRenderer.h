@@ -31,7 +31,7 @@ private:
 	Entity*		m_entity		= nullptr;
 	vec2		m_position		= vec2(0.0f);
 	vec2		m_size			= vec2(1.0f);
-	vec3		m_color			= vec3(1.0f, 0.0f, 1.0f);
+	vec3		m_color			= vec3(1.0f, 1.0f, 1.0f);
 	Texture*	m_texture		= nullptr;
 };
 

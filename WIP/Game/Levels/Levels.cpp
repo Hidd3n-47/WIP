@@ -18,10 +18,19 @@ Levels::~Levels()
 	LevelSquare.clear();
 }
 
-float Levels::getMaxLength(std::string string)
+float Levels::getMaxLength(std::vector<std::string> string)
 {
-	//expects the firstline of every map to be 1x maxlength
-	float maxLength = stoi(split(string, 'x').at(1));//should technically be right regardless of preparsed or not, as long as it is the first line
+	//expects parsed string
+	bool notFound = true;
+	int maxLength = 0;
+	do
+	{
+		if (string.at(maxLength) == "\n")
+		{
+			notFound = false;
+		}
+		maxLength++;
+	} while (notFound);
 	return maxLength;
 }
 
@@ -37,7 +46,6 @@ void Levels::createWall(float x, float y)
 	jci::Entity* newWall = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
 	newWall->GetComponent<jci::Transform>()->SetPosition({ x,  y });
 	newWall->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Static);
-	newWall->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/squareWITHAW!!.png"));
 	LevelSquare.push_back(newWall);
 
 
@@ -47,10 +55,14 @@ void Levels::createFloor(float x, float y)
 {
 	jci::Entity* newFloor = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
 	newFloor->GetComponent<jci::Transform>()->SetPosition({ x,  y });
-	newFloor->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/squareWITHANF!!.png"));
 	LevelSquare.push_back(newFloor);
 
 
+}
+
+void Levels::createDoor(float x, float y)
+{
+	//CREATE DOOR;
 }
 
 std::vector<std::string> Levels::split(const std::string& string, const char splitter)//function that splits input string into a vector;
@@ -65,14 +77,6 @@ std::vector<std::string> Levels::split(const std::string& string, const char spl
 	return result;// with the debugLevelString will look like [0]1x30, [1]\n, [2]1, [3]2x28...
 }
 
-void Levels::LoadDEBUGLevel()
-{
-	//debug room 30x30
-	//take in room string
-	std::string debugLevelString = "1x30 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1 2x28 1 \n 1x30";
-	LoadLevel(debugLevelString);
-}
-
 void Levels::LoadLevelFromFile(std::string filepath)
 {
 	LoadLevel(jci::IOManager::Instance()->LoadTextFile(filepath));
@@ -80,63 +84,113 @@ void Levels::LoadLevelFromFile(std::string filepath)
 
 void Levels::LoadLevel(std::string fileString)
 {
-	std::vector<std::string>parsedString = split(fileString, ' ');//split via spaces first
-	float length = getMaxLength(parsedString.at(0));//in this context the input is 1x30
+	std::vector<std::string>parsedString = split(fileString, ',');//split via spaces first
+	float length = getMaxLength(parsedString);//in this context the input is 1x30
 	float rows = getRows(fileString);//this and the above are used to do math to center level on camera via coordinate maths
-	float currentX = (0 - ((length * width) / 2) + 0.5);//this is for centering wall length around camera // spawning walls from left to right assuming 0 is center of screen
-	float currentY = (0 + ((rows * height) / 2) - 0.5);//this is for centering wall length around camera // spawning walls from top to bottom assuming 0 is center of screen
+	float currentX = 0;
+	float currentY = 0;
 	for (auto i : parsedString)
 	{
 		//take parsedString and start creating the level squares;
-		if (split(i, 'x').size() == 2)//if multiply step
+		if (i == "\n")//if new line...
 		{
-			std::vector<std::string>smallString = split(i, 'x');//split via any multipliers
-			int times = stoi(smallString.at(1));//int times is the amount of times to create this type of square;
-			for (int i = 0; i < times; i++)
-			{
-				switch (stoi(smallString.at(0)))
-				{
-				case 1://wall
-					//script to create wall at locations
-					createWall(currentX, currentY);
-					break;
-				case 2://floor
-					//script to create floor at locations
-					createFloor(currentX, currentY);
-					break;
-				default:
-					jci::Log::DebugLog("John's Error: Square's key is invalid!");
-					break;
-				}
-				//iterate currentX
-				currentX += width;
-			}
+			currentY -= height;//step down next layer
+			currentX = 0;//this is for centering wall length around camera
 		}
-		else//if no multiply step, do accordingly
-		{//switch case was not used here where newline was applicable
-			if (i == "\n")//if new line...
-			{
-				currentY -= height;//step down next layer
-				currentX = (0 - ((length * width) / 2) + 0.5);//this is for centering wall length around camera
-			}
-			else if (i == "1")
-			{
-				//script to create wall at locations
-				createWall(currentX, currentY);
-				currentX += width;//iterate length of singular square
+		else if (i == "0")
+		{
+			//script to create wall at locations
+			createWall(currentX, currentY);
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/squareWITHAW!!.png"));
+			currentX += width;//iterate length of singular square
 
-			}
-			else if (i == "2")
-			{
-				//script to create floors at locations
-				createFloor(currentX, currentY);
-				currentX += width;//iterate length of singular square
-			}
-			else
-			{
-				jci::Log::DebugLog("John's Error: Square's key is invalid!");
-			}
 		}
+		else if (i == "1")
+		{
+			//script to create wall at locations
+			createWall(currentX, currentY);
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Front left wall.png"));
+			currentX += width;//iterate length of singular square
+
+		}
+		else if (i == "2")
+		{
+			//script to create floors at locations
+			createFloor(currentX, currentY);
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Floor.png"));
+			currentX += width;//iterate length of singular square
+		}
+		else if (i == "3")
+		{
+			//script to create wall at locations
+			createWall(currentX, currentY);
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Front right wall.png"));
+			currentX += width;//iterate length of singular square
+		}
+		else if (i == "4")
+		{
+			//script to create wall at locations
+			createWall(currentX, currentY);
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Front wall.png"));
+			currentX += width;//iterate length of singular square
+		}
+		else if (i == "5")
+		{
+			//script to create wall at locations
+			createWall(currentX, currentY);
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Left wall.png"));
+			currentX += width;//iterate length of singular square
+		}
+		else if (i == "6")
+		{
+			//script to create wall at locations
+			createWall(currentX, currentY);
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Right wall.png"));
+			currentX += width;//iterate length of singular square
+		}
+		else if (i == "7")
+		{
+			//script to create wall at locations
+			createWall(currentX, currentY);
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Back left wall.png"));
+			currentX += width;//iterate length of singular square
+		}
+		else if (i == "8")
+		{
+			//script to create wall at locations
+			createWall(currentX, currentY);
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Back right wall.png"));
+			currentX += width;//iterate length of singular square
+		}
+		else if (i == "9")
+		{
+			//script to create wall at locations
+			createWall(currentX, currentY);
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Back wall.png"));
+			currentX += width;//iterate length of singular square
+		}
+		else if (i == "9")
+		{
+			//script to create wall at locations
+			createWall(currentX, currentY);
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Back wall.png"));
+			currentX += width;//iterate length of singular square
+		}
+		else if (i == "10")
+		{
+			createDoor(currentX, currentY);
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Door.png"));
+		}
+		else if (i == "99")
+		{
+			//empty space
+			currentX += width;
+		}
+		else
+		{
+			jci::Log::DebugLog("John's Error: Square's key is invalid!");
+		}
+
 	}
 
 

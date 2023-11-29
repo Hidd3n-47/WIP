@@ -48,4 +48,6 @@ void Player::Update()
 	{
 		playChar->GetComponent<jci::Transform>()->AddToPosition({ 0.05f, 0.0f });
 	}
+
+	jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->SetPosition(playChar->GetComponent<jci::Transform>()->GetPosition());
 }

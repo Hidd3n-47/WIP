@@ -12,7 +12,7 @@ void Application::Create()
 {
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	Levels map;
-	map.LoadLevel("1x8 \n 1 2x6 1 \n 1 2x6 1 \n 1 2x6 1 \n 1x8" );
+	map.LoadLevel("1 4x6 3 \n 5 2x6 6 \n 5 2x6 6 \n 5 2x6 6 \n 7 9x6 8" );
 	m_test1 = m_currentScene->CreateEmptyEntity();
 	//m_test2 = m_currentScene->CreateEmptyEntity();
 	//m_test3 = m_currentScene->CreateEmptyEntity();

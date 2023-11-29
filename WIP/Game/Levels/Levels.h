@@ -13,12 +13,12 @@ public:
 	Levels();
 	~Levels();
 
-	float getMaxLength(std::string string);//get max length of string (used to determine x value)
+	float getMaxLength(std::vector<std::string> string);//get max length of string (used to determine x value)
 	float getRows(std::string string);//get amount of rows in string (used to determine y value) //this and the above are used to do math to center level on camera via coordinate maths
 	void createWall(float x, float y);
 	void createFloor(float x, float y);
+	void createDoor(float x, float y);
 	std::vector<std::string> split(const std::string& string, const char splitter);//string parser;
-	void LoadDEBUGLevel();
 	void LoadLevelFromFile(std::string filepath);
 	void LoadLevel(std::string fileString);
 
@@ -50,8 +50,19 @@ public:
 	const float height = 1;//these can be replaced with getters if validated elsewhere....
 
 	//key:              Currently just a ghost integer since the switch cases and if statements are a touch annoying and neither actually use a pure int... But yes if it really boils down to it we can do a bunch of casting to make this actually used...
-	const int wall = 1;
+	/*
+	const int wall = 0;
+	const int topleftwall = 1;
 	const int floor = 2;
-
+	const int toprightwall = 3;
+	const int topwall = 4;
+	const int leftwall = 5;
+	const int rightwall = 6;
+	const int botleftwall = 7;
+	const int botrightwall = 8;
+	const int botwall = 9;
+	const int door = 10;
+	*/
+	
 };
 
