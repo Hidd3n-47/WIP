@@ -1,5 +1,6 @@
 #pragma once
 #include <Game/Levels/Levels.h>
+#include <vector>
 
 namespace jci {
 class Scene;
@@ -24,5 +25,6 @@ private:
 	//static Player* m_instance;
 	//jci::Scene* m_currentScene;
 	jci::Entity* playChar;
+	std::vector<jci::Entity*> BulletPool;
 };
 

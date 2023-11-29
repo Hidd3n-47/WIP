@@ -33,6 +33,9 @@ void Player::Create(jci::Scene* scene, Levels map)
 void Player::FireGun()
 {
 	jci::DLOG("Firing");
+	int num = BulletPool.size() - 1;
+	BulletPool.push_back(m_currentScene->CreateEmptyEntity());
+	BulletPool.at(num)->GetComponent<jci::Transform>()->SetPosition({});
 }
 
 void Player::Update()
