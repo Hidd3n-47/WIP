@@ -15,6 +15,8 @@ int main(int argc, char** argv)
 	jci::Engine::Instance()->Destroy();
 
 	//PrintMemory();
+#ifdef _DEBUG
 	system("PAUSE");
+#endif
 	return 0;
 }

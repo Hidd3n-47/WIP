@@ -3,6 +3,7 @@
 #include <Engine/Scene/SceneManager.h>
 #include <Engine/ECS/Entity.h>
 #include <Game/Player/Player.h>
+#include <vector>
 
 class Application
 {
@@ -21,6 +22,7 @@ private:
 	jci::Entity* m_test1;
 	jci::Entity* m_test2;
 	jci::Entity* m_test3;
+	std::vector<jci::Entity*> UpdatePool;
 	Player* p1;
 };
 

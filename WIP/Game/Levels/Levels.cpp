@@ -12,7 +12,7 @@ Levels::~Levels()
 {
 	for (auto i : LevelSquare)
 	{
-		delete i;
+		// jci::SceneManager::Instance()->GetCurrentScene()->RemoveEntity(i);
 	}
 	LevelSquare.clear();
 }
