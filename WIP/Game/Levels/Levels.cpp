@@ -172,6 +172,34 @@ void Levels::LoadLevel(std::string fileString)
 			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Door.png"));
 			currentX += width;
 		}
+		else if (i == "11")//inv topleft
+		{
+			createDoor(currentX, currentY);
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Inv front left.png"));
+			currentX += width;
+		}
+		else if (i == "12")//inv front right
+		{
+
+			createDoor(currentX, currentY);
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Inv front right.png"));
+			currentX += width;
+		}
+
+		else if (i == "13")//inv back left
+		{
+			createDoor(currentX, currentY);
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Inv back left.png"));
+			currentX += width;
+		}
+
+		else if (i == "14")// inv back right
+		{
+			createDoor(currentX, currentY);
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Inv back right.png"));
+			currentX += width;
+		}
+
 		else if (i == "89")
 		{
 			createSpawnPoint(currentX, currentY);
@@ -191,8 +219,6 @@ void Levels::LoadLevel(std::string fileString)
 		}
 
 	}
-
-
 }
 
 int Levels::getSpawnPointX()

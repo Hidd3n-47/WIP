@@ -48,6 +48,10 @@ public:
 	const int botrightwall = 8;
 	const int botwall = 9;
 	const int door = 10;
+	const int inversetopleft = 11;
+	const int inversetopright = 12;
+	const int inversebotleft = 13;
+	const int inversebotright = 14;
 	const int empty = 99;
 	const int spawnPoint = 89;
 	*/
