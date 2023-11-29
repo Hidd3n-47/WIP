@@ -1,11 +1,8 @@
 #include "pch.h"
 #include "Player.h"
+#include <Game/Bullet/Bullet.h>
 
-#include <Engine/Scene/SceneManager.h>
-#include <Engine/ECS/Transform.h>
-#include <Engine/ECS/SpriteRenderer.h>
-#include <Engine/ECS/BoxCollider.h>
-#include <Engine/Input/InputManager.h>
+
 
 //Player* Player::m_instance = nullptr;
 
@@ -30,12 +27,22 @@ void Player::Create(jci::Scene* scene, Levels map)
 	playChar->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
 }
 
-void Player::FireGun()
+void Player::FireGun(int x, int y)
 {
 	jci::DLOG("Firing");
-	int num = BulletPool.size() - 1;
-	BulletPool.push_back(m_currentScene->CreateEmptyEntity());
-	BulletPool.at(num)->GetComponent<jci::Transform>()->SetPosition({});
+	//find angle: (y-jci::InputManager::Instance()->GetMousePosition().y)/(x-jci::InputManager::Instance()->GetMousePosition().x)
+	int num = bulletPool.size() - 1;
+	jci::Entity* bulletObj;
+	bulletObj = m_currentScene->CreateEmptyEntity();
+	bulletObj->GetComponent<jci::Transform>()->SetPosition({ x,  y });
+	bulletObj->AddComponent<jci::SpriteRenderer>();
+	bulletObj->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
+	vec2 moveDirection = vec2(0.0f);
+	moveDirection.x = x - jci::InputManager::Instance()->GetMousePosition().x;
+	moveDirection.y = y - jci::InputManager::Instance()->GetMousePosition().y;
+	Bullet* aBullet = new Bullet(bulletObj, moveDirection);
+	bulletPool.push_back(aBullet);
+	//bulletPool.at(num)->GetComponent<jci::Transform>()->SetPosition({});
 }
 
 void Player::Update()
@@ -67,8 +74,11 @@ void Player::Update()
 
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Left))
 	{
-		FireGun();
+		FireGun(direction.x, direction.y);
 	}
 	jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->SetPosition(playChar->GetComponent<jci::Transform>()->GetPosition());
-
+	for (int i = 0; i < bulletPool.size() - 1; i++)
+	{
+		bulletPool.at(i)->GetComponent<jci::Transform>()->AddToPosition(direction);
+	}
 }

@@ -141,6 +141,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Bullet\BulletManager.cpp" />
+    <ClCompile Include="Game\Bullet\Bullet.cpp" />
     <ClCompile Include="Engine\Collision\CollisionManager.cpp" />
     <ClCompile Include="Engine\ECS\BoxCollider.cpp" />
     <ClCompile Include="Engine\IO\IOManager.cpp" />
@@ -171,6 +173,8 @@
     <ClCompile Include="Engine\ECS\Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Bullet\BulletManager.h" />
+    <ClInclude Include="Game\Bullet\Bullet.h" />
     <ClInclude Include="Engine\Collision\CollisionManager.h" />
     <ClInclude Include="Engine\ECS\BoxCollider.h" />
     <ClInclude Include="Engine\ECS\ComponentTypes.h" />
