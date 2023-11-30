@@ -7,7 +7,7 @@ Scene::Scene(const std::string& name, uint16 id) :
 	m_name(name),
 	m_id(id)
 {
-	DLOG("Created scene with name: " + name);
+	DOUT("Created scene with name: " + name);
 	m_camera = new Camera(-4.0f, 4.0f, 2.25f, -2.25f);
 }
 
@@ -23,7 +23,7 @@ Scene::~Scene()
 	delete m_camera;
 	m_camera = nullptr;
 
-	DLOG("Destroyed scene with name: " + m_name);
+	DOUT("Destroyed scene with name: " + m_name);
 }
 
 Entity* Scene::CreateEmptyEntity()

@@ -25,6 +25,11 @@ public:
 	* Returns a single string with '\n' characters for new line.
 	*/
 	std::string LoadTextFile(const std::string& filePath);
+	/***
+	* Saves text to a given file.
+	* Content will be outputed and saved to file at the given path.
+	*/
+	void SaveToFile(const std::string& content, const std::string& filePath);
 
 private:
 	IOManager() = default;
@@ -33,6 +38,7 @@ private:
 	static IOManager* m_instance;
 
 	std::ifstream m_fileReadOnly;
+	std::ofstream m_fileWrite;
 };
 
 } // Namespace jci.

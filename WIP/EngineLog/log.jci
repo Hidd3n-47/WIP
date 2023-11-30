@@ -1,0 +1,420 @@
+Engine Logging:
+
+Created scene with name: MainScene
+Created Entity with id: 0
+Added component with id: ComponentTypes::Transform to Game Object: 0 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 0 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 0 [Total: 3]
+Created Entity with id: 1
+Added component with id: ComponentTypes::Transform to Game Object: 1 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 1 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 1 [Total: 3]
+Created Entity with id: 2
+Added component with id: ComponentTypes::Transform to Game Object: 2 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 2 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 2 [Total: 3]
+Created Entity with id: 3
+Added component with id: ComponentTypes::Transform to Game Object: 3 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 3 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 3 [Total: 3]
+Created Entity with id: 4
+Added component with id: ComponentTypes::Transform to Game Object: 4 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 4 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 4 [Total: 3]
+Created Entity with id: 5
+Added component with id: ComponentTypes::Transform to Game Object: 5 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 5 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 5 [Total: 3]
+Created Entity with id: 6
+Added component with id: ComponentTypes::Transform to Game Object: 6 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 6 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 6 [Total: 3]
+Created Entity with id: 7
+Added component with id: ComponentTypes::Transform to Game Object: 7 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 7 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 7 [Total: 3]
+Created Entity with id: 8
+Added component with id: ComponentTypes::Transform to Game Object: 8 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 8 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 8 [Total: 3]
+Created Entity with id: 9
+Added component with id: ComponentTypes::Transform to Game Object: 9 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 9 [Total: 2]
+Created Entity with id: 10
+Added component with id: ComponentTypes::Transform to Game Object: 10 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 10 [Total: 2]
+Created Entity with id: 11
+Added component with id: ComponentTypes::Transform to Game Object: 11 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 11 [Total: 2]
+Created Entity with id: 12
+Added component with id: ComponentTypes::Transform to Game Object: 12 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 12 [Total: 2]
+Created Entity with id: 13
+Added component with id: ComponentTypes::Transform to Game Object: 13 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 13 [Total: 2]
+Created Entity with id: 14
+Added component with id: ComponentTypes::Transform to Game Object: 14 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 14 [Total: 2]
+Created Entity with id: 15
+Added component with id: ComponentTypes::Transform to Game Object: 15 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 15 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 15 [Total: 3]
+Created Entity with id: 16
+Added component with id: ComponentTypes::Transform to Game Object: 16 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 16 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 16 [Total: 3]
+Created Entity with id: 17
+Added component with id: ComponentTypes::Transform to Game Object: 17 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 17 [Total: 2]
+Created Entity with id: 18
+Added component with id: ComponentTypes::Transform to Game Object: 18 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 18 [Total: 2]
+Created Entity with id: 19
+Added component with id: ComponentTypes::Transform to Game Object: 19 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 19 [Total: 2]
+Created Entity with id: 20
+Added component with id: ComponentTypes::Transform to Game Object: 20 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 20 [Total: 2]
+Created Entity with id: 21
+Added component with id: ComponentTypes::Transform to Game Object: 21 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 21 [Total: 2]
+Created Entity with id: 22
+Added component with id: ComponentTypes::Transform to Game Object: 22 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 22 [Total: 2]
+Created Entity with id: 23
+Added component with id: ComponentTypes::Transform to Game Object: 23 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 23 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 23 [Total: 3]
+Created Entity with id: 24
+Added component with id: ComponentTypes::Transform to Game Object: 24 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 24 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 24 [Total: 3]
+Created Entity with id: 25
+Added component with id: ComponentTypes::Transform to Game Object: 25 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 25 [Total: 2]
+Created Entity with id: 26
+Added component with id: ComponentTypes::Transform to Game Object: 26 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 26 [Total: 2]
+Created Entity with id: 27
+Added component with id: ComponentTypes::Transform to Game Object: 27 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 27 [Total: 2]
+Created Entity with id: 28
+Added component with id: ComponentTypes::Transform to Game Object: 28 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 28 [Total: 2]
+Created Entity with id: 29
+Added component with id: ComponentTypes::Transform to Game Object: 29 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 29 [Total: 2]
+Created Entity with id: 30
+Added component with id: ComponentTypes::Transform to Game Object: 30 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 30 [Total: 2]
+Created Entity with id: 31
+Added component with id: ComponentTypes::Transform to Game Object: 31 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 31 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 31 [Total: 3]
+Created Entity with id: 32
+Added component with id: ComponentTypes::Transform to Game Object: 32 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 32 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 32 [Total: 3]
+Created Entity with id: 33
+Added component with id: ComponentTypes::Transform to Game Object: 33 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 33 [Total: 2]
+Created Entity with id: 34
+Added component with id: ComponentTypes::Transform to Game Object: 34 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 34 [Total: 2]
+Created Entity with id: 35
+Added component with id: ComponentTypes::Transform to Game Object: 35 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 35 [Total: 2]
+Created Entity with id: 36
+Added component with id: ComponentTypes::Transform to Game Object: 36 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 36 [Total: 2]
+Created Entity with id: 37
+Added component with id: ComponentTypes::Transform to Game Object: 37 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 37 [Total: 2]
+Created Entity with id: 38
+Added component with id: ComponentTypes::Transform to Game Object: 38 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 38 [Total: 2]
+Created Entity with id: 39
+Added component with id: ComponentTypes::Transform to Game Object: 39 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 39 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 39 [Total: 3]
+Created Entity with id: 40
+Added component with id: ComponentTypes::Transform to Game Object: 40 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 40 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 40 [Total: 3]
+Created Entity with id: 41
+Added component with id: ComponentTypes::Transform to Game Object: 41 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 41 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 41 [Total: 3]
+Created Entity with id: 42
+Added component with id: ComponentTypes::Transform to Game Object: 42 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 42 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 42 [Total: 3]
+Created Entity with id: 43
+Added component with id: ComponentTypes::Transform to Game Object: 43 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 43 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 43 [Total: 3]
+Created Entity with id: 44
+Added component with id: ComponentTypes::Transform to Game Object: 44 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 44 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 44 [Total: 3]
+Created Entity with id: 45
+Added component with id: ComponentTypes::Transform to Game Object: 45 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 45 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 45 [Total: 3]
+Created Entity with id: 46
+Added component with id: ComponentTypes::Transform to Game Object: 46 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 46 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 46 [Total: 3]
+Created Entity with id: 47
+Added component with id: ComponentTypes::Transform to Game Object: 47 [Total: 1]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 47 [Total: 2]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 47 [Total: 3]
+Created Entity with id: 48
+Added component with id: ComponentTypes::Transform to Game Object: 48 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 48 [Total: 2]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 48 [Total: 3]
+Created Entity with id: 49
+Added component with id: ComponentTypes::Transform to Game Object: 49 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 49 [Total: 2]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 49 [Total: 3]
+Created Entity with id: 50
+Added component with id: ComponentTypes::Transform to Game Object: 50 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 50 [Total: 2]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 50 [Total: 3]
+Created Entity with id: 51
+Added component with id: ComponentTypes::Transform to Game Object: 51 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 51 [Total: 2]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 51 [Total: 3]
+Created Entity with id: 52
+Added component with id: ComponentTypes::Transform to Game Object: 52 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 52 [Total: 2]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 52 [Total: 3]
+Created Entity with id: 53
+Added component with id: ComponentTypes::Transform to Game Object: 53 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 53 [Total: 2]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 53 [Total: 3]
+Created Entity with id: 54
+Added component with id: ComponentTypes::Transform to Game Object: 54 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 54 [Total: 2]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 54 [Total: 3]
+Created Entity with id: 55
+Added component with id: ComponentTypes::Transform to Game Object: 55 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 55 [Total: 2]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 55 [Total: 3]
+Created Entity with id: 56
+Added component with id: ComponentTypes::Transform to Game Object: 56 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 56 [Total: 2]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 56 [Total: 3]
+Created Entity with id: 57
+Added component with id: ComponentTypes::Transform to Game Object: 57 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 57 [Total: 2]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 57 [Total: 3]
+Removed component from Game Object: 0 [Deleted: 1]
+Removed component from Game Object: 0 [Deleted: 2]
+Removed component from Game Object: 0 [Deleted: 3]
+Destroyed Entity with id: 0
+Removed component from Game Object: 1 [Deleted: 1]
+Removed component from Game Object: 1 [Deleted: 2]
+Removed component from Game Object: 1 [Deleted: 3]
+Destroyed Entity with id: 1
+Removed component from Game Object: 2 [Deleted: 1]
+Removed component from Game Object: 2 [Deleted: 2]
+Removed component from Game Object: 2 [Deleted: 3]
+Destroyed Entity with id: 2
+Removed component from Game Object: 3 [Deleted: 1]
+Removed component from Game Object: 3 [Deleted: 2]
+Removed component from Game Object: 3 [Deleted: 3]
+Destroyed Entity with id: 3
+Removed component from Game Object: 4 [Deleted: 1]
+Removed component from Game Object: 4 [Deleted: 2]
+Removed component from Game Object: 4 [Deleted: 3]
+Destroyed Entity with id: 4
+Removed component from Game Object: 5 [Deleted: 1]
+Removed component from Game Object: 5 [Deleted: 2]
+Removed component from Game Object: 5 [Deleted: 3]
+Destroyed Entity with id: 5
+Removed component from Game Object: 6 [Deleted: 1]
+Removed component from Game Object: 6 [Deleted: 2]
+Removed component from Game Object: 6 [Deleted: 3]
+Destroyed Entity with id: 6
+Removed component from Game Object: 7 [Deleted: 1]
+Removed component from Game Object: 7 [Deleted: 2]
+Removed component from Game Object: 7 [Deleted: 3]
+Destroyed Entity with id: 7
+Removed component from Game Object: 8 [Deleted: 1]
+Removed component from Game Object: 8 [Deleted: 2]
+Removed component from Game Object: 8 [Deleted: 3]
+Destroyed Entity with id: 8
+Removed component from Game Object: 9 [Deleted: 1]
+Removed component from Game Object: 9 [Deleted: 2]
+Destroyed Entity with id: 9
+Removed component from Game Object: 10 [Deleted: 1]
+Removed component from Game Object: 10 [Deleted: 2]
+Destroyed Entity with id: 10
+Removed component from Game Object: 11 [Deleted: 1]
+Removed component from Game Object: 11 [Deleted: 2]
+Destroyed Entity with id: 11
+Removed component from Game Object: 12 [Deleted: 1]
+Removed component from Game Object: 12 [Deleted: 2]
+Destroyed Entity with id: 12
+Removed component from Game Object: 13 [Deleted: 1]
+Removed component from Game Object: 13 [Deleted: 2]
+Destroyed Entity with id: 13
+Removed component from Game Object: 14 [Deleted: 1]
+Removed component from Game Object: 14 [Deleted: 2]
+Destroyed Entity with id: 14
+Removed component from Game Object: 15 [Deleted: 1]
+Removed component from Game Object: 15 [Deleted: 2]
+Removed component from Game Object: 15 [Deleted: 3]
+Destroyed Entity with id: 15
+Removed component from Game Object: 16 [Deleted: 1]
+Removed component from Game Object: 16 [Deleted: 2]
+Removed component from Game Object: 16 [Deleted: 3]
+Destroyed Entity with id: 16
+Removed component from Game Object: 17 [Deleted: 1]
+Removed component from Game Object: 17 [Deleted: 2]
+Destroyed Entity with id: 17
+Removed component from Game Object: 18 [Deleted: 1]
+Removed component from Game Object: 18 [Deleted: 2]
+Destroyed Entity with id: 18
+Removed component from Game Object: 19 [Deleted: 1]
+Removed component from Game Object: 19 [Deleted: 2]
+Destroyed Entity with id: 19
+Removed component from Game Object: 20 [Deleted: 1]
+Removed component from Game Object: 20 [Deleted: 2]
+Destroyed Entity with id: 20
+Removed component from Game Object: 21 [Deleted: 1]
+Removed component from Game Object: 21 [Deleted: 2]
+Destroyed Entity with id: 21
+Removed component from Game Object: 22 [Deleted: 1]
+Removed component from Game Object: 22 [Deleted: 2]
+Destroyed Entity with id: 22
+Removed component from Game Object: 23 [Deleted: 1]
+Removed component from Game Object: 23 [Deleted: 2]
+Removed component from Game Object: 23 [Deleted: 3]
+Destroyed Entity with id: 23
+Removed component from Game Object: 24 [Deleted: 1]
+Removed component from Game Object: 24 [Deleted: 2]
+Removed component from Game Object: 24 [Deleted: 3]
+Destroyed Entity with id: 24
+Removed component from Game Object: 25 [Deleted: 1]
+Removed component from Game Object: 25 [Deleted: 2]
+Destroyed Entity with id: 25
+Removed component from Game Object: 26 [Deleted: 1]
+Removed component from Game Object: 26 [Deleted: 2]
+Destroyed Entity with id: 26
+Removed component from Game Object: 27 [Deleted: 1]
+Removed component from Game Object: 27 [Deleted: 2]
+Destroyed Entity with id: 27
+Removed component from Game Object: 28 [Deleted: 1]
+Removed component from Game Object: 28 [Deleted: 2]
+Destroyed Entity with id: 28
+Removed component from Game Object: 29 [Deleted: 1]
+Removed component from Game Object: 29 [Deleted: 2]
+Destroyed Entity with id: 29
+Removed component from Game Object: 30 [Deleted: 1]
+Removed component from Game Object: 30 [Deleted: 2]
+Destroyed Entity with id: 30
+Removed component from Game Object: 31 [Deleted: 1]
+Removed component from Game Object: 31 [Deleted: 2]
+Removed component from Game Object: 31 [Deleted: 3]
+Destroyed Entity with id: 31
+Removed component from Game Object: 32 [Deleted: 1]
+Removed component from Game Object: 32 [Deleted: 2]
+Removed component from Game Object: 32 [Deleted: 3]
+Destroyed Entity with id: 32
+Removed component from Game Object: 33 [Deleted: 1]
+Removed component from Game Object: 33 [Deleted: 2]
+Destroyed Entity with id: 33
+Removed component from Game Object: 34 [Deleted: 1]
+Removed component from Game Object: 34 [Deleted: 2]
+Destroyed Entity with id: 34
+Removed component from Game Object: 35 [Deleted: 1]
+Removed component from Game Object: 35 [Deleted: 2]
+Destroyed Entity with id: 35
+Removed component from Game Object: 36 [Deleted: 1]
+Removed component from Game Object: 36 [Deleted: 2]
+Destroyed Entity with id: 36
+Removed component from Game Object: 37 [Deleted: 1]
+Removed component from Game Object: 37 [Deleted: 2]
+Destroyed Entity with id: 37
+Removed component from Game Object: 38 [Deleted: 1]
+Removed component from Game Object: 38 [Deleted: 2]
+Destroyed Entity with id: 38
+Removed component from Game Object: 39 [Deleted: 1]
+Removed component from Game Object: 39 [Deleted: 2]
+Removed component from Game Object: 39 [Deleted: 3]
+Destroyed Entity with id: 39
+Removed component from Game Object: 40 [Deleted: 1]
+Removed component from Game Object: 40 [Deleted: 2]
+Removed component from Game Object: 40 [Deleted: 3]
+Destroyed Entity with id: 40
+Removed component from Game Object: 41 [Deleted: 1]
+Removed component from Game Object: 41 [Deleted: 2]
+Removed component from Game Object: 41 [Deleted: 3]
+Destroyed Entity with id: 41
+Removed component from Game Object: 42 [Deleted: 1]
+Removed component from Game Object: 42 [Deleted: 2]
+Removed component from Game Object: 42 [Deleted: 3]
+Destroyed Entity with id: 42
+Removed component from Game Object: 43 [Deleted: 1]
+Removed component from Game Object: 43 [Deleted: 2]
+Removed component from Game Object: 43 [Deleted: 3]
+Destroyed Entity with id: 43
+Removed component from Game Object: 44 [Deleted: 1]
+Removed component from Game Object: 44 [Deleted: 2]
+Removed component from Game Object: 44 [Deleted: 3]
+Destroyed Entity with id: 44
+Removed component from Game Object: 45 [Deleted: 1]
+Removed component from Game Object: 45 [Deleted: 2]
+Removed component from Game Object: 45 [Deleted: 3]
+Destroyed Entity with id: 45
+Removed component from Game Object: 46 [Deleted: 1]
+Removed component from Game Object: 46 [Deleted: 2]
+Removed component from Game Object: 46 [Deleted: 3]
+Destroyed Entity with id: 46
+Removed component from Game Object: 47 [Deleted: 1]
+Removed component from Game Object: 47 [Deleted: 2]
+Removed component from Game Object: 47 [Deleted: 3]
+Destroyed Entity with id: 47
+Removed component from Game Object: 48 [Deleted: 1]
+Removed component from Game Object: 48 [Deleted: 2]
+Removed component from Game Object: 48 [Deleted: 3]
+Destroyed Entity with id: 48
+Removed component from Game Object: 49 [Deleted: 1]
+Removed component from Game Object: 49 [Deleted: 2]
+Removed component from Game Object: 49 [Deleted: 3]
+Destroyed Entity with id: 49
+Removed component from Game Object: 50 [Deleted: 1]
+Removed component from Game Object: 50 [Deleted: 2]
+Removed component from Game Object: 50 [Deleted: 3]
+Destroyed Entity with id: 50
+Removed component from Game Object: 51 [Deleted: 1]
+Removed component from Game Object: 51 [Deleted: 2]
+Removed component from Game Object: 51 [Deleted: 3]
+Destroyed Entity with id: 51
+Removed component from Game Object: 52 [Deleted: 1]
+Removed component from Game Object: 52 [Deleted: 2]
+Removed component from Game Object: 52 [Deleted: 3]
+Destroyed Entity with id: 52
+Removed component from Game Object: 53 [Deleted: 1]
+Removed component from Game Object: 53 [Deleted: 2]
+Removed component from Game Object: 53 [Deleted: 3]
+Destroyed Entity with id: 53
+Removed component from Game Object: 54 [Deleted: 1]
+Removed component from Game Object: 54 [Deleted: 2]
+Removed component from Game Object: 54 [Deleted: 3]
+Destroyed Entity with id: 54
+Removed component from Game Object: 55 [Deleted: 1]
+Removed component from Game Object: 55 [Deleted: 2]
+Removed component from Game Object: 55 [Deleted: 3]
+Destroyed Entity with id: 55
+Removed component from Game Object: 56 [Deleted: 1]
+Removed component from Game Object: 56 [Deleted: 2]
+Removed component from Game Object: 56 [Deleted: 3]
+Destroyed Entity with id: 56
+Removed component from Game Object: 57 [Deleted: 1]
+Removed component from Game Object: 57 [Deleted: 2]
+Removed component from Game Object: 57 [Deleted: 3]
+Destroyed Entity with id: 57
+Destroyed scene with name: MainScene

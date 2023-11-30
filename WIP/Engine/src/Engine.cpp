@@ -2,6 +2,7 @@
 #include "Engine.h"
 
 #include "Time/Time.h"
+#include "IO/IOManager.h"
 #include "Renderer/Texture.h"
 #include "Renderer/Renderer.h"
 #include "Input/InputManager.h"
@@ -87,6 +88,8 @@ void Engine::Destroy()
 	m_window->Destroy();
 
 	SDL_Quit();
+
+	DOUT_CLOSE();
 
 	delete m_instance;
 }
