@@ -3,11 +3,11 @@
 
 #include <glm/gtc/matrix_transform.hpp>
 
-#include "Texture.h"
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
 #include "Shader.h"
 #include "Scene/SceneManager.h"
+#include "Graphics/Texture/Texture.h"
 
 namespace jci {
 

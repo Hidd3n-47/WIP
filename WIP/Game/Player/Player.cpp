@@ -3,6 +3,7 @@
 #include <Game/Bullet/Bullet.h>
 
 #include <Engine/src/Engine.h>
+#include <Engine/Graphics/Texture/Texture.h>
 
 //Player* Player::m_instance = nullptr;
 
@@ -21,23 +22,26 @@ Player::~Player()
 
 void Player::Create(jci::Scene* scene, Levels map)
 {
+	uint32 text = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/circ.png");
+	m_bulletTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Bullet.png");
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	//scene = jci::SceneManager::Instance()->GetCurrentScene();
 	playChar = m_currentScene->CreateEmptyEntity();
 	playChar->GetComponent<jci::Transform>()->SetPosition({ map.getSpawnPointX(),  map.getSpawnPointY() });
-	playChar->AddComponent<jci::SpriteRenderer>();
+	playChar->AddComponent<jci::SpriteRenderer>()->SetTexture(text);
+	jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::NoTexture);
 	playChar->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
 }
 
 void Player::FireGun()
 {
-	jci::DLOG("Firing");
+	DLOG("Firing");
 	//find angle: (y-jci::InputManager::Instance()->GetMousePosition().y)/(x-jci::InputManager::Instance()->GetMousePosition().x)
 	int num = bulletPool.size() - 1;
 	jci::Entity* bulletObj;
 	bulletObj = m_currentScene->CreateEmptyEntity();
 	bulletObj->GetComponent<jci::Transform>()->SetPosition(playChar->GetComponent<jci::Transform>()->GetPosition());
-	bulletObj->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Bullet.png"));
+	bulletObj->AddComponent<jci::SpriteRenderer>()->SetTexture(m_bulletTexture);
 	bulletObj->GetComponent<jci::SpriteRenderer>()->SetSize({0.1f, 0.05f});
 	bulletObj->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
 	bulletObj->GetComponent<jci::BoxCollider>()->SetSize({ 0.1f, 0.05f });
@@ -86,6 +90,6 @@ void Player::Update()
 	for(Bullet* b : bulletPool)
 	{
 		b->body->GetComponent<jci::Transform>()->AddToPosition(b->direction);
-		jci::DLOG("(" + std::to_string(b->body->GetComponent<jci::Transform>()->GetPosition().x) + "," + std::to_string(b->body->GetComponent<jci::Transform>()->GetPosition().y) + ")");
+		DLOG("(" + std::to_string(b->body->GetComponent<jci::Transform>()->GetPosition().x) + "," + std::to_string(b->body->GetComponent<jci::Transform>()->GetPosition().y) + ")");
 	}
 }

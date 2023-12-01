@@ -3,12 +3,13 @@
 
 #include "Time/Time.h"
 #include "IO/IOManager.h"
-#include "Renderer/Texture.h"
-#include "Renderer/Renderer.h"
 #include "Input/InputManager.h"
 #include "Scene/SceneManager.h"
-#include "Renderer/RendererManager.h"
+#include "Graphics/Texture/Texture.h"
+#include "Graphics/Renderer/Renderer.h"
 #include "Collision/CollisionManager.h"
+#include "Graphics/Texture/TextureManager.h"
+#include "Graphics/Renderer/RendererManager.h"
 
 #include "Game/src/Application.h"
 
@@ -41,13 +42,15 @@ void Engine::Init()
 
 	SceneManager::Instance()->SetCurrentScene(SceneManager::Instance()->CreateScene("MainScene"));
 
-	Application::Instance()->Create();
+	TextureManager::Instance()->Init();
 
 	uint32 glInit = glewInit();
 	ASSERT(glInit == 0, "Failed to initialise OpenGL. Error Code: " + std::to_string(glInit));
 	
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+	Application::Instance()->Create();
 }
 
 void Engine::Run()

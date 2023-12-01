@@ -5,6 +5,7 @@
 #include "ECS/Entity.h"
 #include "ECS/Transform.h"
 #include "ECS/SpriteRenderer.h"
+#include "Graphics/Texture/Texture.h"
 
 namespace jci {
 

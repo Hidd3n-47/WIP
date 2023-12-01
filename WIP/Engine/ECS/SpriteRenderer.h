@@ -2,9 +2,11 @@
 
 #include "IComponent.h"
 
-#include "Renderer/Texture.h"
+#include "Graphics/Texture/TextureManager.h"
 
 namespace jci {
+
+class Texture;
 
 class SpriteRenderer : public IComponent
 {
@@ -26,7 +28,8 @@ public:
 	inline void SetPosition(vec2 position) { m_position = position; }
 	inline void SetSize(vec2 size) { m_size = size; }
 	inline void SetColor(vec3 color) { m_color = color; }
-	inline void SetTexture(Texture* texture) { delete m_texture; m_texture = texture; }
+	inline void SetTexture(Texture* texture) { m_texture = texture; }
+	inline void SetTexture(uint32 textureId) { m_texture = TextureManager::Instance()->GetTexture(textureId); }
 private:
 	Entity*		m_entity		= nullptr;
 	vec2		m_position		= vec2(0.0f);
