@@ -10,8 +10,8 @@ TextureManager* TextureManager::m_instance = nullptr;
 void TextureManager::Init()
 {
 	// allocate the default textures.
-	CreateTexture("Assets/Texture/Debug/no_texture.png");
-	CreateTexture("Assets/Texture/Debug/dbg_box.png");
+	CreateTexture("Assets/Texture/dbg/no_texture.png");
+	CreateTexture("Assets/Texture/dbg/dbg_box.png");
 }
 
 uint32 TextureManager::CreateTexture(const std::string& filePath)
