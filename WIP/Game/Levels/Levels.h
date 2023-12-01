@@ -50,7 +50,6 @@ public:
 	int inversetopright;
 	int inversebotleft;
 	int inversebotright;
-	int empty;
 	int spawnPoint;
 
 
