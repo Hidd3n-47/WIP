@@ -41,12 +41,13 @@ void Player::FireGun()
 	//bulletObj->GetComponent<jci::BoxCollider>()->SetSize({ 0.1f, 0.05f });
 	vec2 moveDirection = vec2(0.0f);
 	
-	/*moveDirection.x = x - jci::InputManager::Instance()->GetMousePosition().x;
-	moveDirection.y = y - jci::InputManager::Instance()->GetMousePosition().y;  //THIS MAKES THE BULLET SPAWN AT -420?????
-	glm::normalize(moveDirection);*/
+	moveDirection.x = (playChar->GetComponent<jci::Transform>()->GetPosition().x-jci::InputManager::Instance()->GetMousePosition().x)/1000;
+	moveDirection.y = (playChar->GetComponent<jci::Transform>()->GetPosition().y-jci::InputManager::Instance()->GetMousePosition().y)/1000;  //THIS MAKES THE BULLET GO AT A BILLION MILES AN HOUR?????
+	//glm::normalize(moveDirection);
+	jci::DLOG("(" + std::to_string(playChar->GetComponent<jci::Transform>()->GetPosition().x) + "," + std::to_string(playChar->GetComponent<jci::Transform>()->GetPosition().y) + ")");
 	
-	moveDirection.x = 0.05;
-	moveDirection.y = 0;
+	/*moveDirection.x = 0.05;
+	moveDirection.y = 0;*/
 	Bullet* aBullet = new Bullet(bulletObj, moveDirection);
 	bulletPool.push_back(aBullet);
 	//bulletPool.at(num)->GetComponent<jci::Transform>()->SetPosition({});
@@ -87,6 +88,6 @@ void Player::Update()
 	for(Bullet* b : bulletPool)
 	{
 		b->body->GetComponent<jci::Transform>()->AddToPosition(b->direction);
-		jci::DLOG("(" + std::to_string(b->body->GetComponent<jci::Transform>()->GetPosition().x) + "," + std::to_string(b->body->GetComponent<jci::Transform>()->GetPosition().y) + ")");
+		//jci::DLOG("(" + std::to_string(b->body->GetComponent<jci::Transform>()->GetPosition().x) + "," + std::to_string(b->body->GetComponent<jci::Transform>()->GetPosition().y) + ")");
 	}
 }
