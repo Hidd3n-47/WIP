@@ -29,6 +29,7 @@
 
 #include "IComponent.h"
 
+#include "src/Engine.h"
 #include "Transform.h"
 
 namespace jci {
@@ -40,7 +41,7 @@ public:
 	Entity(uint16 id) :
 		m_id(id)
 	{
-		DLOG("Created Entity with id: " + std::to_string(m_id));
+		DOUT("Created Entity with id: " + std::to_string(m_id));
 		AddComponent<Transform>();
 
 	}
@@ -52,10 +53,10 @@ public:
 			comp->OnComponentRemove();
 			delete comp;
 			comp = nullptr;
-			DLOG("Removed component from Game Object: " + std::to_string(m_id) + " [Deleted: " + std::to_string(i + 1) + "]");
+			DOUT("Removed component from Game Object: " + std::to_string(m_id) + " [Deleted: " + std::to_string(i + 1) + "]");
 		}
 
-		DLOG("Destroyed Entity with id: " + std::to_string(m_id));
+		DOUT("Destroyed Entity with id: " + std::to_string(m_id));
 	}
 
 	template<class T>
@@ -74,7 +75,7 @@ public:
 		
 		if ((m_componentMask & mask) != 0)
 		{
-			DLOG("Game object '" + std::to_string(m_id) + "' already has component with id: " + std::to_string(mask));
+			DOUT("Game object '" + std::to_string(m_id) + "' already has component with id: " + std::to_string(mask));
 			return GetComponent<T>();
 		}
 
@@ -84,7 +85,7 @@ public:
 
 		m_componentMask |= mask;
 
-		DLOG("Added component with id: " + T::GetName() + " to Game Object: " + std::to_string(m_id) + " [Total: " + std::to_string(m_components.size()) + "]");
+		DOUT("Added component with id: " + T::GetName() + " to Game Object: " + std::to_string(m_id) + " [Total: " + std::to_string(m_components.size()) + "]");
 
 		return comp;
 	}
@@ -159,7 +160,7 @@ public:
 
 		m_componentMask &= (~mask);
 
-		DLOG("Removed component with id: " + T::GetName() + " from Game Object: " + std::to_string(m_id) + " [Total: " + std::to_string(m_components.size()) + "]");
+		DOUT("Removed component with id: " + T::GetName() + " from Game Object: " + std::to_string(m_id) + " [Total: " + std::to_string(m_components.size()) + "]");
 	}
 
 	// Accessors.

@@ -2,10 +2,6 @@
 
 #include "Window/Window.h"
 
-#include "Renderer/VertexBuffer.h"
-#include "Renderer/IndexBuffer.h"
-#include "Renderer/Shader.h"
-
 /***
 =========================================================================================
 ENGINE:
@@ -32,6 +28,13 @@ public:
 
 	inline void StopRunning() { m_running = false; }
 	inline void ResizeWindow(int32 width, int32 height) { m_window->Resize(width, height); }
+
+	inline uint16 GetScreenWidth() const { return m_window->GetWidth(); }
+	inline uint16 GetScreenHeight() const { return m_window->GetHeight(); }
+
+#ifdef _DEBUG
+	std::string dout = "Engine Logging:\n\n";
+#endif
 private:
 	Engine() = default;
 	~Engine() = default;

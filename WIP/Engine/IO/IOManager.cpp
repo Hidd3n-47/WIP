@@ -47,4 +47,19 @@ std::string IOManager::LoadTextFile(const std::string& filePath)
 	return content;
 }
 
+void IOManager::SaveToFile(const std::string& content, const std::string& filePath)
+{
+	m_fileWrite.open(filePath.c_str(), std::ios::out);
+
+	if (m_fileWrite.fail())
+	{
+		ASSERT(false, "Failed to open file.\nFile Path: " + filePath);
+		Log::FatalError("Failed to open file.\nFile Path: " + filePath, ERR_CODE::FAILED_TO_OPEN_FILE);
+	}
+
+	m_fileWrite << content;
+
+	m_fileWrite;
+}
+
 } // Namespace jci.

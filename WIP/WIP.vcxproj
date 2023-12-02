@@ -162,15 +162,16 @@
     <ClCompile Include="Engine\Window\Window.cpp" />
     <ClCompile Include="Engine\Scene\SceneManager.cpp" />
     <ClCompile Include="Engine\Scene\Scene.cpp" />
-    <ClCompile Include="Engine\Renderer\Shader.cpp" />
-    <ClCompile Include="Engine\Renderer\Renderer.cpp" />
+    <ClCompile Include="Engine\Graphics\Renderer\Shader.cpp" />
+    <ClCompile Include="Engine\Graphics\Renderer\Renderer.cpp" />
     <ClCompile Include="Engine\ECS\SpriteRenderer.cpp" />
-    <ClCompile Include="Engine\Renderer\Texture.cpp" />
+    <ClCompile Include="Engine\Graphics\Texture\Texture.cpp" />
     <ClCompile Include="deps\include\stb_image\stb_image.cpp" />
-    <ClCompile Include="Engine\Renderer\IndexBuffer.cpp" />
-    <ClCompile Include="Engine\Renderer\VertexBuffer.cpp" />
-    <ClCompile Include="Engine\Renderer\RendererManager.cpp" />
+    <ClCompile Include="Engine\Graphics\Renderer\IndexBuffer.cpp" />
+    <ClCompile Include="Engine\Graphics\Renderer\VertexBuffer.cpp" />
+    <ClCompile Include="Engine\Graphics\Renderer\RendererManager.cpp" />
     <ClCompile Include="Engine\ECS\Transform.cpp" />
+    <ClCompile Include="Engine\Graphics\Texture\TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Bullet\BulletManager.h" />
@@ -198,15 +199,16 @@
     <ClInclude Include="Engine\Window\Window.h" />
     <ClInclude Include="Engine\Scene\SceneManager.h" />
     <ClInclude Include="Engine\Scene\Scene.h" />
-    <ClInclude Include="Engine\Renderer\Shader.h" />
-    <ClInclude Include="Engine\Renderer\Renderer.h" />
+    <ClInclude Include="Engine\Graphics\Renderer\Shader.h" />
+    <ClInclude Include="Engine\Graphics\Renderer\Renderer.h" />
     <ClInclude Include="Engine\ECS\IComponent.h" />
     <ClInclude Include="Engine\ECS\SpriteRenderer.h" />
-    <ClInclude Include="Engine\Renderer\Texture.h" />
+    <ClInclude Include="Engine\Graphics\Texture\Texture.h" />
     <ClInclude Include="deps\include\stb_image\stb_image.h" />
-    <ClInclude Include="Engine\Renderer\IndexBuffer.h" />
-    <ClInclude Include="Engine\Renderer\VertexBuffer.h" />
-    <ClInclude Include="Engine\Renderer\RendererManager.h" />
+    <ClInclude Include="Engine\Graphics\Renderer\IndexBuffer.h" />
+    <ClInclude Include="Engine\Graphics\Renderer\VertexBuffer.h" />
+    <ClInclude Include="Engine\Graphics\Renderer\RendererManager.h" />
+    <ClInclude Include="Engine\Graphics\Texture\TextureManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Levels\NOLAGROOM.csv" />
@@ -221,6 +223,8 @@
     <Image Include="Assets\Texture\Blank.png" />
     <Image Include="Assets\Texture\Bullet.png" />
     <Image Include="Assets\Texture\circ.png" />
+    <Image Include="Assets\Texture\dbg\dbg_box.png" />
+    <Image Include="Assets\Texture\dbg\no_texture.png" />
     <Image Include="Assets\Texture\Door.png" />
     <Image Include="Assets\Texture\Floor.png" />
     <Image Include="Assets\Texture\Front left wall.png" />

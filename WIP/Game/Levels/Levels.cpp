@@ -4,9 +4,28 @@
 #include <Engine/ECS/BoxCollider.h>
 #include <Engine/ECS/SpriteRenderer.h>
 #include <Engine/IO/IOManager.h>
+#include <Engine/Graphics/Texture/Texture.h>
+#include <Engine/Graphics/Texture/TextureManager.h>
 
 Levels::Levels()
 {
+	wall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/squareWITHAW!!.png");
+	topleftwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Front left wall.png");
+	floor = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Floor.png");
+	toprightwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Front right wall.png");
+	topwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Front wall.png");
+	leftwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Left wall.png");
+	rightwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Right wall.png");
+	botleftwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Back left wall.png");
+	botrightwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Back right wall.png");
+	botwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Back wall.png");
+	door = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Door.png");
+	inversetopleft = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv front left wall.png");
+	inversetopright = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv front right wall.png");
+	inversebotleft = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv back left wall.png");
+	inversebotright = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv back right wall.png");
+
+	DLOG(std::to_string(wall));
 }
 
 Levels::~Levels()
@@ -42,7 +61,7 @@ void Levels::createDoor(float x, float y)
 	//CREATE DOOR;
 	jci::Entity* newDoor = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
 	newDoor->GetComponent<jci::Transform>()->SetPosition({ x,  y });
-	newDoor->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Static);
+	newDoor->AddComponent<jci::BoxCollider>();
 	LevelSquare.push_back(newDoor);
 
 }
@@ -90,134 +109,116 @@ void Levels::LoadLevel(std::string fileString)
 		}
 		else if (i == "0")
 		{
-			//script to create wall at locations
+			//script to create debugwall at locations
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/squareWITHAW!!.png"));
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(wall);
 			currentX += width;//iterate length of singular square
 
 		}
 		else if (i == "1")
 		{
-			jci::DLOG("Front left wall");
-			//script to create wall at locations
+			//script to create top left wall at locations
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Front left wall.png"));
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(topleftwall);
 			currentX += width;//iterate length of singular square
 
 		}
 		else if (i == "2")
 		{
-			jci::DLOG("Floor");
 			//script to create floors at locations
 			createFloor(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>() ->SetTexture(new jci::Texture("Assets/Texture/Floor.png"));
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>() ->SetTexture(floor);
 			currentX += width;//iterate length of singular square
 		}
 		else if (i == "3")
 		{
-			jci::DLOG("Front right wall");
-			//script to create wall at locations
+			//script to create top right wall at locations
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Front right wall.png"));
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(toprightwall);
 			currentX += width;//iterate length of singular square
 		}
 		else if (i == "4")
 		{
-			jci::DLOG("Front wall");
-			//script to create wall at locations
+			//script to create top wall at locations
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Front wall.png"));
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(topwall);
 			currentX += width;//iterate length of singular square
 		}
 		else if (i == "5")
 		{
-			jci::DLOG("Left wall");
-			//script to create wall at locations
+			//script to create left wall at locations
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Left wall.png"));
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(leftwall);
 			currentX += width;//iterate length of singular square
 		}
 		else if (i == "6")
 		{
-			jci::DLOG("Right wall");
-			//script to create wall at locations
+			//script to create right wall at locations
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Right wall.png"));
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(rightwall);
 			currentX += width;//iterate length of singular square
 		}
 		else if (i == "7")
 		{
-			jci::DLOG("Back left wall");
-			//script to create wall at locations
+			//script to create bot left wall at locations
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Back left wall.png"));
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(botleftwall);
 			currentX += width;//iterate length of singular square
 		}
 		else if (i == "8")
 		{
-			jci::DLOG("Back right wall");
-			//script to create wall at locations
+			//script to create bot right wall at locations
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Back right wall.png"));
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(botrightwall);
 			currentX += width;//iterate length of singular square
 		}
 		else if (i == "9")
 		{
-			jci::DLOG("Back wall");
-			//script to create wall at locations
+			//script to create bot wall at locations
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Back wall.png"));
-			currentX += width;//iterate length of singular square
-		}
-		else if (i == "9")
-		{
-			jci::DLOG("Back wall 2");
-			//script to create wall at locations
-			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Back wall.png"));
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(botwall);
 			currentX += width;//iterate length of singular square
 		}
 		else if (i == "10")
 		{
-			jci::DLOG("Door");
+			//doors
 			createDoor(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Door.png"));
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(door);
 			currentX += width;
 		}
 		else if (i == "11")//inv topleft
 		{
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Inv front left wall.png"));
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(inversetopleft);
 			currentX += width;
 		}
 		else if (i == "12")//inv front right
 		{
 
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Inv front right wall.png"));
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(inversetopright);
 			currentX += width;
 		}
 		else if (i == "13")//inv back left
 		{
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Inv back left wall.png"));
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(inversebotleft);
 			currentX += width;
 		}
 		else if (i == "14")// inv back right
 		{
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Inv back right wall.png"));
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(inversebotright);
 			currentX += width;
 		}
-		else if (i == "89")
+		else if (i == "89")//spawnpoint
 		{
-			jci::DLOG("Floor");
 			createSpawnPoint(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(new jci::Texture("Assets/Texture/Floor.png"));
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(floor);
 			currentX += width;//iterate length of singular square
 
 		}
-		else if (i == "99")
+		else if (i == "99")//empty
 		{
 			//empty space
 			currentX += width;

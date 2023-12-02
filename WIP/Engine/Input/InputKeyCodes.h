@@ -2,7 +2,7 @@
 
 namespace jci {
 
-typedef enum
+enum
 {
 	Keycode_Unknown = 0,
 	Keycode_Return = '\r',

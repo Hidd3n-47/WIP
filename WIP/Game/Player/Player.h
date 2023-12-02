@@ -32,5 +32,9 @@ private:
 	//jci::Scene* m_currentScene;
 	jci::Entity* playChar;
 	std::vector<Bullet*> bulletPool;
+	uint32 m_bulletTexture;
+
+	const float m_width;
+	const float m_height;
 };
 
