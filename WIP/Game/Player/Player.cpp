@@ -13,6 +13,7 @@ Player::Player() :
 {
 	m_currentScene = nullptr;
 	playChar = nullptr;
+	m_position = nullptr;
 }
 
 Player::~Player()
@@ -31,6 +32,7 @@ void Player::Create(jci::Scene* scene, Levels map)
 	playChar->AddComponent<jci::SpriteRenderer>()->SetTexture(text);
 	jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::NoTexture);
 	playChar->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
+	m_position = &playChar->GetComponent<jci::Transform>()->GetPosition();
 }
 
 void Player::FireGun()
@@ -43,13 +45,14 @@ void Player::FireGun()
 	bulletObj->GetComponent<jci::Transform>()->SetPosition(playChar->GetComponent<jci::Transform>()->GetPosition());
 	bulletObj->AddComponent<jci::SpriteRenderer>()->SetTexture(m_bulletTexture);
 	bulletObj->GetComponent<jci::SpriteRenderer>()->SetSize({0.1f, 0.05f});
-	bulletObj->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
-	bulletObj->GetComponent<jci::BoxCollider>()->SetSize({ 0.1f, 0.05f });
+	//bulletObj->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
+	//bulletObj->GetComponent<jci::BoxCollider>()->SetSize({ 0.1f, 0.05f });
 
 	vec2 moveDirection = jci::InputManager::Instance()->GetMousePosition() - vec2(m_width * 0.5f, m_height * 0.5f);
 	moveDirection = glm::normalize(moveDirection);
 	moveDirection.y *= -1;
-	
+	moveDirection.x = moveDirection.x / 5;
+	moveDirection.y = moveDirection.y / 5;
 	Bullet* aBullet = new Bullet(bulletObj, moveDirection);
 	bulletPool.push_back(aBullet);
 	//bulletPool.at(num)->GetComponent<jci::Transform>()->SetPosition({});
@@ -85,16 +88,21 @@ void Player::Update()
 
 	direction *= SPEED;
 
-	playChar->GetComponent<jci::Transform>()->AddToPosition(direction);
+	//playChar->GetComponent<jci::Transform>()->AddToPosition(direction);
+	m_position->AddToPosition(direction);
+	
 
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Left))
 	{
 		FireGun();
 	}
 	jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->SetPosition(playChar->GetComponent<jci::Transform>()->GetPosition());
-	for(Bullet* b : bulletPool)
+	for(int i = 0; i < bulletPool.size();i++)
 	{
-		b->body->GetComponent<jci::Transform>()->AddToPosition(b->direction);
-		DLOG("(" + std::to_string(b->body->GetComponent<jci::Transform>()->GetPosition().x) + "," + std::to_string(b->body->GetComponent<jci::Transform>()->GetPosition().y) + ")");
+		bulletPool.at(i)->body->GetComponent<jci::Transform>()->AddToPosition(bulletPool.at(i)->direction);
+		if (bulletPool.at(i)->GetSpawnTime() + 5000 == SDL_GetTicks())
+		{
+			DLOG("Despawn");
+		}
 	}
 }

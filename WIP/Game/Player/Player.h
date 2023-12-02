@@ -33,6 +33,7 @@ private:
 	jci::Entity* playChar;
 	std::vector<Bullet*> bulletPool;
 	uint32 m_bulletTexture;
+	vec2* m_position;
 
 	const float m_width;
 	const float m_height;
