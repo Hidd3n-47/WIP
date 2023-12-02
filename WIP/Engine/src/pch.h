@@ -13,4 +13,5 @@
 
 #include "wip.h"
 #include "Logger/Log.h"
+#include "src/Engine.h"
 #include "Utilities/Utils.h"

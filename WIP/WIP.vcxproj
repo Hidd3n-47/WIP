@@ -223,6 +223,8 @@
     <Image Include="Assets\Texture\Blank.png" />
     <Image Include="Assets\Texture\Bullet.png" />
     <Image Include="Assets\Texture\circ.png" />
+    <Image Include="Assets\Texture\dbg\dbg_box.png" />
+    <Image Include="Assets\Texture\dbg\no_texture.png" />
     <Image Include="Assets\Texture\Door.png" />
     <Image Include="Assets\Texture\Floor.png" />
     <Image Include="Assets\Texture\Front left wall.png" />

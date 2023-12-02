@@ -16,7 +16,7 @@ void TextureManager::Init()
 
 uint32 TextureManager::CreateTexture(const std::string& filePath)
 {
-	DLOG("Created texture " + filePath);
+	DOUT("Created texture " + filePath);
 	m_textures[m_index] = new Texture(filePath);
 
 	return m_index++;

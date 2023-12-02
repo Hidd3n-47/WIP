@@ -277,5 +277,11 @@
     <Image Include="Assets\Texture\squareWITHAW!!.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Assets\Texture\dbg\dbg_box.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Texture\dbg\no_texture.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

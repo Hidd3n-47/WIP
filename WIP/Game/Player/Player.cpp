@@ -59,26 +59,31 @@ void Player::Update()
 {
 	vec2 direction = vec2(0.0f);
 
-	const float SPEED = 0.05f;
+	const float SPEED = 0.15f;
 
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_w))
 	{
-		direction += vec2(0.0f, SPEED);
+		direction += vec2(0.0f, 1.0f);
 	}
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_s))
 	{
-		direction += vec2(0.0f, -SPEED);
+		direction += vec2(0.0f, -1.0f);
 	}
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_a))
 	{
-		direction += vec2(-SPEED, 0.0f);
+		direction += vec2(-1.0f, 0.0f);
 	}
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_d))
 	{
-		direction += vec2(SPEED, 0.0f);
+		direction += vec2(1.0f, 0.0f);
 	}
 
-	glm::normalize(direction);
+	if (direction != vec2(0.0f))
+	{
+		direction = glm::normalize(direction);
+	}
+
+	direction *= SPEED;
 
 	playChar->GetComponent<jci::Transform>()->AddToPosition(direction);
 
