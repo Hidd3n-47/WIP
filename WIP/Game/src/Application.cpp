@@ -32,12 +32,15 @@ void Application::Create()
 	m_test3->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);*/
 	p1 = new Player();
 	p1->Create(m_currentScene, map);
+	z1 = new Zombie();
+	z1->Create(m_currentScene, map, p1);
 }
 
 void Application::Update(float dt)
 {
 
 	p1->Update(dt);
+	z1->Update();
 	/*if (jci::InputManager::Instance()->IsKeyPressed(SDL_KeyCode::SDLK_w))
 
 	{

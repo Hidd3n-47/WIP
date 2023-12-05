@@ -172,6 +172,7 @@
     <ClCompile Include="Engine\Graphics\Renderer\RendererManager.cpp" />
     <ClCompile Include="Engine\ECS\Transform.cpp" />
     <ClCompile Include="Engine\Graphics\Texture\TextureManager.cpp" />
+    <ClCompile Include="Game\Zombie\Zombie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Bullet\BulletManager.h" />
@@ -209,6 +210,7 @@
     <ClInclude Include="Engine\Graphics\Renderer\VertexBuffer.h" />
     <ClInclude Include="Engine\Graphics\Renderer\RendererManager.h" />
     <ClInclude Include="Engine\Graphics\Texture\TextureManager.h" />
+    <ClInclude Include="Game\Zombie\Zombie.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Levels\NOLAGROOM.csv" />
@@ -230,6 +232,7 @@
     <Image Include="Assets\Texture\Front left wall.png" />
     <Image Include="Assets\Texture\Front right wall.png" />
     <Image Include="Assets\Texture\Front wall.png" />
+    <Image Include="Assets\Texture\green.png" />
     <Image Include="Assets\Texture\Inv back left wall.png" />
     <Image Include="Assets\Texture\Inv back right wall.png" />
     <Image Include="Assets\Texture\Inv front left wall.png" />

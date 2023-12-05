@@ -5,21 +5,23 @@
 #include <Engine/src/Engine.h>
 #include <Engine/Graphics/Texture/Texture.h>
 
-//Player* Player::m_instance = nullptr;
-
 Player::Player() :
 	m_width((float)jci::Engine::Instance()->GetScreenWidth()),
 	m_height((float)jci::Engine::Instance()->GetScreenHeight())
 {
 	m_currentScene = nullptr;
 	playChar = nullptr;
-	m_position = nullptr;
 	canFire = true;
 	reloadSpeed = 2;
 	reloadDashSpeed = 2;
 	fireTime = 0;
 	gunfireTimer = 0;
 	isDashing = false;
+}
+
+vec2 Player::GetPos()
+{
+	return m_position;
 }
 
 Player::~Player()
@@ -125,6 +127,7 @@ void Player::Update(float time)
 		direction *= SPEED;
 		playChar->GetComponent<jci::Transform>()->AddToPosition(direction);
 	}
+	m_position = playChar->GetComponent<jci::Transform>()->GetPosition();
 	//m_position->AddToPosition(direction);
 	
 
@@ -150,7 +153,8 @@ void Player::Update(float time)
 		if (bulletPool.at(i)->GetSpawnTime() + 5000 <= SDL_GetTicks() && bulletPool.at(i)->GetMove())
 		{
 			DLOG("Despawn");
-			bulletPool.at(i)->SetMove(false);
+			bulletPool.at(i)->body->GetComponent<jci::Transform>()->SetPosition(vec2(100,100));
+			bulletPool.at(i)->Delete();
 		}
 	}
 	backupDirection = direction;

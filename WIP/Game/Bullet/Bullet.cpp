@@ -19,9 +19,9 @@ bool Bullet::GetMove()
 	return isMove;
 }
 
-void Bullet::SetMove(bool moves)
+void Bullet::Delete()
 {
-	isMove = moves;
+	isMove = false;
 }
 
 int Bullet::GetSpawnTime()

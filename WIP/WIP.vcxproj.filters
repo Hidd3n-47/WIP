@@ -99,6 +99,9 @@
     <ClCompile Include="Engine\Graphics\Texture\TextureManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Zombie\Zombie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\src\Engine.h">
@@ -206,6 +209,9 @@
     <ClInclude Include="Engine\Graphics\Texture\TextureManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Zombie\Zombie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shader\shader.frag" />
@@ -281,6 +287,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Assets\Texture\dbg\no_texture.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Texture\green.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
