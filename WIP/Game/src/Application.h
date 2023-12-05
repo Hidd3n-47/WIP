@@ -3,6 +3,7 @@
 #include <Engine/Scene/SceneManager.h>
 #include <Engine/ECS/Entity.h>
 #include <Game/Player/Player.h>
+#include <Game/Zombie/Zombie.h>
 #include <vector>
 
 class Application
@@ -24,5 +25,6 @@ private:
 	jci::Entity* m_test3;
 	std::vector<jci::Entity*> UpdatePool;
 	Player* p1;
+	Zombie* z1;
 };
 
