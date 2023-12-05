@@ -48,7 +48,8 @@ void Engine::Init()
 	uint32 glInit = glewInit();
 	ASSERT(glInit == 0, "Failed to initialise OpenGL. Error Code: " + std::to_string(glInit));
 
-	ASSERT(!SDL_GL_SetSwapInterval(0), "Failed to turn off VSYNC.");
+	uint32 vsyncDisable = SDL_GL_SetSwapInterval(0);
+	ASSERT(vsyncDisable == 0, "Failed to turn off VSYNC.");
 
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -70,13 +71,13 @@ void Engine::Run()
 
 		InputManager::Instance()->Update();
 
-		SceneManager::Instance()->UpdateCurrentScene(dt);
 
 		Application::Instance()->Update(dt);
 
 		CollisionManager::Instance()->Update(dt); // Question: Is dt needed in collision Manager?
 
 		AfterUpdate();
+		SceneManager::Instance()->UpdateCurrentScene(dt);
 
 		Render();
 	}

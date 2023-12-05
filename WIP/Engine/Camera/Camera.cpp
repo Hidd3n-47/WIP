@@ -12,6 +12,13 @@ Camera::Camera(float left, float right, float top, float bottom) :
 	m_viewProjMat = m_projMat * m_viewMat;
 }
 
+void Camera::Update()
+{
+	if (!m_followPosition) { return; }
+
+	SetPosition(*m_followPosition);
+}
+
 void Camera::RecalculateViewMatrix()
 {
 	glm::mat4 transform = glm::translate(mat4(1.0f), vec3(m_position, 0.0f)) * glm::rotate(mat4(1.0f), glm::radians(m_rotation), glm::vec3(0.0f, 0.0f, 1.0f));
