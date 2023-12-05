@@ -41,6 +41,7 @@ private:
 	bool isDashing;
 	float fireTime;
 	float gunfireTimer;
+	float dashTimer;
 	int reloadSpeed; //GET FROM GUN LATER
 	int reloadDashSpeed;
 	vec2 backupDirection = vec2(0.0f);

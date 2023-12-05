@@ -17,6 +17,7 @@ Player::Player() :
 	fireTime = 0;
 	gunfireTimer = 0;
 	isDashing = false;
+	dashTimer = 0;
 }
 
 vec2 Player::GetPos()
@@ -69,7 +70,7 @@ void Player::FireGun()
 
 void Player::Update(float time) 
 {
-	
+	dashTimer += time;
 	gunfireTimer += time;
 	vec2 direction = vec2(0.0f);
 	const float SPEED = 0.15f;
@@ -95,7 +96,7 @@ void Player::Update(float time)
 	}
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_Space) && !isDashing)
 	{
-		DLOG("Dash");
+		//DLOG("Dash");
 		if (direction == vec2(0.0f,0.0f))
 		{
 			backupDirection = vec2(0.0f,1.0f);
@@ -104,8 +105,9 @@ void Player::Update(float time)
 		{
 			backupDirection = direction;
 		}
-		if (gunfireTimer+2 >= reloadDashSpeed)
+		if (dashTimer >= reloadDashSpeed)
 		{
+			dashTimer = 0;
 			isDashing = true;
 		}
 	}
@@ -121,6 +123,7 @@ void Player::Update(float time)
 		{
 			canFire = true;
 			isDashing = false;
+			dashTimer = 0;
 		}
 		backupDirection *= SPEED * 11;
 		playChar->GetComponent<jci::Transform>()->AddToPosition(backupDirection);
@@ -145,6 +148,10 @@ void Player::Update(float time)
 		canFire = true;
 		gunfireTimer = 0;
 		DLOG("Can fire again");
+	}
+	if (dashTimer >= reloadDashSpeed && dashTimer == false)
+	{
+		dashTimer = 0;
 	}
 	jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->SetPosition(playChar->GetComponent<jci::Transform>()->GetPosition());
 	for(int i = 0; i < bulletPool.size();i++)
