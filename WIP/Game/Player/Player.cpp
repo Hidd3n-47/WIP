@@ -16,8 +16,10 @@ Player::Player() :
 	m_position = nullptr;
 	canFire = true;
 	reloadSpeed = 2;
+	reloadDashSpeed = 2;
 	fireTime = 0;
 	gunfireTimer = 0;
+	isDashing = false;
 }
 
 Player::~Player()
@@ -65,36 +67,64 @@ void Player::FireGun()
 
 void Player::Update(float time) 
 {
+	
 	gunfireTimer += time;
 	vec2 direction = vec2(0.0f);
-
 	const float SPEED = 0.15f;
-
-	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_w))
+	if (!isDashing)
 	{
-		direction += vec2(0.0f, 1.0f);
+		if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_w))
+		{
+			direction += vec2(0.0f, 1.0f);
+		}
+		if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_s))
+		{
+			direction += vec2(0.0f, -1.0f);
+		}
+		if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_a))
+		{
+			direction += vec2(-1.0f, 0.0f);
+		}
+		if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_d))
+		{
+			direction += vec2(1.0f, 0.0f);
+		}
+		//DLOG("Not Dashing");
 	}
-	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_s))
+	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_Space) && !isDashing)
 	{
-		direction += vec2(0.0f, -1.0f);
+		DLOG("Dash");
+		if (direction == vec2(0.0f,0.0f))
+		{
+			backupDirection = vec2(0.0f,1.0f);
+		}
+		else
+		{
+			backupDirection = direction;
+		}
+		isDashing = true;
 	}
-	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_a))
-	{
-		direction += vec2(-1.0f, 0.0f);
-	}
-	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_d))
-	{
-		direction += vec2(1.0f, 0.0f);
-	}
-
 	if (direction != vec2(0.0f))
 	{
 		direction = glm::normalize(direction);
 	}
-
-	direction *= SPEED;
-
-	playChar->GetComponent<jci::Transform>()->AddToPosition(direction);
+	if (isDashing)
+	{
+		canFire = false;
+		
+		if (gunfireTimer >= reloadDashSpeed)
+		{
+			canFire = true;
+			isDashing = false;
+		}
+		backupDirection *= SPEED * 11;
+		playChar->GetComponent<jci::Transform>()->AddToPosition(backupDirection);
+	}
+	else
+	{
+		direction *= SPEED;
+		playChar->GetComponent<jci::Transform>()->AddToPosition(direction);
+	}
 	//m_position->AddToPosition(direction);
 	
 
@@ -104,7 +134,7 @@ void Player::Update(float time)
 		//fireTime = SDL_GetTicks();
 		canFire = false;
 	}
-	else if (gunfireTimer >= reloadSpeed && canFire == false)
+	else if (gunfireTimer >= reloadSpeed && canFire == false && !isDashing)
 	{
 		canFire = true;
 		gunfireTimer = 0;
@@ -123,4 +153,5 @@ void Player::Update(float time)
 			bulletPool.at(i)->SetMove(false);
 		}
 	}
+	backupDirection = direction;
 }

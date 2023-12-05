@@ -38,8 +38,12 @@ private:
 	const float m_width;
 	const float m_height;
 	bool canFire;
+	bool isDashing;
 	float fireTime;
 	float gunfireTimer;
 	int reloadSpeed; //GET FROM GUN LATER
+	int reloadDashSpeed;
+	vec2 backupDirection = vec2(0.0f);
+
 };
 

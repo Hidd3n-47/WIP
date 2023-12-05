@@ -25,7 +25,7 @@ Levels::Levels()
 	inversebotleft = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv back left wall.png");
 	inversebotright = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv back right wall.png");
 
-	DLOG(std::to_string(wall));
+	//DLOG(std::to_string(wall));
 }
 
 Levels::~Levels()
