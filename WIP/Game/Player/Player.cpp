@@ -104,7 +104,10 @@ void Player::Update(float time)
 		{
 			backupDirection = direction;
 		}
-		isDashing = true;
+		if (gunfireTimer+2 >= reloadDashSpeed)
+		{
+			isDashing = true;
+		}
 	}
 	if (direction != vec2(0.0f))
 	{
