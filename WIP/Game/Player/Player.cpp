@@ -14,6 +14,10 @@ Player::Player() :
 	m_currentScene = nullptr;
 	playChar = nullptr;
 	m_position = nullptr;
+	canFire = true;
+	reloadSpeed = 2;
+	fireTime = 0;
+	gunfireTimer = 0;
 }
 
 Player::~Player()
@@ -32,7 +36,7 @@ void Player::Create(jci::Scene* scene, Levels map)
 	playChar->AddComponent<jci::SpriteRenderer>()->SetTexture(text);
 	jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::NoTexture);
 	playChar->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
-	m_position = &playChar->GetComponent<jci::Transform>()->GetPosition();
+	//m_position = *(playChar->GetComponent<jci::Transform>()->GetPosition());
 }
 
 void Player::FireGun()
@@ -45,8 +49,8 @@ void Player::FireGun()
 	bulletObj->GetComponent<jci::Transform>()->SetPosition(playChar->GetComponent<jci::Transform>()->GetPosition());
 	bulletObj->AddComponent<jci::SpriteRenderer>()->SetTexture(m_bulletTexture);
 	bulletObj->GetComponent<jci::SpriteRenderer>()->SetSize({0.1f, 0.05f});
-	//bulletObj->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
-	//bulletObj->GetComponent<jci::BoxCollider>()->SetSize({ 0.1f, 0.05f });
+	bulletObj->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
+	bulletObj->GetComponent<jci::BoxCollider>()->SetSize({ 0.1f, 0.05f });
 
 	vec2 moveDirection = jci::InputManager::Instance()->GetMousePosition() - vec2(m_width * 0.5f, m_height * 0.5f);
 	moveDirection = glm::normalize(moveDirection);
@@ -54,12 +58,14 @@ void Player::FireGun()
 	moveDirection.x = moveDirection.x / 5;
 	moveDirection.y = moveDirection.y / 5;
 	Bullet* aBullet = new Bullet(bulletObj, moveDirection);
+	aBullet->body->GetComponent<jci::Transform>()->AddToPosition(aBullet->direction*2.0f);
 	bulletPool.push_back(aBullet);
 	//bulletPool.at(num)->GetComponent<jci::Transform>()->SetPosition({});
 }
 
-void Player::Update()
+void Player::Update(float time) 
 {
+	gunfireTimer += time;
 	vec2 direction = vec2(0.0f);
 
 	const float SPEED = 0.15f;
@@ -88,21 +94,33 @@ void Player::Update()
 
 	direction *= SPEED;
 
-	//playChar->GetComponent<jci::Transform>()->AddToPosition(direction);
-	m_position->AddToPosition(direction);
+	playChar->GetComponent<jci::Transform>()->AddToPosition(direction);
+	//m_position->AddToPosition(direction);
 	
 
-	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Left))
+	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Left) && canFire == true)
 	{
 		FireGun();
+		//fireTime = SDL_GetTicks();
+		canFire = false;
+	}
+	else if (gunfireTimer >= reloadSpeed && canFire == false)
+	{
+		canFire = true;
+		gunfireTimer = 0;
+		DLOG("Can fire again");
 	}
 	jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->SetPosition(playChar->GetComponent<jci::Transform>()->GetPosition());
 	for(int i = 0; i < bulletPool.size();i++)
 	{
-		bulletPool.at(i)->body->GetComponent<jci::Transform>()->AddToPosition(bulletPool.at(i)->direction);
-		if (bulletPool.at(i)->GetSpawnTime() + 5000 == SDL_GetTicks())
+		if (bulletPool.at(i)->GetMove())
+		{
+			bulletPool.at(i)->body->GetComponent<jci::Transform>()->AddToPosition(bulletPool.at(i)->direction);
+		}
+		if (bulletPool.at(i)->GetSpawnTime() + 5000 <= SDL_GetTicks() && bulletPool.at(i)->GetMove())
 		{
 			DLOG("Despawn");
+			bulletPool.at(i)->SetMove(false);
 		}
 	}
 }

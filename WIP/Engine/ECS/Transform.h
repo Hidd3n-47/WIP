@@ -31,7 +31,7 @@ public:
 	* Get the position of the Transform Component.
 	* 
 	*/
-	inline vec2 GetPosition() const { return m_position; }
+	inline vec2 GetPosition() { return m_position; }
 	/***
 	* Get the scale of the Transform Component.
 	*

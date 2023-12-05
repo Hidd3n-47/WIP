@@ -24,7 +24,7 @@ public:
 	//inline static Player* Instance() { return m_instance == nullptr ? m_instance = new Player() : m_instance; }
 	void Create(jci::Scene* scene, Levels map);
 	void FireGun();
-	void Update();
+	void Update(float time);
 	//inline void Destroy() { delete m_instance; }
 	jci::Scene* m_currentScene;
 private:
@@ -37,5 +37,9 @@ private:
 
 	const float m_width;
 	const float m_height;
+	bool canFire;
+	float fireTime;
+	float gunfireTimer;
+	int reloadSpeed; //GET FROM GUN LATER
 };
 

@@ -17,9 +17,12 @@ struct Bullet
 	void Update();
 	int GetSpawnTime();
 	void Destroy();
+	bool GetMove();
+	void SetMove(bool moves);
 
 	jci::Entity* body;
 	vec2 direction;
 	int spawnTime;
+	bool isMove;
 };
 
