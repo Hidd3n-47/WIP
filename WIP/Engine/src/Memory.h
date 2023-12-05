@@ -7,19 +7,19 @@ struct
 	uint32 _freed = 0;
 } MEM_ALLOCATION;
 
-// 'new' Keyword override.
-void* operator new(size_t size)
-{
-	MEM_ALLOCATION._allocated += (uint32)size;
-	return malloc(size);
-}
-
-// 'delete' Keyword override.
-void operator delete(void* memory, size_t size)
-{
-	MEM_ALLOCATION._freed += (uint32)size;
-	free(memory);
-}
+//// 'new' Keyword override.
+//void* operator new(size_t size)
+//{
+//	MEM_ALLOCATION._allocated += (uint32)size;
+//	return malloc(size);
+//}
+//
+//// 'delete' Keyword override.
+//void operator delete(void* memory, size_t size)
+//{
+//	MEM_ALLOCATION._freed += (uint32)size;
+//	free(memory);
+//}
 
 void PrintMemory()
 {

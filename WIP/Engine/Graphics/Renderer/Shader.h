@@ -14,6 +14,7 @@ public:
 
 	// Uploades.
 	void UploadUniformInt(const std::string& name, int i);
+	void UploadUniformIntArray(const std::string& name, int* i, uint32 count);
 	void UploadUniformFloat4(const std::string& name, float f0, float f1, float f2, float f3);
 	void UploadUniformVec2(const std::string& name, vec2 vector);
 	void UploadUniformMat4(const std::string& name, const mat4& matrix);

@@ -22,6 +22,9 @@ void Engine::Init()
 	int sdlInit = SDL_Init(SDL_INIT_EVERYTHING);
 	ASSERT(sdlInit == 0, "Failed to initialise SDL.");
 
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 6);
+
 	m_window = std::unique_ptr<Window>(Window::Create());
 
 #ifdef _DEBUG
@@ -38,17 +41,19 @@ void Engine::Init()
 	std::cout << std::endl;
 #endif
 
-	Renderer::Init();
-
 	SceneManager::Instance()->SetCurrentScene(SceneManager::Instance()->CreateScene("MainScene"));
 
 	TextureManager::Instance()->Init();
 
 	uint32 glInit = glewInit();
 	ASSERT(glInit == 0, "Failed to initialise OpenGL. Error Code: " + std::to_string(glInit));
-	
+
+	ASSERT(!SDL_GL_SetSwapInterval(0), "Failed to turn off VSYNC.");
+
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+	RendererManager::Instance()->Init();
 
 	Application::Instance()->Create();
 }
@@ -60,6 +65,8 @@ void Engine::Run()
 		float dt = Time::Instance()->Tick();
 
 		m_window->Update();
+
+		RendererManager::Instance()->Begin();
 
 		InputManager::Instance()->Update();
 
@@ -108,7 +115,7 @@ void Engine::Render()
 	glClearDepth(1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	RendererManager::Instance()->RenderUpdate();
+	RendererManager::Instance()->End();
 }
 
 } // Namespace jci.
