@@ -1,9 +1,7 @@
 #include "pch.h"
 #include "Shader.h"
 
-#include <sstream>
-#include <fstream>
-#include <gl/glew.h>
+#include "IO/IOManager.h"
 
 namespace jci {
 
@@ -30,12 +28,16 @@ void Shader::Bind()
 void Shader::Unbind()
 {
 	glUseProgram(0);
-
 }
 
 void Shader::UploadUniformInt(const std::string& name, int i)
 {
 	glUniform1i(GetUniformLocation(name), i);
+}
+
+void Shader::UploadUniformIntArray(const std::string& name, int* i, uint32 count)
+{
+	glUniform1iv(GetUniformLocation(name), count, i);
 }
 
 void Shader::UploadUniformFloat4(const std::string& name, float f0, float f1, float f2, float f3)
@@ -55,17 +57,7 @@ void Shader::UploadUniformMat4(const std::string& name, const mat4& matrix)
 
 std::string Shader::ParseShader(const std::string& file)
 {
-	std::ifstream fin(file);
-	std::stringstream ss;
-	std::string line;
-	while (getline(fin, line))
-	{
-		ss << line << '\n';
-	}
-
-	std::string str = ss.str();
-	ss.flush();
-	return str;
+	return IOManager::Instance()->LoadTextFile(file);
 }
 
 unsigned int Shader::CompileShader(unsigned int type, const std::string& source)

@@ -28,6 +28,8 @@ Scene::~Scene()
 
 Entity* Scene::CreateEmptyEntity()
 {
+	if (m_entityIndex == 0)
+		std::cout << 0 << std::endl;
 	Entity* go = new Entity(m_entityIndex++);
 	ASSERT(m_entityIndex != (1 << 16) - 1, "Reached maxed amount of Game Objects created.");
 	m_entitys.push_back(go);

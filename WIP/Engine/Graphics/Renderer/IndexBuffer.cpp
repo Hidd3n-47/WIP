@@ -6,11 +6,18 @@
 namespace jci
 {
 
+IndexBuffer::IndexBuffer(uint32 count)
+{
+	glCreateBuffers(1, &m_id);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_id);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(uint32), nullptr, GL_DYNAMIC_DRAW);
+}
+
 IndexBuffer::IndexBuffer(uint32* indices, uint32 count)
 {
 	glCreateBuffers(1, &m_id);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_id);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(uint32), indices, GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(uint32), indices, GL_DYNAMIC_DRAW);
 }
 
 IndexBuffer::~IndexBuffer()

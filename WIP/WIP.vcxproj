@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\Graphics\Renderer\VertexArray.cpp" />
     <ClCompile Include="Game\Bullet\BulletManager.cpp" />
     <ClCompile Include="Game\Bullet\Bullet.cpp" />
     <ClCompile Include="Engine\Collision\CollisionManager.cpp" />
@@ -174,6 +175,8 @@
     <ClCompile Include="Engine\Graphics\Texture\TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine\Graphics\Renderer\Vertex.h" />
+    <ClInclude Include="Engine\Graphics\Renderer\VertexArray.h" />
     <ClInclude Include="Game\Bullet\BulletManager.h" />
     <ClInclude Include="Game\Bullet\Bullet.h" />
     <ClInclude Include="Engine\Collision\CollisionManager.h" />

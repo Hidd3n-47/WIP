@@ -32,7 +32,7 @@ void Player::Create(jci::Scene* scene, Levels map)
 	playChar->AddComponent<jci::SpriteRenderer>()->SetTexture(text);
 	jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::NoTexture);
 	playChar->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
-	m_position = &playChar->GetComponent<jci::Transform>()->GetPosition();
+	//m_position = &playChar->GetComponent<jci::Transform>()->GetPosition();
 }
 
 void Player::FireGun()
@@ -88,8 +88,8 @@ void Player::Update()
 
 	direction *= SPEED;
 
-	//playChar->GetComponent<jci::Transform>()->AddToPosition(direction);
-	m_position->AddToPosition(direction);
+	playChar->GetComponent<jci::Transform>()->AddToPosition(direction);
+	//m_position->AddToPosition(direction);
 	
 
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Left))
