@@ -467,60 +467,867 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 132 [Total:
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 132 [Total: 3]
 Created texture Assets/Texture/Scientist.png
 Created texture Assets/Texture/Bullet.png
+Created texture Assets/Texture/Weapons/Bowie Knife.png
+Created texture Assets/Texture/Blank.png
 Created Entity with id: 133
 Added component with id: ComponentTypes::Transform to Game Object: 133 [Total: 1]
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 133 [Total: 2]
-Added component with id: ComponentTypes::BoxCollider to Game Object: 133 [Total: 3]
-Created texture Assets/Texture/green.png
 Created Entity with id: 134
 Added component with id: ComponentTypes::Transform to Game Object: 134 [Total: 1]
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 134 [Total: 2]
 Added component with id: ComponentTypes::BoxCollider to Game Object: 134 [Total: 3]
+Created texture Assets/Texture/Zomb.png
 Created Entity with id: 135
 Added component with id: ComponentTypes::Transform to Game Object: 135 [Total: 1]
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 135 [Total: 2]
-Created Entity with id: 136
-Added component with id: ComponentTypes::Transform to Game Object: 136 [Total: 1]
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 136 [Total: 2]
-Created Entity with id: 137
-Added component with id: ComponentTypes::Transform to Game Object: 137 [Total: 1]
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 137 [Total: 2]
-Created Entity with id: 138
-Added component with id: ComponentTypes::Transform to Game Object: 138 [Total: 1]
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 138 [Total: 2]
-Created Entity with id: 139
-Added component with id: ComponentTypes::Transform to Game Object: 139 [Total: 1]
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 139 [Total: 2]
-Created Entity with id: 140
-Added component with id: ComponentTypes::Transform to Game Object: 140 [Total: 1]
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 140 [Total: 2]
-Created Entity with id: 141
-Added component with id: ComponentTypes::Transform to Game Object: 141 [Total: 1]
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 141 [Total: 2]
-Created Entity with id: 142
-Added component with id: ComponentTypes::Transform to Game Object: 142 [Total: 1]
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 142 [Total: 2]
-Created Entity with id: 143
-Added component with id: ComponentTypes::Transform to Game Object: 143 [Total: 1]
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 143 [Total: 2]
-Created Entity with id: 144
-Added component with id: ComponentTypes::Transform to Game Object: 144 [Total: 1]
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 144 [Total: 2]
-Created Entity with id: 145
-Added component with id: ComponentTypes::Transform to Game Object: 145 [Total: 1]
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 145 [Total: 2]
-Created Entity with id: 146
-Added component with id: ComponentTypes::Transform to Game Object: 146 [Total: 1]
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 146 [Total: 2]
-Created Entity with id: 147
-Added component with id: ComponentTypes::Transform to Game Object: 147 [Total: 1]
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 147 [Total: 2]
-Created Entity with id: 148
-Added component with id: ComponentTypes::Transform to Game Object: 148 [Total: 1]
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 148 [Total: 2]
-Created Entity with id: 149
-Added component with id: ComponentTypes::Transform to Game Object: 149 [Total: 1]
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 149 [Total: 2]
+Added component with id: ComponentTypes::BoxCollider to Game Object: 135 [Total: 3]
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
+Game object '133' already has component with id: 2
 Removed component from Game Object: 0 [Deleted: 1]
 Removed component from Game Object: 0 [Deleted: 2]
 Removed component from Game Object: 0 [Deleted: 3]
@@ -946,79 +1753,4 @@ Removed component from Game Object: 126 [Deleted: 3]
 Destroyed Entity with id: 126
 Removed component from Game Object: 127 [Deleted: 1]
 Removed component from Game Object: 127 [Deleted: 2]
-Removed component from Game Object: 127 [Deleted: 3]
-Destroyed Entity with id: 127
-Removed component from Game Object: 128 [Deleted: 1]
-Removed component from Game Object: 128 [Deleted: 2]
-Removed component from Game Object: 128 [Deleted: 3]
-Destroyed Entity with id: 128
-Removed component from Game Object: 129 [Deleted: 1]
-Removed component from Game Object: 129 [Deleted: 2]
-Removed component from Game Object: 129 [Deleted: 3]
-Destroyed Entity with id: 129
-Removed component from Game Object: 130 [Deleted: 1]
-Removed component from Game Object: 130 [Deleted: 2]
-Removed component from Game Object: 130 [Deleted: 3]
-Destroyed Entity with id: 130
-Removed component from Game Object: 131 [Deleted: 1]
-Removed component from Game Object: 131 [Deleted: 2]
-Removed component from Game Object: 131 [Deleted: 3]
-Destroyed Entity with id: 131
-Removed component from Game Object: 132 [Deleted: 1]
-Removed component from Game Object: 132 [Deleted: 2]
-Removed component from Game Object: 132 [Deleted: 3]
-Destroyed Entity with id: 132
-Removed component from Game Object: 133 [Deleted: 1]
-Removed component from Game Object: 133 [Deleted: 2]
-Removed component from Game Object: 133 [Deleted: 3]
-Destroyed Entity with id: 133
-Removed component from Game Object: 134 [Deleted: 1]
-Removed component from Game Object: 134 [Deleted: 2]
-Removed component from Game Object: 134 [Deleted: 3]
-Destroyed Entity with id: 134
-Removed component from Game Object: 135 [Deleted: 1]
-Removed component from Game Object: 135 [Deleted: 2]
-Destroyed Entity with id: 135
-Removed component from Game Object: 136 [Deleted: 1]
-Removed component from Game Object: 136 [Deleted: 2]
-Destroyed Entity with id: 136
-Removed component from Game Object: 137 [Deleted: 1]
-Removed component from Game Object: 137 [Deleted: 2]
-Destroyed Entity with id: 137
-Removed component from Game Object: 138 [Deleted: 1]
-Removed component from Game Object: 138 [Deleted: 2]
-Destroyed Entity with id: 138
-Removed component from Game Object: 139 [Deleted: 1]
-Removed component from Game Object: 139 [Deleted: 2]
-Destroyed Entity with id: 139
-Removed component from Game Object: 140 [Deleted: 1]
-Removed component from Game Object: 140 [Deleted: 2]
-Destroyed Entity with id: 140
-Removed component from Game Object: 141 [Deleted: 1]
-Removed component from Game Object: 141 [Deleted: 2]
-Destroyed Entity with id: 141
-Removed component from Game Object: 142 [Deleted: 1]
-Removed component from Game Object: 142 [Deleted: 2]
-Destroyed Entity with id: 142
-Removed component from Game Object: 143 [Deleted: 1]
-Removed component from Game Object: 143 [Deleted: 2]
-Destroyed Entity with id: 143
-Removed component from Game Object: 144 [Deleted: 1]
-Removed component from Game Object: 144 [Deleted: 2]
-Destroyed Entity with id: 144
-Removed component from Game Object: 145 [Deleted: 1]
-Removed component from Game Object: 145 [Deleted: 2]
-Destroyed Entity with id: 145
-Removed component from Game Object: 146 [Deleted: 1]
-Removed component from Game Object: 146 [Deleted: 2]
-Destroyed Entity with id: 146
-Removed component from Game Object: 147 [Deleted: 1]
-Removed component from Game Object: 147 [Deleted: 2]
-Destroyed Entity with id: 147
-Removed component from Game Object: 148 [Deleted: 1]
-Removed component from Game Object: 148 [Deleted: 2]
-Destroyed Entity with id: 148
-Removed component from Game Object: 149 [Deleted: 1]
-Removed component from Game Object: 149 [Deleted: 2]
-Destroyed Entity with id: 149
-Destroyed scene with name: MainScene
+Removed component from Game Object: 127 [D

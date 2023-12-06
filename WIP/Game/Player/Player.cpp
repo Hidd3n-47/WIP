@@ -37,11 +37,12 @@ void Player::Create(jci::Scene* scene, Levels map)
 {
 	uint32 text = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Scientist.png");
 	m_bulletTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Bullet.png");
-	uint32 m_knifeTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Weapons/Bowie Knife.png");
+	m_knifeTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Weapons/Bowie Knife.png");
+	m_blankTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Blank.png");
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	knife = m_currentScene->CreateEmptyEntity();
-	knife->GetComponent<jci::Transform>()->SetPosition(vec2(0.0f, 0.0f));//spawn off map
-	knife->AddComponent<jci::SpriteRenderer>()->SetTexture(m_knifeTexture);
+	knife->GetComponent<jci::Transform>()->SetPosition(vec2(200.0f, 200.0f));//spawn off map
+	knife->AddComponent<jci::SpriteRenderer>();
 	knife->GetComponent<jci::SpriteRenderer>()->SetSize({ 0.7f,0.7f });
 	//scene = jci::SceneManager::Instance()->GetCurrentScene();
 	playChar = m_currentScene->CreateEmptyEntity();
@@ -49,10 +50,11 @@ void Player::Create(jci::Scene* scene, Levels map)
 	m_currentScene->GetCamera()->SetFollowPosition(playChar->GetComponent<jci::Transform>()->GetPositionPointer());
 
 	playChar->GetComponent<jci::Transform>()->SetPosition({ map.getSpawnPointX(),  map.getSpawnPointY() });
+	
 	playChar->AddComponent<jci::SpriteRenderer>()->SetTexture(text);
 	jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::NoTexture);
 	playChar->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
-	playChar->GetComponent<jci::BoxCollider>()->SetSize({ 0.6f, 1.0f });
+	//playChar->GetComponent<jci::BoxCollider>()->SetSize({ 0.6f, 1.0f });
 	//m_position = *(playChar->GetComponent<jci::Transform>()->GetPosition());
 }
 
@@ -119,6 +121,11 @@ void Player::Update(float time)
 				meleeTimer = 0;
 				isMelee = true;
 			}
+			knife->AddComponent<jci::SpriteRenderer>()->SetTexture(m_knifeTexture);
+		}
+		else
+		{
+			knife->AddComponent<jci::SpriteRenderer>()->SetTexture(m_blankTexture);
 		}
 		//DLOG("Not Dashing");
 	}
@@ -195,6 +202,7 @@ void Player::Update(float time)
 			isMelee = false;
 			meleeTimer = 0;
 		}
+		
 		knife->GetComponent<jci::Transform>()->SetPosition(GetPos()+(backupDirection*0.7f));
 	}
 	else if (gunfireTimer >= reloadSpeed && canFire == false && !isDashing)

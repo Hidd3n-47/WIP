@@ -376,5 +376,8 @@
     <Image Include="Assets\Texture\Weapons\Bowie Knife.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Assets\Texture\Scientist.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

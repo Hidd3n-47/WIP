@@ -49,6 +49,8 @@ private:
 	int reloadSpeed; //GET FROM GUN LATER
 	int reloadDashSpeed;
 	vec2 backupDirection = vec2(0.0f);
+	uint32 m_knifeTexture;
+	uint32 m_blankTexture;
 
 };
 
