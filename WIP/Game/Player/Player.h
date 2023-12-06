@@ -34,14 +34,18 @@ private:
 	std::vector<Bullet*> bulletPool;
 	uint32 m_bulletTexture;
 	vec2 m_position;
+	jci::Entity* knife;
 
 	const float m_width;
 	const float m_height;
 	bool canFire;
 	bool isDashing;
+	bool isMelee;
 	float fireTime;
 	float gunfireTimer;
 	float dashTimer;
+	float meleeTimer;
+	int reloadMeleeSpeed;
 	int reloadSpeed; //GET FROM GUN LATER
 	int reloadDashSpeed;
 	vec2 backupDirection = vec2(0.0f);
