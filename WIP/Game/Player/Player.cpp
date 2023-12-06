@@ -32,7 +32,7 @@ Player::~Player()
 
 void Player::Create(jci::Scene* scene, Levels map)
 {
-	uint32 text = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/circ.png");
+	uint32 text = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Scientist.png");
 	m_bulletTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Bullet.png");
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	//scene = jci::SceneManager::Instance()->GetCurrentScene();
@@ -44,6 +44,7 @@ void Player::Create(jci::Scene* scene, Levels map)
 	playChar->AddComponent<jci::SpriteRenderer>()->SetTexture(text);
 	jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::NoTexture);
 	playChar->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
+	playChar->GetComponent<jci::BoxCollider>()->SetSize({ 0.6f, 1.0f });
 	//m_position = *(playChar->GetComponent<jci::Transform>()->GetPosition());
 }
 
@@ -76,7 +77,7 @@ void Player::Update(float time)
 	dashTimer += time;
 	gunfireTimer += time;
 	vec2 direction = vec2(0.0f);
-	const float SPEED = 0.01f;
+	const float SPEED = 1.5f;
 	if (!isDashing)
 	{
 		if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_w))
@@ -133,7 +134,7 @@ void Player::Update(float time)
 	}
 	else
 	{
-		direction *= SPEED;
+		direction *= SPEED * time;
 		playChar->GetComponent<jci::Transform>()->AddToPosition(direction);
 	}
 	m_position = playChar->GetComponent<jci::Transform>()->GetPosition();

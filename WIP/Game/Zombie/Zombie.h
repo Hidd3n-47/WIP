@@ -14,7 +14,7 @@ class Zombie
 public:
 	Zombie();
 	~Zombie();
-	void Update();
+	void Update(float time);
 	void Create(jci::Scene* scene, Levels map, Player* play);
 	jci::Scene* m_currentScene;
 

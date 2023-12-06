@@ -465,7 +465,7 @@ Created Entity with id: 132
 Added component with id: ComponentTypes::Transform to Game Object: 132 [Total: 1]
 Added component with id: ComponentTypes::BoxCollider to Game Object: 132 [Total: 2]
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 132 [Total: 3]
-Created texture Assets/Texture/circ.png
+Created texture Assets/Texture/Scientist.png
 Created texture Assets/Texture/Bullet.png
 Created Entity with id: 133
 Added component with id: ComponentTypes::Transform to Game Object: 133 [Total: 1]
@@ -515,6 +515,12 @@ Added component with id: ComponentTypes::SpriteRenderer to Game Object: 146 [Tot
 Created Entity with id: 147
 Added component with id: ComponentTypes::Transform to Game Object: 147 [Total: 1]
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 147 [Total: 2]
+Created Entity with id: 148
+Added component with id: ComponentTypes::Transform to Game Object: 148 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 148 [Total: 2]
+Created Entity with id: 149
+Added component with id: ComponentTypes::Transform to Game Object: 149 [Total: 1]
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 149 [Total: 2]
 Removed component from Game Object: 0 [Deleted: 1]
 Removed component from Game Object: 0 [Deleted: 2]
 Removed component from Game Object: 0 [Deleted: 3]
@@ -1009,4 +1015,10 @@ Destroyed Entity with id: 146
 Removed component from Game Object: 147 [Deleted: 1]
 Removed component from Game Object: 147 [Deleted: 2]
 Destroyed Entity with id: 147
+Removed component from Game Object: 148 [Deleted: 1]
+Removed component from Game Object: 148 [Deleted: 2]
+Destroyed Entity with id: 148
+Removed component from Game Object: 149 [Deleted: 1]
+Removed component from Game Object: 149 [Deleted: 2]
+Destroyed Entity with id: 149
 Destroyed scene with name: MainScene

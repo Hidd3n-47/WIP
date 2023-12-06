@@ -40,7 +40,7 @@ void Application::Update(float dt)
 {
 
 	p1->Update(dt);
-	//z1->Update();
+	z1->Update(dt);
 	/*if (jci::InputManager::Instance()->IsKeyPressed(SDL_KeyCode::SDLK_w))
 
 	{

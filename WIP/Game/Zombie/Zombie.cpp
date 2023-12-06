@@ -18,7 +18,7 @@ void Zombie::Create(jci::Scene* scene, Levels map, Player* play)
 	zombert->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
 }
 
-void Zombie::Update()
+void Zombie::Update(float time)
 {
 	vec2 direction = player->GetPos() - zombert->GetComponent<jci::Transform>()->GetPosition();
 
@@ -27,8 +27,10 @@ void Zombie::Update()
 		direction = glm::normalize(direction);
 	}
 
-	direction.x = direction.x / 25;
-	direction.y = direction.y / 25;
+	direction.x = direction.x;
+	direction.y = direction.y;
+
+	direction *= time;
 
 	zombert->GetComponent<jci::Transform>()->AddToPosition(direction);
 }

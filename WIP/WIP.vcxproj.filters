@@ -373,5 +373,8 @@
     <Image Include="Assets\Assets\Texture\squareWITHAW!!.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Assets\Texture\Weapons\Bowie Knife.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
