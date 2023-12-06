@@ -57,8 +57,8 @@ void Player::FireGun(float time)
 	bulletObj->GetComponent<jci::Transform>()->SetPosition(playChar->GetComponent<jci::Transform>()->GetPosition());
 	bulletObj->AddComponent<jci::SpriteRenderer>()->SetTexture(m_bulletTexture);
 	bulletObj->GetComponent<jci::SpriteRenderer>()->SetSize({0.1f, 0.05f});
-	bulletObj->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
-	bulletObj->GetComponent<jci::BoxCollider>()->SetSize({ 0.1f, 0.05f });
+	//bulletObj->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
+	//bulletObj->GetComponent<jci::BoxCollider>()->SetSize({ 0.1f, 0.05f });
 
 	vec2 moveDirection = jci::InputManager::Instance()->GetMousePosition() - vec2(m_width * 0.5f, m_height * 0.5f);
 	moveDirection = glm::normalize(moveDirection);

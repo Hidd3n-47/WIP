@@ -44,7 +44,7 @@ private:
 
 	static Time* m_instance;
 
-	float	m_maxFps	= 120.0f;
+	float	m_maxFps	= 3000.0f;
 	float	m_deltaTime = 0.0f;
 	uint64	m_start		= 0.0f;
 	uint64	m_lastTime	= 0.0f;
