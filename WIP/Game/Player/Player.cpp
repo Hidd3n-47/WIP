@@ -37,6 +37,9 @@ void Player::Create(jci::Scene* scene, Levels map)
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	//scene = jci::SceneManager::Instance()->GetCurrentScene();
 	playChar = m_currentScene->CreateEmptyEntity();
+
+	m_currentScene->GetCamera()->SetFollowPosition(playChar->GetComponent<jci::Transform>()->GetPositionPointer());
+
 	playChar->GetComponent<jci::Transform>()->SetPosition({ map.getSpawnPointX(),  map.getSpawnPointY() });
 	playChar->AddComponent<jci::SpriteRenderer>()->SetTexture(text);
 	jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::NoTexture);
@@ -153,7 +156,7 @@ void Player::Update(float time)
 	{
 		dashTimer = 0;
 	}
-	jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->SetPosition(playChar->GetComponent<jci::Transform>()->GetPosition());
+	//jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->SetPosition(playChar->GetComponent<jci::Transform>()->GetPosition());
 	for(int i = 0; i < bulletPool.size();i++)
 	{
 		if (bulletPool.at(i)->GetMove())

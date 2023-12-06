@@ -102,12 +102,14 @@ void RendererManager::Begin()
 			m_renderData.textureSlotIndex++;
 		}
 
-		m_renderData.verticesPtr->position = vec3(position, 0.0f);
+		size *= 0.5f;
+
+		m_renderData.verticesPtr->position = vec3(position-size, 0.0f);
 		m_renderData.verticesPtr->uvCoord = { 0.0f, 0.0f };
 		m_renderData.verticesPtr->textureId = textureIndex;
 		m_renderData.verticesPtr++;
 
-		m_renderData.verticesPtr->position = vec3(position.x + size.x, position.y, 0.0f);
+		m_renderData.verticesPtr->position = vec3(position.x+size.x,position.y-size.y, 0.0f);
 		m_renderData.verticesPtr->uvCoord = { 1.0f, 0.0f };
 		m_renderData.verticesPtr->textureId = textureIndex;
 		m_renderData.verticesPtr++;
@@ -117,7 +119,7 @@ void RendererManager::Begin()
 		m_renderData.verticesPtr->textureId = textureIndex;
 		m_renderData.verticesPtr++;
 
-		m_renderData.verticesPtr->position = vec3(position.x, position.y + size.y, 0.0f);
+		m_renderData.verticesPtr->position = vec3(position.x-size.y, position.y + size.y, 0.0f);
 		m_renderData.verticesPtr->uvCoord = { 0.0f, 1.0f };
 		m_renderData.verticesPtr->textureId = textureIndex;
 		m_renderData.verticesPtr++;
