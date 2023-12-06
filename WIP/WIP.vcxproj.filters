@@ -102,6 +102,9 @@
     <ClCompile Include="Game\Zombie\Zombie.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Graphics\Renderer\VertexArray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\src\Engine.h">
@@ -212,6 +215,12 @@
     <ClInclude Include="Game\Zombie\Zombie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\Graphics\Renderer\Vertex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\Renderer\VertexArray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shader\shader.frag" />
@@ -290,6 +299,78 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Assets\Texture\green.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\dbg\dbg_box.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\dbg\no_texture.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Back left wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Back right wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Back wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Blank.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Bullet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\circ.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Door.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Floor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Front left wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Front right wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Front wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\green.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Inv back left wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Inv back right wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Inv front left wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Inv front right wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Left wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Open Door.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Right wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\square.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\squareWITHANF!!.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\squareWITHAW!!.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

@@ -22,7 +22,7 @@ public:
 	Player();
 	~Player();
 	void Create(jci::Scene* scene, Levels map);
-	void FireGun();
+	void FireGun(float time);
 	void Update(float time);
 	vec2 GetPos();
 	jci::Scene* m_currentScene;

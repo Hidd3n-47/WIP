@@ -222,6 +222,30 @@
     <None Include="Assets\Shader\shader.vert" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Assets\Assets\Texture\Back left wall.png" />
+    <Image Include="Assets\Assets\Texture\Back right wall.png" />
+    <Image Include="Assets\Assets\Texture\Back wall.png" />
+    <Image Include="Assets\Assets\Texture\Blank.png" />
+    <Image Include="Assets\Assets\Texture\Bullet.png" />
+    <Image Include="Assets\Assets\Texture\circ.png" />
+    <Image Include="Assets\Assets\Texture\dbg\dbg_box.png" />
+    <Image Include="Assets\Assets\Texture\dbg\no_texture.png" />
+    <Image Include="Assets\Assets\Texture\Door.png" />
+    <Image Include="Assets\Assets\Texture\Floor.png" />
+    <Image Include="Assets\Assets\Texture\Front left wall.png" />
+    <Image Include="Assets\Assets\Texture\Front right wall.png" />
+    <Image Include="Assets\Assets\Texture\Front wall.png" />
+    <Image Include="Assets\Assets\Texture\green.png" />
+    <Image Include="Assets\Assets\Texture\Inv back left wall.png" />
+    <Image Include="Assets\Assets\Texture\Inv back right wall.png" />
+    <Image Include="Assets\Assets\Texture\Inv front left wall.png" />
+    <Image Include="Assets\Assets\Texture\Inv front right wall.png" />
+    <Image Include="Assets\Assets\Texture\Left wall.png" />
+    <Image Include="Assets\Assets\Texture\Open Door.png" />
+    <Image Include="Assets\Assets\Texture\Right wall.png" />
+    <Image Include="Assets\Assets\Texture\square.png" />
+    <Image Include="Assets\Assets\Texture\squareWITHANF!!.png" />
+    <Image Include="Assets\Assets\Texture\squareWITHAW!!.png" />
     <Image Include="Assets\Texture\Back left wall.png" />
     <Image Include="Assets\Texture\Back right wall.png" />
     <Image Include="Assets\Texture\Back wall.png" />

@@ -44,7 +44,7 @@ void Player::Create(jci::Scene* scene, Levels map)
 	//m_position = *(playChar->GetComponent<jci::Transform>()->GetPosition());
 }
 
-void Player::FireGun()
+void Player::FireGun(float time)
 {
 	DLOG("Firing");
 	//find angle: (y-jci::InputManager::Instance()->GetMousePosition().y)/(x-jci::InputManager::Instance()->GetMousePosition().x)
@@ -60,8 +60,8 @@ void Player::FireGun()
 	vec2 moveDirection = jci::InputManager::Instance()->GetMousePosition() - vec2(m_width * 0.5f, m_height * 0.5f);
 	moveDirection = glm::normalize(moveDirection);
 	moveDirection.y *= -1;
-	moveDirection.x = moveDirection.x / 5;
-	moveDirection.y = moveDirection.y / 5;
+	moveDirection.x = moveDirection.x * time;
+	moveDirection.y = moveDirection.y * time;
 	Bullet* aBullet = new Bullet(bulletObj, moveDirection);
 	aBullet->body->GetComponent<jci::Transform>()->AddToPosition(aBullet->direction*2.0f);
 	bulletPool.push_back(aBullet);
@@ -73,7 +73,7 @@ void Player::Update(float time)
 	dashTimer += time;
 	gunfireTimer += time;
 	vec2 direction = vec2(0.0f);
-	const float SPEED = 0.15f;
+	const float SPEED = 0.01f;
 	if (!isDashing)
 	{
 		if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_w))
@@ -139,7 +139,7 @@ void Player::Update(float time)
 
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Left) && canFire == true)
 	{
-		FireGun();
+		FireGun(time);
 		//fireTime = SDL_GetTicks();
 		canFire = false;
 	}
