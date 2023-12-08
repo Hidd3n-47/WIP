@@ -99,6 +99,7 @@ void Levels::LoadLevel(std::string fileString)
 	//ASSERT(false, fileString);
 	float currentX = 0;
 	float currentY = 0;
+
 	for (auto i : parsedString)
 	{
 		//take parsedString and start creating the level squares;

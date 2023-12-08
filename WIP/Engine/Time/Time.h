@@ -46,8 +46,8 @@ private:
 
 	float	m_maxFps	= 120.0f;
 	float	m_deltaTime = 0.0f;
-	uint64	m_start		= 0.0f;
-	uint64	m_lastTime	= 0.0f;
+	uint64	m_start		= 0;
+	uint64	m_lastTime	= 0;
 
 	float m_targetFrameTime = 1.0f / m_maxFps;
 };

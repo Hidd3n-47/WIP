@@ -1,36 +1,42 @@
 #include "pch.h"
 #include "Player.h"
-#include <Game/Bullet/Bullet.h>
 
-#include <Engine/src/Engine.h>
-#include <Engine/Graphics/Texture/Texture.h>
+#include <Engine/ECS/BoxCollider.h>
+#include <Engine/Scene/SceneManager.h>
+#include <Engine/ECS/SpriteRenderer.h>
+#include <Engine/Graphics/Texture/TextureManager.h>
+
+#include "Game/Levels/Levels.h"
+#include "Game/Bullet/Bullet.h"
 
 Player::Player() :
+	m_playChar(nullptr),
+	m_knife(nullptr),
+	m_currentScene(jci::SceneManager::Instance()->GetCurrentScene()),
+	m_bulletTexture(0),
+	m_position(nullptr),
 	m_width((float)jci::Engine::Instance()->GetScreenWidth()),
-	m_height((float)jci::Engine::Instance()->GetScreenHeight())
+	m_height((float)jci::Engine::Instance()->GetScreenHeight()),
+	m_canFire(true),
+	m_isDashing(false),
+	m_isMelee(true),
+	m_fireTime(2.0f),
+	m_gunfireTimer(2.0f),
+	m_dashTimer(2.0f),
+	m_meleeTimer(2.0f),
+	m_reloadMeleeSpeed(2.0f),
+	m_reloadSpeed(2.0f),
+	m_reloadDashSpeed(2.0f),
+	m_backupDirection(vec2(0.0f)),
+	m_knifeTexture(0),
+	m_blankTexture(0)
 {
-	m_currentScene = nullptr;
-	playChar = nullptr;
-	canFire = true;
-	reloadSpeed = 2;
-	reloadDashSpeed = 2;
-	fireTime = 0;
-	gunfireTimer = 0;
-	isDashing = false;
-	dashTimer = 0;
-	isMelee = true;
-	meleeTimer = 2;
-
-}
-
-vec2 Player::GetPos()
-{
-	return *m_position;
+	// Empty.
 }
 
 Player::~Player()
 {
-
+	// Empty.
 }
 
 void Player::Create(jci::Scene* scene, Levels map)
@@ -40,22 +46,22 @@ void Player::Create(jci::Scene* scene, Levels map)
 	m_knifeTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Weapons/Bowie Knife.png");
 	m_blankTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Blank.png");
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
-	knife = m_currentScene->CreateEmptyEntity();
-	knife->GetComponent<jci::Transform>()->SetPosition(vec2(200.0f, 200.0f));//spawn off map
-	knife->AddComponent<jci::SpriteRenderer>();
-	knife->GetComponent<jci::SpriteRenderer>()->SetSize({ 0.7f,0.7f });
+	m_knife = m_currentScene->CreateEmptyEntity();
+	m_knife->GetComponent<jci::Transform>()->SetPosition(vec2(200.0f, 200.0f));//spawn off map
+	m_knife->AddComponent<jci::SpriteRenderer>();
+	m_knife->GetComponent<jci::SpriteRenderer>()->SetSize({ 0.7f,0.7f });
 	//scene = jci::SceneManager::Instance()->GetCurrentScene();
-	playChar = m_currentScene->CreateEmptyEntity();
+	m_playChar = m_currentScene->CreateEmptyEntity();
 	                                                                 
-	m_position = playChar->GetComponent<jci::Transform>()->GetPositionPointer();
+	m_position = m_playChar->GetComponent<jci::Transform>()->GetPositionPointer();
 	m_currentScene->GetCamera()->SetFollowPosition(m_position);
 
-	playChar->GetComponent<jci::Transform>()->SetPosition({ map.getSpawnPointX(),  map.getSpawnPointY() });
+	m_playChar->GetComponent<jci::Transform>()->SetPosition({ map.getSpawnPointX(),  map.getSpawnPointY() });
 	
-	playChar->AddComponent<jci::SpriteRenderer>()->SetTexture(text);
+	m_playChar->AddComponent<jci::SpriteRenderer>()->SetTexture(text);
 	jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::NoTexture);
 
-	jci::BoxCollider* bc = playChar->AddComponent<jci::BoxCollider>();
+	jci::BoxCollider* bc = m_playChar->AddComponent<jci::BoxCollider>();
 	bc->SetBodyType(jci::BodyType::Kinematic);
 	bc->SetCollisionMethods(this);
 }
@@ -67,7 +73,7 @@ void Player::FireGun(float time)
 	int num = bulletPool.size() - 1;
 	jci::Entity* bulletObj;
 	bulletObj = m_currentScene->CreateEmptyEntity();
-	bulletObj->GetComponent<jci::Transform>()->SetPosition(playChar->GetComponent<jci::Transform>()->GetPosition());
+	bulletObj->GetComponent<jci::Transform>()->SetPosition(m_playChar->GetComponent<jci::Transform>()->GetPosition());
 	bulletObj->AddComponent<jci::SpriteRenderer>()->SetTexture(m_bulletTexture);
 	bulletObj->GetComponent<jci::SpriteRenderer>()->SetSize({0.1f, 0.05f});
 	//bulletObj->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
@@ -86,11 +92,11 @@ void Player::FireGun(float time)
 
 void Player::Update(float time) 
 {
-	dashTimer += time;
-	gunfireTimer += time;
+	m_dashTimer += time;
+	m_gunfireTimer += time;
 	vec2 direction = vec2(0.0f);
-	const float SPEED = 1.5f;
-	if (!isDashing)
+	const float SPEED = 3.0f;
+	if (!m_isDashing)
 	{
 		if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_w))
 		{
@@ -113,88 +119,85 @@ void Player::Update(float time)
 		{
 			if (direction == vec2(0.0f, 0.0f))//melee
 			{
-				backupDirection = vec2(0.0f, 1.0f);
+				m_backupDirection = vec2(0.0f, 1.0f);
 			}
 			else
 			{
-				backupDirection = direction;
+				m_backupDirection = direction;
 			}
-			if (meleeTimer >= reloadMeleeSpeed)
+			if (m_meleeTimer >= m_reloadMeleeSpeed)
 			{
-				meleeTimer = 0;
-				isMelee = true;
+				m_meleeTimer = 0;
+				m_isMelee = true;
 			}
-			knife->AddComponent<jci::SpriteRenderer>()->SetTexture(m_knifeTexture);
+			m_knife->AddComponent<jci::SpriteRenderer>()->SetTexture(m_knifeTexture);
 		}
 		else
 		{
-			knife->AddComponent<jci::SpriteRenderer>()->SetTexture(m_blankTexture);
+			m_knife->AddComponent<jci::SpriteRenderer>()->SetTexture(m_blankTexture);
 		}
 		//DLOG("Not Dashing");
 	}
-	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_Space) && !isDashing)
+	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_Space) && !m_isDashing)
 	{
 		if (direction == vec2(0.0f,0.0f))
 		{
-			backupDirection = vec2(0.0f,1.0f);
+			m_backupDirection = vec2(0.0f,1.0f);
 		}
 		else
 		{
-			backupDirection = direction;
+			m_backupDirection = direction;
 		}
-		if (dashTimer >= reloadDashSpeed)
+		if (m_dashTimer >= m_reloadDashSpeed)
 		{
-			dashTimer = 0;
-			isDashing = true;
+			m_dashTimer = 0;
+			m_isDashing = true;
 		}
 	}
+
 	if (direction != vec2(0.0f))
 	{
 		direction = glm::normalize(direction);
 	}
-	if (isDashing)
+
+	if (m_isDashing)
 	{
-		canFire = false;
-		isMelee = false;
-		meleeTimer = 0;
+		m_canFire = false;
+		m_isMelee = false;
+		m_meleeTimer = 0;
 		
-		if (gunfireTimer >= reloadDashSpeed)
+		if (m_gunfireTimer >= m_reloadDashSpeed)
 		{
-			canFire = true;
-			isDashing = false;
-			dashTimer = 0;
+			m_canFire = true;
+			m_isDashing = false;
+			m_dashTimer = 0;
 		}
-		backupDirection *= SPEED * 11;
-		playChar->GetComponent<jci::Transform>()->AddToPosition(backupDirection);
+		m_backupDirection *= SPEED * 5 * time;
+		*m_position += m_backupDirection;
 	}
 	else
 	{
 		direction *= SPEED * time;
-		playChar->GetComponent<jci::Transform>()->AddToPosition(direction);
 	}
-	//m_position = playChar->GetComponent<jci::Transform>()->GetPosition();
-	*m_position += direction;
-	
 
-	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Left) && canFire == true)
-		m_position = playChar->GetComponent<jci::Transform>()->GetPosition();
-	//m_position->AddToPosition(direction);
-	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Left) && canFire == true && isMelee)
+	*m_position += direction;
+
+	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Left) && m_canFire == true && m_isMelee)
 
 	{
 		FireGun(time);
 		//fireTime = SDL_GetTicks();
-		canFire = false;
+		m_canFire = false;
 	}
-	else if (gunfireTimer >= reloadSpeed && canFire == false && !isDashing)
+	else if (m_gunfireTimer >= m_reloadSpeed && m_canFire == false && !m_isDashing)
 	{
-		canFire = true;
-		gunfireTimer = 0;
+		m_canFire = true;
+		m_gunfireTimer = 0;
 		DLOG("Can fire again");
 	}
-	if (dashTimer >= reloadDashSpeed && dashTimer == false)
+	if (m_dashTimer >= m_reloadDashSpeed && m_dashTimer == false)
 	{
-		dashTimer = 0;
+		m_dashTimer = 0;
 	}
 
 	for(int i = 0; i < bulletPool.size();i++)
@@ -211,35 +214,35 @@ void Player::Update(float time)
 		}
 	}
 	
-	if (isMelee)
+	if (m_isMelee)
 	{
-		canFire = false;
+		m_canFire = false;
 
-		if (meleeTimer >= reloadDashSpeed)
+		if (m_meleeTimer >= m_reloadDashSpeed)
 		{
-			canFire = true;
-			isMelee = false;
-			meleeTimer = 0;
+			m_canFire = true;
+			m_isMelee = false;
+			m_meleeTimer = 0;
 		}
 		
-		knife->GetComponent<jci::Transform>()->SetPosition(GetPos()+(backupDirection*0.7f));
+		m_knife->GetComponent<jci::Transform>()->SetPosition(GetPos()+(m_backupDirection*0.7f));
 	}
-	else if (gunfireTimer >= reloadSpeed && canFire == false && !isDashing)
+	else if (m_gunfireTimer >= m_reloadSpeed && m_canFire == false && !m_isDashing)
 	{
-		canFire = true;
-		gunfireTimer = 0;
+		m_canFire = true;
+		m_gunfireTimer = 0;
 		DLOG("Can fire again");
 	}
-	if (dashTimer >= reloadDashSpeed && dashTimer == false)
+	if (m_dashTimer >= m_reloadDashSpeed && m_dashTimer == false)
 	{
-		dashTimer = 0;
+		m_dashTimer = 0;
 	}
-	if (meleeTimer >= reloadMeleeSpeed)
+	if (m_meleeTimer >= m_reloadMeleeSpeed)
 	{
-		meleeTimer = 0;
+		m_meleeTimer = 0;
 	}
-	//jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->SetPosition(playChar->GetComponent<jci::Transform>()->GetPosition());
-	backupDirection = direction;
+
+	m_backupDirection = direction;
 }
 
 void Player::OnCollisionEnter(jci::Entity* other)

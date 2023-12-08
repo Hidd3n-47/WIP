@@ -1,19 +1,14 @@
 #pragma once
-#include <Game/Levels/Levels.h>
-#include <vector>
-#include <Engine/Scene/SceneManager.h>
-#include <Engine/ECS/Transform.h>
-#include <Engine/ECS/SpriteRenderer.h>
-#include <Engine/ECS/BoxCollider.h>
-#include <Engine/Input/InputManager.h>
-#include <Game/Bullet/Bullet.h>
 
 #include <Engine/Collision/ICollision.h>
 
+class Levels;
+struct Bullet;
+
 namespace jci {
-//class Scene;
-//class Entity;
-}
+class Scene;
+class Entity;
+} // Namespace jci.
 
 //Firegun thing
 //Create projectile object
@@ -26,33 +21,35 @@ public:
 	void Create(jci::Scene* scene, Levels map);
 	void FireGun(float time);
 	void Update(float time);
-	vec2 GetPos();
-	jci::Scene* m_currentScene;
+
+	inline vec2 GetPos() const  { return *m_position; }
 
 private:
 	//static Player* m_instance;
-	//jci::Scene* m_currentScene;
-	jci::Entity* playChar;
-	std::vector<Bullet*> bulletPool;
-	uint32 m_bulletTexture;
-	vec2* m_position;
-	jci::Entity* knife;
+	std::vector<Bullet*>	bulletPool;
+	jci::Entity*			m_playChar;
+
+	jci::Entity*	m_knife;
+	jci::Scene*		m_currentScene;
+	uint32			m_bulletTexture;
+	vec2*			m_position;
 
 	const float m_width;
 	const float m_height;
-	bool canFire;
-	bool isDashing;
-	bool isMelee;
-	float fireTime;
-	float gunfireTimer;
-	float dashTimer;
-	float meleeTimer;
-	int reloadMeleeSpeed;
-	int reloadSpeed; //GET FROM GUN LATER
-	int reloadDashSpeed;
-	vec2 backupDirection = vec2(0.0f);
-	uint32 m_knifeTexture;
-	uint32 m_blankTexture;
+
+	bool		m_canFire;
+	bool		m_isDashing;
+	bool		m_isMelee;
+	float		m_fireTime;
+	float		m_gunfireTimer;
+	float		m_dashTimer;
+	float		m_meleeTimer;
+	int			m_reloadMeleeSpeed;
+	int			m_reloadSpeed; //GET FROM GUN LATER
+	int			m_reloadDashSpeed;
+	vec2		m_backupDirection = vec2(0.0f);
+	uint32		m_knifeTexture;
+	uint32		m_blankTexture;
 
 	// Player Collision Methods.
 	void OnCollisionEnter(jci::Entity* other) final;

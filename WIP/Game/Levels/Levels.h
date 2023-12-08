@@ -22,6 +22,7 @@ public:
 	void LoadLevel(std::string fileString);
 	int getSpawnPointX();
 	int getSpawnPointY();
+	vec2 GetSpawnPoint();
 
 /*/////////////////////////////////////////////////////FORMAT////////////////////////////////////////////////////
 1.Create a new CSV file
