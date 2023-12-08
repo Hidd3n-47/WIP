@@ -3,6 +3,7 @@
 namespace jci {
 
 class Entity;
+class BoxCollider;
 enum class BodyType;
 
 class CollisionManager
@@ -31,9 +32,13 @@ private:
 	std::vector<Entity*> m_staticBodies;
 	std::vector<Entity*> m_kinematicBodies;
 
+	std::unordered_map<BoxCollider*, bool> m_collidedThisFrame;
+	std::unordered_map<BoxCollider*, bool> m_collidedLastFrame;
+
 	enum class KinematicLocation { Left, Both };
 	void HandleCollision(Entity* box1, Entity* box2, KinematicLocation location);
 	bool AabbCollisionOccured(const vec4& b1, const vec4& b2, float& dx, float& dy, vec2& direction);
+	void CheckCollisionExit();
 };
 
 } // Namespace jci.

@@ -174,8 +174,10 @@
     <ClCompile Include="Engine\ECS\Transform.cpp" />
     <ClCompile Include="Engine\Graphics\Texture\TextureManager.cpp" />
     <ClCompile Include="Game\Zombie\Zombie.cpp" />
+    <ClCompile Include="Engine\Time\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine\Collision\ICollision.h" />
     <ClInclude Include="Engine\Graphics\Renderer\Vertex.h" />
     <ClInclude Include="Engine\Graphics\Renderer\VertexArray.h" />
     <ClInclude Include="Game\Bullet\BulletManager.h" />
@@ -214,6 +216,7 @@
     <ClInclude Include="Engine\Graphics\Renderer\RendererManager.h" />
     <ClInclude Include="Engine\Graphics\Texture\TextureManager.h" />
     <ClInclude Include="Game\Zombie\Zombie.h" />
+    <ClInclude Include="Engine\Time\Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Levels\NOLAGROOM.csv" />

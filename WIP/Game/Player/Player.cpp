@@ -22,7 +22,7 @@ Player::Player() :
 
 vec2 Player::GetPos()
 {
-	return m_position;
+	return *m_position;
 }
 
 Player::~Player()
@@ -37,14 +37,16 @@ void Player::Create(jci::Scene* scene, Levels map)
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	//scene = jci::SceneManager::Instance()->GetCurrentScene();
 	playChar = m_currentScene->CreateEmptyEntity();
-
-	m_currentScene->GetCamera()->SetFollowPosition(playChar->GetComponent<jci::Transform>()->GetPositionPointer());
+	                                                                 
+	m_position = playChar->GetComponent<jci::Transform>()->GetPositionPointer();
+	m_currentScene->GetCamera()->SetFollowPosition(m_position);
 
 	playChar->GetComponent<jci::Transform>()->SetPosition({ map.getSpawnPointX(),  map.getSpawnPointY() });
 	playChar->AddComponent<jci::SpriteRenderer>()->SetTexture(text);
 	jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::NoTexture);
-	playChar->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
-	//m_position = *(playChar->GetComponent<jci::Transform>()->GetPosition());
+	jci::BoxCollider* bc = playChar->AddComponent<jci::BoxCollider>();
+	bc->SetBodyType(jci::BodyType::Kinematic);
+	bc->SetCollisionMethods(this);
 }
 
 void Player::FireGun()
@@ -76,7 +78,7 @@ void Player::Update(float time)
 	dashTimer += time;
 	gunfireTimer += time;
 	vec2 direction = vec2(0.0f);
-	const float SPEED = 0.15f;
+	const float SPEED = 0.02f;
 	if (!isDashing)
 	{
 		if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_w))
@@ -95,11 +97,9 @@ void Player::Update(float time)
 		{
 			direction += vec2(1.0f, 0.0f);
 		}
-		//DLOG("Not Dashing");
 	}
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_Space) && !isDashing)
 	{
-		//DLOG("Dash");
 		if (direction == vec2(0.0f,0.0f))
 		{
 			backupDirection = vec2(0.0f,1.0f);
@@ -136,8 +136,8 @@ void Player::Update(float time)
 		direction *= SPEED;
 		playChar->GetComponent<jci::Transform>()->AddToPosition(direction);
 	}
-	m_position = playChar->GetComponent<jci::Transform>()->GetPosition();
-	//m_position->AddToPosition(direction);
+	//m_position = playChar->GetComponent<jci::Transform>()->GetPosition();
+	*m_position += direction;
 	
 
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Left) && canFire == true)
@@ -156,7 +156,7 @@ void Player::Update(float time)
 	{
 		dashTimer = 0;
 	}
-	//jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->SetPosition(playChar->GetComponent<jci::Transform>()->GetPosition());
+
 	for(int i = 0; i < bulletPool.size();i++)
 	{
 		if (bulletPool.at(i)->GetMove())
@@ -171,4 +171,19 @@ void Player::Update(float time)
 		}
 	}
 	backupDirection = direction;
+}
+
+void Player::OnCollisionEnter(jci::Entity* other)
+{
+	DLOG("CollisionENTER!!!");
+}
+
+void Player::OnCollisionStay(jci::Entity* other)
+{
+	DLOG("CollisionStay!!!");
+}
+
+void Player::OnCollisionExit()
+{
+	DLOG("CollisionExit!!!");
 }

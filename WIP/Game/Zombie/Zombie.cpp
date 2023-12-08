@@ -20,6 +20,7 @@ void Zombie::Create(jci::Scene* scene, Levels map, Player* play)
 
 void Zombie::Update()
 {
+	const float SPEED = 0.008f;
 	vec2 direction = player->GetPos() - zombert->GetComponent<jci::Transform>()->GetPosition();
 
 	if (direction != vec2(0.0f))
@@ -27,8 +28,7 @@ void Zombie::Update()
 		direction = glm::normalize(direction);
 	}
 
-	direction.x = direction.x / 25;
-	direction.y = direction.y / 25;
+	direction *= SPEED;
 
 	zombert->GetComponent<jci::Transform>()->AddToPosition(direction);
 }

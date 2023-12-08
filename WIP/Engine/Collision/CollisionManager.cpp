@@ -29,6 +29,8 @@ void CollisionManager::Update(float dt)
 			HandleCollision(m_kinematicBodies[k], m_kinematicBodies[o], KinematicLocation::Both);
 		}
 	}
+
+	CheckCollisionExit();
 }
 
 void CollisionManager::AddObject(Entity* entity, BodyType bodyType)
@@ -75,9 +77,11 @@ void CollisionManager::HandleCollision(Entity* box1, Entity* box2, KinematicLoca
 {
 	Transform* trans1 = box1->GetComponent<Transform>();
 	vec4 b1 = vec4(trans1->GetPosition(), box1->GetComponent<BoxCollider>()->GetSize() * trans1->GetScale() * 0.5f);
+	BoxCollider* boxC1 = box1->GetComponent<BoxCollider>();
 
 	Transform* trans2 = box2->GetComponent<Transform>();
-	vec4 b2 = vec4(trans2->GetPosition(), box2->GetComponent<BoxCollider>()->GetSize() * trans2->GetScale() * 0.5f);
+	BoxCollider* boxC2 = box2->GetComponent<BoxCollider>();
+	vec4 b2 = vec4(trans2->GetPosition(), boxC2->GetSize() * trans2->GetScale() * 0.5f);
 
 	float dx, dy;
 	vec2 direction;
@@ -86,20 +90,22 @@ void CollisionManager::HandleCollision(Entity* box1, Entity* box2, KinematicLoca
 
 	vec2 moveVector = abs(dx) < abs(dy) ? vec2(abs(dx), 0.0f) : vec2(0.0f, abs(dy));
 
-	
 	// Check the directions so that the objects are pushed in the right direction.
-	switch (location)
+	if (location == KinematicLocation::Left)
 	{
-		case KinematicLocation::Left:
-			trans1->AddToPosition( - direction * moveVector);
-			return;
-		case KinematicLocation::Both:
-			trans1->AddToPosition( - direction * moveVector);
-			trans2->AddToPosition(   direction * moveVector);
-			return;
+		trans1->AddToPosition(-direction * moveVector);
+	}
+	else
+	{
+		trans1->AddToPosition(-direction * moveVector);
+		trans2->AddToPosition(direction * moveVector);
 	}
 
-	ASSERT(false, "Unhandled Kinematic Location passed in.");
+	boxC1->CollisionOccured(box2);
+	boxC2->CollisionOccured(box1);
+
+	m_collidedThisFrame[boxC1] = true;
+	m_collidedThisFrame[boxC2] = true;
 }
 
 bool CollisionManager::AabbCollisionOccured(const vec4& b1, const vec4& b2, float& dx, float& dy, vec2& direction)
@@ -137,6 +143,21 @@ bool CollisionManager::AabbCollisionOccured(const vec4& b1, const vec4& b2, floa
 	dy = delta.y;
 
 	return ((dx < 0.0f) && (dy < 0.0f));
+}
+
+void CollisionManager::CheckCollisionExit()
+{
+	for (auto it : m_collidedLastFrame)
+	{
+		if (m_collidedThisFrame.find(it.first) == m_collidedThisFrame.end())
+		{
+			it.first->CollisionExit();
+			m_collidedThisFrame.erase(it.first);
+		}
+	}
+
+	m_collidedLastFrame = m_collidedThisFrame;
+	m_collidedThisFrame.clear();
 }
 
 } // Namespace jci.

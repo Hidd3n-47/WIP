@@ -8,6 +8,8 @@
 #include <Engine/Input/InputManager.h>
 #include <Game/Bullet/Bullet.h>
 
+#include <Engine/Collision/ICollision.h>
+
 namespace jci {
 //class Scene;
 //class Entity;
@@ -16,7 +18,7 @@ namespace jci {
 //Firegun thing
 //Create projectile object
 
-class Player
+class Player : public jci::ICollision
 {
 public:
 	Player();
@@ -33,7 +35,7 @@ private:
 	jci::Entity* playChar;
 	std::vector<Bullet*> bulletPool;
 	uint32 m_bulletTexture;
-	vec2 m_position;
+	vec2* m_position;
 
 	const float m_width;
 	const float m_height;
@@ -45,6 +47,11 @@ private:
 	int reloadSpeed; //GET FROM GUN LATER
 	int reloadDashSpeed;
 	vec2 backupDirection = vec2(0.0f);
+
+	// Player Collision Methods.
+	void OnCollisionEnter(jci::Entity* other) final;
+	void OnCollisionStay(jci::Entity* other) final;
+	void OnCollisionExit() final;
 
 };
 
