@@ -24,7 +24,7 @@ public:
 	Player();
 	~Player();
 	void Create(jci::Scene* scene, Levels map);
-	void FireGun();
+	void FireGun(float time);
 	void Update(float time);
 	vec2 GetPos();
 	jci::Scene* m_currentScene;
@@ -35,18 +35,24 @@ private:
 	jci::Entity* playChar;
 	std::vector<Bullet*> bulletPool;
 	uint32 m_bulletTexture;
-	vec2* m_position;
+	vec2 m_position;
+	jci::Entity* knife;
 
 	const float m_width;
 	const float m_height;
 	bool canFire;
 	bool isDashing;
+	bool isMelee;
 	float fireTime;
 	float gunfireTimer;
 	float dashTimer;
+	float meleeTimer;
+	int reloadMeleeSpeed;
 	int reloadSpeed; //GET FROM GUN LATER
 	int reloadDashSpeed;
 	vec2 backupDirection = vec2(0.0f);
+	uint32 m_knifeTexture;
+	uint32 m_blankTexture;
 
 	// Player Collision Methods.
 	void OnCollisionEnter(jci::Entity* other) final;
