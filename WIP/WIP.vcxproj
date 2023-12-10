@@ -141,7 +141,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\ECS\ComponentManager.cpp" />
     <ClCompile Include="Engine\Graphics\Renderer\VertexArray.cpp" />
+    <ClCompile Include="Engine\ECS\EntityManager.cpp" />
     <ClCompile Include="Game\Bullet\BulletManager.cpp" />
     <ClCompile Include="Game\Bullet\Bullet.cpp" />
     <ClCompile Include="Engine\Collision\CollisionManager.cpp" />
@@ -175,11 +177,19 @@
     <ClCompile Include="Engine\Graphics\Texture\TextureManager.cpp" />
     <ClCompile Include="Game\Zombie\Zombie.cpp" />
     <ClCompile Include="Engine\Time\Timer.cpp" />
+    <ClCompile Include="Engine\FSM\StateMachineManager.cpp" />
+    <ClCompile Include="Engine\ECS\NavBlock.cpp" />
+    <ClCompile Include="Engine\Pathfinding\PathfindingManager.cpp" />
+    <ClCompile Include="Engine\Pathfinding\NavMesh.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine\ECS\ComponentManager.h" />
     <ClInclude Include="Engine\Collision\ICollision.h" />
+    <ClInclude Include="Engine\FSM\IState.h" />
     <ClInclude Include="Engine\Graphics\Renderer\Vertex.h" />
     <ClInclude Include="Engine\Graphics\Renderer\VertexArray.h" />
+    <ClInclude Include="Engine\ECS\EntityManager.h" />
+    <ClInclude Include="Engine\Pathfinding\Node.h" />
     <ClInclude Include="Game\Bullet\BulletManager.h" />
     <ClInclude Include="Game\Bullet\Bullet.h" />
     <ClInclude Include="Engine\Collision\CollisionManager.h" />
@@ -217,10 +227,17 @@
     <ClInclude Include="Engine\Graphics\Texture\TextureManager.h" />
     <ClInclude Include="Game\Zombie\Zombie.h" />
     <ClInclude Include="Engine\Time\Timer.h" />
+    <ClInclude Include="Engine\FSM\StateMachineManager.h" />
+    <ClInclude Include="Engine\FSM\IStateMachine.h" />
+    <ClInclude Include="Engine\ECS\NavBlock.h" />
+    <ClInclude Include="Engine\Pathfinding\PathfindingManager.h" />
+    <ClInclude Include="Engine\Pathfinding\NavMesh.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Levels\NOLAGROOM.csv" />
     <None Include="Assets\Levels\TestRoom.csv" />
+    <None Include="Assets\Shader\light.frag" />
+    <None Include="Assets\Shader\light.vert" />
     <None Include="Assets\Shader\shader.frag" />
     <None Include="Assets\Shader\shader.vert" />
   </ItemGroup>

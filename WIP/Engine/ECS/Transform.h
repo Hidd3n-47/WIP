@@ -15,16 +15,13 @@ namespace jci {
 class Transform : public IComponent
 {
 public:
-	COMPONENT(ComponentTypes::Transform);
+	REGISTER_COMPONENT(ComponentTypes::Transform);
 
 	Transform() = default;
 	~Transform() = default;
 
 	inline virtual void OnComponentAdd(Entity* entity)	final { m_entity = entity; }
-	inline virtual void OnComponentRemove()						final { /* Empty. */ }
-	
-	virtual Entity* GetEntity() final { return m_entity; }
-
+	inline virtual void OnComponentRemove()				final { /* Empty. */ }
 
 	// Accessors.
 	/***
@@ -69,11 +66,23 @@ public:
 	*
 	*/
 	inline void AddToPosition(vec2 addition) { m_position += addition; }
+
+	inline Transform& operator=(Transform& other) noexcept
+	{
+		m_id = std::move(other.m_id);
+		m_entity = std::move(other.m_entity);
+		m_position = std::move(other.m_position);
+		m_scale = std::move(other.m_scale);
+		m_rotation = std::move(other.m_rotation);
+
+		return *this;
+	}
 private:
 	Entity* m_entity	= nullptr;
 	vec2	m_position	= vec2(0.0f);
 	vec2	m_scale		= vec2(1.0f);
 	float	m_rotation	= 0.0f;
+	entId	m_id = invalid_id;
 };
 
 } // Namespace jci

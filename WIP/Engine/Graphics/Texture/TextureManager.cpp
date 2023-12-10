@@ -9,13 +9,14 @@ TextureManager* TextureManager::m_instance = nullptr;
 
 void TextureManager::Init()
 {
-	// allocate the default textures.
 	CreateTexture("Assets/Texture/dbg/no_texture.png");
 	CreateTexture("Assets/Texture/dbg/dbg_box.png");
 }
 
 uint32 TextureManager::CreateTexture(const std::string& filePath)
 {
+	ASSERT(m_index < 32, "Max textures reached for current performance of renderer.");
+
 	DOUT("Created texture " + filePath);
 	m_textures[m_index] = new Texture(filePath);
 

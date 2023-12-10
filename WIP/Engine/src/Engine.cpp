@@ -5,6 +5,7 @@
 #include "IO/IOManager.h"
 #include "Input/InputManager.h"
 #include "Scene/SceneManager.h"
+#include "FSM/StateMachineManager.h"
 #include "Graphics/Texture/Texture.h"
 #include "Graphics/Renderer/Renderer.h"
 #include "Collision/CollisionManager.h"
@@ -12,6 +13,9 @@
 #include "Graphics/Renderer/RendererManager.h"
 
 #include "Game/src/Application.h"
+
+#include "Graphics/Renderer/VertexArray.h"
+#include "Graphics/Renderer/Shader.h"
 
 namespace jci {
 
@@ -54,9 +58,24 @@ void Engine::Init()
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
+	ComponentManager::Instance()->Init();
+
 	RendererManager::Instance()->Init();
 
 	Application::Instance()->Create();
+
+	m_vertexArrayLight = new VertexArray();
+	float vertices[] = { -1.0f, -1.0f, 1.0f, -1.0f, 1.0f, 1.0f, -1.0f, 1.0f };
+	m_vertexBufferLight = new VertexBuffer(vertices, 8 * sizeof(float));
+
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(vec2), nullptr);
+
+	m_vertexArrayLight->SetVertexBuffer(m_vertexBufferLight);
+	uint32 i[] = { 0, 1, 2, 2, 3, 0 };
+	m_vertexArrayLight->SetIndexBuffer(i, 6);
+	m_shaderLight = new Shader("Assets/Shader/light.vert", "Assets/Shader/light.frag");
+	m_shaderLight->Bind();
 }
 
 void Engine::Run()
@@ -71,12 +90,14 @@ void Engine::Run()
 
 		InputManager::Instance()->Update();
 
+		StateMachineManager::Instance()->Update();
 
 		Application::Instance()->Update(dt);
 
 		CollisionManager::Instance()->Update(dt); // Question: Is dt needed in collision Manager?
 
 		AfterUpdate();
+
 		SceneManager::Instance()->UpdateCurrentScene(dt);
 
 		Render();
@@ -117,6 +138,10 @@ void Engine::Render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	RendererManager::Instance()->End();
+
+	/*m_vertexArrayLight->Bind();
+	m_shaderLight->Bind();
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);*/
 }
 
 } // Namespace jci.

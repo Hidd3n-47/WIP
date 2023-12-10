@@ -11,7 +11,7 @@ public:
 	VertexArray();
 	inline ~VertexArray() { glDeleteVertexArrays(1, &m_id); } // Question -> Clean up index buffer and vertex Buffer.
 
-	inline void Bind() const { /*m_vertBuffer->Bind(); m_indexBuffer->Bind();*/ glBindVertexArray(m_id); }
+	void Bind() const;
 	inline void Unbind() const { glBindVertexArray(0); }
 
 	void SetVertexBuffer(VertexBuffer* vertexBuffer);

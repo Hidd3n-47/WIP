@@ -22,15 +22,20 @@
 
 #define DOUT_CLOSE()
 #endif // _DEBUG
-	
+
 
 // ECS.
-#define COMPONENT(x) \
-inline static uint16 GetIdMask() { return 1 << (int)x; } \
-inline static std::string GetName() { return #x; }
+#define REGISTER_COMPONENT(x)													\
+inline static uint16			GetIdMask()			{ return 1 << (int)x; }		\
+inline static ComponentTypes	GetType()			{ return x;}				\
+inline static std::string		GetName()			{ return #x; }				\
+inline virtual void				SetId(entId id)		{ m_id = id; }				\
+inline virtual entId			GetId() const		{ return m_id; }			\
+inline virtual Entity*			GetEntity() final	{ return m_entity; }		
 
 namespace jci {
-using entId = uint32;
-constexpr uint8 MAX_COMPONENTS = 16;
-const uint64 MAX_ENTITIES = 1 << (sizeof(entId) * 8 - MAX_COMPONENTS) - 1;
+using		entId					= uint32;
+constexpr	entId invalid_id		= -1;
+constexpr	uint8 MAX_COMPONENTS	= 16;
+const		uint16 MAX_ENTITIES		= 1 << (sizeof(entId) * 8 - MAX_COMPONENTS) - 1;
 } // Namespace jci.

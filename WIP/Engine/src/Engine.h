@@ -12,6 +12,9 @@ ENGINE:
 namespace jci {
 
 class Scene;
+class Shader;
+class VertexBuffer;
+class VertexArray;
 
 class Engine
 {
@@ -43,6 +46,11 @@ private:
 
 	std::unique_ptr<Window> m_window;
 	bool m_running = true;
+
+
+	Shader* m_shaderLight = nullptr;
+	VertexBuffer* m_vertexBufferLight = nullptr;
+	VertexArray* m_vertexArrayLight = nullptr;
 };
 
 } // Namespace jci.

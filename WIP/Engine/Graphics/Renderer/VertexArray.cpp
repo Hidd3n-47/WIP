@@ -15,6 +15,15 @@ VertexArray::VertexArray()
 	Bind();
 }
 
+void VertexArray::Bind() const
+{
+	if(m_vertBuffer)
+		m_vertBuffer->Bind(); 
+	if (m_indexBuffer)
+		m_indexBuffer->Bind();
+	glBindVertexArray(m_id);
+}
+
 void VertexArray::SetVertexBuffer(VertexBuffer* vertexBuffer)
 {
 	m_vertBuffer = vertexBuffer;

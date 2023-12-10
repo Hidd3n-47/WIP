@@ -1,36 +1,11 @@
 #pragma once
 #include "pch.h"
 
-//using Entity = uint32;
-//
-//const uint32 generationBits = 12;
-//const uint32 indexBits = sizeof(Entity) * 8 - generationBits;
-//
-//const uint32 indexMask = (1 << indexBits) - 1; // 1,048,576 gameobjects
-//const uint32 generationMask = (1 << generationBits) - 1; // 4,096 generations
-//const uint32 invalidId = 1;
-//
-//inline bool isValid(Entity id)
-//{
-//	return id != invalidId;
-//}
-//
-//inline Entity generation(Entity id)
-//{
-//	return (id >> indexBits) & generationMask;
-//}
-//
-//inline Entity newGeneration(Entity id)
-//{
-//	const Entity generation(generation(id) + 1);
-//	ASSERT(generation < pow(2, generationBits) - 1, "");
-//	return id | (generation << indexBits);
-//}
-
 #include "IComponent.h"
 
 #include "src/Engine.h"
-#include "Transform.h"
+
+#include "ComponentManager.h"
 
 namespace jci {
 
@@ -47,14 +22,12 @@ public:
 	}
 	~Entity()
 	{
-		for (int i = 0; i < m_components.size(); i++)
+		// Need to remove all the components on entity delete.
+
+		/*for (auto it = m_componentIndices.begin(); it != m_componentIndices.end(); it++)
 		{
-			IComponent* comp = m_components[i];
-			comp->OnComponentRemove();
-			delete comp;
-			comp = nullptr;
-			DOUT("Removed component from Game Object: " + std::to_string(m_id) + " [Deleted: " + std::to_string(i + 1) + "]");
-		}
+			ComponentManager::Instance()->RemoveComponent<
+		}*/
 
 		DOUT("Destroyed Entity with id: " + std::to_string(m_id));
 	}
@@ -62,16 +35,7 @@ public:
 	template<class T>
 	inline T* AddComponent()
 	{
-		// TODO (Christian): make this more efficient.
-		int mask;
-		try
-		{
-			mask = T::GetIdMask();
-		}
-		catch (int)
-		{
-			ASSERT(false, "Invalid type passed in, type must be a Component and have a static GetIdMask method.");
-		}
+		int mask = T::GetIdMask();
 		
 		if ((m_componentMask & mask) != 0)
 		{
@@ -79,43 +43,28 @@ public:
 			return GetComponent<T>();
 		}
 
-		T* comp = new T();
-		m_components.push_back(comp);
+		T* comp = ComponentManager::Instance()->AddComponent<T>();
 		comp->OnComponentAdd(this);
+		m_componentIndices[T::GetType()] = comp->GetId();
 
 		m_componentMask |= mask;
 
-		DOUT("Added component with id: " + T::GetName() + " to Game Object: " + std::to_string(m_id) + " [Total: " + std::to_string(m_components.size()) + "]");
+		DOUT("Added component with id: " + T::GetName() + " to Game Object: " + std::to_string(m_id));
 
 		return comp;
 	}
 
-	// TODO (Chrisian): Improve efficiency of this.
 	template<class T>
 	inline T* GetComponent()
 	{
-		int mask;
-		try
-		{
-			mask = T::GetIdMask();
-		}
-		catch (int)
-		{
-			ASSERT(false, "Invalid type passed in, type must be a Component and have a static GetIdMask method.");
-		}
+		int mask = T::GetIdMask();
 
 		if (!(m_componentMask & mask))
 		{
 			return nullptr;
 		}
 
-		for (int i = 0; i < m_components.size(); i++)
-		{
-			if (dynamic_cast<T*>(m_components[i]) != nullptr)
-			{
-				return (T*)m_components[i];
-			}
-		}
+		return ComponentManager::Instance()->GetComponent<T>(m_componentIndices[T::GetType()]);
 
 		ASSERT(false, "Component not found in vector, however mask states it should be included.");
 		return nullptr;
@@ -124,16 +73,7 @@ public:
 	template<class T>
 	inline void RemoveComponent()
 	{
-		// TODO (Christian): make this more efficient.
-		int mask;
-		try
-		{
-			mask = T::GetIdMask();
-		}
-		catch (int)
-		{
-			ASSERT(false, "Invalid type passed in, type must be a Component and have a static GetIdMask method.");
-		}
+		int mask = T::GetIdMask();
 
 		if (!(m_componentMask & mask))
 		{
@@ -141,36 +81,35 @@ public:
 			return;
 		}
 
-		T* comp = new T();
-		m_components.push_back(comp);
-		comp->OnComponentAdd();
+		entId componentId = m_componentIndices[T::GetType()];
 
-		std::vector<IComponent*>::iterator it = m_components.begin();
-		for (int i = 0; i < m_components.size(); i++, it++)
-		{
-			if (dynamic_cast<T*>(m_components[i]) == nullptr)
-			{
-				continue;
-			}
+		Entity* ent = ComponentManager::Instance()->RemoveComponent<T>(componentId);
 
-			delete m_components[i];
-			break;
-		}
-		m_components.erase(it);
+		ent->SetComponentId(T::GetType(), componentId);
+
+		m_componentIndices[T::GetType()] = invalid_id;
 
 		m_componentMask &= (~mask);
 
-		DOUT("Removed component with id: " + T::GetName() + " from Game Object: " + std::to_string(m_id) + " [Total: " + std::to_string(m_components.size()) + "]");
+		DOUT("Removed component with id: " + T::GetName() + " from Game Object: " + std::to_string(m_id));
 	}
 
 	// Accessors.
 	inline uint16 GetId() const { return m_id; }
+	inline std::string GetTag() const { return m_tag; }
+
+	// Mutators.
+	inline void SetTag(const std::string& tag) { m_tag = tag; }
+	inline void SetComponentId(ComponentTypes type, entId newId) { m_componentIndices[type] = newId; }
 private:
-	std::vector<IComponent*> m_components;
-	std::vector<Entity*> m_children; // TODO (Christian): Implement this.
+	std::unordered_map<ComponentTypes, entId>	m_componentIndices;
+
+	std::vector<Entity*> m_child; // TODO (Christian): Implement this.
 	Entity* m_parent = nullptr;
 	uint16 m_id;
 	uint16 m_componentMask;
+
+	std::string m_tag = "Untagged";
 };
 
 } // Namespace jci.

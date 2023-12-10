@@ -19,11 +19,11 @@ RendererManager* RendererManager::m_instance = nullptr;
 
 void RendererManager::Init()
 { 
-	m_renderData.vertexArray = new VertexArray();
+	m_vertexArray = new VertexArray();
 
-	m_renderData.vertexBuffer = new VertexBuffer(m_renderData.MAX_QUADS * sizeof(Vertex) * 4);
+	m_vertexBuffer = new VertexBuffer(MAX_QUADS * sizeof(Vertex) * 4);
 
-	m_renderData.vertexArray->SetVertexBuffer(m_renderData.vertexBuffer);
+	m_vertexArray->SetVertexBuffer(m_vertexBuffer);
 
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), nullptr);
@@ -32,13 +32,13 @@ void RendererManager::Init()
 	glEnableVertexAttribArray(2);					
 	glVertexAttribPointer(2, 1, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(sizeof(float) * 5));
 
-	m_renderData.verticesBase = new Vertex[m_renderData.MAX_QUADS * 4];
-	m_renderData.verticesPtr = m_renderData.verticesBase;
+	m_verticesBase = new Vertex[MAX_QUADS * 4];
+	m_verticesPtr = m_verticesBase;
 
-	uint32* indices = new uint32[m_renderData.MAX_QUADS * 6];
+	uint32* indices = new uint32[MAX_QUADS * 6];
 
 	uint32 offset = 0;
-	for (uint32 i = 0; i < m_renderData.MAX_QUADS * 6; i += 6)
+	for (uint32 i = 0; i < MAX_QUADS * 6; i += 6)
 	{
 		indices[i + 0] = offset + 0;
 		indices[i + 1] = offset + 1;
@@ -51,44 +51,36 @@ void RendererManager::Init()
 		offset += 4;
 	}
 
-	m_renderData.vertexArray->SetIndexBuffer(indices, m_renderData.MAX_QUADS * 6);
+	m_vertexArray->SetIndexBuffer(indices, MAX_QUADS * 6);
 
-	int32 samplers[m_renderData.MAX_TEXTURE_SLOTS];
-	for (uint32 i = 0; i < m_renderData.MAX_TEXTURE_SLOTS; i++)
+	int32 samplers[MAX_TEXTURE_SLOTS];
+	for (uint32 i = 0; i < MAX_TEXTURE_SLOTS; i++)
 	{
 		samplers[i] = i;
 	}
 
-	m_renderData.shader = new Shader("Assets/Shader/shader.vert", "Assets/Shader/shader.frag");
-	m_renderData.shader->Bind();
+	m_shader = new Shader("Assets/Shader/shader.vert", "Assets/Shader/shader.frag");
+	m_shader->Bind();
 
-	m_renderData.shader->UploadUniformIntArray("u_texture", samplers, m_renderData.MAX_TEXTURE_SLOTS);
+	m_shader->UploadUniformIntArray("u_texture", samplers, MAX_TEXTURE_SLOTS);
 
 	delete[] indices;
-
-	// Set first texture
-	// Question could texture manager hold the textures and bind them?
 }
 
 void RendererManager::Begin()
 {
-	// bind texture
-	// bind camera matrix
-	//m_renderData.shader->UploadUniformInt("u_texture", 0);
+	m_verticesPtr = m_verticesBase;
+	indexCount = 0;
 
-	m_renderData.verticesPtr = m_renderData.verticesBase;
-	m_renderData.indexCount = 0;
-
-	for (SpriteRenderer* sr : m_quads)
+	for(const Quad& q : m_quads)
 	{
-		vec2 position = sr->GetEntity()->GetComponent<Transform>()->GetPosition();
-		vec2 size = sr->GetSize();
-		Texture* text = sr->GetTexture();
+		vec2 size = q.spriteRenderer->GetSize();
+		Texture* text = q.spriteRenderer->GetTexture();
 		
 		float textureIndex = -1.0f;
-		for (uint32 i = 0; i < m_renderData.textureSlotIndex; i++)
+		for (uint32 i = 0; i < textureSlotIndex; i++)
 		{
-			if (m_renderData.textureSlots[i] == text)
+			if (m_textureSlots[i] == text)
 			{
 				textureIndex = (float)i;
 				break;
@@ -97,44 +89,53 @@ void RendererManager::Begin()
 
 		if (textureIndex == -1.0f)
 		{
-			textureIndex = (float)m_renderData.textureSlotIndex;
-			m_renderData.textureSlots[m_renderData.textureSlotIndex] = text;
-			m_renderData.textureSlotIndex++;
+			textureIndex = (float)textureSlotIndex;
+			m_textureSlots[textureSlotIndex] = text;
+			textureSlotIndex++;
 		}
 
-		size *= 0.5f;
+		 size = size * 0.5f;
 
-		m_renderData.verticesPtr->position = vec3(position-size, 0.0f);
-		m_renderData.verticesPtr->uvCoord = { 0.0f, 0.0f };
-		m_renderData.verticesPtr->textureId = textureIndex;
-		m_renderData.verticesPtr++;
+		m_verticesPtr->position = vec3(*q.position - size, 0.0f);
+		m_verticesPtr->uvCoord = { 0.0f, 0.0f };
+		m_verticesPtr->textureId = textureIndex;
+		m_verticesPtr++;
 
-		m_renderData.verticesPtr->position = vec3(position.x+size.x,position.y-size.y, 0.0f);
-		m_renderData.verticesPtr->uvCoord = { 1.0f, 0.0f };
-		m_renderData.verticesPtr->textureId = textureIndex;
-		m_renderData.verticesPtr++;
+		m_verticesPtr->position = vec3(q.position->x + size.x, q.position->y - size.y, 0.0f);
+		m_verticesPtr->uvCoord = { 1.0f, 0.0f };
+		m_verticesPtr->textureId = textureIndex;
+		m_verticesPtr++;
 
-		m_renderData.verticesPtr->position = vec3(position + size, 0.0f);
-		m_renderData.verticesPtr->uvCoord = { 1.0f, 1.0f };
-		m_renderData.verticesPtr->textureId = textureIndex;
-		m_renderData.verticesPtr++;
+		m_verticesPtr->position = vec3(*q.position + size, 0.0f);
+		m_verticesPtr->uvCoord = { 1.0f, 1.0f };
+		m_verticesPtr->textureId = textureIndex;
+		m_verticesPtr++;
 
-		m_renderData.verticesPtr->position = vec3(position.x-size.y, position.y + size.y, 0.0f);
-		m_renderData.verticesPtr->uvCoord = { 0.0f, 1.0f };
-		m_renderData.verticesPtr->textureId = textureIndex;
-		m_renderData.verticesPtr++;
+		m_verticesPtr->position = vec3(q.position->x- size.y, q.position->y + size.y, 0.0f);
+		m_verticesPtr->uvCoord = { 0.0f, 1.0f };
+		m_verticesPtr->textureId = textureIndex;
+		m_verticesPtr++;
 
-		m_renderData.indexCount += 6;
+		indexCount += 6;
 	}
 }
 
 void RendererManager::End()
 {
-	m_renderData.shader->UploadUniformMat4("u_orthoProjMatrix", SceneManager::Instance()->GetCurrentScene()->GetCamera()->GetViewProjMat());
+	m_shader->UploadUniformMat4("u_orthoProjMatrix", SceneManager::Instance()->GetCurrentScene()->GetCamera()->GetViewProjMat());
 
-	uint32 size = (ubyte*)m_renderData.verticesPtr - (ubyte*)m_renderData.verticesBase;
+	if (m_lightPosition)
+	{
+		m_shader->UploadUniformVec2("u_lightPos", *m_lightPosition);
+	}
+	else
+	{
+		m_shader->UploadUniformVec2("u_lightPos", vec2(0.0f));
+	}
+
+	uint32 size = (ubyte*)m_verticesPtr - (ubyte*)m_verticesBase;
 	
-	m_renderData.vertexBuffer->SetData(m_renderData.verticesBase, size);
+	m_vertexBuffer->SetData(m_verticesBase, size);
 
 	Flush();
 }
@@ -143,28 +144,30 @@ void RendererManager::Flush()
 {
 	// RendererDraw(); <- pass in vertex array?
 	// Pass throught the index count of the datat.
-	for (uint32 i = 0; i < m_renderData.textureSlotIndex; i++)
+	for (uint32 i = 0; i < textureSlotIndex; i++)
 	{
 		glActiveTexture(GL_TEXTURE0 + i);
-		m_renderData.textureSlots[i]->Bind();
+		m_textureSlots[i]->Bind();
 	}
 	
-	glDrawElements(GL_TRIANGLES, m_renderData.indexCount, GL_UNSIGNED_INT, nullptr);
+	m_vertexArray->Bind();
+	m_shader->Bind();
+	glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, nullptr);
 }
 
 // TODO Ccould maybe remove passing in sprite renderer and pass in the actual stats.
 void RendererManager::AddQuadToQueue(SpriteRenderer* spriteRenderer)
 {
-	Texture* text = spriteRenderer->GetTexture();
+	vec2* position = spriteRenderer->GetEntity()->GetComponent<Transform>()->GetPositionPointer();
 
-	m_quads.push_back(spriteRenderer);
+	m_quads.emplace_back(position, spriteRenderer);
 }
 
 void RendererManager::RemoveQuadFromQueue(SpriteRenderer* spriteRenderer)
 {
 	for (int i = 0; i < m_quads.size(); i++)
 	{
-		if (m_quads[i] == spriteRenderer)
+		if (m_quads[i].spriteRenderer == spriteRenderer)
 		{
 			m_quads[i] = m_quads.back();
 			m_quads.pop_back();
@@ -173,17 +176,6 @@ void RendererManager::RemoveQuadFromQueue(SpriteRenderer* spriteRenderer)
 	}
 
 	ASSERT(false, "Sprite Renderer not found to remove.");
-}
-
-void RendererManager::Update()
-{
-	for (SpriteRenderer* s : m_quads)
-	{
-		s->GetTexture()->Bind();
-		//Renderer::DrawQuad(s->GetEntity()->GetComponent<Transform>()->GetPosition(), s->GetSize(), vec4(s->GetColor(), 1.0f), s->GetTexture());
-		Transform* t = s->GetEntity()->GetComponent<Transform>();
-		Renderer::DrawQuad(t->GetPosition(), s->GetSize(), t->GetScale(), vec4(s->GetColor(), 1.0f), s->GetTexture());
-	}
 }
 
 } // Namespace jci.

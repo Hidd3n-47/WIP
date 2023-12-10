@@ -15,15 +15,13 @@ enum class BodyType
 class BoxCollider : public IComponent
 {
 public:
+	REGISTER_COMPONENT(ComponentTypes::BoxCollider);
+
 	void OnComponentAdd(Entity* entity) final;
 	void OnComponentRemove() final;
 
-	virtual Entity* GetEntity() final { return m_entity; }
-
 	void CollisionOccured(Entity* otherEntity);
 	void CollisionExit();
-
-	COMPONENT(ComponentTypes::BoxCollider);
 
 	// Accessors.
 	inline vec2 GetSize() const { return m_size; }
@@ -35,11 +33,27 @@ public:
 
 	inline void SetCollisionMethods(ICollision* collisionMethods)	{ m_collisionMethods = collisionMethods; }
 	inline void SetTriggerMethods(ITrigger* triggerMethods)			{ m_triggerMethods = triggerMethods; }
+
+	inline BoxCollider& operator=(BoxCollider& other) noexcept
+	{
+		m_id = std::move(other.m_id);
+		m_entity = std::move(other.m_entity);
+		m_size = std::move(other.m_size);
+		m_bodyType = std::move(other.m_bodyType);
+		m_trigger = other.m_trigger;
+
+		m_collisionOccured = other.m_collisionOccured;
+		m_collisionMethods = std::move(other.m_collisionMethods);
+		m_triggerMethods = std::move(other.m_triggerMethods);
+
+		return *this;
+	}
 private:
 	Entity*		m_entity	= nullptr;
 	vec2		m_size		= vec2(1.0f);
 	BodyType	m_bodyType	= BodyType::Static;
 	bool		m_trigger	= false;
+	entId		m_id		= invalid_id;
 
 	bool		m_collisionOccured	= false;
 	ICollision*	m_collisionMethods	= nullptr;

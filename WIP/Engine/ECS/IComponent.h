@@ -14,6 +14,9 @@ public:
 	virtual void OnComponentRemove() = 0;
 
 	virtual Entity* GetEntity() = 0;
+
+	virtual void SetId(entId id) = 0;
+
 };
 
 } // Namespace jci.

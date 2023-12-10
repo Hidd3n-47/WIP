@@ -5,6 +5,7 @@
 #include <Engine/Scene/SceneManager.h>
 #include <Engine/ECS/SpriteRenderer.h>
 #include <Engine/Graphics/Texture/TextureManager.h>
+#include <Engine/Graphics/Renderer/RendererManager.h>
 
 #include "Game/Levels/Levels.h"
 #include "Game/Bullet/Bullet.h"
@@ -52,6 +53,7 @@ void Player::Create(jci::Scene* scene, Levels map)
 	m_knife->GetComponent<jci::SpriteRenderer>()->SetSize({ 0.7f,0.7f });
 	//scene = jci::SceneManager::Instance()->GetCurrentScene();
 	m_playChar = m_currentScene->CreateEmptyEntity();
+	jci::RendererManager::Instance()->SetLightPosition(m_playChar->GetComponent<jci::Transform>()->GetPositionPointer());
 	                                                                 
 	m_position = m_playChar->GetComponent<jci::Transform>()->GetPositionPointer();
 	m_currentScene->GetCamera()->SetFollowPosition(m_position);

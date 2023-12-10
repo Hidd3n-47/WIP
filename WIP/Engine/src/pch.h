@@ -7,6 +7,7 @@
 #include <memory>
 
 #include <array>
+#include <algorithm>
 #include <unordered_map>
 
 #include <sdl/SDL.h>
