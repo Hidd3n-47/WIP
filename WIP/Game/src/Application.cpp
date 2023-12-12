@@ -14,14 +14,16 @@ void Application::Create()
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	Levels map;
 	map.LoadLevelFromFile("Assets/Levels/TestRoom.csv");
-	EnemyManager* em = EnemyManager::getEnemyManager();
+	//EnemyManager* em = EnemyManager::getEnemyManager();
 	
 	p1 = new Player();
-	p1->Create(m_currentScene, map);
-	z1 = new Zombie();
-	z1->Create(m_currentScene, map, p1);
+	p1->Create(map.GetSpawnPoint());
 
-	jci::Entity* e1 = m_currentScene->CreateEmptyEntity();
+	Zombie* z1 = new Zombie();
+	//z1->Create(m_currentScene, map, p1);
+	z1->Create({ 11, -6 }, p1);
+
+	/*jci::Entity* e1 = m_currentScene->CreateEmptyEntity();
 	e1->GetComponent<jci::Transform>()->SetPosition({ 11, -6 });
 	e1->AddComponent<jci::SpriteRenderer>();
 	e1->AddComponent<jci::NavBlock>();
@@ -54,7 +56,7 @@ void Application::Create()
 	jci::Entity* e7 = m_currentScene->CreateEmptyEntity();
 	e7->GetComponent<jci::Transform>()->SetPosition({ 5, -6 });
 	e7->AddComponent<jci::SpriteRenderer>();
-	e7->AddComponent<jci::NavBlock>();
+	e7->AddComponent<jci::NavBlock>();*/
 }
 
 void Application::Update(float dt)

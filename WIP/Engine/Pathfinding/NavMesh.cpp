@@ -20,6 +20,14 @@ Node* NavMesh::FindNodeFromPoint(vec2 point)
 	return nullptr;
 }
 
+void NavMesh::ResetParents()
+{
+	for (Node* n : m_nodes)
+	{
+		n->parent = nullptr;
+	}
+}
+
 void NavMesh::GenerateConnections()
 {
 	for (int i = 0; i < m_nodes.size(); i++)
@@ -38,8 +46,6 @@ void NavMesh::GenerateConnections()
 			
 			vec2 sizeVector = m_nodes[j]->halfSize + m_nodes[i]->halfSize;
 			
-			/*if ((positionVector.x >= DISTANCE_OVERLAP && abs(positionVector.y - sizeVector.y) <= DISTANCE_TOLORANCE) ||
-				(positionVector.y >= DISTANCE_OVERLAP && abs(positionVector.x - sizeVector.x) <= DISTANCE_TOLORANCE))*/
 			if (distance * distance <= sizeVector.x * sizeVector.x + sizeVector.y * sizeVector.y)
 			{
 				m_nodes[i]->connections.push_back(m_nodes[j]);

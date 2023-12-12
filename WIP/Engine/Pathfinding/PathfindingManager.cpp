@@ -44,12 +44,11 @@ void PathfindingManager::GeneratePath(vec2* startingPoint, vec2* endPoint, std::
 
 std::list<Node*> PathfindingManager::FindPath(Node* startingNode, Node* endNode)
 {
+	m_mesh->ResetParents();
+
 	Heap<Node*> openSet(m_mesh->GetNodeSize());
 	std::unordered_map<Node*, bool> closedSet;
 	openSet.Add(startingNode);
-
-	/*std::unordered_map<uint32, uint32> gScore;
-	std::unordered_map<uint32, uint32> gScore;*/
 
 	while (openSet.size())
 	{

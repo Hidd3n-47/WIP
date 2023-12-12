@@ -23,9 +23,18 @@ void AIManager::Update()
 
 		if (!path || !path->GetPointCount())
 		{
-			std::list<Node*> list;
-			PathfindingManager::Instance()->GeneratePath(position, targetPosition, list);
-			aiComp[i].SetPath(new Path(list));
+			vec2 dist = *targetPosition - *position;
+
+			if (!(dist.x * dist.x + dist.y * dist.y <= 4.0f))
+			{
+				std::list<Node*> list;
+				PathfindingManager::Instance()->GeneratePath(position, targetPosition, list);
+				aiComp[i].SetPath(new Path(list));
+				return;
+			}
+			
+			dist = glm::normalize(dist);
+			*position += 0.008f * dist; // TODO (Christian) Add speed method here for the entities.
 			return;
 		}
 

@@ -12,6 +12,8 @@ public:
 	
 	Node* FindNodeFromPoint(vec2 point);
 
+	void ResetParents();
+
 	void GenerateConnections();
 
 	inline uint32 GetNodeSize() const { return m_nodes.size(); }

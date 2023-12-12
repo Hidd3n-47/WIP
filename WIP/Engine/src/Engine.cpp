@@ -97,7 +97,7 @@ void Engine::Run()
 
 		CollisionManager::Instance()->Update();
 		
-		AIManager::Instance()->Update();
+		AIManager::Instance()->Update(dt);
 
 		AfterUpdate();
 

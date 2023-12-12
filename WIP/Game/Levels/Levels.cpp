@@ -53,7 +53,7 @@ void Levels::createFloor(float x, float y)
 {
 	jci::Entity* newFloor = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
 	newFloor->GetComponent<jci::Transform>()->SetPosition({ x,  y });
-	//newFloor->AddComponent<jci::NavBlock>();
+	newFloor->AddComponent<jci::NavBlock>();
 	LevelSquare.push_back(newFloor);
 }
 
@@ -79,7 +79,7 @@ void Levels::createSpawnPoint(float x, float y)
 {
 	jci::Entity* newFloor = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
 	newFloor->GetComponent<jci::Transform>()->SetPosition({ x,  y });
-	//newFloor->AddComponent<jci::NavBlock>();
+	newFloor->AddComponent<jci::NavBlock>();
 	LevelSquare.push_back(newFloor);
 //floor with extra steps;
 	spawnPointX = x;
