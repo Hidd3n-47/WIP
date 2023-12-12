@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\EnemyManager\EnemyManager.cpp" />
     <ClCompile Include="Engine\ECS\ComponentManager.cpp" />
     <ClCompile Include="Engine\Graphics\Renderer\VertexArray.cpp" />
     <ClCompile Include="Engine\ECS\EntityManager.cpp" />
@@ -183,6 +184,7 @@
     <ClCompile Include="Engine\Pathfinding\NavMesh.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\EnemyManager\EnemyManager.h" />
     <ClInclude Include="Engine\ECS\ComponentManager.h" />
     <ClInclude Include="Engine\Collision\ICollision.h" />
     <ClInclude Include="Engine\FSM\IState.h" />

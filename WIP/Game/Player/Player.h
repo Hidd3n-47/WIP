@@ -18,7 +18,7 @@ class Player : public jci::ICollision
 public:
 	Player();
 	~Player();
-	void Create(jci::Scene* scene, Levels map);
+	void Create(vec2 point);
 	void FireGun(float time);
 	void Update(float time);
 

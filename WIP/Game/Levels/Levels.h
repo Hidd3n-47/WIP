@@ -2,19 +2,20 @@
 #include <vector>
 #include <Engine/Scene/SceneManager.h>
 #include <Engine/ECS/Entity.h>
+#include <Game/EnemyManager/EnemyManager.h>
 
 class Levels
 {
 private:
 	std::vector<jci::Entity*> LevelSquare;
-
-
+	EnemyManager* em;
 public:
 	Levels();
 	~Levels();
 
 	void createWall(float x, float y);
 	void createFloor(float x, float y);
+	void createEnemySpawnPoint(float x, float y);
 	void createDoor(float x, float y);//Need to add behaviour
 	void createSpawnPoint(float x, float y);//Spawn point
 	std::vector<std::string> split(const std::string& string, const char splitter);//string parser;

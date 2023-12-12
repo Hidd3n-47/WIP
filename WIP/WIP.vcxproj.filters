@@ -108,6 +108,27 @@
     <ClCompile Include="Engine\Time\Timer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\ECS\ComponentManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\ECS\EntityManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\FSM\StateMachineManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\ECS\NavBlock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Pathfinding\PathfindingManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Pathfinding\NavMesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\EnemyManager\EnemyManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\src\Engine.h">
@@ -230,12 +251,44 @@
     <ClInclude Include="Engine\Collision\ICollision.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\ECS\ComponentManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\FSM\IState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\ECS\EntityManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Pathfinding\Node.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\FSM\StateMachineManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\FSM\IStateMachine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\ECS\NavBlock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Pathfinding\PathfindingManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Pathfinding\NavMesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\EnemyManager\EnemyManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shader\shader.frag" />
     <None Include="Assets\Shader\shader.vert" />
     <None Include="Assets\Levels\NOLAGROOM.csv" />
     <None Include="Assets\Levels\TestRoom.csv" />
+    <None Include="Assets\Shader\light.frag" />
+    <None Include="Assets\Shader\light.vert" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Texture\Back left wall.png">
@@ -308,6 +361,84 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Assets\Texture\green.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Back left wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Back right wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Back wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Blank.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Bullet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\circ.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\dbg\dbg_box.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\dbg\no_texture.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Door.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Floor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Front left wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Front right wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Front wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\green.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Inv back left wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Inv back right wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Inv front left wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Inv front right wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Left wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Open Door.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\Right wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\square.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\squareWITHANF!!.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Assets\Texture\squareWITHAW!!.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Texture\Scientist.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Texture\Weapons\Bowie Knife.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

@@ -1,13 +1,15 @@
 #pragma once
-#include <Game/Levels/Levels.h>
 #include <vector>
-#include <Engine/Scene/SceneManager.h>
-#include <Engine/ECS/Transform.h>
-#include <Engine/ECS/SpriteRenderer.h>
-#include <Engine/ECS/BoxCollider.h>
-#include <Engine/Input/InputManager.h>
-#include <Game/Bullet/Bullet.h>
-#include <Game/Player/Player.h>
+#include <Engine/ECS/Entity.h>
+
+class Player;
+
+namespace jci
+{
+	class Transform;
+	class Entity;
+}
+
 
 class Zombie
 {
@@ -15,7 +17,8 @@ public:
 	Zombie();
 	~Zombie();
 	void Update(float time);
-	void Create(jci::Scene* scene, Levels map, Player* play);
+	//void Create(Levels map, Player* play);
+	void Create(vec2 point, Player* play);
 	jci::Scene* m_currentScene;
 
 private:
