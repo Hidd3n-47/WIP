@@ -14,6 +14,8 @@ public:
 	void Create();
 	void Update(float dt);
 	inline void Destroy() { delete m_instance; }
+
+	inline vec2* GetPlayerPositionPointer() const { return p1->GetPosPointer(); }
 private:
 	Application() = default;
 	~Application() = default;

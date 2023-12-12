@@ -10,13 +10,13 @@ class PathfindingManager
 public:
 	inline static PathfindingManager* Instance() { return m_instance == nullptr ? m_instance = new PathfindingManager() : m_instance; }
 
-	inline void BeginUpload() { m_pauseGeneration = true; }
-	inline void EndUpload() { m_pauseGeneration = false; }
+	inline void BeginUpload() { m_pauseConnecting = true; }
+	inline void EndUpload() { m_pauseConnecting = false; }
 
 	void RegisterNavBlock(Node* node);
 	void DeregisterNavBlock(Node* node);
 
-	void GeneratePath();
+	void GeneratePath(vec2* startingPoint, vec2* endPoint, std::list<Node*>& path);
 
 private:
 	PathfindingManager()  = default;
@@ -26,10 +26,10 @@ private:
 
 	NavMesh* m_mesh = nullptr;
 
-	bool m_pauseGeneration = false;
+	bool m_pauseConnecting = false;
 
-	vec2 m_startingPos;
-	vec2 m_endPos;
+	std::list<Node*> FindPath(Node* startingNode, Node* endNode);
+	std::list<Node*> RetracePath(Node* startNode, Node* endNode);
 };
 
 } // Namespace jci.

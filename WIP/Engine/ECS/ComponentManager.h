@@ -1,12 +1,29 @@
 #pragma once
 
-#include "ECS/Transform.h"
-#include "ECS/SpriteRenderer.h"
-#include "ECS/BoxCollider.h"
+#include "Transform.h"
+#include "SpriteRenderer.h"
+#include "BoxCollider.h"
+#include "NavBlock.h"
+#include "AI.h"
 
 namespace jci {
 
 class Entity;
+
+template<class T>
+struct ComponentVector
+{
+	ComponentVector(T* vector, entId numberOfElements) : m_vector(vector), numberOfElements(numberOfElements) { /* Empty. */ }
+	entId numberOfElements;
+
+	inline T& operator[] (int index)
+	{
+		ASSERT(index <= numberOfElements, "Out of bounds.");
+		return m_vector[numberOfElements];
+	}
+private:
+	T* m_vector;
+};
 
 class ComponentManager
 {
@@ -15,7 +32,17 @@ public:
 
 	void Init();
 
-	// TODO (Christian): See if this can be made better by using copy constructor.
+	template<class ComponentClass>
+	inline ComponentClass* RegisterComponent(ComponentTypes type, std::vector<ComponentClass>& componentVector)
+	{
+		entId componentIndex = m_componentIndices[(entId)type]++;
+
+		ComponentClass comp;
+		comp.SetId(componentIndex);
+		componentVector[componentIndex] = comp;
+		return &componentVector[componentIndex];
+	}
+
 	template<class T>
 	inline T* AddComponent()
 	{
@@ -26,41 +53,48 @@ public:
 	template<>
 	inline Transform* AddComponent<Transform>()
 	{
-		entId componentIndex = m_componentIndices[(entId)ComponentTypes::Transform]++;
-
-		Transform comp;
-		comp.SetId(componentIndex);
-		m_transforms[componentIndex] = comp;
-		return &m_transforms[componentIndex];
+		return RegisterComponent(ComponentTypes::Transform, m_transforms);
 	}
 
 	template<>
 	inline SpriteRenderer* AddComponent<SpriteRenderer>()
 	{
-		entId componentIndex = m_componentIndices[(entId)ComponentTypes::SpriteRenderer]++;
-
-		SpriteRenderer comp;
-		comp.SetId(componentIndex);
-		m_spriteRenderers[componentIndex] = comp;
-		return &m_spriteRenderers[componentIndex];
+		return RegisterComponent(ComponentTypes::SpriteRenderer, m_spriteRenderers);
 	}
 
 	template<>
 	inline BoxCollider* AddComponent<BoxCollider>()
 	{
-		entId componentIndex = m_componentIndices[(entId)ComponentTypes::BoxCollider]++;
-
-		BoxCollider comp;
-		comp.SetId(componentIndex);
-		m_boxColliders[componentIndex] = comp;
-		return &m_boxColliders[componentIndex];
+		return RegisterComponent(ComponentTypes::BoxCollider, m_boxColliders);
 	}
 
+	template<>
+	inline NavBlock* AddComponent<NavBlock>()
+	{
+		return RegisterComponent(ComponentTypes::NavBlock, m_navBlocks);
+	}
+
+	template<>
+	inline AI* AddComponent<AI>()
+	{
+		return RegisterComponent(ComponentTypes::AI, m_ais);
+	}
+
+	template<class ComponentClass>
+	inline ComponentClass* RetrieveComponent(std::vector<ComponentClass>& componetVector, entId componentId)
+	{
+		if (componetVector[componentId].GetId() == invalid_id)
+		{
+			ASSERT(false, "Component has invalid argument whilst existing.");
+			return nullptr;
+		}
+
+		return &componetVector[componentId];
+	}
 
 	template<class T>
 	inline T* GetComponent(entId componentId)
 	{
-		// TODO (Christian): Check that the component is valid.
 		ASSERT(false, "Unhandled component added.");
 		return nullptr;
 	}
@@ -68,37 +102,42 @@ public:
 	template<>
 	inline Transform* GetComponent<Transform>(entId componentId)
 	{
-		if (m_transforms[componentId].GetId() == invalid_id)
-		{
-			ASSERT(false, "Component has invalid argument whilst existing.");
-			return nullptr;
-		}
-
-		return &m_transforms[componentId];
+		return RetrieveComponent(m_transforms, componentId);
 	}
 
 	template<>
 	inline SpriteRenderer* GetComponent<SpriteRenderer>(entId componentId)
 	{
-		if (m_spriteRenderers[componentId].GetId() == invalid_id)
-		{
-			ASSERT(false, "Component has invalid id whilst existing.");
-			return nullptr;
-		}
-
-		return &m_spriteRenderers[componentId];
+		return RetrieveComponent(m_spriteRenderers, componentId);
 	}
 
 	template<>
 	inline BoxCollider* GetComponent<BoxCollider>(entId componentId)
 	{
-		if (m_boxColliders[componentId].GetId() == invalid_id)
-		{
-			ASSERT(false, "Component has invalid argument whilst existing.");
-			return nullptr;
-		}
+		return RetrieveComponent(m_boxColliders, componentId);
+	}
 
-		return &m_boxColliders[componentId];
+	template<>
+	inline NavBlock* GetComponent<NavBlock>(entId componentId)
+	{
+		return RetrieveComponent(m_navBlocks, componentId);
+	}
+
+	template<>
+	inline AI* GetComponent<AI>(entId componentId)
+	{
+		return RetrieveComponent(m_ais, componentId);
+	}
+
+	template<class ComponentClass>
+	inline Entity* DeregisterComponent(ComponentTypes type, std::vector<ComponentClass>& componentVector, entId id)
+	{
+		ASSERT(componentVector[id].GetId() != invalid_id, "Component has invalid id whilst existing.");
+
+		m_componentIndices[(entId)type]--;
+		componentVector[id] = componentVector.back();
+		componentVector.back().SetId(invalid_id);
+		return componentVector.back().GetEntity();
 	}
 
 	template<class T>
@@ -110,39 +149,72 @@ public:
 	template<>
 	inline Entity* RemoveComponent<Transform>(entId id)
 	{
-		ASSERT(m_transforms[id].GetId() != invalid_id, "Component has invalid id whilst existing.");
-
-		m_componentIndices[(entId)ComponentTypes::Transform]--;
-		m_transforms[id] = m_transforms.back();
-		m_transforms.back().SetId(invalid_id);
-		return m_transforms.back().GetEntity();
+		return DeregisterComponent(ComponentTypes::Transform, m_transforms, id);
 	}
 
 	template<>
 	inline Entity* RemoveComponent<SpriteRenderer>(entId id)
 	{
-		ASSERT(m_spriteRenderers[id].GetId() != invalid_id, "Component has invalid id whilst existing.");
-		
-		m_spriteRenderers.back().OnComponentRemove();
-
-		m_componentIndices[(entId)ComponentTypes::SpriteRenderer]--;
-		m_spriteRenderers[id] = m_spriteRenderers.back();
-		m_spriteRenderers.back().SetId(invalid_id);
-		return m_spriteRenderers.back().GetEntity();
+		return DeregisterComponent(ComponentTypes::SpriteRenderer, m_spriteRenderers, id);
 	}
 
 	template<>
 	inline Entity* RemoveComponent<BoxCollider>(entId id)
 	{
-		ASSERT(m_boxColliders[id].GetId() != invalid_id, "Component has invalid id whilst existing.");
-
-		m_boxColliders.back().OnComponentRemove();
-
-		m_componentIndices[(entId)ComponentTypes::BoxCollider]--;
-		m_boxColliders[id] = m_boxColliders.back();
-		m_boxColliders.back().SetId(invalid_id);
-		return m_boxColliders.back().GetEntity();
+		return DeregisterComponent(ComponentTypes::BoxCollider, m_boxColliders, id);
 	}
+
+	template<>
+	inline Entity* RemoveComponent<NavBlock>(entId id)
+	{
+		return DeregisterComponent(ComponentTypes::NavBlock, m_navBlocks, id);
+	}
+
+	template<>
+	inline Entity* RemoveComponent<AI>(entId id)
+	{
+		return DeregisterComponent(ComponentTypes::AI, m_ais, id);
+	}
+
+	template<class T>
+	inline T* GetComponentVector()
+	{
+		ASSERT(false, "Getting the Component Vector has not been implemented.");
+
+		return;
+	}
+
+	/*template<>
+	inline ComponentVector<Transform> GetComponentVector()
+	{ 
+		return ComponentVector<Transform>(m_transforms, m_componentIndices[(entId)ComponentTypes::Transform]);
+	}
+
+	template<>
+	inline ComponentVector<SpriteRenderer> GetComponentVector()
+	{ 
+		return ComponentVector<SpriteRenderer>(m_spriteRenderers, m_componentIndices[(entId)ComponentTypes::SpriteRenderer]);
+	}
+
+	template<>
+	inline ComponentVector<BoxCollider> GetComponentVector()
+	{ 
+		return ComponentVector<BoxCollider>(m_boxColliders, m_componentIndices[(entId)ComponentTypes::BoxCollider]);
+	}
+
+	template<>
+	inline ComponentVector<NavBlock> GetComponentVector()
+	{ 
+		return ComponentVector<NavBlock>(m_navBlocks, m_componentIndices[(entId)ComponentTypes::NavBlock]);
+	}*/
+
+	template<>
+	inline AI* GetComponentVector()
+	{
+		return &m_ais[0];
+	}
+
+	inline entId GetComponentCount(ComponentTypes type) const { return m_componentIndices[(entId)type]; }
 
 	// TODO (Christian) Add a remove component.
 private:
@@ -154,6 +226,8 @@ private:
 	std::vector<Transform>		m_transforms;
 	std::vector<SpriteRenderer>	m_spriteRenderers;
 	std::vector<BoxCollider>	m_boxColliders;
+	std::vector<NavBlock>		m_navBlocks;
+	std::vector<AI>				m_ais;
 
 	entId	m_componentIndices[(entId)ComponentTypes::Count];
 

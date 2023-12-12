@@ -5,6 +5,7 @@
 #include "IO/IOManager.h"
 #include "Input/InputManager.h"
 #include "Scene/SceneManager.h"
+#include "Pathfinding/AIManager.h"
 #include "FSM/StateMachineManager.h"
 #include "Graphics/Texture/Texture.h"
 #include "Graphics/Renderer/Renderer.h"
@@ -94,7 +95,9 @@ void Engine::Run()
 
 		Application::Instance()->Update(dt);
 
-		CollisionManager::Instance()->Update(dt); // Question: Is dt needed in collision Manager?
+		CollisionManager::Instance()->Update();
+		
+		AIManager::Instance()->Update();
 
 		AfterUpdate();
 

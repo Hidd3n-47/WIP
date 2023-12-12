@@ -5,11 +5,6 @@
 
 namespace jci { 
 
-void NavMesh::AddNode(Node* node)
-{
-	m_nodes.push_back(node);
-}
-
 Node* NavMesh::FindNodeFromPoint(vec2 point)
 {
 	for (int i = 0; i < m_nodes.size(); i++)
@@ -29,19 +24,29 @@ void NavMesh::GenerateConnections()
 {
 	for (int i = 0; i < m_nodes.size(); i++)
 	{
-		for (int j = i + 1; j < m_nodes.size(); i++)
+		m_nodes[i]->connections.clear();
+		m_nodes[i]->distanceToConnection.clear();
+	}
+
+	for (int i = 0; i < m_nodes.size(); i++)
+	{
+		for (int j = i + 1; j < m_nodes.size(); j++)
 		{
-			vec2 positionVector = m_nodes[j]->position - m_nodes[i]->position;
+			vec2 positionVector = abs(m_nodes[j]->position - m_nodes[i]->position);
 
-			float distance = positionVector.x * positionVector.x + positionVector.y * positionVector.y;
+			float distance = glm::sqrt(positionVector.x * positionVector.x + positionVector.y * positionVector.y);
 			
-			vec2 sizeVector = m_nodes[j]->halfSize - m_nodes[i]->halfSize;
-			float minDistance = sizeVector.x * sizeVector.x + sizeVector.y * sizeVector.y;
-
-			if (distance - minDistance <= DISTANCE_TOLORANCE_SQ)
+			vec2 sizeVector = m_nodes[j]->halfSize + m_nodes[i]->halfSize;
+			
+			/*if ((positionVector.x >= DISTANCE_OVERLAP && abs(positionVector.y - sizeVector.y) <= DISTANCE_TOLORANCE) ||
+				(positionVector.y >= DISTANCE_OVERLAP && abs(positionVector.x - sizeVector.x) <= DISTANCE_TOLORANCE))*/
+			if (distance * distance <= sizeVector.x * sizeVector.x + sizeVector.y * sizeVector.y)
 			{
 				m_nodes[i]->connections.push_back(m_nodes[j]);
+				m_nodes[i]->distanceToConnection.push_back(distance);
+
 				m_nodes[j]->connections.push_back(m_nodes[i]);
+				m_nodes[j]->distanceToConnection.push_back(distance);
 			}
 
 		}

@@ -12,7 +12,7 @@ class NavBlock : public IComponent
 public:
 	REGISTER_COMPONENT(ComponentTypes::NavBlock);
 
-	inline void OnComponentAdd(Entity* entity) final { PathfindingManager::Instance()->RegisterNavBlock(m_node); }
+	void OnComponentAdd(Entity* entity) final;
 	inline void OnComponentRemove() final { PathfindingManager::Instance()->DeregisterNavBlock(m_node); }
 
 	// Accessors.
@@ -22,6 +22,15 @@ public:
 	// Mutators.
 	inline void SetPosition(vec2 position)	{ m_node->position = position; }
 	inline void SetSize(vec2 size)			{ m_node->halfSize = size; }
+
+	inline NavBlock& operator=(NavBlock& other) noexcept
+	{
+		m_id = std::move(other.m_id);
+		m_entity = std::move(other.m_entity);
+		m_node = std::move(other.m_node);
+
+		return *this;
+	}
 private:
 	Entity* m_entity;
 	entId	m_id = invalid_id;

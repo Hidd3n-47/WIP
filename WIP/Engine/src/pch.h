@@ -7,6 +7,7 @@
 #include <memory>
 
 #include <array>
+#include <queue>
 #include <algorithm>
 #include <unordered_map>
 

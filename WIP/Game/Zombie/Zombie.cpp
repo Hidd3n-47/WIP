@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "Zombie.h"
 
+#include "Game/src/Application.h"
+
 Zombie::Zombie()
 {
 
@@ -17,6 +19,7 @@ void Zombie::Create(jci::Scene* scene, Levels map, Player* play)
 	jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::NoTexture);
 	zombert->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
 	zombert->GetComponent<jci::BoxCollider>()->SetSize({ 0.6f, 1.0f });
+	zombert->AddComponent<jci::AI>()->SetTargetPosition(Application::Instance()->GetPlayerPositionPointer());
 }
 
 void Zombie::Update(float time)

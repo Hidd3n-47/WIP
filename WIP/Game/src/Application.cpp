@@ -18,10 +18,45 @@ void Application::Create()
 	p1->Create(m_currentScene, map);
 	z1 = new Zombie();
 	z1->Create(m_currentScene, map, p1);
+
+	jci::Entity* e1 = m_currentScene->CreateEmptyEntity();
+	e1->GetComponent<jci::Transform>()->SetPosition({ 11, -6 });
+	e1->AddComponent<jci::SpriteRenderer>();
+	e1->AddComponent<jci::NavBlock>();
+
+	jci::Entity* e2 = m_currentScene->CreateEmptyEntity();
+	e2->GetComponent<jci::Transform>()->SetPosition({ 10, -6 });
+	e2->AddComponent<jci::SpriteRenderer>();
+	e2->AddComponent<jci::NavBlock>();
+
+	jci::Entity* e3 = m_currentScene->CreateEmptyEntity();
+	e3->GetComponent<jci::Transform>()->SetPosition({ 9, -6 });
+	e3->AddComponent<jci::SpriteRenderer>();
+	e3->AddComponent<jci::NavBlock>();
+
+	jci::Entity* e4 = m_currentScene->CreateEmptyEntity();
+	e4->GetComponent<jci::Transform>()->SetPosition({ 8, -6 });
+	e4->AddComponent<jci::SpriteRenderer>();
+	e4->AddComponent<jci::NavBlock>();
+
+	jci::Entity* e5 = m_currentScene->CreateEmptyEntity();
+	e5->GetComponent<jci::Transform>()->SetPosition({ 7, -6 });
+	e5->AddComponent<jci::SpriteRenderer>();
+	e5->AddComponent<jci::NavBlock>();
+
+	jci::Entity* e6 = m_currentScene->CreateEmptyEntity();
+	e6->GetComponent<jci::Transform>()->SetPosition({ 6, -6 });
+	e6->AddComponent<jci::SpriteRenderer>();
+	e6->AddComponent<jci::NavBlock>();
+
+	jci::Entity* e7 = m_currentScene->CreateEmptyEntity();
+	e7->GetComponent<jci::Transform>()->SetPosition({ 5, -6 });
+	e7->AddComponent<jci::SpriteRenderer>();
+	e7->AddComponent<jci::NavBlock>();
 }
 
 void Application::Update(float dt)
 {
 	p1->Update(dt);
-	z1->Update(dt);
+	//z1->Update(dt);
 }

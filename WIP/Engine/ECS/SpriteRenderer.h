@@ -37,7 +37,7 @@ private:
 	Entity*		m_entity		= nullptr;
 	Texture*	m_texture		= nullptr;
 	vec2		m_size			= vec2(1.0f);
-	entId	m_id = invalid_id;
+	entId		m_id = invalid_id;
 };
 
 } // Namespace jci.

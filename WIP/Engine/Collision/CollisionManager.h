@@ -11,7 +11,7 @@ class CollisionManager
 public:
 	inline static CollisionManager* Instance() { return m_instance == nullptr ? m_instance = new CollisionManager() : m_instance; }
 
-	void Update(float dt);
+	void Update();
 
 	// TODO (Christian): Add this to remove objects from the respective vectors.
 	void AfterUpdate();

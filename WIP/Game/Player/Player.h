@@ -22,8 +22,8 @@ public:
 	void FireGun(float time);
 	void Update(float time);
 
-	inline vec2 GetPos() const  { return *m_position; }
-
+	inline vec2		GetPos()		const	{ return *m_position; }
+	inline vec2*	GetPosPointer()	const	{ return m_position; }
 private:
 	//static Player* m_instance;
 	std::vector<Bullet*>	bulletPool;

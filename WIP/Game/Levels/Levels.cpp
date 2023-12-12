@@ -1,6 +1,7 @@
 #include "pch.h"
 #include <Game/Levels/Levels.h>
 #include <sstream>
+#include <Engine/ECS/NavBlock.h>
 #include <Engine/ECS/BoxCollider.h>
 #include <Engine/ECS/SpriteRenderer.h>
 #include <Engine/IO/IOManager.h>
@@ -51,9 +52,8 @@ void Levels::createFloor(float x, float y)
 {
 	jci::Entity* newFloor = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
 	newFloor->GetComponent<jci::Transform>()->SetPosition({ x,  y });
+	//newFloor->AddComponent<jci::NavBlock>();
 	LevelSquare.push_back(newFloor);
-
-
 }
 
 void Levels::createDoor(float x, float y)
@@ -70,6 +70,7 @@ void Levels::createSpawnPoint(float x, float y)
 {
 	jci::Entity* newFloor = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
 	newFloor->GetComponent<jci::Transform>()->SetPosition({ x,  y });
+	//newFloor->AddComponent<jci::NavBlock>();
 	LevelSquare.push_back(newFloor);
 //floor with extra steps;
 	spawnPointX = x;

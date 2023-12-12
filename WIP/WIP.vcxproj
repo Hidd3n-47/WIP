@@ -141,6 +141,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\ECS\AI.cpp" />
+    <ClCompile Include="Engine\Pathfinding\AIManager.cpp" />
     <ClCompile Include="Engine\ECS\ComponentManager.cpp" />
     <ClCompile Include="Engine\Graphics\Renderer\VertexArray.cpp" />
     <ClCompile Include="Engine\ECS\EntityManager.cpp" />
@@ -183,6 +185,8 @@
     <ClCompile Include="Engine\Pathfinding\NavMesh.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine\Pathfinding\AIManager.h" />
+    <ClInclude Include="Engine\ECS\AI.h" />
     <ClInclude Include="Engine\ECS\ComponentManager.h" />
     <ClInclude Include="Engine\Collision\ICollision.h" />
     <ClInclude Include="Engine\FSM\IState.h" />
@@ -190,6 +194,8 @@
     <ClInclude Include="Engine\Graphics\Renderer\VertexArray.h" />
     <ClInclude Include="Engine\ECS\EntityManager.h" />
     <ClInclude Include="Engine\Pathfinding\Node.h" />
+    <ClInclude Include="Engine\Pathfinding\Path.h" />
+    <ClInclude Include="Engine\Utilities\Heap.h" />
     <ClInclude Include="Game\Bullet\BulletManager.h" />
     <ClInclude Include="Game\Bullet\Bullet.h" />
     <ClInclude Include="Engine\Collision\CollisionManager.h" />

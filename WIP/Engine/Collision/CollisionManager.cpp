@@ -8,7 +8,7 @@ namespace jci {
 
 CollisionManager* CollisionManager::m_instance = nullptr;
 
-void CollisionManager::Update(float dt)
+void CollisionManager::Update()
 {
 	// Collision can only happen on Kinematic. Kinematic v Kinematic and Kinemetic v Static.
 

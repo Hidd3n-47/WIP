@@ -18,6 +18,20 @@ public:
 			vector.pop_back();
 		}
 	}
+
+	template<class T>
+	static bool ListContains(const std::list<T>& list, T item)
+	{
+		for (auto it = list.begin(); it != list.end(); it++)
+		{
+			if (*it == item)
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
 };
 
 } // Namespace jci.

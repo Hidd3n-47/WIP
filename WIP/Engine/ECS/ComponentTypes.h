@@ -6,5 +6,6 @@ enum class ComponentTypes
 	SpriteRenderer,
 	BoxCollider,
 	NavBlock,
+	AI,
 	Count // Total number of components.
 };

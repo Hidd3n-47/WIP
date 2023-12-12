@@ -94,23 +94,23 @@ void RendererManager::Begin()
 			textureSlotIndex++;
 		}
 
-		 size = size * 0.5f;
+		size = size * 0.5f;
 
 		m_verticesPtr->position = vec3(*q.position - size, 0.0f);
 		m_verticesPtr->uvCoord = { 0.0f, 0.0f };
 		m_verticesPtr->textureId = textureIndex;
 		m_verticesPtr++;
-
+		
 		m_verticesPtr->position = vec3(q.position->x + size.x, q.position->y - size.y, 0.0f);
 		m_verticesPtr->uvCoord = { 1.0f, 0.0f };
 		m_verticesPtr->textureId = textureIndex;
 		m_verticesPtr++;
-
+		
 		m_verticesPtr->position = vec3(*q.position + size, 0.0f);
 		m_verticesPtr->uvCoord = { 1.0f, 1.0f };
 		m_verticesPtr->textureId = textureIndex;
 		m_verticesPtr++;
-
+		
 		m_verticesPtr->position = vec3(q.position->x- size.y, q.position->y + size.y, 0.0f);
 		m_verticesPtr->uvCoord = { 0.0f, 1.0f };
 		m_verticesPtr->textureId = textureIndex;
