@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\EnemyManager\EnemyManager.cpp" />
     <ClCompile Include="Engine\ECS\AI.cpp" />
     <ClCompile Include="Engine\Pathfinding\AIManager.cpp" />
     <ClCompile Include="Engine\ECS\ComponentManager.cpp" />
@@ -185,8 +186,6 @@
     <ClCompile Include="Engine\Pathfinding\NavMesh.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\Pathfinding\AIManager.h" />
-    <ClInclude Include="Engine\ECS\AI.h" />
     <ClInclude Include="Engine\ECS\ComponentManager.h" />
     <ClInclude Include="Engine\Collision\ICollision.h" />
     <ClInclude Include="Engine\FSM\IState.h" />

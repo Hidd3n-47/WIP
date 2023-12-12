@@ -27,6 +27,6 @@ private:
 	std::vector<jci::Entity*> UpdatePool;
 
 	Player* p1 = nullptr;
-	Zombie* z1 = nullptr;
+	//Zombie* z1 = nullptr;
 };
 

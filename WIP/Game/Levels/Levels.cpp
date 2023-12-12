@@ -25,7 +25,7 @@ Levels::Levels()
 	inversetopright = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv front right wall.png");
 	inversebotleft = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv back left wall.png");
 	inversebotright = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv back right wall.png");
-
+	em = EnemyManager::getEnemyManager();
 	//DLOG(std::to_string(wall));
 }
 
@@ -36,6 +36,7 @@ Levels::~Levels()
 		// jci::SceneManager::Instance()->GetCurrentScene()->RemoveEntity(i);
 	}
 	LevelSquare.clear();
+	em->clearSquares();
 }
 
 void Levels::createWall(float x, float y)
@@ -54,6 +55,14 @@ void Levels::createFloor(float x, float y)
 	newFloor->GetComponent<jci::Transform>()->SetPosition({ x,  y });
 	//newFloor->AddComponent<jci::NavBlock>();
 	LevelSquare.push_back(newFloor);
+}
+
+void Levels::createEnemySpawnPoint(float x, float y)
+{
+	jci::Entity* newFloor = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
+	newFloor->GetComponent<jci::Transform>()->SetPosition({ x,  y });
+	LevelSquare.push_back(newFloor);
+	em->getEnemySquares().push_back(newFloor);
 }
 
 void Levels::createDoor(float x, float y)
@@ -213,6 +222,12 @@ void Levels::LoadLevel(std::string fileString)
 			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(inversebotright);
 			currentX += width;
 		}
+		else if (i == "79")
+		{
+			createFloor(currentX, currentY);
+			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(floor);
+			currentX += width;
+		}
 		else if (i == "89")//spawnpoint
 		{
 			createSpawnPoint(currentX, currentY);
@@ -242,4 +257,9 @@ int Levels::getSpawnPointX()
 int Levels::getSpawnPointY()
 {
 	return spawnPointY;
+}
+
+vec2 Levels::GetSpawnPoint()
+{
+	return vec2(spawnPointX,spawnPointY);
 }

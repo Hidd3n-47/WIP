@@ -7,7 +7,6 @@
 #include <Engine/Graphics/Texture/TextureManager.h>
 #include <Engine/Graphics/Renderer/RendererManager.h>
 
-#include "Game/Levels/Levels.h"
 #include "Game/Bullet/Bullet.h"
 
 Player::Player() :
@@ -40,7 +39,7 @@ Player::~Player()
 	// Empty.
 }
 
-void Player::Create(jci::Scene* scene, Levels map)
+void Player::Create(vec2 point)
 {
 	uint32 text = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Scientist.png");
 	m_bulletTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Bullet.png");
@@ -58,7 +57,7 @@ void Player::Create(jci::Scene* scene, Levels map)
 	m_position = m_playChar->GetComponent<jci::Transform>()->GetPositionPointer();
 	m_currentScene->GetCamera()->SetFollowPosition(m_position);
 
-	m_playChar->GetComponent<jci::Transform>()->SetPosition({ map.getSpawnPointX(),  map.getSpawnPointY() });
+	m_playChar->GetComponent<jci::Transform>()->SetPosition(point);
 	
 	m_playChar->AddComponent<jci::SpriteRenderer>()->SetTexture(text);
 	jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::NoTexture);
