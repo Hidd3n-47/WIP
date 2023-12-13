@@ -67,7 +67,8 @@ std::list<Node*> PathfindingManager::FindPath(Node* startingNode, Node* endNode)
 
 			int movementCostToConnection = current->gCost + current->distanceToConnection[i];
 
-			if (movementCostToConnection < current->connections[i]->gCost || !openSet.IsElement(current->connections[i]))
+			bool isElement = openSet.IsElement(current->connections[i]);
+			if (movementCostToConnection < current->connections[i]->gCost || !isElement)
 			{
 				current->connections[i]->gCost = movementCostToConnection;
 
@@ -75,7 +76,7 @@ std::list<Node*> PathfindingManager::FindPath(Node* startingNode, Node* endNode)
 				current->connections[i]->hCost = glm::length(distance);
 				current->connections[i]->parent = current;
 
-				if (!openSet.IsElement(current->connections[i]))
+				if (!isElement)
 				{
 					openSet.Add(current->connections[i]);
 				}
