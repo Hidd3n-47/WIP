@@ -8,7 +8,7 @@ namespace jci {
 
 AIManager* AIManager::m_instance = nullptr;
 
-void AIManager::Update()
+void AIManager::Update(float dt)
 {
 	AI* aiComp = ComponentManager::Instance()->GetComponentVector<AI>();
 

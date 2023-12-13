@@ -8,6 +8,7 @@ struct Bullet;
 namespace jci {
 class Scene;
 class Entity;
+class Timer;
 } // Namespace jci.
 
 //Firegun thing
@@ -21,6 +22,7 @@ public:
 	void Create(vec2 point);
 	void FireGun(float time);
 	void Update(float time);
+	void setLevel(Levels* temp);
 
 	inline vec2		GetPos()		const	{ return *m_position; }
 	inline vec2*	GetPosPointer()	const	{ return m_position; }
@@ -40,14 +42,11 @@ private:
 	bool		m_canFire;
 	bool		m_isDashing;
 	bool		m_isMelee;
-	float		m_fireTime;
-	float		m_gunfireTimer;
-	float		m_dashTimer;
-	float		m_meleeTimer;
-	int			m_reloadMeleeSpeed;
-	int			m_reloadSpeed; //GET FROM GUN LATER
-	int			m_reloadDashSpeed;
+	int			m_stabCooldown;
+	int			m_fireRate; //GET FROM GUN LATER
+	int			m_dashTime; //just the dash cooldown
 	vec2		m_backupDirection = vec2(0.0f);
+	vec2		m_knifeDirection = vec2(0.0f);
 	uint32		m_knifeTexture;
 	uint32		m_blankTexture;
 
@@ -56,5 +55,10 @@ private:
 	void OnCollisionStay(jci::Entity* other) final;
 	void OnCollisionExit() final;
 
+	Levels* mapRef;
+	jci::Timer* dashCD;
+	jci::Timer* bulletCD;
+	jci::Timer* meleeCD;
+	jci::Timer* stabbin;
 };
 

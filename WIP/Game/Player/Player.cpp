@@ -6,8 +6,9 @@
 #include <Engine/ECS/SpriteRenderer.h>
 #include <Engine/Graphics/Texture/TextureManager.h>
 #include <Engine/Graphics/Renderer/RendererManager.h>
-
+#include <Game/Levels/Levels.h>
 #include "Game/Bullet/Bullet.h"
+#include <Engine/Time/Timer.h>
 
 Player::Player() :
 	m_playChar(nullptr),
@@ -19,14 +20,10 @@ Player::Player() :
 	m_height((float)jci::Engine::Instance()->GetScreenHeight()),
 	m_canFire(true),
 	m_isDashing(false),
-	m_isMelee(true),
-	m_fireTime(2.0f),
-	m_gunfireTimer(2.0f),
-	m_dashTimer(2.0f),
-	m_meleeTimer(2.0f),
-	m_reloadMeleeSpeed(2.0f),
-	m_reloadSpeed(2.0f),
-	m_reloadDashSpeed(2.0f),
+	m_isMelee(false),
+	m_stabCooldown(2.0f),
+	m_fireRate(2.0f),
+	m_dashTime(2.0f),
 	m_backupDirection(vec2(0.0f)),
 	m_knifeTexture(0),
 	m_blankTexture(0)
@@ -65,6 +62,11 @@ void Player::Create(vec2 point)
 	jci::BoxCollider* bc = m_playChar->AddComponent<jci::BoxCollider>();
 	bc->SetBodyType(jci::BodyType::Kinematic);
 	bc->SetCollisionMethods(this);
+	dashCD = new jci::Timer(0, false);
+	meleeCD = new jci::Timer(0, false);
+	bulletCD = new jci::Timer(0, false);
+	stabbin = new jci::Timer(0, false);
+	m_knife->AddComponent<jci::SpriteRenderer>()->SetTexture(m_blankTexture);
 }
 
 void Player::FireGun(float time)
@@ -93,10 +95,18 @@ void Player::FireGun(float time)
 
 void Player::Update(float time) 
 {
-	m_dashTimer += time;
-	m_gunfireTimer += time;
+	//m_meleeTimer += time;
+	//m_dashTimer += time;
+	//m_gunfireTimer += time;
+	bool dashTimerDone = false;
+	bool bulletTimerDone = false;
+	bool meleeTimerDone = false;
 	vec2 direction = vec2(0.0f);
 	const float SPEED = 3.0f;
+	if (bulletCD->TimerTick() == jci::TimerStatus::TimerCompleted)
+	{
+		m_canFire = true;
+	}
 	if (!m_isDashing)
 	{
 		if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_w))
@@ -115,31 +125,22 @@ void Player::Update(float time)
 		{
 			direction += vec2(1.0f, 0.0f);
 		}
-
-		if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Right))
-		{
-			if (direction == vec2(0.0f, 0.0f))//melee
-			{
-				m_backupDirection = vec2(0.0f, 1.0f);
-			}
-			else
-			{
-				m_backupDirection = direction;
-			}
-			if (m_meleeTimer >= m_reloadMeleeSpeed)
-			{
-				m_meleeTimer = 0;
-				m_isMelee = true;
-			}
-			m_knife->AddComponent<jci::SpriteRenderer>()->SetTexture(m_knifeTexture);
-		}
-		else
-		{
-			m_knife->AddComponent<jci::SpriteRenderer>()->SetTexture(m_blankTexture);
-		}
+		//if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_r))
+		//{
+		//	mapRef->~Levels();
+		//}
 		//DLOG("Not Dashing");
 	}
-	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_Space) && !m_isDashing)
+
+	if (direction == vec2(0.0f, 0.0f))//melee
+	{
+		m_backupDirection = vec2(0.0f, 1.0f);
+	}
+	else
+	{
+		m_backupDirection = direction;
+	}
+	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_Space) && dashCD->TimerTick() == jci::TimerStatus::TimerCompleted)
 	{
 		if (direction == vec2(0.0f,0.0f))
 		{
@@ -149,11 +150,7 @@ void Player::Update(float time)
 		{
 			m_backupDirection = direction;
 		}
-		if (m_dashTimer >= m_reloadDashSpeed)
-		{
-			m_dashTimer = 0;
-			m_isDashing = true;
-		}
+		m_isDashing = true;
 	}
 
 	if (direction != vec2(0.0f))
@@ -161,46 +158,29 @@ void Player::Update(float time)
 		direction = glm::normalize(direction);
 	}
 
-	if (m_isDashing)
+	if (m_isDashing)//basically while dashing
 	{
 		m_canFire = false;
-		m_isMelee = false;
-		m_meleeTimer = 0;
-		
-		if (m_gunfireTimer >= m_reloadDashSpeed)
-		{
-			m_canFire = true;
-			m_isDashing = false;
-			m_dashTimer = 0;
-		}
-		m_backupDirection *= SPEED * 5 * time;
-		*m_position += m_backupDirection;
+		m_isMelee = false;	
+		m_backupDirection *= SPEED * 5 * time;//increment movement
+		*m_position += m_backupDirection;//actual movement
+		m_isDashing = false;
+		delete dashCD;
+		dashCD = new jci::Timer(m_dashTime, false);
 	}
 	else
 	{
-		direction *= SPEED * time;
+		direction *= SPEED * time;//normal movement
 	}
-
 	*m_position += direction;
-
-	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Left) && m_canFire == true && m_isMelee)
-
+	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Left) && m_canFire && !m_isMelee)
 	{
 		FireGun(time);
 		//fireTime = SDL_GetTicks();
 		m_canFire = false;
+		delete bulletCD;
+		bulletCD = new jci::Timer(m_fireRate, false);
 	}
-	else if (m_gunfireTimer >= m_reloadSpeed && m_canFire == false && !m_isDashing)
-	{
-		m_canFire = true;
-		m_gunfireTimer = 0;
-		DLOG("Can fire again");
-	}
-	if (m_dashTimer >= m_reloadDashSpeed && m_dashTimer == false)
-	{
-		m_dashTimer = 0;
-	}
-
 	for(int i = 0; i < bulletPool.size();i++)
 	{
 		if (bulletPool.at(i)->GetMove())
@@ -215,40 +195,48 @@ void Player::Update(float time)
 		}
 	}
 	
-	if (m_isMelee)
-	{
-		m_canFire = false;
 
-		if (m_meleeTimer >= m_reloadDashSpeed)
+	if (!m_isMelee)
+	{
+		if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Right) && (meleeCD->TimerTick() == jci::TimerStatus::TimerCompleted))
 		{
-			m_canFire = true;
-			m_isMelee = false;
-			m_meleeTimer = 0;
+			//DLOG(std::to_string(m_backupDirection.x) + " " + std::to_string(m_backupDirection.y));
+			m_knife->AddComponent<jci::SpriteRenderer>()->SetTexture(m_knifeTexture);
+			//PlayMeleeAnimation
+			delete stabbin;
+			stabbin = new jci::Timer(3, false);
+			m_isMelee = true;
+			m_knifeDirection = m_backupDirection;
 		}
-		
-		m_knife->GetComponent<jci::Transform>()->SetPosition(GetPos()+(m_backupDirection*0.7f));
+		else
+		{
+			m_knife->AddComponent<jci::SpriteRenderer>()->SetTexture(m_blankTexture);
+		}
 	}
-	else if (m_gunfireTimer >= m_reloadSpeed && m_canFire == false && !m_isDashing)
+	else//isStabbin
 	{
-		m_canFire = true;
-		m_gunfireTimer = 0;
-		DLOG("Can fire again");
+		if (stabbin->TimerTick() == jci::TimerStatus::TimerCompleted)
+		{
+			m_isMelee = false;
+			delete meleeCD;
+			meleeCD = new jci::Timer(m_stabCooldown, false);
+		}
+		m_canFire = false;
+		m_knife->GetComponent<jci::Transform>()->SetPosition(GetPos() + (m_knifeDirection * 0.7f));
 	}
-	if (m_dashTimer >= m_reloadDashSpeed && m_dashTimer == false)
-	{
-		m_dashTimer = 0;
-	}
-	if (m_meleeTimer >= m_reloadMeleeSpeed)
-	{
-		m_meleeTimer = 0;
-	}
+
 
 	m_backupDirection = direction;
 }
 
+void Player::setLevel(Levels* temp)
+{
+	mapRef = temp;
+}
+
 void Player::OnCollisionEnter(jci::Entity* other)
 {
-	DLOG("CollisionENTER!!!");
+	DLOG("CollisionEnter!!!");
 }
 
 void Player::OnCollisionStay(jci::Entity* other)

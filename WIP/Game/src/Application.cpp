@@ -18,10 +18,11 @@ void Application::Create()
 	
 	p1 = new Player();
 	p1->Create(map.GetSpawnPoint());
+	p1->setLevel(&map);
 
-	Zombie* z1 = new Zombie();
+	//Zombie* z1 = new Zombie();
 	//z1->Create(m_currentScene, map, p1);
-	z1->Create({ 11, -6 }, p1);
+	//z1->Create({ 11, -6 }, p1);
 
 	/*jci::Entity* e1 = m_currentScene->CreateEmptyEntity();
 	e1->GetComponent<jci::Transform>()->SetPosition({ 11, -6 });
