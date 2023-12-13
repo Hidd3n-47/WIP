@@ -15,14 +15,17 @@ void Application::Create()
 	Levels map;
 	map.LoadLevelFromFile("Assets/Levels/TestRoom.csv");
 	//EnemyManager* em = EnemyManager::getEnemyManager();
+
+	g1 = new Gun();
+	g1->Create(1);
 	
 	p1 = new Player();
-	p1->Create(map.GetSpawnPoint());
+	p1->Create(map.GetSpawnPoint(), g1);
 	p1->setLevel(&map);
 
-	//Zombie* z1 = new Zombie();
+	z1 = new Zombie();
 	//z1->Create(m_currentScene, map, p1);
-	//z1->Create({ 11, -6 }, p1);
+	z1->Create({ 11, -6 }, p1);
 
 	/*jci::Entity* e1 = m_currentScene->CreateEmptyEntity();
 	e1->GetComponent<jci::Transform>()->SetPosition({ 11, -6 });

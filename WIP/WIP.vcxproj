@@ -184,6 +184,7 @@
     <ClCompile Include="Engine\ECS\NavBlock.cpp" />
     <ClCompile Include="Engine\Pathfinding\PathfindingManager.cpp" />
     <ClCompile Include="Engine\Pathfinding\NavMesh.cpp" />
+    <ClCompile Include="Game\Gun\Gun.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\ECS\ComponentManager.h" />
@@ -237,6 +238,7 @@
     <ClInclude Include="Engine\ECS\NavBlock.h" />
     <ClInclude Include="Engine\Pathfinding\PathfindingManager.h" />
     <ClInclude Include="Engine\Pathfinding\NavMesh.h" />
+    <ClInclude Include="Game\Gun\Gun.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Levels\NOLAGROOM.csv" />

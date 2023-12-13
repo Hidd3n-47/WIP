@@ -25,10 +25,12 @@ public:
 
 	// Accessors.
 	inline vec2 GetSize() const { return m_size; }
-	inline BodyType GetBodyType() const { m_bodyType; }
+	inline BodyType GetBodyType() const { return m_bodyType; }
+	inline bool IsTrigger() const { return m_trigger; }
 
 	// Mutators.
 	inline void SetSize(vec2 size) { m_size = size; }
+	inline void SetTrigger(bool trigger) { m_trigger = trigger; }
 	void SetBodyType(BodyType type);
 
 	inline void SetCollisionMethods(ICollision* collisionMethods)	{ m_collisionMethods = collisionMethods; }

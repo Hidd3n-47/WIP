@@ -111,7 +111,7 @@ void RendererManager::Begin()
 		m_verticesPtr->textureId = textureIndex;
 		m_verticesPtr++;
 		
-		m_verticesPtr->position = vec3(q.position->x- size.y, q.position->y + size.y, 0.0f);
+		m_verticesPtr->position = vec3(q.position->x - size.x, q.position->y + size.y, 0.0f);
 		m_verticesPtr->uvCoord = { 0.0f, 1.0f };
 		m_verticesPtr->textureId = textureIndex;
 		m_verticesPtr++;
