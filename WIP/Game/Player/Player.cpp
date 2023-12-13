@@ -55,8 +55,8 @@ void Player::Create(vec2 point)
 	m_currentScene->GetCamera()->SetFollowPosition(m_position);
 
 	m_playChar->GetComponent<jci::Transform>()->SetPosition(point);
-	
-	m_playChar->AddComponent<jci::SpriteRenderer>()->SetTexture(text);
+	jci::SpriteRenderer* sr = m_playChar->AddComponent<jci::SpriteRenderer>();
+	sr->SetTexture(text);
 	jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::NoTexture);
 
 	jci::BoxCollider* bc = m_playChar->AddComponent<jci::BoxCollider>();

@@ -44,6 +44,11 @@ public:
 	*
 	*/
 	inline float GetRotation() const { return m_rotation; }
+	/***
+	* Get the rotation of the Transform Component.
+	*
+	*/
+	inline float* GetRotationPointer() { return &m_rotation; }
 
 	// Mutators.
 	/***
@@ -82,7 +87,7 @@ private:
 	vec2	m_position	= vec2(0.0f);
 	vec2	m_scale		= vec2(1.0f);
 	float	m_rotation	= 0.0f;
-	entId	m_id = invalid_id;
+	entId	m_id		= invalid_id;
 };
 
 } // Namespace jci

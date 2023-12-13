@@ -76,6 +76,8 @@ void RendererManager::Begin()
 	{
 		vec2 size = q.spriteRenderer->GetSize();
 		Texture* text = q.spriteRenderer->GetTexture();
+		bool flipVert = q.spriteRenderer->GetVerticalFlip();
+		uint8 layer = q.spriteRenderer->GetLayer();
 		
 		float textureIndex = -1.0f;
 		for (uint32 i = 0; i < textureSlotIndex; i++)
@@ -96,23 +98,35 @@ void RendererManager::Begin()
 
 		size = size * 0.5f;
 
-		m_verticesPtr->position = vec3(*q.position - size, 0.0f);
-		m_verticesPtr->uvCoord = { 0.0f, 0.0f };
+		float sina = glm::sin(glm::radians(*q.rotation));
+		float cosa = glm::cos(glm::radians(*q.rotation));
+
+		float xsina = size.x * sina;
+		float xcosa = size.x * cosa;
+		float ysina = size.y * sina;
+		float ycosa = size.y * cosa;
+
+		vec2 s1 = vec2( xcosa - ysina,  ycosa + xsina);
+		vec2 s2 = vec2( xcosa + ysina, -ycosa + xsina);
+		vec2 s3 = vec2(-xcosa - ysina,  ycosa - xsina);
+
+		m_verticesPtr->position = vec3(*q.position - s1, layer / 10.0f);
+		m_verticesPtr->uvCoord = (flipVert ? vec2(1.0f, 0.0f) : vec2(0.0f, 0.0f));
 		m_verticesPtr->textureId = textureIndex;
 		m_verticesPtr++;
 		
-		m_verticesPtr->position = vec3(q.position->x + size.x, q.position->y - size.y, 0.0f);
-		m_verticesPtr->uvCoord = { 1.0f, 0.0f };
+		m_verticesPtr->position = vec3(q.position->x + s2.x, q.position->y + s2.y, layer / 10.0f);
+		m_verticesPtr->uvCoord = (flipVert ? vec2(0.0f, 0.0f) : vec2(1.0f, 0.0f));
 		m_verticesPtr->textureId = textureIndex;
 		m_verticesPtr++;
 		
-		m_verticesPtr->position = vec3(*q.position + size, 0.0f);
-		m_verticesPtr->uvCoord = { 1.0f, 1.0f };
+		m_verticesPtr->position = vec3(*q.position + s1, layer / 10.0f);
+		m_verticesPtr->uvCoord = (flipVert ? vec2(0.0f, 1.0f) : vec2(1.0f, 1.0f));
 		m_verticesPtr->textureId = textureIndex;
 		m_verticesPtr++;
 		
-		m_verticesPtr->position = vec3(q.position->x- size.y, q.position->y + size.y, 0.0f);
-		m_verticesPtr->uvCoord = { 0.0f, 1.0f };
+		m_verticesPtr->position = vec3(q.position->x + s3.x, q.position->y + s3.y, layer / 10.0f);
+		m_verticesPtr->uvCoord = (flipVert ? vec2(1.0f, 1.0f) : vec2(0.0f, 1.0f));
 		m_verticesPtr->textureId = textureIndex;
 		m_verticesPtr++;
 
@@ -160,7 +174,7 @@ void RendererManager::AddQuadToQueue(SpriteRenderer* spriteRenderer)
 {
 	vec2* position = spriteRenderer->GetEntity()->GetComponent<Transform>()->GetPositionPointer();
 
-	m_quads.emplace_back(position, spriteRenderer);
+	m_quads.emplace_back(spriteRenderer, position, spriteRenderer->GetEntity()->GetComponent<Transform>()->GetRotationPointer());
 }
 
 void RendererManager::RemoveQuadFromQueue(SpriteRenderer* spriteRenderer)
