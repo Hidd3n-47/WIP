@@ -16,6 +16,7 @@ Player::Player() :
 	m_currentScene(jci::SceneManager::Instance()->GetCurrentScene()),
 	m_bulletTexture(0),
 	m_position(nullptr),
+	m_equippedGun(nullptr),
 	m_width((float)jci::Engine::Instance()->GetScreenWidth()),
 	m_height((float)jci::Engine::Instance()->GetScreenHeight()),
 	m_canFire(true),
