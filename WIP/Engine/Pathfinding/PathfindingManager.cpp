@@ -50,6 +50,8 @@ std::list<Node*> PathfindingManager::FindPath(Node* startingNode, Node* endNode)
 	std::unordered_map<Node*, bool> closedSet;
 	openSet.Add(startingNode);
 
+	std::unordered_map<uint32, uint32> gCost;
+
 	while (openSet.size())
 	{
 		Node* current = openSet.RemoveFirstItem();
@@ -65,9 +67,13 @@ std::list<Node*> PathfindingManager::FindPath(Node* startingNode, Node* endNode)
 		{
 			if (closedSet.find(current->connections[i]) != closedSet.end()) continue;
 
-			int movementCostToConnection = current->gCost + current->distanceToConnection[i];
+			if (gCost.find(current->GetHeapIndex()) == gCost.end()) gCost[current->GetHeapIndex()] = -1;
+			if (gCost.find(current->connections[i]->GetHeapIndex()) == gCost.end()) gCost[current->connections[i]->GetHeapIndex()] = -1;
 
-			if (movementCostToConnection < current->connections[i]->gCost || !openSet.IsElement(current->connections[i]))
+			int movementCostToConnection = gCost[current->GetHeapIndex()] + current->distanceToConnection[i];
+
+			bool isElement = openSet.IsElement(current->connections[i]);
+			if (movementCostToConnection < gCost[current->connections[i]->GetHeapIndex()] || !isElement)
 			{
 				current->connections[i]->gCost = movementCostToConnection;
 
@@ -75,7 +81,7 @@ std::list<Node*> PathfindingManager::FindPath(Node* startingNode, Node* endNode)
 				current->connections[i]->hCost = glm::length(distance);
 				current->connections[i]->parent = current;
 
-				if (!openSet.IsElement(current->connections[i]))
+				if (!isElement)
 				{
 					openSet.Add(current->connections[i]);
 				}

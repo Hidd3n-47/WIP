@@ -9,29 +9,12 @@ class Vertex;
 class Shader;
 class Texture;
 
-struct RenderData
-{
-	const uint32 MAX_QUADS = (MAX_ENTITIES * 4 - 4);
-	static const uint32 MAX_TEXTURE_SLOTS = 32;
-
-	VertexArray* vertexArray;
-	VertexBuffer* vertexBuffer;
-	Shader* shader;
-
-	uint32 indexCount = 0;
-
-	Vertex* verticesBase = nullptr;
-	Vertex* verticesPtr = nullptr;
-
-	std::array<Texture*, MAX_TEXTURE_SLOTS> textureSlots;
-	uint32 textureSlotIndex = 0;
-};
-
 struct Quad
 {
-	inline Quad(vec2* position, SpriteRenderer* sr) : spriteRenderer(sr), position(position) { /* Empty. */ }
-	SpriteRenderer* spriteRenderer;
-	vec2*	position;
+	inline Quad(SpriteRenderer* sr, vec2* position, float* rotation) : spriteRenderer(sr), position(position), rotation(rotation) { /* Empty. */ }
+	SpriteRenderer*		spriteRenderer;
+	vec2*				position;
+	float*				rotation;
 };
 
 class RendererManager

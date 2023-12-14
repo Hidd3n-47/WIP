@@ -23,7 +23,7 @@ void Application::Create()
 	p1->Create(map.GetSpawnPoint(), g1);
 	p1->setLevel(&map);
 
-	z1 = new Zombie();
+	Zombie* z1 = new Zombie();
 	//z1->Create(m_currentScene, map, p1);
 	z1->Create({ 11, -6 }, p1);
 
