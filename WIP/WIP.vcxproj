@@ -118,7 +118,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;opengl32.lib;glew32d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_Mixer.lib;opengl32.lib;glew32d.lib;Shell32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -137,10 +137,13 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;opengl32.lib;glew32d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_Mixer.lib;opengl32.lib;glew32d.lib;Shell32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\ECS\Animation.cpp" />
+    <ClCompile Include="Engine\Animation\AnimationManager.cpp" />
+    <ClCompile Include="Engine\Audio\AudioManager.cpp" />
     <ClCompile Include="Game\EnemyManager\EnemyManager.cpp" />
     <ClCompile Include="Engine\ECS\AI.cpp" />
     <ClCompile Include="Engine\Pathfinding\AIManager.cpp" />
@@ -176,7 +179,6 @@
     <ClCompile Include="Engine\Graphics\Renderer\IndexBuffer.cpp" />
     <ClCompile Include="Engine\Graphics\Renderer\VertexBuffer.cpp" />
     <ClCompile Include="Engine\Graphics\Renderer\RendererManager.cpp" />
-    <ClCompile Include="Engine\ECS\Transform.cpp" />
     <ClCompile Include="Engine\Graphics\Texture\TextureManager.cpp" />
     <ClCompile Include="Game\Zombie\Zombie.cpp" />
     <ClCompile Include="Engine\Time\Timer.cpp" />
@@ -184,11 +186,18 @@
     <ClCompile Include="Engine\ECS\NavBlock.cpp" />
     <ClCompile Include="Engine\Pathfinding\PathfindingManager.cpp" />
     <ClCompile Include="Engine\Pathfinding\NavMesh.cpp" />
+    <ClCompile Include="Engine\Physics\PhysicsManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine\ECS\Animation.h" />
+    <ClInclude Include="Engine\Animation\AnimationManager.h" />
+    <ClInclude Include="Engine\ECS\Audio.h" />
+    <ClInclude Include="Engine\Audio\AudioManager.h" />
+    <ClInclude Include="Engine\Audio\SoundEffect.h" />
     <ClInclude Include="Engine\ECS\AI.h" />
     <ClInclude Include="Engine\ECS\ComponentManager.h" />
     <ClInclude Include="Engine\Collision\ICollision.h" />
+    <ClInclude Include="Engine\ECS\Impulse.h" />
     <ClInclude Include="Engine\FSM\IState.h" />
     <ClInclude Include="Engine\Graphics\Renderer\Vertex.h" />
     <ClInclude Include="Engine\Graphics\Renderer\VertexArray.h" />
@@ -239,6 +248,7 @@
     <ClInclude Include="Engine\ECS\NavBlock.h" />
     <ClInclude Include="Engine\Pathfinding\PathfindingManager.h" />
     <ClInclude Include="Engine\Pathfinding\NavMesh.h" />
+    <ClInclude Include="Engine\Physics\PhysicsManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Levels\NOLAGROOM.csv" />

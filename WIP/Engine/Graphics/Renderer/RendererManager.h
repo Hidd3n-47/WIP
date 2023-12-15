@@ -5,16 +5,32 @@ namespace jci {
 class SpriteRenderer;
 class VertexArray;
 class VertexBuffer;
-class Vertex;
 class Shader;
 class Texture;
+struct Vertex;
 
 struct Quad
 {
-	inline Quad(SpriteRenderer* sr, vec2* position, float* rotation) : spriteRenderer(sr), position(position), rotation(rotation) { /* Empty. */ }
-	SpriteRenderer*		spriteRenderer;
-	vec2*				position;
-	float*				rotation;
+	inline Quad() = default;
+	inline Quad(vec2 size, vec4 uvRect, vec2* position, float* rotation, Texture* texture, uint8 layer, bool flipVertically) : 
+				size(size),
+				uvRect(uvRect),	
+				position(position),
+				rotation(rotation),
+				texture(texture),
+				layer(layer),
+				flipVertically(flipVertically)
+	{ 
+		/* Empty. */ 
+	}
+	
+	vec2		size				= vec2(1.0f);
+	vec4		uvRect				= vec4(0.0f, 0.0f, 1.0f, 1.0f);
+	vec2*		position			= nullptr;
+	float*		rotation			= nullptr;
+	Texture*	texture				= nullptr;
+	uint8		layer				= 0;
+	bool		flipVertically		= false;
 };
 
 class RendererManager
@@ -22,8 +38,8 @@ class RendererManager
 public:
 	inline static RendererManager* Instance() { return m_instance == nullptr ? m_instance = new RendererManager() : m_instance; }
 
-	void AddQuadToQueue(SpriteRenderer* spriteRenderer);
-	void RemoveQuadFromQueue(SpriteRenderer* spriteRenderer);
+	void AddQuadToQueue(Quad* quad);
+	void RemoveQuadFromQueue(Quad* quad);
 
 	void Init();
 	void Begin();
@@ -43,7 +59,7 @@ private:
 
 	static RendererManager* m_instance;
 
-	std::vector<Quad> m_quads;
+	std::vector<Quad*> m_quads;
 
 	VertexBuffer* m_vertexBuffer	= nullptr;
 	VertexArray* m_vertexArray		= nullptr;

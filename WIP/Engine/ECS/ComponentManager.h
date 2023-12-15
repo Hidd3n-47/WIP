@@ -5,6 +5,9 @@
 #include "BoxCollider.h"
 #include "NavBlock.h"
 #include "AI.h"
+#include "Impulse.h"
+#include "Audio.h"
+#include "Animation.h"
 
 namespace jci {
 
@@ -44,40 +47,58 @@ public:
 	}
 
 	template<class T>
-	inline T* AddComponent()
+	inline T* AddComponent(IProperties* properties)
 	{
 		ASSERT(false, "Unhandled component added.");
 		return nullptr;
 	}
 
 	template<>
-	inline Transform* AddComponent<Transform>()
+	inline Transform* AddComponent<Transform>(IProperties* properties)
 	{
 		return RegisterComponent(ComponentTypes::Transform, m_transforms);
 	}
 
 	template<>
-	inline SpriteRenderer* AddComponent<SpriteRenderer>()
+	inline SpriteRenderer* AddComponent<SpriteRenderer>(IProperties* properties)
 	{
 		return RegisterComponent(ComponentTypes::SpriteRenderer, m_spriteRenderers);
 	}
 
 	template<>
-	inline BoxCollider* AddComponent<BoxCollider>()
+	inline BoxCollider* AddComponent<BoxCollider>(IProperties* properties)
 	{
 		return RegisterComponent(ComponentTypes::BoxCollider, m_boxColliders);
 	}
 
 	template<>
-	inline NavBlock* AddComponent<NavBlock>()
+	inline NavBlock* AddComponent<NavBlock>(IProperties* properties)
 	{
 		return RegisterComponent(ComponentTypes::NavBlock, m_navBlocks);
 	}
 
 	template<>
-	inline AI* AddComponent<AI>()
+	inline AI* AddComponent<AI>(IProperties* properties)
 	{
 		return RegisterComponent(ComponentTypes::AI, m_ais);
+	}
+
+	template<>
+	inline Impulse* AddComponent<Impulse>(IProperties* properties)
+	{
+		return RegisterComponent(ComponentTypes::Impulse, m_impulses);
+	}
+
+	template<>
+	inline Audio* AddComponent<Audio>(IProperties* properties)
+	{
+		return RegisterComponent(ComponentTypes::Audio, m_audios);
+	}
+
+	template<>
+	inline Animation* AddComponent<Animation>(IProperties* properties)
+	{
+		return RegisterComponent(ComponentTypes::Animation, m_animations);
 	}
 
 	template<class ComponentClass>
@@ -129,6 +150,24 @@ public:
 		return RetrieveComponent(m_ais, componentId);
 	}
 
+	template<>
+	inline Impulse* GetComponent<Impulse>(entId componentId)
+	{
+		return RetrieveComponent(m_impulses, componentId);
+	}
+
+	template<>
+	inline Audio* GetComponent<Audio>(entId componentId)
+	{
+		return RetrieveComponent(m_audios, componentId);
+	}
+
+	template<>
+	inline Animation* GetComponent<Animation>(entId componentId)
+	{
+		return RetrieveComponent(m_animations, componentId);
+	}
+
 	template<class ComponentClass>
 	inline Entity* DeregisterComponent(ComponentTypes type, std::vector<ComponentClass>& componentVector, entId id)
 	{
@@ -176,6 +215,24 @@ public:
 		return DeregisterComponent(ComponentTypes::AI, m_ais, id);
 	}
 
+	template<>
+	inline Entity* RemoveComponent<Impulse>(entId id)
+	{
+		return DeregisterComponent(ComponentTypes::Impulse, m_impulses, id);
+	}
+
+	template<>
+	inline Entity* RemoveComponent<Audio>(entId id)
+	{
+		return DeregisterComponent(ComponentTypes::Audio, m_audios, id);
+	}
+	
+	template<>
+	inline Entity * RemoveComponent<Animation>(entId id)
+	{
+		return DeregisterComponent(ComponentTypes::Animation, m_animations, id);
+	}
+
 	template<class T>
 	inline T* GetComponentVector()
 	{
@@ -184,34 +241,52 @@ public:
 		return;
 	}
 
-	/*template<>
-	inline ComponentVector<Transform> GetComponentVector()
+	template<>
+	inline Transform* GetComponentVector()
 	{ 
-		return ComponentVector<Transform>(m_transforms, m_componentIndices[(entId)ComponentTypes::Transform]);
+		return &m_transforms[0];
 	}
 
 	template<>
-	inline ComponentVector<SpriteRenderer> GetComponentVector()
+	inline SpriteRenderer* GetComponentVector()
 	{ 
-		return ComponentVector<SpriteRenderer>(m_spriteRenderers, m_componentIndices[(entId)ComponentTypes::SpriteRenderer]);
+		return &m_spriteRenderers[0];
 	}
 
 	template<>
-	inline ComponentVector<BoxCollider> GetComponentVector()
+	inline BoxCollider* GetComponentVector()
 	{ 
-		return ComponentVector<BoxCollider>(m_boxColliders, m_componentIndices[(entId)ComponentTypes::BoxCollider]);
+		return &m_boxColliders[0];
 	}
 
 	template<>
-	inline ComponentVector<NavBlock> GetComponentVector()
+	inline NavBlock* GetComponentVector()
 	{ 
-		return ComponentVector<NavBlock>(m_navBlocks, m_componentIndices[(entId)ComponentTypes::NavBlock]);
-	}*/
+		return &m_navBlocks[0];
+	}
 
 	template<>
 	inline AI* GetComponentVector()
 	{
 		return &m_ais[0];
+	}
+
+	template<>
+	inline Impulse* GetComponentVector()
+	{
+		return &m_impulses[0];
+	}
+
+	template<>
+	inline Audio* GetComponentVector()
+	{
+		return &m_audios[0];
+	}
+
+	template<>
+	inline Animation* GetComponentVector()
+	{
+		return &m_animations[0];
 	}
 
 	inline entId GetComponentCount(ComponentTypes type) const { return m_componentIndices[(entId)type]; }
@@ -228,6 +303,9 @@ private:
 	std::vector<BoxCollider>	m_boxColliders;
 	std::vector<NavBlock>		m_navBlocks;
 	std::vector<AI>				m_ais;
+	std::vector<Impulse>		m_impulses;
+	std::vector<Audio>			m_audios;
+	std::vector<Animation>		m_animations;
 
 	entId	m_componentIndices[(entId)ComponentTypes::Count];
 

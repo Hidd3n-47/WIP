@@ -8,7 +8,7 @@ class Utils
 {
 public:
 	template<class T>
-	static void RemoveFromVectorByBackCopy(T objectBeingRemoved, std::vector<T>& vector)
+	inline static void RemoveFromVectorByBackCopy(T objectBeingRemoved, std::vector<T>& vector)
 	{
 		for (int i = 0; i < vector.size(); i++)
 		{
@@ -20,7 +20,7 @@ public:
 	}
 
 	template<class T>
-	static bool ListContains(const std::list<T>& list, T item)
+	inline static bool ListContains(const std::list<T>& list, T item)
 	{
 		for (auto it = list.begin(); it != list.end(); it++)
 		{

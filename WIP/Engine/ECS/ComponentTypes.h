@@ -7,5 +7,8 @@ enum class ComponentTypes
 	BoxCollider,
 	NavBlock,
 	AI,
+	Impulse,
+	Audio,
+	Animation,
 	Count // Total number of components.
 };

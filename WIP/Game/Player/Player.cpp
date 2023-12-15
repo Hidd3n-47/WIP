@@ -49,6 +49,7 @@ void Player::Create(vec2 point)
 	m_knife->GetComponent<jci::SpriteRenderer>()->SetSize({ 0.7f,0.7f });
 	//scene = jci::SceneManager::Instance()->GetCurrentScene();
 	m_playChar = m_currentScene->CreateEmptyEntity();
+	m_playChar->AddComponent<jci::Impulse>();
 	jci::RendererManager::Instance()->SetLightPosition(m_playChar->GetComponent<jci::Transform>()->GetPositionPointer());
 	                                                                 
 	m_position = m_playChar->GetComponent<jci::Transform>()->GetPositionPointer();
@@ -236,15 +237,12 @@ void Player::setLevel(Levels* temp)
 
 void Player::OnCollisionEnter(jci::Entity* other)
 {
-	DLOG("CollisionEnter!!!");
 }
 
 void Player::OnCollisionStay(jci::Entity* other)
 {
-	DLOG("CollisionStay!!!");
 }
 
 void Player::OnCollisionExit()
 {
-	DLOG("CollisionExit!!!");
 }

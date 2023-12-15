@@ -3,6 +3,8 @@
 
 #include "IComponent.h"
 
+namespace jci {
+
 /***
 =========================================================================================
 TRANFORM (COMPONENT):
@@ -10,8 +12,6 @@ TRANFORM (COMPONENT):
 	// Question: Which direction is the rotation going to be -- add comment.
 =========================================================================================
 */
-namespace jci {
-
 class Transform : public IComponent
 {
 public:
@@ -84,10 +84,10 @@ public:
 	}
 private:
 	Entity* m_entity	= nullptr;
+	entId	m_id		= invalid_id;
 	vec2	m_position	= vec2(0.0f);
 	vec2	m_scale		= vec2(1.0f);
 	float	m_rotation	= 0.0f;
-	entId	m_id		= invalid_id;
 };
 
 } // Namespace jci

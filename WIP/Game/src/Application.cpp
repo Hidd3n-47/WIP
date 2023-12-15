@@ -20,9 +20,16 @@ void Application::Create()
 	p1->Create(map.GetSpawnPoint());
 	p1->setLevel(&map);
 
+	uint32 text = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Tmp.png", 4, 1);
+
 	Zombie* z1 = new Zombie();
 	//z1->Create(m_currentScene, map, p1);
 	z1->Create({ 11, -6 }, p1);
+	jci::Entity* e = m_currentScene->CreateEmptyEntity();
+	jci::Animation* a = e->AddComponent<jci::Animation>();
+	a->SetTexture(text);
+	a->SetAnimationCount(4);
+	a->SetTimeBetweenFrames(0.3f);
 
 	/*jci::Entity* e1 = m_currentScene->CreateEmptyEntity();
 	e1->GetComponent<jci::Transform>()->SetPosition({ 11, -6 });

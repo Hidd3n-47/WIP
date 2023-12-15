@@ -6,6 +6,11 @@
 
 namespace jci {
 
+struct BoxCollisionProps
+{
+	BoxCollisionProps() = default;
+};
+
 enum class BodyType
 {
 	Static,
@@ -50,10 +55,11 @@ public:
 	}
 private:
 	Entity*		m_entity	= nullptr;
+	entId		m_id		= invalid_id;
+
 	vec2		m_size		= vec2(1.0f);
 	BodyType	m_bodyType	= BodyType::Static;
 	bool		m_trigger	= false;
-	entId		m_id		= invalid_id;
 
 	bool		m_collisionOccured	= false;
 	ICollision*	m_collisionMethods	= nullptr;

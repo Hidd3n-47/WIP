@@ -5,8 +5,10 @@
 
 namespace jci {
 
-Texture::Texture(const std::string& filePath) :
-	m_filePath(filePath)
+Texture::Texture(const std::string& filePath, int x, int y) :
+	m_filePath(filePath),
+	m_x(x),
+	m_y(y)
 {
 	stbi_set_flip_vertically_on_load(1);
 
@@ -45,6 +47,21 @@ void Texture::Bind(uint32 slot) const
 void Texture::Unbind() const
 {
 	glBindTexture(GL_TEXTURE_2D, 0);
+}
+
+vec4 Texture::GetUVRect(uint32 index)
+{
+	vec4 rect;
+
+	float w = 1.0f / m_x;
+	float h = 1.0f / m_y;
+
+	rect.x = (index % m_x) * w;
+	rect.y = (index / m_x) * h;
+	rect.z = w;
+	rect.w = h;
+
+	return rect;
 }
 
 } // Namespace jci.

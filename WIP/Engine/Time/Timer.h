@@ -44,9 +44,14 @@ public:
 	* Returns True when timer has/is completed, and false if not.
 	*/
 	bool TimerTick(float dt);
+	/***
+	* Set the time of the timer.
+	* Note: this will reset the timer to start from the new time.
+	*/
+	inline void SetTime(float time) { m_timeRemaining = m_time = time; }
 
 private:
-	const float		m_time;
+	float			m_time;
 	float			m_timeRemaining;
 	bool			m_repeat;
 };

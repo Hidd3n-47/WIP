@@ -14,6 +14,9 @@ void ComponentManager::Init()
 	m_boxColliders.resize(MAX_ENTITIES);
 	m_navBlocks.resize(MAX_ENTITIES);
 	m_ais.resize(MAX_ENTITIES);
+	m_impulses.resize(MAX_ENTITIES);
+	m_audios.resize(MAX_ENTITIES);
+	m_animations.resize(MAX_ENTITIES);
 
 	memset(m_componentIndices, 0, (entId)ComponentTypes::Count * sizeof(entId));
 }

@@ -1,37 +1,27 @@
 #pragma once
 
 #include "IComponent.h"
+#include "Time/Timer.h"
 
 #include "Graphics/Texture/TextureManager.h"
 #include "Graphics/Renderer/RendererManager.h"
 
 namespace jci {
 
-class Texture;
-
-struct SpriteRendererProps
+class Animation : public IComponent
 {
-	SpriteRendererProps(Texture* texture = TextureManager::Instance()->GetTexture(EngineTextureIndex::NoTexture), vec2 size = vec2(1.0f), uint8 layer = 0, bool verticalFlip = false) 
-	{
-		// Empty.
-	}
-
-	Texture* texture;
-	vec2* size;
-	uint8 layer;
-	bool verticalFlip;
-};
-
-class SpriteRenderer : public IComponent
-{
+	friend class AnimationManager;
 public:
-	REGISTER_COMPONENT(ComponentTypes::SpriteRenderer);
+	REGISTER_COMPONENT(ComponentTypes::Animation);
 
-	SpriteRenderer() = default;
-	~SpriteRenderer() = default;
+	void OnComponentAdd(Entity* entity) final;
+	inline void OnComponentRemove() final { RendererManager::Instance()->RemoveQuadFromQueue(&m_quad); }
 
-	virtual void OnComponentAdd(Entity* entity) final;
-	virtual void OnComponentRemove() final;
+	inline uint32 GetAnimationIndex() const { return m_animationCount; }
+
+	inline void SetAnimationCount(uint32 count) { m_animationCount = count; m_animationIndex = 0; }
+
+	inline void SetTimeBetweenFrames(float time) { m_frameTimer.SetTime(time); }
 
 	inline vec2 GetSize() const { return m_quad.size; }
 	inline Texture* GetTexture() const { return m_quad.texture; }
@@ -45,17 +35,23 @@ public:
 	inline void SetLayer(uint8 layer) { m_quad.layer = layer; }
 	inline void SetTextureIndex(uint32 index) { ASSERT(m_quad.texture, "Invalid texture to get uv Rect."); m_quad.uvRect = m_quad.texture->GetUVRect(index); }
 
-	inline SpriteRenderer& operator=(SpriteRenderer& other) noexcept
+	inline Animation& operator=(Animation& other) noexcept
 	{
 		m_id = std::move(other.m_id);
 		m_entity = std::move(other.m_entity);
 		m_quad = std::move(other.m_quad);
+
 		return *this;
 	}
 private:
-	Entity*		m_entity		= nullptr;
-	entId		m_id			= invalid_id;
-	Quad		m_quad;
+	Entity* m_entity	= nullptr;
+	entId	m_id		= invalid_id;
+
+	uint32	m_animationIndex	= 0;
+	uint32	m_animationCount	= 1;
+	Timer	m_frameTimer		= Timer(0.0f, true);
+
+	Quad	m_quad;
 };
 
 } // Namespace jci.

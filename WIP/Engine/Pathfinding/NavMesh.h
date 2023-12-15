@@ -16,7 +16,7 @@ public:
 
 	void GenerateConnections();
 
-	inline uint32 GetNodeSize() const { return m_nodes.size(); }
+	inline uint32 GetNodeSize() const { return (uint32)m_nodes.size(); }
 private:
 	std::vector<Node*> m_nodes;
 	const float DISTANCE_TOLORANCE = 0.1f;

@@ -1,9 +1,9 @@
 #pragma once
 #include "pch.h"
 
-namespace jci {
+#include "Node.h"
 
-class Node;
+namespace jci {
 
 class Path
 {
@@ -16,7 +16,7 @@ public:
 		}
 	}
 
-	inline uint32 GetPointCount() const { return m_points.size(); }
+	inline uint32 GetPointCount() const { return (uint32)m_points.size(); }
 	inline vec2 GetPoint() const { return m_points.front(); }
 	inline void PopPoint() { m_points.pop(); }
 

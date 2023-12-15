@@ -6,10 +6,12 @@
 #include "Input/InputManager.h"
 #include "Scene/SceneManager.h"
 #include "Pathfinding/AIManager.h"
+#include "Physics/PhysicsManager.h"
 #include "FSM/StateMachineManager.h"
 #include "Graphics/Texture/Texture.h"
 #include "Graphics/Renderer/Renderer.h"
 #include "Collision/CollisionManager.h"
+#include "Animation/AnimationManager.h"
 #include "Graphics/Texture/TextureManager.h"
 #include "Graphics/Renderer/RendererManager.h"
 
@@ -91,9 +93,13 @@ void Engine::Run()
 
 		InputManager::Instance()->Update();
 
+		Application::Instance()->Update(dt);
+
+		AnimationManager::Instance()->Update();
+
 		StateMachineManager::Instance()->Update();
 
-		Application::Instance()->Update(dt);
+		PhysicsManager::Instance()->Update(dt);
 
 		CollisionManager::Instance()->Update();
 		
