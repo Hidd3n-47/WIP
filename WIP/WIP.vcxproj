@@ -248,7 +248,7 @@
     <ClInclude Include="Engine\ECS\NavBlock.h" />
     <ClInclude Include="Engine\Pathfinding\PathfindingManager.h" />
     <ClInclude Include="Engine\Pathfinding\NavMesh.h" />
-    <ClInclude Include="Engine\Physics\PhysicsManager.h" />
+    <ClInclude Include="Game\Gun\Gun.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Levels\NOLAGROOM.csv" />

@@ -11,7 +11,7 @@ namespace jci
 }
 
 
-class Zombie
+class Zombie : public jci::ICollision
 {
 public:
 	Zombie();
@@ -24,4 +24,9 @@ public:
 private:
 	Player* player;
 	jci::Entity* zombert;
+	float hp;
+
+	void OnCollisionEnter(jci::Entity* other) final;
+	void OnCollisionStay(jci::Entity* other) final { }
+	void OnCollisionExit() final { }
 };

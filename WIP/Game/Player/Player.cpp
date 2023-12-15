@@ -16,13 +16,13 @@ Player::Player() :
 	m_currentScene(jci::SceneManager::Instance()->GetCurrentScene()),
 	m_bulletTexture(0),
 	m_position(nullptr),
+	m_equippedGun(nullptr),
 	m_width((float)jci::Engine::Instance()->GetScreenWidth()),
 	m_height((float)jci::Engine::Instance()->GetScreenHeight()),
 	m_canFire(true),
 	m_isDashing(false),
 	m_isMelee(false),
 	m_stabCooldown(2.0f),
-	m_fireRate(2.0f),
 	m_dashTime(2.0f),
 	m_backupDirection(vec2(0.0f)),
 	m_knifeTexture(0),
@@ -36,10 +36,10 @@ Player::~Player()
 	// Empty.
 }
 
-void Player::Create(vec2 point)
+void Player::Create(vec2 point, Gun* gun)
 {
-	uint32 text = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Scientist.png");
 	m_bulletTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Bullet.png");
+	uint32 text = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Scientist.png");
 	m_knifeTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Weapons/Bowie Knife.png");
 	m_blankTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Blank.png");
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
@@ -68,6 +68,8 @@ void Player::Create(vec2 point)
 	bulletCD = new jci::Timer(0, false);
 	stabbin = new jci::Timer(0, false);
 	m_knife->AddComponent<jci::SpriteRenderer>()->SetTexture(m_blankTexture);
+
+	m_equippedGun = gun;
 }
 
 void Player::FireGun(float time)
@@ -79,15 +81,19 @@ void Player::FireGun(float time)
 	bulletObj = m_currentScene->CreateEmptyEntity();
 	bulletObj->GetComponent<jci::Transform>()->SetPosition(m_playChar->GetComponent<jci::Transform>()->GetPosition());
 	bulletObj->AddComponent<jci::SpriteRenderer>()->SetTexture(m_bulletTexture);
-	bulletObj->GetComponent<jci::SpriteRenderer>()->SetSize({0.1f, 0.05f});
-	//bulletObj->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
-	//bulletObj->GetComponent<jci::BoxCollider>()->SetSize({ 0.1f, 0.05f });
+	bulletObj->GetComponent<jci::SpriteRenderer>()->SetSize({0.35f, 0.1f});
+	jci::BoxCollider* bc = bulletObj->AddComponent<jci::BoxCollider>();
+	bc->SetBodyType(jci::BodyType::Kinematic);
+	bc->SetTrigger(true);
+	bulletObj->SetTag("Bullet");
+	bulletObj->GetComponent<jci::BoxCollider>()->SetSize({ 0.1f, 0.05f });
 
 	vec2 moveDirection = jci::InputManager::Instance()->GetMousePosition() - vec2(m_width * 0.5f, m_height * 0.5f);
 	moveDirection = glm::normalize(moveDirection);
 	moveDirection.y *= -1;
 	moveDirection.x = moveDirection.x * time;
 	moveDirection.y = moveDirection.y * time;
+	moveDirection *= 2;
 	Bullet* aBullet = new Bullet(bulletObj, moveDirection);
 	aBullet->body->GetComponent<jci::Transform>()->AddToPosition(aBullet->direction*2.0f);
 	bulletPool.push_back(aBullet);
@@ -180,7 +186,7 @@ void Player::Update(float time)
 		//fireTime = SDL_GetTicks();
 		m_canFire = false;
 		delete bulletCD;
-		bulletCD = new jci::Timer(m_fireRate, false);
+		bulletCD = new jci::Timer(m_equippedGun->GetFireRate(), false);
 	}
 	for(int i = 0; i < bulletPool.size();i++)
 	{

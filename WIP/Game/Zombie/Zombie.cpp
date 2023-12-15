@@ -28,6 +28,7 @@ Zombie::Zombie()
 //	zombert->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
 //	zombert->GetComponent<jci::BoxCollider>()->SetSize({ 0.6f, 1.0f });
 //}
+
 void Zombie::Create(vec2 point, Player* play)//Spawn at specifics
 {
 	player = play;
@@ -37,23 +38,40 @@ void Zombie::Create(vec2 point, Player* play)//Spawn at specifics
 	zombert->GetComponent<jci::Transform>()->SetPosition(point);
 	zombert->AddComponent<jci::SpriteRenderer>()->SetTexture(text);
 	jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::NoTexture);
-	zombert->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
+	jci::BoxCollider* bc = zombert->AddComponent<jci::BoxCollider>();
+	bc->SetBodyType(jci::BodyType::Kinematic);
+	bc->SetCollisionMethods(this);
 	zombert->GetComponent<jci::BoxCollider>()->SetSize({ 0.6f, 1.0f });
-	zombert->AddComponent<jci::AI>()->SetTargetPosition(Application::Instance()->GetPlayerPositionPointer());
+	hp = 30;
+	//zombert->AddComponent<jci::AI>()->SetTargetPosition(Application::Instance()->GetPlayerPositionPointer());
 }
 
 
 void Zombie::Update(float time)
 {
-	const float SPEED = 0.008f;
-	vec2 direction = player->GetPos() - zombert->GetComponent<jci::Transform>()->GetPosition();
-
-	if (direction != vec2(0.0f))
+	if (hp > 0)
 	{
-		direction = glm::normalize(direction);
+		const float SPEED = 0.008f;
+		vec2 direction = player->GetPos() - zombert->GetComponent<jci::Transform>()->GetPosition();
+
+		if (direction != vec2(0.0f))
+		{
+			direction = glm::normalize(direction);
+		}
+
+		direction *= SPEED;
+
+		zombert->GetComponent<jci::Transform>()->AddToPosition(direction);
+
+
 	}
+}
 
-	direction *= SPEED;
-
-	zombert->GetComponent<jci::Transform>()->AddToPosition(direction);
+void Zombie::OnCollisionEnter(jci::Entity* other)
+{
+	if (other->GetTag() == "Bullet")
+	{
+		hp -= 10;
+		DLOG("Damaged the zombie for 10hp");
+	}
 }

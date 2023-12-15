@@ -15,9 +15,12 @@ void Application::Create()
 	Levels map;
 	map.LoadLevelFromFile("Assets/Levels/TestRoom.csv");
 	//EnemyManager* em = EnemyManager::getEnemyManager();
+
+	g1 = new Gun();
+	g1->Create(1);
 	
 	p1 = new Player();
-	p1->Create(map.GetSpawnPoint());
+	p1->Create(map.GetSpawnPoint(), g1);
 	p1->setLevel(&map);
 
 	uint32 text = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Tmp.png", 4, 1);

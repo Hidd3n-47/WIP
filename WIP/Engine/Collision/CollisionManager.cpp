@@ -93,12 +93,18 @@ void CollisionManager::HandleCollision(Entity* box1, Entity* box2, KinematicLoca
 	// Check the directions so that the objects are pushed in the right direction.
 	if (location == KinematicLocation::Left)
 	{
-		trans1->AddToPosition(-direction * moveVector);
+		if (!boxC1->IsTrigger())
+		{
+			trans1->AddToPosition(-direction * moveVector);
+		}
 	}
 	else
 	{
-		trans1->AddToPosition(-direction * moveVector);
-		trans2->AddToPosition(direction * moveVector);
+		if (!boxC1->IsTrigger() && !boxC2->IsTrigger())
+		{
+			trans1->AddToPosition(-direction * moveVector * 0.5f);
+			trans2->AddToPosition(direction * moveVector * 0.5f);
+		}
 	}
 
 	boxC1->CollisionOccured(box2);

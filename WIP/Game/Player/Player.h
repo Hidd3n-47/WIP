@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Engine/Collision/ICollision.h>
+#include <Game/Gun/Gun.h>
 
 class Levels;
 struct Bullet;
@@ -19,7 +20,7 @@ class Player : public jci::ICollision
 public:
 	Player();
 	~Player();
-	void Create(vec2 point);
+	void Create(vec2 point, Gun* gun);
 	void FireGun(float time);
 	void Update(float time);
 	void setLevel(Levels* temp);
@@ -35,6 +36,7 @@ private:
 	jci::Scene*		m_currentScene;
 	uint32			m_bulletTexture;
 	vec2*			m_position;
+	Gun*			m_equippedGun;
 
 	const float m_width;
 	const float m_height;
@@ -43,7 +45,6 @@ private:
 	bool		m_isDashing;
 	bool		m_isMelee;
 	int			m_stabCooldown;
-	int			m_fireRate; //GET FROM GUN LATER
 	int			m_dashTime; //just the dash cooldown
 	vec2		m_backupDirection = vec2(0.0f);
 	vec2		m_knifeDirection = vec2(0.0f);
