@@ -62,8 +62,9 @@ void Levels::createEnemySpawnPoint(float x, float y)
 {
 	jci::Entity* newFloor = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
 	newFloor->GetComponent<jci::Transform>()->SetPosition({ x,  y });
+	newFloor->AddComponent<jci::NavBlock>();
 	LevelSquare.push_back(newFloor);
-	em->getEnemySquares().push_back(newFloor);
+	em->EnemySquares.push_back(newFloor);
 }
 
 void Levels::createDoor(float x, float y)
@@ -225,7 +226,7 @@ void Levels::LoadLevel(std::string fileString)
 		}
 		else if (i == "79")
 		{
-			createFloor(currentX, currentY);
+			createEnemySpawnPoint(currentX, currentY);
 			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(floor);
 			currentX += width;
 		}
