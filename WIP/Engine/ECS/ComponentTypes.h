@@ -10,5 +10,6 @@ enum class ComponentTypes
 	Impulse,
 	Audio,
 	Animation,
+	ParticleEmission,
 	Count // Total number of components.
 };

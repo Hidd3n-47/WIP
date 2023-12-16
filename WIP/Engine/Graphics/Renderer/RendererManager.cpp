@@ -96,12 +96,12 @@ void RendererManager::Begin()
 		}
 
 		// Rotation.
-		vec2 size = q->size * 0.5f;
+		vec2 size = !q->size ? vec2(0.5f) : *q->size * 0.5f;
 
-		//float angle = !q->rotation ? 0.0f : *q->rotation;
+		float angle = !q->rotation ? 0.0f : *q->rotation;
 
-		float sina = glm::sin(glm::radians(*q->rotation));
-		float cosa = glm::cos(glm::radians(*q->rotation));
+		float sina = glm::sin(glm::radians(angle));
+		float cosa = glm::cos(glm::radians(angle));
 
 		float xsina = size.x * sina;
 		float xcosa = size.x * cosa;
@@ -119,22 +119,22 @@ void RendererManager::Begin()
 		vec2 topL(q->uvRect.x, q->uvRect.y + q->uvRect.w);
 
 		// Vertices.
-		m_verticesPtr->position = vec3(position - s1, q->layer / 10.0f);
+		m_verticesPtr->position = vec3(position - s1, (float)q->layer / 255.0f);
 		m_verticesPtr->uvCoord = (q->flipVertically ? botR : botL);
 		m_verticesPtr->textureId = textureIndex;
 		m_verticesPtr++;
 		
-		m_verticesPtr->position = vec3(position.x + s2.x, position.y + s2.y, q->layer / 10.0f);
+		m_verticesPtr->position = vec3(position.x + s2.x, position.y + s2.y, (float)q->layer / 255.0f);
 		m_verticesPtr->uvCoord = (q->flipVertically ? botL : botR);
 		m_verticesPtr->textureId = textureIndex;
 		m_verticesPtr++;
 		
-		m_verticesPtr->position = vec3(position + s1, q->layer / 10.0f);
+		m_verticesPtr->position = vec3(position + s1, (float)q->layer / 255.0f);
 		m_verticesPtr->uvCoord = (q->flipVertically ? topL : topR);
 		m_verticesPtr->textureId = textureIndex;
 		m_verticesPtr++;
 		
-		m_verticesPtr->position = vec3(position.x + s3.x, position.y + s3.y, q->layer / 10.0f);
+		m_verticesPtr->position = vec3(position.x + s3.x, position.y + s3.y, (float)q->layer / 255.0f);
 		m_verticesPtr->uvCoord = (q->flipVertically ? topR : topL);
 		m_verticesPtr->textureId = textureIndex;
 		m_verticesPtr++;
@@ -176,11 +176,9 @@ void RendererManager::Flush()
 	glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, nullptr);
 }
 
-// TODO Ccould maybe remove passing in sprite renderer and pass in the actual stats.
+
 void RendererManager::AddQuadToQueue(Quad* quad)
 {
-	//vec2* position = spriteRenderer->GetEntity()->GetComponent<Transform>()->GetPositionPointer();
-
 	m_quads.push_back(quad);
 }
 

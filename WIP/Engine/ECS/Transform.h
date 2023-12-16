@@ -9,7 +9,6 @@ namespace jci {
 =========================================================================================
 TRANFORM (COMPONENT):
 	Tranform component contains a vector for position and scale.
-	// Question: Which direction is the rotation going to be -- add comment.
 =========================================================================================
 */
 class Transform : public IComponent
@@ -41,7 +40,7 @@ public:
 	inline vec2 GetScale() const { return m_scale; }
 	/***
 	* Get the rotation of the Transform Component.
-	*
+	* 
 	*/
 	inline float GetRotation() const { return m_rotation; }
 	/***

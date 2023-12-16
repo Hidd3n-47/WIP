@@ -15,6 +15,7 @@ class Scene;
 class Shader;
 class VertexBuffer;
 class VertexArray;
+class Entity;
 
 class Engine
 {
@@ -35,6 +36,8 @@ public:
 	inline uint16 GetScreenWidth() const { return m_window->GetWidth(); }
 	inline uint16 GetScreenHeight() const { return m_window->GetHeight(); }
 
+	inline void DestroyEntity(Entity* entity) { m_entsToDestroy.push_back(entity); }
+
 #ifdef _DEBUG
 	std::string dout = "Engine Logging:\n\n";
 #endif
@@ -47,10 +50,7 @@ private:
 	std::unique_ptr<Window> m_window;
 	bool m_running = true;
 
-
-	Shader* m_shaderLight = nullptr;
-	VertexBuffer* m_vertexBufferLight = nullptr;
-	VertexArray* m_vertexArrayLight = nullptr;
+	std::vector<Entity*> m_entsToDestroy;
 };
 
 } // Namespace jci.

@@ -24,7 +24,7 @@ public:
 	inline uint16 GetHeight()	const { return m_height; }
 
 	// Mutators.
-	inline void Resize(uint16 width, uint16 height) { m_width = width; m_height = height; DLOG("Window resized to: " + std::to_string(width) + " x " + std::to_string(height)); }
+	inline void Resize(uint16 width, uint16 height) { m_width = width; m_height = height; glViewport(0, 0, m_width, m_height); DLOG("Window resized to: " + std::to_string(width) + " x " + std::to_string(height)); }
 private:
 	Window(const std::string& title = "Engine", uint16 width = 1280, uint16 height = 720);
 

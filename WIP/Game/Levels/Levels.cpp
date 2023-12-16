@@ -8,7 +8,8 @@
 #include <Engine/Graphics/Texture/Texture.h>
 #include <Engine/Graphics/Texture/TextureManager.h>
 
-Levels::Levels()
+Levels::Levels(jci::Scene* currentScene) :
+	m_currentScene(currentScene)
 {
 	wall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/squareWITHAW!!.png");
 	topleftwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Front left wall.png");
@@ -41,12 +42,12 @@ Levels::~Levels()
 
 void Levels::createWall(float x, float y)
 {
-	jci::Entity* newWall = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
-	newWall->GetComponent<jci::Transform>()->SetPosition({ x,  y });
-	newWall->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Static);
-	LevelSquare.push_back(newWall);
+	jci::Entity* e = m_currentScene->CreateEmptyEntity();
+	e->GetComponent<jci::Transform>()->SetPosition({ x, y });
+	e->AddComponent<jci::SpriteRenderer>()->SetTexture(wall, 25);
+	e->AddComponent<jci::BoxCollider>();
 
-
+	LevelSquare.push_back(e);
 }
 
 void Levels::createFloor(float x, float y)

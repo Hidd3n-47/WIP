@@ -12,7 +12,7 @@ struct Vertex;
 struct Quad
 {
 	inline Quad() = default;
-	inline Quad(vec2 size, vec4 uvRect, vec2* position, float* rotation, Texture* texture, uint8 layer, bool flipVertically) : 
+	inline Quad(vec2* size, vec4 uvRect, vec2* position, float* rotation, Texture* texture, uint8 layer, bool flipVertically) : 
 				size(size),
 				uvRect(uvRect),	
 				position(position),
@@ -24,7 +24,7 @@ struct Quad
 		/* Empty. */ 
 	}
 	
-	vec2		size				= vec2(1.0f);
+	vec2*		size				= nullptr;
 	vec4		uvRect				= vec4(0.0f, 0.0f, 1.0f, 1.0f);
 	vec2*		position			= nullptr;
 	float*		rotation			= nullptr;
@@ -49,7 +49,7 @@ public:
 
 	inline void Destroy() { delete m_instance; }
 
-	const uint32 MAX_QUADS = (MAX_ENTITIES - 1) * 4;
+	const uint32 MAX_QUADS = (MAX_ENTITIES - 1) * 2;
 	static const uint32 MAX_TEXTURE_SLOTS = 32;
 
 	inline void SetLightPosition(vec2* lightPos) { m_lightPosition = lightPos; }

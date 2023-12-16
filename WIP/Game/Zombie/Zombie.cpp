@@ -71,7 +71,13 @@ void Zombie::OnCollisionEnter(jci::Entity* other)
 {
 	if (other->GetTag() == "Bullet")
 	{
-		hp -= 10;
+		hp -= 10.0f;
+
+		if (hp <= 0.0f)
+			jci::Engine::Instance()->DestroyEntity(zombert);
+
 		DLOG("Damaged the zombie for 10hp");
 	}
+
+	
 }

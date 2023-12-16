@@ -8,6 +8,7 @@
 #include "Impulse.h"
 #include "Audio.h"
 #include "Animation.h"
+#include "ParticleEmission.h"
 
 namespace jci {
 
@@ -101,6 +102,12 @@ public:
 		return RegisterComponent(ComponentTypes::Animation, m_animations);
 	}
 
+	template<>
+	inline ParticleEmission* AddComponent<ParticleEmission>(IProperties* properties)
+	{
+		return RegisterComponent(ComponentTypes::ParticleEmission, m_particleEmissions);
+	}
+
 	template<class ComponentClass>
 	inline ComponentClass* RetrieveComponent(std::vector<ComponentClass>& componetVector, entId componentId)
 	{
@@ -168,70 +175,105 @@ public:
 		return RetrieveComponent(m_animations, componentId);
 	}
 
+	template<>
+	inline ParticleEmission* GetComponent<ParticleEmission>(entId componentId)
+	{
+		return RetrieveComponent(m_particleEmissions, componentId);
+	}
+
 	template<class ComponentClass>
 	inline Entity* DeregisterComponent(ComponentTypes type, std::vector<ComponentClass>& componentVector, entId id)
 	{
 		ASSERT(componentVector[id].GetId() != invalid_id, "Component has invalid id whilst existing.");
 
 		m_componentIndices[(entId)type]--;
+		componentVector[id].OnComponentRemove();
 		componentVector[id] = componentVector.back();
 		componentVector.back().SetId(invalid_id);
 		return componentVector.back().GetEntity();
 	}
 
-	template<class T>
+	inline Entity* RemoveComponent(ComponentTypes type, entId id)
+	{
+		switch (type)
+		{
+		case ComponentTypes::Transform:
+			return DeregisterComponent(type, m_transforms, id);
+		case ComponentTypes::SpriteRenderer:
+			return DeregisterComponent(type, m_spriteRenderers, id);
+		case ComponentTypes::BoxCollider:
+			return DeregisterComponent(type, m_boxColliders, id);
+		case ComponentTypes::NavBlock:
+			return DeregisterComponent(type, m_navBlocks, id);
+		case ComponentTypes::AI:
+			return DeregisterComponent(type, m_ais, id);
+		case ComponentTypes::Impulse:
+			return DeregisterComponent(type, m_impulses, id);
+		case ComponentTypes::Audio:
+			return DeregisterComponent(type, m_audios, id);
+		case ComponentTypes::Animation:
+			return DeregisterComponent(type, m_animations, id);
+		case ComponentTypes::ParticleEmission:
+			return DeregisterComponent(type, m_particleEmissions, id);
+		default:
+			ASSERT(false, "Unhandled component removal.");
+			return nullptr;
+		}
+	}
+
+	/*template<class T>
 	inline Entity* RemoveComponent(entId id)
 	{
 		ASSERT(false, "Unhandled component removal.");
 	}
 
 	template<>
-	inline Entity* RemoveComponent<Transform>(entId id)
+	inline Entity* RemoveComponent<ComponentTypes::Transform>(entId id)
 	{
-		return DeregisterComponent(ComponentTypes::Transform, m_transforms, id);
+		return DeregisterComponent(m_transforms, id);
 	}
 
 	template<>
-	inline Entity* RemoveComponent<SpriteRenderer>(entId id)
+	inline Entity* RemoveComponent<ComponentTypes::SpriteRenderer>(entId id)
 	{
 		return DeregisterComponent(ComponentTypes::SpriteRenderer, m_spriteRenderers, id);
 	}
 
 	template<>
-	inline Entity* RemoveComponent<BoxCollider>(entId id)
+	inline Entity* RemoveComponent<ComponentTypes::BoxCollider>(entId id)
 	{
 		return DeregisterComponent(ComponentTypes::BoxCollider, m_boxColliders, id);
 	}
 
 	template<>
-	inline Entity* RemoveComponent<NavBlock>(entId id)
+	inline Entity* RemoveComponent<ComponentTypes::NavBlock>(entId id)
 	{
 		return DeregisterComponent(ComponentTypes::NavBlock, m_navBlocks, id);
 	}
 
 	template<>
-	inline Entity* RemoveComponent<AI>(entId id)
+	inline Entity* RemoveComponent<ComponentTypes::AI>(entId id)
 	{
 		return DeregisterComponent(ComponentTypes::AI, m_ais, id);
 	}
 
 	template<>
-	inline Entity* RemoveComponent<Impulse>(entId id)
+	inline Entity* RemoveComponent<ComponentTypes::Impulse>(entId id)
 	{
 		return DeregisterComponent(ComponentTypes::Impulse, m_impulses, id);
 	}
 
 	template<>
-	inline Entity* RemoveComponent<Audio>(entId id)
+	inline Entity* RemoveComponent<ComponentTypes::Audio>(entId id)
 	{
 		return DeregisterComponent(ComponentTypes::Audio, m_audios, id);
 	}
 	
 	template<>
-	inline Entity * RemoveComponent<Animation>(entId id)
+	inline Entity * RemoveComponent<ComponentTypes::Animation>(entId id)
 	{
 		return DeregisterComponent(ComponentTypes::Animation, m_animations, id);
-	}
+	}*/
 
 	template<class T>
 	inline T* GetComponentVector()
@@ -289,6 +331,12 @@ public:
 		return &m_animations[0];
 	}
 
+	template<>
+	inline ParticleEmission* GetComponentVector()
+	{
+		return &m_particleEmissions[0];
+	}
+
 	inline entId GetComponentCount(ComponentTypes type) const { return m_componentIndices[(entId)type]; }
 
 	// TODO (Christian) Add a remove component.
@@ -298,14 +346,15 @@ private:
 
 	static ComponentManager* m_instance;
 	
-	std::vector<Transform>		m_transforms;
-	std::vector<SpriteRenderer>	m_spriteRenderers;
-	std::vector<BoxCollider>	m_boxColliders;
-	std::vector<NavBlock>		m_navBlocks;
-	std::vector<AI>				m_ais;
-	std::vector<Impulse>		m_impulses;
-	std::vector<Audio>			m_audios;
-	std::vector<Animation>		m_animations;
+	std::vector<Transform>			m_transforms;
+	std::vector<SpriteRenderer>		m_spriteRenderers;
+	std::vector<BoxCollider>		m_boxColliders;
+	std::vector<NavBlock>			m_navBlocks;
+	std::vector<AI>					m_ais;
+	std::vector<Impulse>			m_impulses;
+	std::vector<Audio>				m_audios;
+	std::vector<Animation>			m_animations;
+	std::vector<ParticleEmission>	m_particleEmissions;
 
 	entId	m_componentIndices[(entId)ComponentTypes::Count];
 

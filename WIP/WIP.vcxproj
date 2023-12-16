@@ -118,7 +118,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_Mixer.lib;opengl32.lib;glew32d.lib;Shell32.lib</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_Mixer.lib;opengl32.lib;glew32d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -137,13 +138,14 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_Mixer.lib;opengl32.lib;glew32d.lib;Shell32.lib</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_Mixer.lib;opengl32.lib;glew32d.lib;Shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Engine\ECS\Animation.cpp" />
     <ClCompile Include="Engine\Animation\AnimationManager.cpp" />
     <ClCompile Include="Engine\Audio\AudioManager.cpp" />
+    <ClCompile Include="Engine\Random\Random.cpp" />
     <ClCompile Include="Game\EnemyManager\EnemyManager.cpp" />
     <ClCompile Include="Engine\ECS\AI.cpp" />
     <ClCompile Include="Engine\Pathfinding\AIManager.cpp" />
@@ -156,6 +158,7 @@
     <ClCompile Include="Engine\ECS\BoxCollider.cpp" />
     <ClCompile Include="Engine\IO\IOManager.cpp" />
     <ClCompile Include="Engine\Time\Time.cpp" />
+    <ClCompile Include="Game\Gun\Gun.cpp" />
     <ClCompile Include="Game\Levels\Levels.cpp" />
     <ClCompile Include="Game\Player\Player.cpp" />
     <ClCompile Include="Game\src\Application.cpp" />
@@ -187,6 +190,8 @@
     <ClCompile Include="Engine\Pathfinding\PathfindingManager.cpp" />
     <ClCompile Include="Engine\Pathfinding\NavMesh.cpp" />
     <ClCompile Include="Engine\Physics\PhysicsManager.cpp" />
+    <ClCompile Include="Engine\ECS\ParticleEmission.cpp" />
+    <ClCompile Include="Engine\ParticleSystem\ParticleManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\ECS\Animation.h" />
@@ -205,6 +210,7 @@
     <ClInclude Include="Engine\Pathfinding\AIManager.h" />
     <ClInclude Include="Engine\Pathfinding\Node.h" />
     <ClInclude Include="Engine\Pathfinding\Path.h" />
+    <ClInclude Include="Engine\Random\Random.h" />
     <ClInclude Include="Engine\Utilities\Heap.h" />
     <ClInclude Include="Game\Bullet\BulletManager.h" />
     <ClInclude Include="Game\Bullet\Bullet.h" />
@@ -249,6 +255,8 @@
     <ClInclude Include="Engine\Pathfinding\PathfindingManager.h" />
     <ClInclude Include="Engine\Pathfinding\NavMesh.h" />
     <ClInclude Include="Game\Gun\Gun.h" />
+    <ClInclude Include="Engine\ECS\ParticleEmission.h" />
+    <ClInclude Include="Engine\ParticleSystem\ParticleManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Levels\NOLAGROOM.csv" />

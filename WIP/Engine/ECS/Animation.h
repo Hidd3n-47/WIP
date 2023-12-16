@@ -23,12 +23,12 @@ public:
 
 	inline void SetTimeBetweenFrames(float time) { m_frameTimer.SetTime(time); }
 
-	inline vec2 GetSize() const { return m_quad.size; }
+	inline vec2 GetSize() const { return m_size; }
 	inline Texture* GetTexture() const { return m_quad.texture; }
 	inline bool GetVerticalFlip() const { return m_quad.flipVertically; }
 	inline uint8 GetLayer() const { return m_quad.layer; }
 
-	inline void SetSize(vec2 size) { m_quad.size = size; }
+	inline void SetSize(vec2 size) { m_size; }
 	inline void SetTexture(Texture* texture) { m_quad.texture = texture; }
 	inline void SetTexture(uint32 textureId, uint32 index = 0) { m_quad.texture = TextureManager::Instance()->GetTexture(textureId); SetTextureIndex(index); }
 	inline void SetVerticalFlip(bool flip) { m_quad.flipVertically = flip; }
@@ -47,9 +47,10 @@ private:
 	Entity* m_entity	= nullptr;
 	entId	m_id		= invalid_id;
 
+	vec2	m_size				= vec2(1.0f);
+	Timer	m_frameTimer		= Timer(0.0f, true);
 	uint32	m_animationIndex	= 0;
 	uint32	m_animationCount	= 1;
-	Timer	m_frameTimer		= Timer(0.0f, true);
 
 	Quad	m_quad;
 };

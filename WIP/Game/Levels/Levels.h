@@ -9,8 +9,10 @@ class Levels
 private:
 	std::vector<jci::Entity*> LevelSquare;
 	EnemyManager* em;
+	jci::Scene* m_currentScene;
+
 public:
-	Levels();
+	Levels(jci::Scene* currentScene);
 	~Levels();
 
 	void createWall(float x, float y);

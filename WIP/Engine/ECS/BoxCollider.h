@@ -4,6 +4,11 @@
 
 #include "Collision/ICollision.h"
 
+#ifdef _DEBUG
+#include "ECS/Transform.h"
+#include "Graphics/Renderer/RendererManager.h"
+#endif
+
 namespace jci {
 
 struct BoxCollisionProps
@@ -66,6 +71,10 @@ private:
 	bool		m_collisionOccured	= false;
 	ICollision*	m_collisionMethods	= nullptr;
 	ITrigger*	m_triggerMethods	= nullptr;
+
+#ifdef _DEBUG
+	Quad dbgQuad;
+#endif
 };
 
 } // Namespace jci.

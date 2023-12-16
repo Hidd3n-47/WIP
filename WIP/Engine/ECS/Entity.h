@@ -9,28 +9,31 @@
 
 namespace jci {
 
+class Scene;
+
 // TODO (Christian): look at restriciting the delete method.
 class Entity
 {
 public:
-	Entity(uint16 id) :
+	inline Entity(Scene* scene, uint16 id) :
+		m_scene(scene),
 		m_id(id)
 	{
 		DOUT("Created Entity with id: " + std::to_string(m_id));
 		AddComponent<Transform>();
 
 	}
-	~Entity()
-	{
-		// Need to remove all the components on entity delete.
 
-		/*for (auto it = m_componentIndices.begin(); it != m_componentIndices.end(); it++)
+	inline ~Entity()
+	{
+		for (auto it = m_componentIndices.begin(); it != m_componentIndices.end(); it++)
 		{
-			ComponentManager::Instance()->RemoveComponent<
-		}*/
+			ComponentManager::Instance()->RemoveComponent(it->first, it->second);
+		}
 
 		DOUT("Destroyed Entity with id: " + std::to_string(m_id));
 	}
+
 
 	template<class T>
 	inline T* AddComponent(IProperties* properties = nullptr)
@@ -70,7 +73,7 @@ public:
 		return nullptr;
 	}
 
-	template<class T>
+	/*template<class T>
 	inline void RemoveComponent()
 	{
 		int mask = T::GetIdMask();
@@ -85,14 +88,18 @@ public:
 
 		Entity* ent = ComponentManager::Instance()->RemoveComponent<T>(componentId);
 
-		ent->SetComponentId(T::GetType(), componentId);
+		ent->;
 
 		m_componentIndices[T::GetType()] = invalid_id;
 
 		m_componentMask &= (~mask);
 
 		DOUT("Removed component with id: " + T::GetName() + " from Game Object: " + std::to_string(m_id));
-	}
+	}*/
+
+	inline void DestoryEntity() { Engine::Instance()->DestroyEntity(this); }
+	
+	inline Scene* GetScene() const { return m_scene; }
 
 	// Accessors.
 	inline uint16 GetId() const { return m_id; }
@@ -104,6 +111,7 @@ public:
 private:
 	std::unordered_map<ComponentTypes, entId>	m_componentIndices;
 
+	Scene* m_scene = nullptr;
 	std::vector<Entity*> m_child; // TODO (Christian): Implement this.
 	Entity* m_parent = nullptr;
 	uint16 m_id;
