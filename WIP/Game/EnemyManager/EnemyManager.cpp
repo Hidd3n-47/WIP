@@ -23,10 +23,10 @@ EnemyManager* EnemyManager::getEnemyManager()
 	}
 }
 
-std::vector<jci::Entity*> EnemyManager::getEnemySquares()
-{
-	return EnemySquares;
-}
+//std::vector<jci::Entity*> EnemyManager::getEnemySquares()
+//{
+//	return EnemySquares;
+//}
 
 void EnemyManager::clearSquares()
 {

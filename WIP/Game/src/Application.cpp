@@ -14,7 +14,7 @@ void Application::Create()
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	Levels map;
 	map.LoadLevelFromFile("Assets/Levels/TestRoom.csv");
-	//EnemyManager* em = EnemyManager::getEnemyManager();
+	EnemyManager* em = EnemyManager::getEnemyManager();
 
 	g1 = new Gun();
 	g1->Create(1);
@@ -33,7 +33,7 @@ void Application::Create()
 	a->SetTexture(text);
 	a->SetAnimationCount(4);
 	a->SetTimeBetweenFrames(0.3f);
-
+	em->spawnWave(1);
 	/*jci::Entity* e1 = m_currentScene->CreateEmptyEntity();
 	e1->GetComponent<jci::Transform>()->SetPosition({ 11, -6 });
 	e1->AddComponent<jci::SpriteRenderer>();
