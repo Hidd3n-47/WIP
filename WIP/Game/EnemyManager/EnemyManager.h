@@ -22,7 +22,7 @@ namespace jci
 		void CreateZombie(vec2 point);
 		EnemyManager();
 	public:
-		Uint32 getZombieTexture();
+		uint32 getZombieTexture();
 
 		std::vector<jci::Entity*> EnemySquares;
 		std::vector<Zombie*> Zombies;

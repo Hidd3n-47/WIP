@@ -53,9 +53,9 @@ void Player::Create(vec2 point, Gun* gun)
 	m_playChar = m_currentScene->CreateEmptyEntity();
 	m_playChar->GetComponent<jci::Transform>()->SetPosition(point);
 	m_playChar->AddComponent<jci::SpriteRenderer>()->SetTexture(text);
-	jci::BoxCollider* bc = m_playChar->AddComponent<jci::BoxCollider>();
-	bc->SetBodyType(jci::BodyType::Kinematic);
-	bc->SetCollisionMethods(this);
+	jci::CircleCollider* cc = m_playChar->AddComponent<jci::CircleCollider>();
+	cc->SetBodyType(jci::BodyType::Kinematic);
+	cc->SetCollisionMethods(this);
 
 	m_position = m_playChar->GetComponent<jci::Transform>()->GetPositionPointer();
 	m_currentScene->GetCamera()->SetFollowPosition(m_position);

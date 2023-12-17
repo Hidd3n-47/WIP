@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\ECS\CircleCollider.cpp" />
     <ClCompile Include="Engine\ECS\Animation.cpp" />
     <ClCompile Include="Engine\Animation\AnimationManager.cpp" />
     <ClCompile Include="Engine\Audio\AudioManager.cpp" />
@@ -194,6 +195,9 @@
     <ClCompile Include="Engine\ParticleSystem\ParticleManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BinaryTree.h" />
+    <ClInclude Include="Engine\Collision\BodyType.h" />
+    <ClInclude Include="Engine\ECS\CircleCollider.h" />
     <ClInclude Include="Engine\ECS\Animation.h" />
     <ClInclude Include="Engine\Animation\AnimationManager.h" />
     <ClInclude Include="Engine\ECS\Audio.h" />

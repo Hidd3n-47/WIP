@@ -1,6 +1,6 @@
 #pragma once
-#include <vector>
-#include <Engine/ECS/Entity.h>
+
+#include <Engine/Collision/ICollision.h>
 
 class Player;
 
@@ -10,16 +10,15 @@ namespace jci
 	class Entity;
 }
 
-
 class Zombie : public jci::ICollision
 {
 public:
 	Zombie();
 	~Zombie();
-	void Update(float time, Player* player);
+	void Create(vec2 point, Player* play, uint32 zombieTexture);
+	void Update(float time);
 	//void Create(Levels map, Player* play);
 	jci::Entity* getEntity();
-	void Create(vec2 point, Player* play);
 	jci::Scene* m_currentScene;
 
 private:

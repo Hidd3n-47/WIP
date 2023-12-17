@@ -85,6 +85,8 @@ void Engine::Run()
 
 		InputManager::Instance()->Update();
 
+		Camera* cam = SceneManager::Instance()->UpdateCurrentScene(dt);
+
 		Application::Instance()->Update(dt);
 
 		AnimationManager::Instance()->Update();
@@ -92,14 +94,15 @@ void Engine::Run()
 		StateMachineManager::Instance()->Update();
 
 		PhysicsManager::Instance()->Update(dt);
-
-		CollisionManager::Instance()->Update();
+		
+		CollisionManager::Instance()->Update(m_window->GetWidth(), m_window->GetHeight(), cam->GetPosition());
+		//CollisionManager::Instance()->Update(m_window->GetWidth(), m_window->GetHeight(), SceneManager::Instance()->GetCurrentScene()->GetCamera()->GetPosition());
 		
 		AIManager::Instance()->Update(dt);
 
-		AfterUpdate();
+		//Camera* cam = SceneManager::Instance()->UpdateCurrentScene(dt);
 
-		SceneManager::Instance()->UpdateCurrentScene(dt);
+		AfterUpdate();
 
 		Render();
 	}

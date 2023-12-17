@@ -10,8 +10,7 @@ static EnemyManager* enemyManager;
 void EnemyManager::CreateZombie(vec2 point)
 {
 	Zombie* zombie = new Zombie;
-	zombie->Create(point, player);
-	zombie->getEntity()->AddComponent<jci::SpriteRenderer>()->SetTexture(zombieText);
+	zombie->Create(point, player, zombieText);
 	Zombies.push_back(zombie);
 }
 
@@ -91,6 +90,7 @@ void EnemyManager::Update(float dt)
 			if (spawnQueue-1 == 0)
 			{
 				delete spawnCD;
+				spawnCD = nullptr;
 			}
 			else
 			{
@@ -105,6 +105,6 @@ void EnemyManager::Update(float dt)
 
 	for (auto i : Zombies)
 	{
-		i->Update(dt, player);
+		i->Update(dt);
 	}
 }

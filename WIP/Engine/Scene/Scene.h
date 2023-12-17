@@ -36,7 +36,7 @@ public:
 	* Update the scenes camera.
 	*
 	*/
-	inline void Update(float dt) { m_camera->Update(); }
+	inline Camera* Update(float dt) { m_camera->Update(); return m_camera; }
 
 	// Accessors.
 	/***

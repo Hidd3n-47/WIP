@@ -12,6 +12,7 @@ void ComponentManager::Init()
 	m_transforms.resize(MAX_ENTITIES);
 	m_spriteRenderers.resize(MAX_ENTITIES);
 	m_boxColliders.resize(MAX_ENTITIES);
+	m_circleColliders.resize(MAX_ENTITIES);
 	m_navBlocks.resize(MAX_ENTITIES);
 	m_ais.resize(MAX_ENTITIES);
 	m_impulses.resize(MAX_ENTITIES);

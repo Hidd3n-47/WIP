@@ -16,7 +16,7 @@ void AnimationManager::Update()
 
 		if (animation[i].m_frameTimer.TimerTick() == TimerStatus::TimeElapsed)
 		{
-			animation[i].m_animationIndex = animation[i].m_animationIndex == animation[i].m_animationCount - 1 ? 0 : animation[i].m_animationIndex + 1;
+			animation[i].m_animationIndex = (animation[i].m_animationIndex + 1) % animation[i].m_animationCount;
 			animation[i].SetTextureIndex(animation[i].m_animationIndex);
 		}
 	}

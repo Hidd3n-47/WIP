@@ -8,6 +8,7 @@ enum class EngineTextureIndex
 {
 	NoTexture,
 	Dbg_Box,
+	Dbg_Circle,
 	Count
 };
 

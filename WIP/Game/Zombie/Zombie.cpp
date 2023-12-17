@@ -29,13 +29,13 @@ Zombie::Zombie()
 //	zombert->GetComponent<jci::BoxCollider>()->SetSize({ 0.6f, 1.0f });
 //}
 
-void Zombie::Create(vec2 point, Player* play)//Spawn at specifics
+void Zombie::Create(vec2 point, Player* play, uint32 zombieTexture) //Spawn at specifics
 {
 	player = play;
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	zombert = m_currentScene->CreateEmptyEntity();
 	zombert->GetComponent<jci::Transform>()->SetPosition(point);
-	jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::NoTexture);
+	zombert->AddComponent<jci::SpriteRenderer>()->SetTexture(zombieTexture);
 	jci::BoxCollider* bc = zombert->AddComponent<jci::BoxCollider>();
 	bc->SetBodyType(jci::BodyType::Kinematic);
 	bc->SetCollisionMethods(this);
@@ -45,7 +45,7 @@ void Zombie::Create(vec2 point, Player* play)//Spawn at specifics
 }
 
 
-void Zombie::Update(float time, Player* player)
+void Zombie::Update(float time)
 {
 	if (hp > 0)
 	{

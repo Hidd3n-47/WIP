@@ -3,6 +3,7 @@
 #include "Transform.h"
 #include "SpriteRenderer.h"
 #include "BoxCollider.h"
+#include "CircleCollider.h"
 #include "NavBlock.h"
 #include "AI.h"
 #include "Impulse.h"
@@ -70,6 +71,12 @@ public:
 	inline BoxCollider* AddComponent<BoxCollider>(IProperties* properties)
 	{
 		return RegisterComponent(ComponentTypes::BoxCollider, m_boxColliders);
+	}
+
+	template<>
+	inline CircleCollider* AddComponent<CircleCollider>(IProperties* properties)
+	{
+		return RegisterComponent(ComponentTypes::CircleCollider, m_circleColliders);
 	}
 
 	template<>
@@ -146,6 +153,12 @@ public:
 	}
 
 	template<>
+	inline CircleCollider* GetComponent<CircleCollider>(entId componentId)
+	{
+		return RetrieveComponent(m_circleColliders, componentId);
+	}
+
+	template<>
 	inline NavBlock* GetComponent<NavBlock>(entId componentId)
 	{
 		return RetrieveComponent(m_navBlocks, componentId);
@@ -203,6 +216,8 @@ public:
 			return DeregisterComponent(type, m_spriteRenderers, id);
 		case ComponentTypes::BoxCollider:
 			return DeregisterComponent(type, m_boxColliders, id);
+		case ComponentTypes::CircleCollider:
+			return DeregisterComponent(type, m_circleColliders, id);
 		case ComponentTypes::NavBlock:
 			return DeregisterComponent(type, m_navBlocks, id);
 		case ComponentTypes::AI:
@@ -302,6 +317,12 @@ public:
 	}
 
 	template<>
+	inline CircleCollider* GetComponentVector()
+	{
+		return &m_circleColliders[0];
+	}
+
+	template<>
 	inline NavBlock* GetComponentVector()
 	{ 
 		return &m_navBlocks[0];
@@ -349,6 +370,7 @@ private:
 	std::vector<Transform>			m_transforms;
 	std::vector<SpriteRenderer>		m_spriteRenderers;
 	std::vector<BoxCollider>		m_boxColliders;
+	std::vector<CircleCollider>		m_circleColliders;
 	std::vector<NavBlock>			m_navBlocks;
 	std::vector<AI>					m_ais;
 	std::vector<Impulse>			m_impulses;
@@ -357,7 +379,6 @@ private:
 	std::vector<ParticleEmission>	m_particleEmissions;
 
 	entId	m_componentIndices[(entId)ComponentTypes::Count];
-
 };
 
 } // Namespace jci.

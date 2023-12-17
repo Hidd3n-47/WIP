@@ -1,24 +1,25 @@
 #include "pch.h"
-#include "BoxCollider.h"
+#include "CircleCollider.h"
+
 
 #include "ECS/Entity.h"
 #include "Collision/CollisionManager.h"
 
 namespace jci {
 
-void BoxCollider::OnComponentAdd(Entity* entity)
+void CircleCollider::OnComponentAdd(Entity* entity)
 {
 	// Add to Collision system.
 	m_entity = entity;
 	//CollisionManager::Instance()->AddObject(m_entity, m_bodyType);
 #ifdef _DEBUG
-	dbgQuad = Quad(&m_size, { 0.0f, 0.0f, 1.0f, 1.0f }, entity->GetComponent<Transform>()->GetPositionPointer(), nullptr, TextureManager::Instance()->GetTexture(EngineTextureIndex::Dbg_Box), 255, false);
+	dbgQuad = Quad(&size, {0.0f, 0.0f, 1.0f, 1.0f}, entity->GetComponent<Transform>()->GetPositionPointer(), nullptr, TextureManager::Instance()->GetTexture(EngineTextureIndex::Dbg_Circle), 255, false);
 	Dbg_Render(&dbgQuad);
 #endif // _DEBUG
 
 }
 
-void BoxCollider::OnComponentRemove()
+void CircleCollider::OnComponentRemove()
 {
 	// Remove from collision system.
 	//CollisionManager::Instance()->RemoveObject(m_entity, m_bodyType);
@@ -26,7 +27,7 @@ void BoxCollider::OnComponentRemove()
 	Dbg_Render_Remove(&dbgQuad);
 }
 
-void BoxCollider::CollisionOccured(Entity* otherEntity)
+void CircleCollider::CollisionOccured(Entity* otherEntity)
 {
 	if (m_trigger && m_triggerMethods)
 	{
@@ -59,7 +60,7 @@ void BoxCollider::CollisionOccured(Entity* otherEntity)
 	}
 }
 
-void BoxCollider::CollisionExit()
+void CircleCollider::CollisionExit()
 {
 	m_collisionOccured = false;
 

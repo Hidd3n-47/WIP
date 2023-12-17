@@ -5,6 +5,7 @@ enum class ComponentTypes
 	Transform = 0,
 	SpriteRenderer,
 	BoxCollider,
+	CircleCollider,
 	NavBlock,
 	AI,
 	Impulse,
