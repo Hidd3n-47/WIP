@@ -32,11 +32,9 @@ Zombie::Zombie()
 void Zombie::Create(vec2 point, Player* play)//Spawn at specifics
 {
 	player = play;
-	uint32 text = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Zomb.png");
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	zombert = m_currentScene->CreateEmptyEntity();
 	zombert->GetComponent<jci::Transform>()->SetPosition(point);
-	zombert->AddComponent<jci::SpriteRenderer>()->SetTexture(text);
 	jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::NoTexture);
 	jci::BoxCollider* bc = zombert->AddComponent<jci::BoxCollider>();
 	bc->SetBodyType(jci::BodyType::Kinematic);
@@ -65,6 +63,11 @@ void Zombie::Update(float time, Player* player)
 
 
 	}
+}
+
+jci::Entity* Zombie::getEntity()
+{
+	return zombert;
 }
 
 void Zombie::OnCollisionEnter(jci::Entity* other)

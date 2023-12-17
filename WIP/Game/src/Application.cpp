@@ -28,6 +28,7 @@ void Application::Create()
 	Zombie* z1 = new Zombie();
 	z1->Create({ 11, -6 }, p1);
 	jci::Entity* e = m_currentScene->CreateEmptyEntity();
+	e->AddComponent<jci::SpriteRenderer>()->SetTexture(em->getZombieTexture());
 	jci::Animation* a = e->AddComponent<jci::Animation>();
 	a->SetTexture(text);
 	a->SetAnimationCount(4);

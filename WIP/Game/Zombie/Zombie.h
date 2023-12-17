@@ -18,6 +18,7 @@ public:
 	~Zombie();
 	void Update(float time, Player* player);
 	//void Create(Levels map, Player* play);
+	jci::Entity* getEntity();
 	void Create(vec2 point, Player* play);
 	jci::Scene* m_currentScene;
 
@@ -25,7 +26,6 @@ private:
 	Player* player;
 	jci::Entity* zombert;
 	float hp;
-
 	void OnCollisionEnter(jci::Entity* other) final;
 	void OnCollisionStay(jci::Entity* other) final { }
 	void OnCollisionExit() final { }
