@@ -12,12 +12,12 @@ namespace jci
 	class EnemyManager
 	{
 	private:
-		std::vector<Zombie*> Zombies;
 		Player* player;
 		void CreateZombie(vec2 point);
 		EnemyManager() {};
 	public:
 		std::vector<jci::Entity*> EnemySquares;
+		std::vector<Zombie*> Zombies;
 		EnemyManager(const EnemyManager& obj) = delete;
 		static EnemyManager* getEnemyManager();
 		//std::vector<jci::Entity*> getEnemySquares();

@@ -10,22 +10,27 @@ private:
 	std::vector<jci::Entity*> LevelSquare;
 	EnemyManager* em;
 	jci::Scene* m_currentScene;
-
-public:
-	Levels(jci::Scene* currentScene);
-	~Levels();
+	Levels();
 
 	void createWall(float x, float y);
 	void createFloor(float x, float y);
 	void createEnemySpawnPoint(float x, float y);
 	void createDoor(float x, float y);//Need to add behaviour
 	void createSpawnPoint(float x, float y);//Spawn point
+
+
+public:
+	Levels(const EnemyManager& obj) = delete;
+//	~Levels();
+	static Levels* getCurrentMap();
 	std::vector<std::string> split(const std::string& string, const char splitter);//string parser;
 	void LoadLevelFromFile(std::string filepath);
 	void LoadLevel(std::string fileString);
+	void WipeLevel();
 	int getSpawnPointX();
 	int getSpawnPointY();
 	vec2 GetSpawnPoint();
+	EnemyManager* getEM();
 
 /*/////////////////////////////////////////////////////FORMAT////////////////////////////////////////////////////
 1.Create a new CSV file

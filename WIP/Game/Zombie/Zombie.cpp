@@ -47,7 +47,7 @@ void Zombie::Create(vec2 point, Player* play)//Spawn at specifics
 }
 
 
-void Zombie::Update(float time)
+void Zombie::Update(float time, Player* player)
 {
 	if (hp > 0)
 	{
@@ -74,6 +74,7 @@ void Zombie::OnCollisionEnter(jci::Entity* other)
 		hp -= 10.0f;
 
 		if (hp <= 0.0f)
+			
 			jci::Engine::Instance()->DestroyEntity(zombert);
 
 		DLOG("Damaged the zombie for 10hp");

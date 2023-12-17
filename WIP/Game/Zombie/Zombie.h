@@ -16,7 +16,7 @@ class Zombie : public jci::ICollision
 public:
 	Zombie();
 	~Zombie();
-	void Update(float time);
+	void Update(float time, Player* player);
 	//void Create(Levels map, Player* play);
 	void Create(vec2 point, Player* play);
 	jci::Scene* m_currentScene;

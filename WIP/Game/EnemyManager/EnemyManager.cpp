@@ -53,6 +53,6 @@ void EnemyManager::Update(float dt)
 {
 	for (auto i : Zombies)
 	{
-		i->Update(dt);
+		i->Update(dt, player);
 	}
 }

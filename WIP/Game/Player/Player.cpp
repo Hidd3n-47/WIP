@@ -10,6 +10,7 @@
 #include "Game/Bullet/Bullet.h"
 #include <Engine/Time/Timer.h>
 
+
 Player::Player() :
 	m_playChar(nullptr),
 	m_knife(nullptr),
@@ -131,10 +132,10 @@ void Player::Update(float time)
 		{
 			direction += vec2(1.0f, 0.0f);
 		}
-		//if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_r))
-		//{
-		//	mapRef->~Levels();
-		//}
+		if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_r))
+		{
+			mapRef->getEM()->spawnWave(1);
+		}
 		//DLOG("Not Dashing");
 	}
 

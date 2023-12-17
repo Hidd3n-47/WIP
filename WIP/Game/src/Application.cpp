@@ -12,17 +12,16 @@ Application* Application::m_instance = nullptr;
 void Application::Create()
 {
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
-
-	Levels map(m_currentScene);
-	map.LoadLevelFromFile("Assets/Levels/TestRoom.csv");
+	Levels* map = Levels::getCurrentMap();
+	map->LoadLevelFromFile("Assets/Levels/TestRoom.csv");
 	EnemyManager* em = EnemyManager::getEnemyManager();
 
 	g1 = new Gun();
 	g1->Create(1);
 	
 	p1 = new Player();
-	p1->Create(map.GetSpawnPoint(), g1);
-	p1->setLevel(&map);
+	p1->Create(map->GetSpawnPoint(), g1);
+	p1->setLevel(map);
 
 	uint32 text = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Tmp.png", 4, 1);
 
@@ -34,6 +33,7 @@ void Application::Create()
 	a->SetAnimationCount(4);
 	a->SetTimeBetweenFrames(0.3f);
 	em->spawnWave(1);
+	em->setPlayer(p1);
 	/*jci::Entity* e1 = m_currentScene->CreateEmptyEntity();
 	e1->GetComponent<jci::Transform>()->SetPosition({ 11, -6 });
 	e1->AddComponent<jci::SpriteRenderer>();
@@ -73,5 +73,6 @@ void Application::Create()
 void Application::Update(float dt)
 {
 	p1->Update(dt);
+	EnemyManager::getEnemyManager()->Update(dt);
 	//z1->Update(dt);
 }

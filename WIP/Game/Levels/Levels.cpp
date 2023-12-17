@@ -8,9 +8,11 @@
 #include <Engine/Graphics/Texture/Texture.h>
 #include <Engine/Graphics/Texture/TextureManager.h>
 
-Levels::Levels(jci::Scene* currentScene) :
-	m_currentScene(currentScene)
+static Levels* map;
+
+Levels::Levels()
 {
+	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	wall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/squareWITHAW!!.png");
 	topleftwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Front left wall.png");
 	floor = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Floor.png");
@@ -30,14 +32,22 @@ Levels::Levels(jci::Scene* currentScene) :
 	//DLOG(std::to_string(wall));
 }
 
-Levels::~Levels()
+//Levels::~Levels()
+//{
+//	WipeLevel();
+//}
+
+Levels* Levels::getCurrentMap()
 {
-	for (auto i : LevelSquare)
+	if (map == NULL)
 	{
-		// jci::SceneManager::Instance()->GetCurrentScene()->RemoveEntity(i);
+		map = new Levels();
+		return map;
 	}
-	LevelSquare.clear();
-	em->clearSquares();
+	else
+	{
+		return map;
+	}
 }
 
 void Levels::createWall(float x, float y)
@@ -107,6 +117,10 @@ void Levels::LoadLevelFromFile(std::string filepath)
 
 void Levels::LoadLevel(std::string fileString)
 {
+	if (LevelSquare.size() > 0)
+	{
+		WipeLevel();
+	}
 	std::vector<std::string>parsedString = split(fileString, ',');//split via spaces first
 	//ASSERT(false, fileString);
 	float currentX = 0;
@@ -251,6 +265,16 @@ void Levels::LoadLevel(std::string fileString)
 	}
 }
 
+void Levels::WipeLevel()
+{
+	for (auto i : LevelSquare)//Just destroy without default destroy logic;
+	{
+		jci::Engine::Instance()->DestroyEntity(i);
+	}
+	LevelSquare.clear();
+	em->clearSquares();
+}
+
 int Levels::getSpawnPointX()
 {
 	return spawnPointX;
@@ -264,4 +288,9 @@ int Levels::getSpawnPointY()
 vec2 Levels::GetSpawnPoint()
 {
 	return vec2(spawnPointX,spawnPointY);
+}
+
+EnemyManager* Levels::getEM()
+{
+	return em;
 }
