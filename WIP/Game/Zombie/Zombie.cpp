@@ -29,15 +29,13 @@ Zombie::Zombie()
 //	zombert->GetComponent<jci::BoxCollider>()->SetSize({ 0.6f, 1.0f });
 //}
 
-void Zombie::Create(vec2 point, Player* play)//Spawn at specifics
+void Zombie::Create(vec2 point, Player* play, uint32 zombieTexture) //Spawn at specifics
 {
 	player = play;
-	uint32 text = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Zomb.png");
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	zombert = m_currentScene->CreateEmptyEntity();
 	zombert->GetComponent<jci::Transform>()->SetPosition(point);
-	zombert->AddComponent<jci::SpriteRenderer>()->SetTexture(text);
-	jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::NoTexture);
+	zombert->AddComponent<jci::SpriteRenderer>()->SetTexture(zombieTexture);
 	jci::BoxCollider* bc = zombert->AddComponent<jci::BoxCollider>();
 	bc->SetBodyType(jci::BodyType::Kinematic);
 	bc->SetCollisionMethods(this);
@@ -67,11 +65,21 @@ void Zombie::Update(float time)
 	}
 }
 
+jci::Entity* Zombie::getEntity()
+{
+	return zombert;
+}
+
 void Zombie::OnCollisionEnter(jci::Entity* other)
 {
 	if (other->GetTag() == "Bullet")
 	{
-		hp -= 10;
+		hp -= 10.0f;
+
+		if (hp <= 0.0f)
+			
+			jci::Engine::Instance()->DestroyEntity(zombert);
+
 		DLOG("Damaged the zombie for 10hp");
-	}
+	}	
 }

@@ -1,0 +1,78 @@
+#include "pch.h"
+#include "CircleCollider.h"
+
+
+#include "ECS/Entity.h"
+#include "Collision/CollisionManager.h"
+
+namespace jci {
+
+void CircleCollider::OnComponentAdd(Entity* entity)
+{
+	// Add to Collision system.
+	m_entity = entity;
+	//CollisionManager::Instance()->AddObject(m_entity, m_bodyType);
+#ifdef _DEBUG
+	dbgQuad = Quad(&size, {0.0f, 0.0f, 1.0f, 1.0f}, entity->GetComponent<Transform>()->GetPositionPointer(), nullptr, TextureManager::Instance()->GetTexture(EngineTextureIndex::Dbg_Circle), 255, false);
+	Dbg_Render(&dbgQuad);
+#endif // _DEBUG
+
+}
+
+void CircleCollider::OnComponentRemove()
+{
+	// Remove from collision system.
+	//CollisionManager::Instance()->RemoveObject(m_entity, m_bodyType);
+
+	Dbg_Render_Remove(&dbgQuad);
+}
+
+void CircleCollider::CollisionOccured(Entity* otherEntity)
+{
+	if (m_trigger && m_triggerMethods)
+	{
+		if (!m_collisionOccured)
+		{
+			m_collisionOccured = true;
+			m_triggerMethods->OnTriggerEnter(otherEntity);
+			return;
+		}
+		else
+		{
+			m_triggerMethods->OnTriggerStay(otherEntity);
+			return;
+		}
+	}
+
+	if (m_collisionMethods)
+	{
+		if (!m_collisionOccured)
+		{
+			m_collisionOccured = true;
+			m_collisionMethods->OnCollisionEnter(otherEntity);
+			return;
+		}
+		else
+		{
+			m_collisionMethods->OnCollisionStay(otherEntity);
+			return;
+		}
+	}
+}
+
+void CircleCollider::CollisionExit()
+{
+	m_collisionOccured = false;
+
+	if (m_trigger && m_triggerMethods)
+	{
+		m_triggerMethods->OnTriggerExit();
+	}
+
+	if (m_collisionMethods)
+	{
+		m_collisionMethods->OnCollisionExit();
+	}
+}
+
+} // Namespace jci.

@@ -10,6 +10,7 @@
 #include "Game/Bullet/Bullet.h"
 #include <Engine/Time/Timer.h>
 
+
 Player::Player() :
 	m_playChar(nullptr),
 	m_knife(nullptr),
@@ -48,20 +49,22 @@ void Player::Create(vec2 point, Gun* gun)
 	m_knife->AddComponent<jci::SpriteRenderer>();
 	m_knife->GetComponent<jci::SpriteRenderer>()->SetSize({ 0.7f,0.7f });
 	//scene = jci::SceneManager::Instance()->GetCurrentScene();
+
 	m_playChar = m_currentScene->CreateEmptyEntity();
-	jci::RendererManager::Instance()->SetLightPosition(m_playChar->GetComponent<jci::Transform>()->GetPositionPointer());
-	                                                                 
+	m_playChar->GetComponent<jci::Transform>()->SetPosition(point);
+	m_playChar->AddComponent<jci::SpriteRenderer>()->SetTexture(text);
+
+	m_playChar->SetTag("Player");
+
+	jci::CircleCollider* cc = m_playChar->AddComponent<jci::CircleCollider>();
+	cc->SetBodyType(jci::BodyType::Kinematic);
+	cc->SetCollisionMethods(this);
+
 	m_position = m_playChar->GetComponent<jci::Transform>()->GetPositionPointer();
 	m_currentScene->GetCamera()->SetFollowPosition(m_position);
+	m_playChar->AddComponent<jci::Impulse>();
+	jci::RendererManager::Instance()->SetLightPosition(m_playChar->GetComponent<jci::Transform>()->GetPositionPointer());
 
-	m_playChar->GetComponent<jci::Transform>()->SetPosition(point);
-	jci::SpriteRenderer* sr = m_playChar->AddComponent<jci::SpriteRenderer>();
-	sr->SetTexture(text);
-	jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::NoTexture);
-
-	jci::BoxCollider* bc = m_playChar->AddComponent<jci::BoxCollider>();
-	bc->SetBodyType(jci::BodyType::Kinematic);
-	bc->SetCollisionMethods(this);
 	dashCD = new jci::Timer(0, false);
 	meleeCD = new jci::Timer(0, false);
 	bulletCD = new jci::Timer(0, false);
@@ -75,6 +78,8 @@ void Player::FireGun(float time)
 {
 	DLOG("Firing");
 	//find angle: (y-jci::InputManager::Instance()->GetMousePosition().y)/(x-jci::InputManager::Instance()->GetMousePosition().x)
+	vec2 mouseCoords = jci::InputManager::Instance()->GetMousePosition() - vec2(m_width * 0.5f, m_height * 0.5f);
+	vec2 moveDirection = glm::normalize(mouseCoords);
 	int num = bulletPool.size() - 1;
 	jci::Entity* bulletObj;
 	bulletObj = m_currentScene->CreateEmptyEntity();
@@ -87,8 +92,7 @@ void Player::FireGun(float time)
 	bulletObj->SetTag("Bullet");
 	bulletObj->GetComponent<jci::BoxCollider>()->SetSize({ 0.1f, 0.05f });
 
-	vec2 moveDirection = jci::InputManager::Instance()->GetMousePosition() - vec2(m_width * 0.5f, m_height * 0.5f);
-	moveDirection = glm::normalize(moveDirection);
+	
 	moveDirection.y *= -1;
 	moveDirection.x = moveDirection.x * time;
 	moveDirection.y = moveDirection.y * time;
@@ -133,7 +137,7 @@ void Player::Update(float time)
 		}
 		//if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_r))
 		//{
-		//	mapRef->~Levels();
+		//	mapRef->getEM()->spawnWave(1);
 		//}
 		//DLOG("Not Dashing");
 	}
@@ -242,15 +246,12 @@ void Player::setLevel(Levels* temp)
 
 void Player::OnCollisionEnter(jci::Entity* other)
 {
-	//DLOG("CollisionEnter!!!");
 }
 
 void Player::OnCollisionStay(jci::Entity* other)
 {
-	//DLOG("CollisionStay!!!");
 }
 
 void Player::OnCollisionExit()
 {
-	//DLOG("CollisionExit!!!");
 }

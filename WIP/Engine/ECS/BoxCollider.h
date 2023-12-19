@@ -1,15 +1,18 @@
 #pragma once
 
 #include "IComponent.h"
-
+#include "Collision/BodyType.h"
 #include "Collision/ICollision.h"
+
+#ifdef _DEBUG
+#include "Graphics/Renderer/RendererManager.h"
+#endif
 
 namespace jci {
 
-enum class BodyType
+struct BoxCollisionProps
 {
-	Static,
-	Kinematic
+	BoxCollisionProps() = default;
 };
 
 class BoxCollider : public IComponent
@@ -31,7 +34,7 @@ public:
 	// Mutators.
 	inline void SetSize(vec2 size) { m_size = size; }
 	inline void SetTrigger(bool trigger) { m_trigger = trigger; }
-	void SetBodyType(BodyType type);
+	inline void SetBodyType(BodyType type) { m_bodyType = type; }
 
 	inline void SetCollisionMethods(ICollision* collisionMethods)	{ m_collisionMethods = collisionMethods; }
 	inline void SetTriggerMethods(ITrigger* triggerMethods)			{ m_triggerMethods = triggerMethods; }
@@ -52,14 +55,19 @@ public:
 	}
 private:
 	Entity*		m_entity	= nullptr;
+	entId		m_id		= invalid_id;
+
 	vec2		m_size		= vec2(1.0f);
 	BodyType	m_bodyType	= BodyType::Static;
 	bool		m_trigger	= false;
-	entId		m_id		= invalid_id;
 
 	bool		m_collisionOccured	= false;
 	ICollision*	m_collisionMethods	= nullptr;
 	ITrigger*	m_triggerMethods	= nullptr;
+
+#ifdef _DEBUG
+	Quad dbgQuad;
+#endif
 };
 
 } // Namespace jci.

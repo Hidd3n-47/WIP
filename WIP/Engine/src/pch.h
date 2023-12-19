@@ -11,8 +11,11 @@
 #include <algorithm>
 #include <unordered_map>
 
+#include <random>
+
 #include <sdl/SDL.h>
 #include <gl/glew.h>
+#include <glm/gtx/vector_angle.hpp>
 
 #include "wip.h"
 #include "Logger/Log.h"

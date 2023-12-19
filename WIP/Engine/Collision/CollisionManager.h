@@ -1,44 +1,61 @@
 #pragma once
 
+#include "BodyType.h"
+
 namespace jci {
 
 class Entity;
 class BoxCollider;
-enum class BodyType;
+class CircleCollider;
+class Transform;
+
+struct Quarter
+{
+	Quarter() = default;
+	Quarter(vec2 topLeft, float width, float height) : topLeft(topLeft), width(width), height(height) { /* Empty. */ }
+	~Quarter() = default;
+
+	vec2 topLeft	= vec2(0.0f);
+	float width		= 0;
+	float height	= 0;
+
+	std::vector<BoxCollider*> staticBoxes;
+	std::vector<Transform*> staticBoxesTransforms;
+
+	std::vector<BoxCollider*> kinematicBoxes;
+	std::vector<Transform*> kinematicBoxesTransforms;
+
+	std::vector<CircleCollider*> staticCircles;
+	std::vector<Transform*> staticCirclesTransforms;
+
+	std::vector<CircleCollider*> kinematicCircles;
+	std::vector<Transform*> kinematicCirclesTransforms;
+};
 
 class CollisionManager
 {
 public:
 	inline static CollisionManager* Instance() { return m_instance == nullptr ? m_instance = new CollisionManager() : m_instance; }
 
-	void Update();
+	void Update(uint16 screenWidth, uint16 screenHeight, vec2 cameraPosition);
 
-	// TODO (Christian): Add this to remove objects from the respective vectors.
-	void AfterUpdate();
-
-	void AddObject(Entity* entity, BodyType bodyType);
-	void RemoveObject(Entity* entity, BodyType bodyType);
-	void UpdateBodyType(Entity* entity, BodyType oldBodyType, BodyType newBodyType);
-
-	inline void Destroy() { Flush(); delete m_instance; }
-
-	inline void Flush() { m_kinematicBodies.clear(); m_staticBodies.clear(); }
+	inline void Destroy() { delete m_instance; }
 private:
 	CollisionManager() = default;
 	~CollisionManager() = default;
 
 	static CollisionManager* m_instance;
 
-	std::vector<Entity*> m_staticBodies;
-	std::vector<Entity*> m_kinematicBodies;
+	enum class KinematicLocation { Left, Right, Both };
+	void HandleCollision(Quarter& q);
 
-	std::unordered_map<BoxCollider*, bool> m_collidedThisFrame;
-	std::unordered_map<BoxCollider*, bool> m_collidedLastFrame;
+	void PushBoxes(BoxCollider* lBody, Transform* lTransform, BoxCollider* rBody, Transform* rTransform, KinematicLocation location, float dx, float dy, vec2 direction);
+	void PushCircles(CircleCollider* lBody, Transform* lTransform, CircleCollider* rBody, Transform* rTransform, KinematicLocation location, float overlap, vec2 direction);
+	void PushCircleBox(CircleCollider* lBody, Transform* lTransform, BoxCollider* rBody, Transform* rTransform, KinematicLocation location, float overlap, vec2 direction);
 
-	enum class KinematicLocation { Left, Both };
-	void HandleCollision(Entity* box1, Entity* box2, KinematicLocation location);
 	bool AabbCollisionOccured(const vec4& b1, const vec4& b2, float& dx, float& dy, vec2& direction);
-	void CheckCollisionExit();
+	bool CollisionBetweenCircles(vec2 c1Center, float radius1, vec2 c2Center, float radius2, float& overlap, vec2& direction);
+	bool CollisionBetweenBoxCircle(vec2 boxPosition, vec2 boxSize, vec2 circleCenter, float radius, float& overlap, vec2& direction);
 };
 
 } // Namespace jci.

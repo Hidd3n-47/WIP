@@ -3,10 +3,24 @@
 #include "IComponent.h"
 
 #include "Graphics/Texture/TextureManager.h"
+#include "Graphics/Renderer/RendererManager.h"
 
 namespace jci {
 
 class Texture;
+
+struct SpriteRendererProps
+{
+	SpriteRendererProps(Texture* texture = TextureManager::Instance()->GetTexture(EngineTextureIndex::NoTexture), vec2 size = vec2(1.0f), uint8 layer = 0, bool verticalFlip = false) 
+	{
+		// Empty.
+	}
+
+	Texture* texture;
+	vec2* size;
+	uint8 layer;
+	bool verticalFlip;
+};
 
 class SpriteRenderer : public IComponent
 {
@@ -20,32 +34,30 @@ public:
 	virtual void OnComponentRemove() final;
 
 	inline vec2 GetSize() const { return m_size; }
-	inline Texture* GetTexture() const { return m_texture; }
-	inline bool GetVerticalFlip() const { return m_verticalFlip; }
-	inline uint8 GetLayer() const { return m_layer; }
-
+	inline Texture* GetTexture() const { return m_quad.texture; }
+	inline bool GetVerticalFlip() const { return m_quad.flipVertically; }
+	inline uint8 GetLayer() const { return m_quad.layer; }
 
 	inline void SetSize(vec2 size) { m_size = size; }
-	inline void SetTexture(Texture* texture) { m_texture = texture; }
-	inline void SetTexture(uint32 textureId) { m_texture = TextureManager::Instance()->GetTexture(textureId); }
-	inline void SetVerticalFlip(bool flip) { m_verticalFlip = flip; }
-	inline void SetLayer(uint8 layer) { m_layer = layer; }
+	inline void SetTexture(Texture* texture) { m_quad.texture = texture; }
+	inline void SetTexture(Texture* texture, uint8 layer) { m_quad.texture = texture; m_quad.layer = layer; }
+	inline void SetTexture(uint32 textureId, uint32 index = 0) { m_quad.texture = TextureManager::Instance()->GetTexture(textureId); SetTextureIndex(index); }
+	inline void SetVerticalFlip(bool flip) { m_quad.flipVertically = flip; }
+	inline void SetLayer(uint8 layer) { m_quad.layer = layer; }
+	inline void SetTextureIndex(uint32 index) { ASSERT(m_quad.texture, "Invalid texture to get uv Rect."); m_quad.uvRect = m_quad.texture->GetUVRect(index); }
 
 	inline SpriteRenderer& operator=(SpriteRenderer& other) noexcept
 	{
 		m_id = std::move(other.m_id);
 		m_entity = std::move(other.m_entity);
-		m_size = std::move(other.m_size);
-		m_texture = std::move(other.m_texture);
+		m_quad = std::move(other.m_quad);
 		return *this;
 	}
 private:
 	Entity*		m_entity		= nullptr;
-	Texture*	m_texture		= nullptr;
-	vec2		m_size			= vec2(1.0f);
 	entId		m_id			= invalid_id;
-	uint8		m_layer			= 0;
-	bool		m_verticalFlip	= false;
+	vec2		m_size			= vec2(1.0f);
+	Quad		m_quad;
 };
 
 } // Namespace jci.

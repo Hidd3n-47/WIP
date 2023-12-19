@@ -72,17 +72,16 @@ void RendererManager::Begin()
 	m_verticesPtr = m_verticesBase;
 	indexCount = 0;
 
-	for(const Quad& q : m_quads)
-	{
-		vec2 size = q.spriteRenderer->GetSize();
-		Texture* text = q.spriteRenderer->GetTexture();
-		bool flipVert = q.spriteRenderer->GetVerticalFlip();
-		uint8 layer = q.spriteRenderer->GetLayer();
-		
+	for(const Quad* q : m_quads)
+	{		
+		vec2 position = !q->position ? vec2(0.0f) : *q->position;
+
+		Texture* texture = !q->texture ? TextureManager::Instance()->GetTexture(EngineTextureIndex::NoTexture) : q->texture;
+
 		float textureIndex = -1.0f;
 		for (uint32 i = 0; i < textureSlotIndex; i++)
 		{
-			if (m_textureSlots[i] == text)
+			if (m_textureSlots[i] == texture)
 			{
 				textureIndex = (float)i;
 				break;
@@ -92,14 +91,17 @@ void RendererManager::Begin()
 		if (textureIndex == -1.0f)
 		{
 			textureIndex = (float)textureSlotIndex;
-			m_textureSlots[textureSlotIndex] = text;
+			m_textureSlots[textureSlotIndex] = texture;
 			textureSlotIndex++;
 		}
 
-		size = size * 0.5f;
+		// Rotation.
+		vec2 size = !q->size ? vec2(0.5f) : *q->size * 0.5f;
 
-		float sina = glm::sin(glm::radians(*q.rotation));
-		float cosa = glm::cos(glm::radians(*q.rotation));
+		float angle = !q->rotation ? 0.0f : *q->rotation;
+
+		float sina = glm::sin(glm::radians(angle));
+		float cosa = glm::cos(glm::radians(angle));
 
 		float xsina = size.x * sina;
 		float xcosa = size.x * cosa;
@@ -110,23 +112,30 @@ void RendererManager::Begin()
 		vec2 s2 = vec2( xcosa + ysina, -ycosa + xsina);
 		vec2 s3 = vec2(-xcosa - ysina,  ycosa - xsina);
 
-		m_verticesPtr->position = vec3(*q.position - s1, layer / 10.0f);
-		m_verticesPtr->uvCoord = (flipVert ? vec2(1.0f, 0.0f) : vec2(0.0f, 0.0f));
+		// uv calculations.
+		vec2 botL(q->uvRect.x, q->uvRect.y);
+		vec2 botR(q->uvRect.x + q->uvRect.z, q->uvRect.y);
+		vec2 topR(q->uvRect.x + q->uvRect.z, q->uvRect.y + q->uvRect.w);
+		vec2 topL(q->uvRect.x, q->uvRect.y + q->uvRect.w);
+
+		// Vertices.
+		m_verticesPtr->position = vec3(position - s1, (float)q->layer / 255.0f);
+		m_verticesPtr->uvCoord = (q->flipVertically ? botR : botL);
 		m_verticesPtr->textureId = textureIndex;
 		m_verticesPtr++;
 		
-		m_verticesPtr->position = vec3(q.position->x + s2.x, q.position->y + s2.y, layer / 10.0f);
-		m_verticesPtr->uvCoord = (flipVert ? vec2(0.0f, 0.0f) : vec2(1.0f, 0.0f));
+		m_verticesPtr->position = vec3(position.x + s2.x, position.y + s2.y, (float)q->layer / 255.0f);
+		m_verticesPtr->uvCoord = (q->flipVertically ? botL : botR);
 		m_verticesPtr->textureId = textureIndex;
 		m_verticesPtr++;
 		
-		m_verticesPtr->position = vec3(*q.position + s1, layer / 10.0f);
-		m_verticesPtr->uvCoord = (flipVert ? vec2(0.0f, 1.0f) : vec2(1.0f, 1.0f));
+		m_verticesPtr->position = vec3(position + s1, (float)q->layer / 255.0f);
+		m_verticesPtr->uvCoord = (q->flipVertically ? topL : topR);
 		m_verticesPtr->textureId = textureIndex;
 		m_verticesPtr++;
 		
-		m_verticesPtr->position = vec3(q.position->x + s3.x, q.position->y + s3.y, layer / 10.0f);
-		m_verticesPtr->uvCoord = (flipVert ? vec2(1.0f, 1.0f) : vec2(0.0f, 1.0f));
+		m_verticesPtr->position = vec3(position.x + s3.x, position.y + s3.y, (float)q->layer / 255.0f);
+		m_verticesPtr->uvCoord = (q->flipVertically ? topR : topL);
 		m_verticesPtr->textureId = textureIndex;
 		m_verticesPtr++;
 
@@ -156,8 +165,6 @@ void RendererManager::End()
 
 void RendererManager::Flush()
 {
-	// RendererDraw(); <- pass in vertex array?
-	// Pass throught the index count of the datat.
 	for (uint32 i = 0; i < textureSlotIndex; i++)
 	{
 		glActiveTexture(GL_TEXTURE0 + i);
@@ -169,19 +176,17 @@ void RendererManager::Flush()
 	glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, nullptr);
 }
 
-// TODO Ccould maybe remove passing in sprite renderer and pass in the actual stats.
-void RendererManager::AddQuadToQueue(SpriteRenderer* spriteRenderer)
-{
-	vec2* position = spriteRenderer->GetEntity()->GetComponent<Transform>()->GetPositionPointer();
 
-	m_quads.emplace_back(spriteRenderer, position, spriteRenderer->GetEntity()->GetComponent<Transform>()->GetRotationPointer());
+void RendererManager::AddQuadToQueue(Quad* quad)
+{
+	m_quads.push_back(quad);
 }
 
-void RendererManager::RemoveQuadFromQueue(SpriteRenderer* spriteRenderer)
+void RendererManager::RemoveQuadFromQueue(Quad* quad)
 {
 	for (int i = 0; i < m_quads.size(); i++)
 	{
-		if (m_quads[i].spriteRenderer == spriteRenderer)
+		if (m_quads[i] == quad)
 		{
 			m_quads[i] = m_quads.back();
 			m_quads.pop_back();
@@ -189,7 +194,7 @@ void RendererManager::RemoveQuadFromQueue(SpriteRenderer* spriteRenderer)
 		}
 	}
 
-	ASSERT(false, "Sprite Renderer not found to remove.");
+	ASSERT(false, "Quad to renderer not found to remove.");
 }
 
 } // Namespace jci.

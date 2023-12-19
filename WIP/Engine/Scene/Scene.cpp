@@ -13,9 +13,9 @@ Scene::Scene(const std::string& name, uint16 id) :
 
 Scene::~Scene()
 {
-	for (int i = 0; i < m_entitys.size(); i++)
+	for (int i = 0; i < m_entities.size(); i++)
 	{
-		Entity* go = m_entitys[i];
+		Entity* go = m_entities[i];
 		delete go;
 		go = nullptr;
 	}
@@ -28,16 +28,27 @@ Scene::~Scene()
 
 Entity* Scene::CreateEmptyEntity()
 {
-	Entity* go = new Entity(m_entityIndex++);
+	Entity* go = new Entity(this, m_entityIndex++);
 	ASSERT(m_entityIndex != (1 << 16) - 1, "Reached maxed amount of Game Objects created.");
-	m_entitys.push_back(go);
+	m_entities.push_back(go);
 	return go;
 }
 
-// Question: Do the scenes need an update method?
-void Scene::Update(float dt)
+void Scene::RemoveEnity(Entity* entity)
 {
-	m_camera->Update();
+	for (int i = 0; i < m_entities.size(); i++)
+	{
+		if (m_entities[i] == entity)
+		{
+			delete m_entities[i];
+			m_entities[i] = m_entities.back();
+			m_entities.pop_back();
+			entity = nullptr;
+			return;
+		}
+	}
+
+	//delete entity;
 }
 
 } // Namespace jci.

@@ -3,13 +3,16 @@
 
 #include "Time/Time.h"
 #include "IO/IOManager.h"
+#include "Random/Random.h"
 #include "Input/InputManager.h"
 #include "Scene/SceneManager.h"
 #include "Pathfinding/AIManager.h"
+#include "Physics/PhysicsManager.h"
 #include "FSM/StateMachineManager.h"
 #include "Graphics/Texture/Texture.h"
 #include "Graphics/Renderer/Renderer.h"
 #include "Collision/CollisionManager.h"
+#include "Animation/AnimationManager.h"
 #include "Graphics/Texture/TextureManager.h"
 #include "Graphics/Renderer/RendererManager.h"
 
@@ -56,6 +59,8 @@ void Engine::Init()
 	uint32 vsyncDisable = SDL_GL_SetSwapInterval(0);
 	ASSERT(vsyncDisable == 0, "Failed to turn off VSYNC.");
 
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_ALWAYS);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
@@ -65,18 +70,7 @@ void Engine::Init()
 
 	Application::Instance()->Create();
 
-	m_vertexArrayLight = new VertexArray();
-	float vertices[] = { -1.0f, -1.0f, 1.0f, -1.0f, 1.0f, 1.0f, -1.0f, 1.0f };
-	m_vertexBufferLight = new VertexBuffer(vertices, 8 * sizeof(float));
-
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(vec2), nullptr);
-
-	m_vertexArrayLight->SetVertexBuffer(m_vertexBufferLight);
-	uint32 i[] = { 0, 1, 2, 2, 3, 0 };
-	m_vertexArrayLight->SetIndexBuffer(i, 6);
-	m_shaderLight = new Shader("Assets/Shader/light.vert", "Assets/Shader/light.frag");
-	m_shaderLight->Bind();
+	Random::Instance()->Init();
 }
 
 void Engine::Run()
@@ -91,17 +85,24 @@ void Engine::Run()
 
 		InputManager::Instance()->Update();
 
-		StateMachineManager::Instance()->Update();
+		Camera* cam = SceneManager::Instance()->UpdateCurrentScene(dt);
 
 		Application::Instance()->Update(dt);
 
-		CollisionManager::Instance()->Update();
+		AnimationManager::Instance()->Update();
+
+		StateMachineManager::Instance()->Update();
+
+		PhysicsManager::Instance()->Update(dt);
+		
+		CollisionManager::Instance()->Update(m_window->GetWidth(), m_window->GetHeight(), cam->GetPosition());
+		//CollisionManager::Instance()->Update(m_window->GetWidth(), m_window->GetHeight(), SceneManager::Instance()->GetCurrentScene()->GetCamera()->GetPosition());
 		
 		AIManager::Instance()->Update(dt);
 
-		AfterUpdate();
+		//Camera* cam = SceneManager::Instance()->UpdateCurrentScene(dt);
 
-		SceneManager::Instance()->UpdateCurrentScene(dt);
+		AfterUpdate();
 
 		Render();
 	}
@@ -131,7 +132,23 @@ void Engine::Destroy()
 
 void Engine::AfterUpdate()
 {
-	// TODO (Christian): Delete game objects here.
+	while (m_entsToDestroy.size())
+	{
+		Entity* e = m_entsToDestroy.back();
+
+		if (!e || e->GetId() == invalid_id)
+		{
+			ASSERT(false, "Entity already deleted previously.");
+			m_entsToDestroy.pop_back();
+		}
+		else
+		{
+			e->GetScene()->RemoveEnity(e);
+			m_entsToDestroy.pop_back();
+		}
+	}
+
+	ASSERT(m_entsToDestroy.size() == 0, " ");
 }
 
 void Engine::Render()
@@ -141,10 +158,6 @@ void Engine::Render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	RendererManager::Instance()->End();
-
-	/*m_vertexArrayLight->Bind();
-	m_shaderLight->Bind();
-	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);*/
 }
 
 } // Namespace jci.

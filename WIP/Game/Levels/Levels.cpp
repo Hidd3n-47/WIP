@@ -7,9 +7,14 @@
 #include <Engine/IO/IOManager.h>
 #include <Engine/Graphics/Texture/Texture.h>
 #include <Engine/Graphics/Texture/TextureManager.h>
+#include "Game/Door/Door.h"
+#include "Game/Door/DoorTrigger.h"
+
+static Levels* map;
 
 Levels::Levels()
 {
+	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	wall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/squareWITHAW!!.png");
 	topleftwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Front left wall.png");
 	floor = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Floor.png");
@@ -26,27 +31,36 @@ Levels::Levels()
 	inversebotleft = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv back left wall.png");
 	inversebotright = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv back right wall.png");
 	em = EnemyManager::getEnemyManager();
+	dm = DoorManager::getDoorManager();
 	//DLOG(std::to_string(wall));
 }
 
-Levels::~Levels()
+//Levels::~Levels()
+//{
+//	WipeLevel();
+//}
+
+Levels* Levels::getCurrentMap()
 {
-	for (auto i : LevelSquare)
+	if (map == NULL)
 	{
-		// jci::SceneManager::Instance()->GetCurrentScene()->RemoveEntity(i);
+		map = new Levels();
+		return map;
 	}
-	LevelSquare.clear();
-	em->clearSquares();
+	else
+	{
+		return map;
+	}
 }
 
 void Levels::createWall(float x, float y)
 {
-	jci::Entity* newWall = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
-	newWall->GetComponent<jci::Transform>()->SetPosition({ x,  y });
-	newWall->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Static);
-	LevelSquare.push_back(newWall);
+	jci::Entity* e = m_currentScene->CreateEmptyEntity();
+	e->GetComponent<jci::Transform>()->SetPosition({ x, y });
+	e->AddComponent<jci::SpriteRenderer>()->SetTexture(wall, 25);
+	e->AddComponent<jci::BoxCollider>();
 
-
+	LevelSquare.push_back(e);
 }
 
 void Levels::createFloor(float x, float y)
@@ -61,18 +75,27 @@ void Levels::createEnemySpawnPoint(float x, float y)
 {
 	jci::Entity* newFloor = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
 	newFloor->GetComponent<jci::Transform>()->SetPosition({ x,  y });
+	//newFloor->AddComponent<jci::BoxCollider>();
+	newFloor->AddComponent<jci::NavBlock>();
 	LevelSquare.push_back(newFloor);
-	em->getEnemySquares().push_back(newFloor);
+	em->EnemySquares.push_back(newFloor);
 }
 
 void Levels::createDoor(float x, float y)
 {
 	//CREATE DOOR;
-	jci::Entity* newDoor = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
-	newDoor->GetComponent<jci::Transform>()->SetPosition({ x,  y });
-	newDoor->AddComponent<jci::BoxCollider>();
-	LevelSquare.push_back(newDoor);
+	Door* newDoor = new Door();
+	LevelSquare.push_back(newDoor->Create(vec2(x, y), dm->getClosedText()));
+	dm->setDoor(newDoor);
+	dm->getDoorSquares().push_back(newDoor->getDoor());
+}
 
+void Levels::createDoorTrigger(float x, float y)
+{
+	DoorTrigger* newFloor = new DoorTrigger();
+	LevelSquare.push_back(newFloor->Create(vec2(x, y), floor));
+	newFloor->setDoor(dm->getDoor());
+	dm->getDoorSquares().push_back(newFloor->getThis());
 }
 
 void Levels::createSpawnPoint(float x, float y)
@@ -105,6 +128,10 @@ void Levels::LoadLevelFromFile(std::string filepath)
 
 void Levels::LoadLevel(std::string fileString)
 {
+	if (LevelSquare.size() > 0)
+	{
+		WipeLevel();
+	}
 	std::vector<std::string>parsedString = split(fileString, ',');//split via spaces first
 	//ASSERT(false, fileString);
 	float currentX = 0;
@@ -194,7 +221,6 @@ void Levels::LoadLevel(std::string fileString)
 		{
 			//doors
 			createDoor(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(door);
 			currentX += width;
 		}
 		else if (i == "11")//inv topleft
@@ -222,9 +248,15 @@ void Levels::LoadLevel(std::string fileString)
 			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(inversebotright);
 			currentX += width;
 		}
+		else if (i == "15")
+		{
+			//doors
+			createDoorTrigger(currentX, currentY);
+			currentX += width;
+		}
 		else if (i == "79")
 		{
-			createFloor(currentX, currentY);
+			createEnemySpawnPoint(currentX, currentY);
 			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(floor);
 			currentX += width;
 		}
@@ -249,6 +281,18 @@ void Levels::LoadLevel(std::string fileString)
 	}
 }
 
+void Levels::WipeLevel()
+{
+	for (auto i : LevelSquare)//Just destroy without default destroy logic;
+	{
+		jci::Engine::Instance()->DestroyEntity(i);
+	}
+	LevelSquare.clear();
+	em->clearSquares();
+	em->clearZombies();
+	dm->clear();
+}
+
 int Levels::getSpawnPointX()
 {
 	return spawnPointX;
@@ -262,4 +306,9 @@ int Levels::getSpawnPointY()
 vec2 Levels::GetSpawnPoint()
 {
 	return vec2(spawnPointX,spawnPointY);
+}
+
+EnemyManager* Levels::getEM()
+{
+	return em;
 }

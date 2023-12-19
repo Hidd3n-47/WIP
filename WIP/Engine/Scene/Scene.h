@@ -20,9 +20,23 @@ public:
 	Scene(const std::string& name, uint16 id);
 	~Scene();
 
+	/***
+	* Returns a pointer to a new entity.
+	*
+	*/
 	Entity* CreateEmptyEntity();
 
-	void Update(float dt);
+	/***
+	* Destroys the passed in entity.
+	*
+	*/
+	void RemoveEnity(Entity* entity);
+
+	/***
+	* Update the scenes camera.
+	*
+	*/
+	inline Camera* Update(float dt) { m_camera->Update(); return m_camera; }
 
 	// Accessors.
 	/***
@@ -44,7 +58,7 @@ private:
 	std::string m_name;
 	uint16 m_id;
 	uint16 m_entityIndex = 0;
-	std::vector<Entity*> m_entitys;
+	std::vector<Entity*> m_entities;
 	Camera* m_camera;
 };
 

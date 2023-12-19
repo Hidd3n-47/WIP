@@ -7,22 +7,35 @@ namespace jci
 {
 	class Transform;
 	class Entity;
+	class TextureManager;
+	class Timer;
 }
 
-	class EnemyManager
+	class EnemyManager : public jci::ICollision
 	{
 	private:
+		Player* player;
+		Uint32 zombieText;
+		int spawnQueue;
+		jci::Timer* spawnCD;
+		bool PlayerInCollisionRange;
+		bool PlayerOutOfRange();
+		void CreateZombie(vec2 point);
+		EnemyManager();
+	public:
+		uint32 getZombieTexture();
+
 		std::vector<jci::Entity*> EnemySquares;
 		std::vector<Zombie*> Zombies;
-		Player* player;
-		void CreateZombie(vec2 point);
-		EnemyManager() {};
-	public:
 		EnemyManager(const EnemyManager& obj) = delete;
 		static EnemyManager* getEnemyManager();
-		std::vector<jci::Entity*> getEnemySquares();
+		//std::vector<jci::Entity*> getEnemySquares();
 		void clearSquares();
+		void clearZombies();
 		void setPlayer(Player* playertemp);
 		void spawnWave(int waveCount);
 		void Update(float dt);
+		void OnCollisionEnter(jci::Entity* other) final;
+		void OnCollisionStay(jci::Entity* other) final;
+		void OnCollisionExit() final;
 	};

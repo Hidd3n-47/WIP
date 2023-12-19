@@ -8,6 +8,7 @@ enum class EngineTextureIndex
 {
 	NoTexture,
 	Dbg_Box,
+	Dbg_Circle,
 	Count
 };
 
@@ -18,7 +19,7 @@ public:
 
 	void Init();
 
-	uint32 CreateTexture(const std::string& filePath);
+	uint32 CreateTexture(const std::string& filePath, uint32 x = 1, uint32 y = 1);
 
 	Texture* GetTexture(uint32 id);
 	inline Texture* GetTexture(EngineTextureIndex id) { return GetTexture((uint32)id); }

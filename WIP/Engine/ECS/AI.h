@@ -2,10 +2,10 @@
 #include "pch.h"
 
 #include "IComponent.h"
+#include "Pathfinding/Path.h"
 
 namespace jci {
 
-class Path;
 class NavMesh;
 
 class AI : public IComponent
@@ -29,12 +29,12 @@ public:
 	{
 		m_id = std::move(other.m_id);
 		m_entity = std::move(other.m_entity);
-
+		
 		return *this;
 	}
 private:
-	Entity* m_entity;
-	entId	m_id = invalid_id;
+	Entity* m_entity	= nullptr;
+	entId	m_id		= invalid_id;
 
 	NavMesh*	m_mesh				= nullptr;
 	Path*		m_path				= nullptr;
