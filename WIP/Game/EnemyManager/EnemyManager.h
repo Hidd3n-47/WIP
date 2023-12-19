@@ -31,6 +31,7 @@ namespace jci
 		static EnemyManager* getEnemyManager();
 		//std::vector<jci::Entity*> getEnemySquares();
 		void clearSquares();
+		void clearZombies();
 		void setPlayer(Player* playertemp);
 		void spawnWave(int waveCount);
 		void Update(float dt);

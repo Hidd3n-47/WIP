@@ -135,10 +135,10 @@ void Player::Update(float time)
 		{
 			direction += vec2(1.0f, 0.0f);
 		}
-		if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_r))
-		{
-			mapRef->getEM()->spawnWave(1);
-		}
+		//if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_r))
+		//{
+		//	mapRef->getEM()->spawnWave(1);
+		//}
 		//DLOG("Not Dashing");
 	}
 

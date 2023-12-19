@@ -142,6 +142,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Door\DoorTrigger.cpp" />
+    <ClCompile Include="Game\Door\Door.cpp" />
+    <ClCompile Include="Game\Door\DoorManager.cpp" />
     <ClCompile Include="Engine\ECS\CircleCollider.cpp" />
     <ClCompile Include="Engine\ECS\Animation.cpp" />
     <ClCompile Include="Engine\Animation\AnimationManager.cpp" />
@@ -196,6 +199,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinaryTree.h" />
+    <ClInclude Include="Game\Door\DoorTrigger.h" />
+    <ClInclude Include="Game\Door\Door.h" />
+    <ClInclude Include="Game\Door\DoorManager.h" />
     <ClInclude Include="Engine\Collision\BodyType.h" />
     <ClInclude Include="Engine\ECS\CircleCollider.h" />
     <ClInclude Include="Engine\ECS\Animation.h" />

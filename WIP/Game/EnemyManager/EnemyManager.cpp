@@ -61,6 +61,15 @@ void EnemyManager::clearSquares()
 	EnemySquares.clear();
 }
 
+void EnemyManager::clearZombies()
+{
+	for (auto i : Zombies)
+	{
+		jci::Engine::Instance()->DestroyEntity(i->getEntity());
+	}
+	Zombies.clear();
+}
+
 void EnemyManager::setPlayer(Player* playertemp)
 {
 	player = playertemp;

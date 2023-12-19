@@ -3,19 +3,22 @@
 #include <Engine/Scene/SceneManager.h>
 #include <Engine/ECS/Entity.h>
 #include <Game/EnemyManager/EnemyManager.h>
+#include <Game/Door/DoorManager.h>
 
 class Levels
 {
 private:
 	std::vector<jci::Entity*> LevelSquare;
 	EnemyManager* em;
+	DoorManager* dm;
 	jci::Scene* m_currentScene;
 	Levels();
 
 	void createWall(float x, float y);
 	void createFloor(float x, float y);
 	void createEnemySpawnPoint(float x, float y);
-	void createDoor(float x, float y);//Need to add behaviour
+	void createDoor(float x, float y);
+	void createDoorTrigger(float x, float y);
 	void createSpawnPoint(float x, float y);//Spawn point
 
 
@@ -79,8 +82,10 @@ public:
 	const int inversetopright = 12;
 	const int inversebotleft = 13;
 	const int inversebotright = 14;
+	const int doorTrigger = 15;
 	const int empty = 99;
 	const int spawnPoint = 89;
+	const int enemySpawnPoint = 79;
 	*/
 
 	float spawnPointX;

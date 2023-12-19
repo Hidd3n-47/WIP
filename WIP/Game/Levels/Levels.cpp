@@ -7,6 +7,8 @@
 #include <Engine/IO/IOManager.h>
 #include <Engine/Graphics/Texture/Texture.h>
 #include <Engine/Graphics/Texture/TextureManager.h>
+#include "Game/Door/Door.h"
+#include "Game/Door/DoorTrigger.h"
 
 static Levels* map;
 
@@ -29,6 +31,7 @@ Levels::Levels()
 	inversebotleft = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv back left wall.png");
 	inversebotright = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv back right wall.png");
 	em = EnemyManager::getEnemyManager();
+	dm = DoorManager::getDoorManager();
 	//DLOG(std::to_string(wall));
 }
 
@@ -81,11 +84,16 @@ void Levels::createEnemySpawnPoint(float x, float y)
 void Levels::createDoor(float x, float y)
 {
 	//CREATE DOOR;
-	jci::Entity* newDoor = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
-	newDoor->GetComponent<jci::Transform>()->SetPosition({ x,  y });
-	newDoor->AddComponent<jci::BoxCollider>();
-	LevelSquare.push_back(newDoor);
+	Door* newDoor = new Door();
+	LevelSquare.push_back(newDoor->Create(vec2(x, y), dm->getClosedText()));
+	dm->setDoor(newDoor);
+}
 
+void Levels::createDoorTrigger(float x, float y)
+{
+	DoorTrigger* newFloor = new DoorTrigger();
+	LevelSquare.push_back(newFloor->Create(vec2(x, y), floor));
+	newFloor->setDoor(dm->getDoor());
 }
 
 void Levels::createSpawnPoint(float x, float y)
@@ -211,7 +219,6 @@ void Levels::LoadLevel(std::string fileString)
 		{
 			//doors
 			createDoor(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(door);
 			currentX += width;
 		}
 		else if (i == "11")//inv topleft
@@ -237,6 +244,12 @@ void Levels::LoadLevel(std::string fileString)
 		{
 			createWall(currentX, currentY);
 			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(inversebotright);
+			currentX += width;
+		}
+		else if (i == "15")
+		{
+			//doors
+			createDoorTrigger(currentX, currentY);
 			currentX += width;
 		}
 		else if (i == "79")
@@ -274,6 +287,7 @@ void Levels::WipeLevel()
 	}
 	LevelSquare.clear();
 	em->clearSquares();
+	em->clearZombies();
 }
 
 int Levels::getSpawnPointX()
