@@ -160,19 +160,6 @@ void Player::Update(float time)
 		delete bulletCD;
 		bulletCD = new jci::Timer(m_equippedGun->GetFireRate(), false);
 	}
-	for(int i = 0; i < bulletPool.size();i++)
-	{
-		if (bulletPool.at(i)->GetMove())
-		{
-			bulletPool.at(i)->body->GetComponent<jci::Transform>()->AddToPosition(bulletPool.at(i)->direction);
-		}
-		if (bulletPool.at(i)->GetSpawnTime() + 5000 <= SDL_GetTicks() && bulletPool.at(i)->GetMove())
-		{
-			DLOG("Despawn");
-			bulletPool.at(i)->body->GetComponent<jci::Transform>()->SetPosition(vec2(100,100));
-			bulletPool.at(i)->Delete();
-		}
-	}
 	
 
 	if (!m_isMelee)

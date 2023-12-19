@@ -1,10 +1,12 @@
 #pragma once
 #include <Engine/ECS/SpriteRenderer.h>
 #include <Engine/ECS/Entity.h>
+#include <Game/Bullet/BulletManager.h>
+
 class Gun
 {
 public:
-	Gun();
+	Gun(BulletManager* bM);
 	~Gun();
 	void Create(int rateOfFire);
 	int GetFireRate();
@@ -17,5 +19,5 @@ private:
 	int m_inaccuracy; // +/- The angle the bullet will leave the gun at. 0 is going straight ahead
 	bool m_isBounce;
 	bool m_isPenetrate;
-	uint32 m_bulletTexture;
+	BulletManager* bulletManager;
 };

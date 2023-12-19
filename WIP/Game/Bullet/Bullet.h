@@ -13,7 +13,8 @@ namespace jci {
 
 struct Bullet
 {
-	Bullet(jci::Entity* e, vec2 d);
+	Bullet(jci::Entity* e);
+	void bulletFire(vec2 d);
 	void Update();
 	int GetSpawnTime();
 	void Destroy();

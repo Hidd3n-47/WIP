@@ -7,6 +7,8 @@
 #include <Game/Gun/Gun.h>
 #include <vector>
 #include <Time/Timer.h>
+#include <Game/Bullet/BulletManager.h>
+
 class Application
 {
 public:
@@ -30,5 +32,6 @@ private:
 	Player* p1 = nullptr;
 	Zombie* z1 = nullptr;
 	Gun* g1 = nullptr;
+	BulletManager* manager = nullptr;
 };
 

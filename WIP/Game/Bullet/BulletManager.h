@@ -15,7 +15,13 @@ namespace jci {
 class BulletManager
 {
 public:
+	BulletManager();
+	void Create();
+	void ShootBullet(vec2 d, vec2 playPos);
 	void Update();
 private:
-	std::vector<Bullet*> bulletPool;
+	std::vector<Bullet*>	bulletPool;
+	const int POOLSIZE = 200;
+	int nextBullet;
+	uint32 m_bulletTexture;
 };

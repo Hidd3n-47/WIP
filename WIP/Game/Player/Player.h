@@ -28,7 +28,7 @@ public:
 	inline vec2*	GetPosPointer()	const	{ return m_position; }
 private:
 	//static Player* m_instance;
-	std::vector<Bullet*>	bulletPool;
+	
 	jci::Entity*			m_playChar;
 
 	jci::Entity*	m_knife;
