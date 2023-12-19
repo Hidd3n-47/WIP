@@ -15,9 +15,23 @@ void DoorManager::doorToggle(int index)
 
 }
 
+std::vector<jci::Entity*> DoorManager::getDoorSquares()
+{
+	return doorRelatedSquares;
+}
+
 Door* DoorManager::getDoor()
 {
 	return door;
+}
+
+void DoorManager::clear()
+{
+	for (auto i : doorRelatedSquares)
+	{
+		delete i;
+	}
+	doorRelatedSquares.clear();
 }
 
 void DoorManager::setDoor(Door* temp)

@@ -87,6 +87,7 @@ void Levels::createDoor(float x, float y)
 	Door* newDoor = new Door();
 	LevelSquare.push_back(newDoor->Create(vec2(x, y), dm->getClosedText()));
 	dm->setDoor(newDoor);
+	dm->getDoorSquares().push_back(newDoor->getDoor());
 }
 
 void Levels::createDoorTrigger(float x, float y)
@@ -94,6 +95,7 @@ void Levels::createDoorTrigger(float x, float y)
 	DoorTrigger* newFloor = new DoorTrigger();
 	LevelSquare.push_back(newFloor->Create(vec2(x, y), floor));
 	newFloor->setDoor(dm->getDoor());
+	dm->getDoorSquares().push_back(newFloor->getThis());
 }
 
 void Levels::createSpawnPoint(float x, float y)
@@ -288,6 +290,7 @@ void Levels::WipeLevel()
 	LevelSquare.clear();
 	em->clearSquares();
 	em->clearZombies();
+	dm->clear();
 }
 
 int Levels::getSpawnPointX()

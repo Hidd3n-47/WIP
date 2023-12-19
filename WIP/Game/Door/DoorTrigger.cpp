@@ -26,6 +26,11 @@ jci::Entity* DoorTrigger::Create(vec2 point, uint32 TextureID)
 	return trigger;
 }
 
+jci::Entity* DoorTrigger::getThis()
+{
+	return trigger;
+}
+
 void DoorTrigger::setDoor(Door* temp)
 {
 	door = temp;

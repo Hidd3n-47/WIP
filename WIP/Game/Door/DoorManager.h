@@ -7,12 +7,14 @@ private:
 	Uint32 openText;
 	Uint32 closedText;
 	Door* door;
-
+	std::vector<jci::Entity*> doorRelatedSquares;
 	DoorManager();
 	void doorToggle(int index);
 public:
 	DoorManager(const DoorManager& obj) = delete;
+	std::vector<jci::Entity*> getDoorSquares();
 	Door* getDoor();
+	void clear();
 	void setDoor(Door* temp);
 	static DoorManager* getDoorManager();
 	void Update(float dt);
