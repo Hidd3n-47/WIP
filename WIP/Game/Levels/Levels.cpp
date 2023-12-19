@@ -25,6 +25,7 @@ Levels::Levels()
 	botleftwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Back left wall.png");
 	botrightwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Back right wall.png");
 	botwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Back wall.png");
+	//botwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Front wall.png"); //Temporary fix, Back wall texture not working
 	door = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Door.png");
 	inversetopleft = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv front left wall.png");
 	inversetopright = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv front right wall.png");

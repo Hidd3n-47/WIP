@@ -15,7 +15,6 @@ Player::Player() :
 	m_playChar(nullptr),
 	m_knife(nullptr),
 	m_currentScene(jci::SceneManager::Instance()->GetCurrentScene()),
-	m_bulletTexture(0),
 	m_position(nullptr),
 	m_equippedGun(nullptr),
 	m_width((float)jci::Engine::Instance()->GetScreenWidth()),
@@ -39,7 +38,6 @@ Player::~Player()
 
 void Player::Create(vec2 point, Gun* gun)
 {
-	m_bulletTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Bullet.png");
 	uint32 text = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Scientist.png");
 	m_knifeTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Weapons/Bowie Knife.png");
 	m_blankTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Blank.png");
@@ -72,35 +70,6 @@ void Player::Create(vec2 point, Gun* gun)
 	m_knife->AddComponent<jci::SpriteRenderer>()->SetTexture(m_blankTexture);
 
 	m_equippedGun = gun;
-}
-
-void Player::FireGun(float time)
-{
-	DLOG("Firing");
-	//find angle: (y-jci::InputManager::Instance()->GetMousePosition().y)/(x-jci::InputManager::Instance()->GetMousePosition().x)
-	vec2 mouseCoords = jci::InputManager::Instance()->GetMousePosition() - vec2(m_width * 0.5f, m_height * 0.5f);
-	vec2 moveDirection = glm::normalize(mouseCoords);
-	int num = bulletPool.size() - 1;
-	jci::Entity* bulletObj;
-	bulletObj = m_currentScene->CreateEmptyEntity();
-	bulletObj->GetComponent<jci::Transform>()->SetPosition(m_playChar->GetComponent<jci::Transform>()->GetPosition());
-	bulletObj->AddComponent<jci::SpriteRenderer>()->SetTexture(m_bulletTexture);
-	bulletObj->GetComponent<jci::SpriteRenderer>()->SetSize({0.35f, 0.1f});
-	jci::BoxCollider* bc = bulletObj->AddComponent<jci::BoxCollider>();
-	bc->SetBodyType(jci::BodyType::Kinematic);
-	bc->SetTrigger(true);
-	bulletObj->SetTag("Bullet");
-	bulletObj->GetComponent<jci::BoxCollider>()->SetSize({ 0.1f, 0.05f });
-
-	
-	moveDirection.y *= -1;
-	moveDirection.x = moveDirection.x * time;
-	moveDirection.y = moveDirection.y * time;
-	moveDirection *= 2;
-	Bullet* aBullet = new Bullet(bulletObj, moveDirection);
-	aBullet->body->GetComponent<jci::Transform>()->AddToPosition(aBullet->direction*2.0f);
-	bulletPool.push_back(aBullet);
-	//bulletPool.at(num)->GetComponent<jci::Transform>()->SetPosition({});
 }
 
 void Player::Update(float time) 
@@ -185,7 +154,7 @@ void Player::Update(float time)
 	*m_position += direction;
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Left) && m_canFire && !m_isMelee)
 	{
-		FireGun(time);
+		m_equippedGun->FireGun(time, *m_position, m_currentScene);
 		//fireTime = SDL_GetTicks();
 		m_canFire = false;
 		delete bulletCD;
