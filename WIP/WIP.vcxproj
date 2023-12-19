@@ -307,11 +307,13 @@
     <Image Include="Assets\Texture\Back left wall.png" />
     <Image Include="Assets\Texture\Back right wall.png" />
     <Image Include="Assets\Texture\Back wall.png" />
+    <Image Include="Assets\Texture\Barricaded door.png" />
     <Image Include="Assets\Texture\Blank.png" />
     <Image Include="Assets\Texture\Bullet.png" />
     <Image Include="Assets\Texture\circ.png" />
     <Image Include="Assets\Texture\dbg\dbg_box.png" />
     <Image Include="Assets\Texture\dbg\no_texture.png" />
+    <Image Include="Assets\Texture\DoggoZomb.png" />
     <Image Include="Assets\Texture\Door.png" />
     <Image Include="Assets\Texture\Floor.png" />
     <Image Include="Assets\Texture\Front left wall.png" />
@@ -325,11 +327,15 @@
     <Image Include="Assets\Texture\Left wall.png" />
     <Image Include="Assets\Texture\Open Door.png" />
     <Image Include="Assets\Texture\Right wall.png" />
+    <Image Include="Assets\Texture\RoboDoggoZomb.png" />
+    <Image Include="Assets\Texture\RoboZomb.png" />
     <Image Include="Assets\Texture\Scientist.png" />
+    <Image Include="Assets\Texture\Scientist_Gun_Hold.png" />
     <Image Include="Assets\Texture\square.png" />
     <Image Include="Assets\Texture\squareWITHANF!!.png" />
     <Image Include="Assets\Texture\squareWITHAW!!.png" />
     <Image Include="Assets\Texture\Weapons\Bowie Knife.png" />
+    <Image Include="Assets\Texture\Zomb.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

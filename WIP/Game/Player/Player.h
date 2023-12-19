@@ -21,7 +21,6 @@ public:
 	Player();
 	~Player();
 	void Create(vec2 point, Gun* gun);
-	void FireGun(float time);
 	void Update(float time);
 	void setLevel(Levels* temp);
 
@@ -34,7 +33,6 @@ private:
 
 	jci::Entity*	m_knife;
 	jci::Scene*		m_currentScene;
-	uint32			m_bulletTexture;
 	vec2*			m_position;
 	Gun*			m_equippedGun;
 
