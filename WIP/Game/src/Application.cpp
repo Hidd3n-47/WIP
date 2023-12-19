@@ -32,7 +32,7 @@ void Application::Create()
 	a->SetTexture(text);
 	a->SetAnimationCount(4);
 	a->SetTimeBetweenFrames(0.3f);
-	em->spawnWave(1);
+	em->spawnWave(300);
 	em->setPlayer(p1);
 
 	jci::Entity* e1 = m_currentScene->CreateEmptyEntity();

@@ -72,6 +72,7 @@ void Levels::createEnemySpawnPoint(float x, float y)
 {
 	jci::Entity* newFloor = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
 	newFloor->GetComponent<jci::Transform>()->SetPosition({ x,  y });
+	//newFloor->AddComponent<jci::BoxCollider>();
 	newFloor->AddComponent<jci::NavBlock>();
 	LevelSquare.push_back(newFloor);
 	em->EnemySquares.push_back(newFloor);

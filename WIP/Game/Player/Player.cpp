@@ -53,6 +53,9 @@ void Player::Create(vec2 point, Gun* gun)
 	m_playChar = m_currentScene->CreateEmptyEntity();
 	m_playChar->GetComponent<jci::Transform>()->SetPosition(point);
 	m_playChar->AddComponent<jci::SpriteRenderer>()->SetTexture(text);
+
+	m_playChar->SetTag("Player");
+
 	jci::CircleCollider* cc = m_playChar->AddComponent<jci::CircleCollider>();
 	cc->SetBodyType(jci::BodyType::Kinematic);
 	cc->SetCollisionMethods(this);

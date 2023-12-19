@@ -81,7 +81,5 @@ void Zombie::OnCollisionEnter(jci::Entity* other)
 			jci::Engine::Instance()->DestroyEntity(zombert);
 
 		DLOG("Damaged the zombie for 10hp");
-	}
-
-	
+	}	
 }

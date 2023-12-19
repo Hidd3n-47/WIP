@@ -11,13 +11,14 @@ namespace jci
 	class Timer;
 }
 
-	class EnemyManager
+	class EnemyManager : public jci::ICollision
 	{
 	private:
 		Player* player;
 		Uint32 zombieText;
 		int spawnQueue;
 		jci::Timer* spawnCD;
+		bool PlayerInCollisionRange;
 		bool PlayerOutOfRange();
 		void CreateZombie(vec2 point);
 		EnemyManager();
@@ -33,4 +34,7 @@ namespace jci
 		void setPlayer(Player* playertemp);
 		void spawnWave(int waveCount);
 		void Update(float dt);
+		void OnCollisionEnter(jci::Entity* other) final;
+		void OnCollisionStay(jci::Entity* other) final;
+		void OnCollisionExit() final;
 	};
