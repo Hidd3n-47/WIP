@@ -54,6 +54,6 @@ void Bullet::OnCollisionStay(jci::Entity* other)
 {
 }
 
-void Bullet::OnCollisionExit()
+void Bullet::OnCollisionExit(jci::Entity* other)
 {
 }

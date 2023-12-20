@@ -142,7 +142,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Engine\Collision\CollisionCallback.cpp" />
     <ClCompile Include="Engine\Collision\CollisionCallbackManager.cpp" />
     <ClCompile Include="Engine\ECS\CapsuleCollider.cpp" />
     <ClCompile Include="Game\Door\DoorTrigger.cpp" />
