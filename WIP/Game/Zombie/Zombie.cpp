@@ -36,6 +36,7 @@ void Zombie::Create(vec2 point, Player* play, uint32 zombieTexture) //Spawn at s
 	zombert = m_currentScene->CreateEmptyEntity();
 	zombert->GetComponent<jci::Transform>()->SetPosition(point);
 	zombert->AddComponent<jci::SpriteRenderer>()->SetTexture(zombieTexture);
+	zombert->SetTag("Enemy");
 	jci::BoxCollider* bc = zombert->AddComponent<jci::BoxCollider>();
 	bc->SetBodyType(jci::BodyType::Kinematic);
 	bc->SetCollisionMethods(this);
@@ -77,9 +78,9 @@ void Zombie::OnCollisionEnter(jci::Entity* other)
 		hp -= 10.0f;
 
 		if (hp <= 0.0f)
-			
+		{
 			jci::Engine::Instance()->DestroyEntity(zombert);
-
+		}
 		DLOG("Damaged the zombie for 10hp");
 	}	
 }

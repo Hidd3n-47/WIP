@@ -8,6 +8,7 @@
 Gun::Gun(BulletManager* bM)
 {
 	bulletManager = bM;
+	m_bulletSpeed = 0.01f;
 }
 
 void Gun::Create(int rateOfFire)
@@ -31,8 +32,8 @@ void Gun::FireGun(float time, vec2 position, jci::Scene* currentScene, vec2 orie
 
 
 	moveDirection.y *= -1;
-	moveDirection.x = moveDirection.x * time;
-	moveDirection.y = moveDirection.y * time;
-	moveDirection *= 2;
+	moveDirection = glm::normalize(moveDirection);
+	moveDirection *= m_bulletSpeed;
+	std::cout << time << "\n";
 	bulletManager->ShootBullet(moveDirection, position);
 }

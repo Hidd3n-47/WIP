@@ -38,8 +38,8 @@ void BulletManager::Update()
 		}
 		if (bulletPool.at(i)->GetSpawnTime() + 5000 <= SDL_GetTicks() && bulletPool.at(i)->GetMove())
 		{
-			DLOG("Despawn");
-			bulletPool.at(i)->Delete();
+			//DLOG("Despawn");
+			//bulletPool.at(i)->Delete();
 		}
 	}
 }

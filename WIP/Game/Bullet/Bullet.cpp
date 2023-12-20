@@ -41,3 +41,19 @@ void Bullet::Destroy()
 {
 	delete body;
 }
+
+void Bullet::OnCollisionEnter(jci::Entity* other)
+{
+	if (other->GetTag() == "Enemy")
+	{
+
+	}
+}
+
+void Bullet::OnCollisionStay(jci::Entity* other)
+{
+}
+
+void Bullet::OnCollisionExit()
+{
+}
