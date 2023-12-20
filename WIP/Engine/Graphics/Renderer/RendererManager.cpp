@@ -73,7 +73,12 @@ void RendererManager::Begin()
 	indexCount = 0;
 
 	for(const Quad* q : m_quads)
-	{		
+	{
+		if (q->active && !q->active)
+		{
+			continue;
+		}
+
 		vec2 position = !q->position ? vec2(0.0f) : *q->position;
 
 		Texture* texture = !q->texture ? TextureManager::Instance()->GetTexture(EngineTextureIndex::NoTexture) : q->texture;

@@ -15,6 +15,7 @@ void SpriteRenderer::OnComponentAdd(Entity* entity)
 	m_quad.size = &m_size;
 	m_quad.position = t->GetPositionPointer();
 	m_quad.rotation = t->GetRotationPointer();
+	m_quad.active = GetEntity()->GetActivePointer();
 }
 
 void SpriteRenderer::OnComponentRemove()

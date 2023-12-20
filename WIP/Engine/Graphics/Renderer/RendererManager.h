@@ -12,7 +12,7 @@ struct Vertex;
 struct Quad
 {
 	inline Quad() = default;
-	inline Quad(vec2* size, vec4 uvRect, vec2* position, float* rotation, Texture* texture, uint8 layer, bool flipVertically) :
+	inline Quad(vec2* size, vec4 uvRect, vec2* position, float* rotation, Texture* texture, bool* active, uint8 layer, bool flipVertically) :
 				size(size),
 				uvRect(uvRect),	
 				position(position),
@@ -29,6 +29,7 @@ struct Quad
 	vec2*		position			= nullptr;
 	float*		rotation			= nullptr;
 	Texture*	texture				= nullptr;
+	bool*		active				= nullptr;
 	uint8		layer				= 0;
 	bool		flipVertically		= false;
 };

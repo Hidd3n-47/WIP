@@ -73,30 +73,6 @@ public:
 		return nullptr;
 	}
 
-	/*template<class T>
-	inline void RemoveComponent()
-	{
-		int mask = T::GetIdMask();
-
-		if (!(m_componentMask & mask))
-		{
-			ASSERT(false, "Game object '" + std::to_string(m_id) + "' does not have component with id: " + std::to_string(mask) + " hence cannot remove it.");
-			return;
-		}
-
-		entId componentId = m_componentIndices[T::GetType()];
-
-		Entity* ent = ComponentManager::Instance()->RemoveComponent<T>(componentId);
-
-		ent->;
-
-		m_componentIndices[T::GetType()] = invalid_id;
-
-		m_componentMask &= (~mask);
-
-		DOUT("Removed component with id: " + T::GetName() + " from Game Object: " + std::to_string(m_id));
-	}*/
-
 	inline void DestoryEntity() { Engine::Instance()->DestroyEntity(this); }
 	
 	inline Scene* GetScene() const { return m_scene; }
@@ -104,10 +80,13 @@ public:
 	// Accessors.
 	inline uint16 GetId() const { return m_id; }
 	inline std::string GetTag() const { return m_tag; }
+	inline bool IsActive() const { return m_active; }
+	inline bool* GetActivePointer() { return &m_active; }
 
 	// Mutators.
 	inline void SetTag(const std::string& tag) { m_tag = tag; }
 	inline void SetComponentId(ComponentTypes type, entId newId) { m_componentIndices[type] = newId; }
+	inline void SetActive(bool active) { m_active = active; }
 private:
 	std::unordered_map<ComponentTypes, entId>	m_componentIndices;
 
@@ -116,6 +95,7 @@ private:
 	Entity* m_parent = nullptr;
 	uint16 m_id;
 	uint16 m_componentMask;
+	bool m_active = true;
 
 	std::string m_tag = "Untagged";
 };

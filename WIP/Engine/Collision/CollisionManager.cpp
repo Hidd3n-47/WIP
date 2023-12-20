@@ -33,6 +33,11 @@ void CollisionManager::Update(uint16 screenWidth, uint16 screenHeight, vec2 came
 	// Create quarters with 0.5 units overlap to prevent collision misses.
 	for (entId i = 0; i < ComponentManager::Instance()->GetComponentCount(ComponentTypes::BoxCollider); i++)
 	{
+		if (!boxes[i].GetEntity()->IsActive())
+		{
+			continue;
+		}
+
 		Transform* transform = boxes[i].GetEntity()->GetComponent<Transform>();
 		vec2 boxPos = transform->GetPosition();
 		
@@ -83,6 +88,11 @@ void CollisionManager::Update(uint16 screenWidth, uint16 screenHeight, vec2 came
 
 	for (entId i = 0; i < ComponentManager::Instance()->GetComponentCount(ComponentTypes::CircleCollider); i++)
 	{
+		if (!circles[i].GetEntity()->IsActive())
+		{
+			continue;
+		}
+
 		Transform* transform = circles[i].GetEntity()->GetComponent<Transform>();
 		vec2 cirPos = transform->GetPosition();
 		float r = circles[i].GetRadius();
@@ -133,6 +143,11 @@ void CollisionManager::Update(uint16 screenWidth, uint16 screenHeight, vec2 came
 
 	for (entId i = 0; i < ComponentManager::Instance()->GetComponentCount(ComponentTypes::CapsuleCollider); i++)
 	{
+		if (!capsules[i].GetEntity()->IsActive())
+		{
+			continue;
+		}
+
 		Transform* transform = capsules[i].GetEntity()->GetComponent<Transform>();
 		vec2 capPos = transform->GetPosition();
 		float r = std::max(capsules[i].GetRectSize().x, capsules[i].GetRectSize().y);

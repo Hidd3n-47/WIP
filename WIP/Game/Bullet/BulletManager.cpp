@@ -13,8 +13,8 @@ void BulletManager::Create()
 	nextBullet = 0;
 	for (int i = 0; i < POOLSIZE; i++)
 	{
-		jci::Entity* bulletObj;
-		bulletObj = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();
+		jci::Entity* bulletObj = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();
+		bulletObj->SetActive(false);
 		bulletObj->GetComponent<jci::Transform>()->SetPosition(vec2(-15000000000000.0f));
 		bulletObj->AddComponent<jci::SpriteRenderer>()->SetTexture(m_bulletTexture);
 		bulletObj->GetComponent<jci::SpriteRenderer>()->SetSize({ 0.35f, 0.1f });
@@ -50,7 +50,8 @@ void BulletManager::ShootBullet(vec2 d, vec2 playPos)
 	{
 		nextBullet = 0;
 	}
-	bulletPool.at(nextBullet)->body->GetComponent<jci::Transform>()->SetPosition(playPos);
-	bulletPool.at(nextBullet)->bulletFire(d);
+	bulletPool.at(nextBullet)->SetActive(playPos, d);
+	/*bulletPool.at(nextBullet)->body->GetComponent<jci::Transform>()->SetPosition(playPos);
+	bulletPool.at(nextBullet)->bulletFire(d);*/
 	nextBullet += 1;
 }

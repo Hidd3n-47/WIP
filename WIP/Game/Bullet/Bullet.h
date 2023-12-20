@@ -15,6 +15,9 @@ struct Bullet : public jci::ICollision
 {
 public:
 	Bullet(jci::Entity* e);
+
+	void SetActive(vec2 playerPosition, vec2 direction);
+
 	void bulletFire(vec2 d);
 	void Update();
 	int GetSpawnTime();

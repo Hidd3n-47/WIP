@@ -17,6 +17,13 @@ void Bullet::bulletFire(vec2 d)
 	isMove = true;
 }
 
+void Bullet::SetActive(vec2 playerPosition, vec2 direction)
+{
+	body->SetActive(true);
+	body->GetComponent<jci::Transform>()->SetPosition(playerPosition);
+	direction = direction;
+}
+
 void Bullet::Update()
 {
 	
