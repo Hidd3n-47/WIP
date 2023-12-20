@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "CircleCollider.h"
 
-
 #include "ECS/Entity.h"
 #include "Collision/CollisionManager.h"
 
@@ -25,54 +24,6 @@ void CircleCollider::OnComponentRemove()
 	//CollisionManager::Instance()->RemoveObject(m_entity, m_bodyType);
 
 	Dbg_Render_Remove(&dbgQuad);
-}
-
-void CircleCollider::CollisionOccured(Entity* otherEntity)
-{
-	if (m_trigger && m_triggerMethods)
-	{
-		if (!m_collisionOccured)
-		{
-			m_collisionOccured = true;
-			m_triggerMethods->OnTriggerEnter(otherEntity);
-			return;
-		}
-		else
-		{
-			m_triggerMethods->OnTriggerStay(otherEntity);
-			return;
-		}
-	}
-
-	if (m_collisionMethods)
-	{
-		if (!m_collisionOccured)
-		{
-			m_collisionOccured = true;
-			m_collisionMethods->OnCollisionEnter(otherEntity);
-			return;
-		}
-		else
-		{
-			m_collisionMethods->OnCollisionStay(otherEntity);
-			return;
-		}
-	}
-}
-
-void CircleCollider::CollisionExit()
-{
-	m_collisionOccured = false;
-
-	if (m_trigger && m_triggerMethods)
-	{
-		m_triggerMethods->OnTriggerExit();
-	}
-
-	if (m_collisionMethods)
-	{
-		m_collisionMethods->OnCollisionExit();
-	}
 }
 
 } // Namespace jci.

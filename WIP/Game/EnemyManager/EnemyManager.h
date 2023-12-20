@@ -37,5 +37,5 @@ namespace jci
 		void Update(float dt);
 		void OnCollisionEnter(jci::Entity* other) final;
 		void OnCollisionStay(jci::Entity* other) final;
-		void OnCollisionExit() final;
+		void OnCollisionExit(jci::Entity* other) final;
 	};

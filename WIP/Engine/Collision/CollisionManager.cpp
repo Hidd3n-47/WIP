@@ -8,15 +8,15 @@
 #include "ECS/BoxCollider.h"
 #include "ECS/CircleCollider.h"
 
+#include "CollisionCallbackManager.h"
+
 namespace jci {
 
 CollisionManager* CollisionManager::m_instance = nullptr;
 
-
 void CollisionManager::Update(uint16 screenWidth, uint16 screenHeight, vec2 cameraPosition)
 {
 	//// Collision can only happen on Kinematic. Kinematic v Kinematic and Kinemetic v Static.
-
 	float width = screenWidth * 0.5f;
 	float height = screenHeight * 0.5f;
 
@@ -30,6 +30,7 @@ void CollisionManager::Update(uint16 screenWidth, uint16 screenHeight, vec2 came
 
 	BoxCollider* boxes = ComponentManager::Instance()->GetComponentVector<BoxCollider>();
 
+	// Create quarters with 0.5 units overlap to prevent collision misses.
 	for (entId i = 0; i < ComponentManager::Instance()->GetComponentCount(ComponentTypes::BoxCollider); i++)
 	{
 		Transform* transform = boxes[i].GetEntity()->GetComponent<Transform>();
@@ -65,15 +66,17 @@ void CollisionManager::Update(uint16 screenWidth, uint16 screenHeight, vec2 came
 		{
 			if (boxes[i].GetBodyType() == BodyType::Static)
 			{
-				quarts[quartsIndex[qi]].staticBoxes.push_back(&boxes[i]);
-				quarts[quartsIndex[qi]].staticBoxesTransforms.push_back(transform);
+				quarts[quartsIndex[qi]].staticBodies.push_back(&boxes[i]);
+				quarts[quartsIndex[qi]].staticBodyTransforms.push_back(transform);
 			}
 			else
 			{
-				quarts[quartsIndex[qi]].kinematicBoxes.push_back(&boxes[i]);
-				quarts[quartsIndex[qi]].kinematicBoxesTransforms.push_back(transform);
+				quarts[quartsIndex[qi]].kinematicBodies.push_back(&boxes[i]);
+				quarts[quartsIndex[qi]].kinematicBodyTransforms.push_back(transform);
 			}
 		}
+
+		m_colliderEntityPair[(ICollider*)(&boxes[i])] = boxes[i].GetEntity();
 	}
 
 	CircleCollider* circles = ComponentManager::Instance()->GetComponentVector<CircleCollider>();
@@ -113,15 +116,67 @@ void CollisionManager::Update(uint16 screenWidth, uint16 screenHeight, vec2 came
 		{
 			if (circles[i].GetBodyType() == BodyType::Static)
 			{
-				quarts[quartsIndex[qi]].staticCircles.push_back(&circles[i]);
-				quarts[quartsIndex[qi]].staticCirclesTransforms.push_back(transform);
+				quarts[quartsIndex[qi]].staticBodies.push_back(&circles[i]);
+				quarts[quartsIndex[qi]].staticBodyTransforms.push_back(transform);
 			}
 			else
 			{
-				quarts[quartsIndex[qi]].kinematicCircles.push_back(&circles[i]);
-				quarts[quartsIndex[qi]].kinematicCirclesTransforms.push_back(transform);
+				quarts[quartsIndex[qi]].kinematicBodies.push_back(&circles[i]);
+				quarts[quartsIndex[qi]].kinematicBodyTransforms.push_back(transform);
 			}
 		}
+
+		m_colliderEntityPair[(ICollider*)(&circles[i])] = circles[i].GetEntity();
+	}
+
+	CapsuleCollider* capsules = ComponentManager::Instance()->GetComponentVector<CapsuleCollider>();
+
+	for (entId i = 0; i < ComponentManager::Instance()->GetComponentCount(ComponentTypes::CapsuleCollider); i++)
+	{
+		Transform* transform = capsules[i].GetEntity()->GetComponent<Transform>();
+		vec2 capPos = transform->GetPosition();
+		float r = std::max(capsules[i].GetRectSize().x, capsules[i].GetRectSize().y);
+
+		std::vector<int> quartsIndex;
+
+		if (capPos.x > cameraPosition.x - r)
+		{
+			if (capPos.y > cameraPosition.y - r)
+			{
+				quartsIndex.push_back(0);
+			}
+			if (capPos.y < cameraPosition.y + r)
+			{
+				quartsIndex.push_back(3);
+			}
+		}
+		if (capPos.x < cameraPosition.x + r)
+		{
+			if (capPos.y > cameraPosition.y - r)
+			{
+				quartsIndex.push_back(1);
+			}
+			if (capPos.y < cameraPosition.y + r)
+			{
+				quartsIndex.push_back(2);
+			}
+		}
+
+		for (int qi = 0; qi < quartsIndex.size(); qi++)
+		{
+			if (capsules[i].GetBodyType() == BodyType::Static)
+			{
+				quarts[quartsIndex[qi]].staticBodies.push_back(&capsules[i]);
+				quarts[quartsIndex[qi]].staticBodyTransforms.push_back(transform);
+			}
+			else
+			{
+				quarts[quartsIndex[qi]].kinematicBodies.push_back(&capsules[i]);
+				quarts[quartsIndex[qi]].kinematicBodyTransforms.push_back(transform);
+			}
+		}
+
+		m_colliderEntityPair[(ICollider*)(&capsules[i])] = capsules[i].GetEntity();
 	}
 
 	// Screen divided into 4 quarters.
@@ -129,151 +184,123 @@ void CollisionManager::Update(uint16 screenWidth, uint16 screenHeight, vec2 came
 	{
 		HandleCollision(quarts[i]);
 	}
+
+	CallCollisionMethods();
 }
 
 void CollisionManager::HandleCollision(Quarter& q)
 {
-	// Box on Box.
-	// K v S. 
-	// K v K.
-	for (size_t i = 0; i < q.kinematicBoxes.size(); i++)
+	// Collision.
+
+	for (size_t k = 0; k < q.kinematicBodies.size(); k++)
 	{
-		Transform* trans1 = q.kinematicBoxesTransforms[i];
-		BoxCollider* boxC1 = q.kinematicBoxes[i];
-		vec4 b1 = vec4(trans1->GetPosition(), boxC1->GetSize() * trans1->GetScale() * 0.5f);
-
-		for (size_t j = 0; j < q.staticBoxes.size(); j++)
+		for (size_t s = 0; s < q.staticBodies.size(); s++)
 		{
-			Transform* trans2 = q.staticBoxesTransforms[j];
-			BoxCollider* boxC2 = q.staticBoxes[j];
-			vec4 b2 = vec4(trans2->GetPosition(), boxC2->GetSize() * trans2->GetScale() * 0.5f);
+			CallCollisionCheck(q.kinematicBodies[k], q.kinematicBodyTransforms[k], q.staticBodies[s], q.staticBodyTransforms[s], KinematicLocation::Left);
+		}
 
-			float dx, dy;
-			vec2 direction;
-
-			if (AabbCollisionOccured(b1, b2, dx, dy, direction))
-			{
-				PushBoxes(boxC1, trans1, boxC2, trans2, KinematicLocation::Left, dx, dy, direction);
-			}
+		for (size_t k2 = k + 1; k2 < q.kinematicBodies.size(); k2++)
+		{
+			CallCollisionCheck(q.kinematicBodies[k], q.kinematicBodyTransforms[k], q.kinematicBodies[k2], q.kinematicBodyTransforms[k2], KinematicLocation::Both);
 		}
 	}
-	for (size_t i = 0; i < q.kinematicBoxes.size(); i++)
-	{
-		Transform* trans1 = q.kinematicBoxesTransforms[i];
-		BoxCollider* boxC1 = q.kinematicBoxes[i];
-		vec4 b1 = vec4(trans1->GetPosition(), boxC1->GetSize() * trans1->GetScale() * 0.5f);
-
-		for (size_t j = i + 1; j < q.kinematicBoxes.size(); j++)
-		{
-			Transform* trans2 = q.kinematicBoxesTransforms[j];
-			BoxCollider* boxC2 = q.kinematicBoxes[j];
-			vec4 b2 = vec4(trans2->GetPosition(), boxC2->GetSize() * trans2->GetScale() * 0.5f);
-
-			float dx, dy;
-			vec2 direction;
-
-			if (AabbCollisionOccured(b1, b2, dx, dy, direction))
-			{
-				PushBoxes(boxC1, trans1, boxC2, trans2, KinematicLocation::Both, dx, dy, direction);
-			}
-		}
-	}
-
-	// Cir on Cir.
-	// K v S.
-	// K v K.
-	for (size_t i = 0; i < q.kinematicCircles.size(); i++)
-	{
-		Transform* trans1 = q.kinematicCirclesTransforms[i];
-		CircleCollider* circle1 = q.kinematicCircles[i];
-		for (size_t j = 0; j < q.staticCircles.size(); j++)
-		{
-			Transform* trans2 = q.staticCirclesTransforms[i];
-			CircleCollider* circle2 = q.staticCircles[i];
-
-			float overlap;
-			vec2 direction;
-
-			if (CollisionBetweenCircles(trans1->GetPosition(), circle1->GetRadius(), trans2->GetPosition(), circle2->GetRadius(), overlap, direction))
-			{
-				PushCircles(circle1, trans1, circle2, trans2, KinematicLocation::Left, overlap, direction);
-			}
-		}
-	}
-	for (size_t i = 0; i < q.kinematicCircles.size(); i++)
-	{
-		Transform* trans1 = q.kinematicCirclesTransforms[i];
-		CircleCollider* circle1 = q.kinematicCircles[i];
-		for (size_t j = i + 1; j < q.kinematicCircles.size(); j++)
-		{
-			Transform* trans2 = q.kinematicCirclesTransforms[j];
-			CircleCollider* circle2 = q.kinematicCircles[j];
-
-			float overlap;
-			vec2 direction;
-
-			if (CollisionBetweenCircles(trans1->GetPosition(), circle1->GetRadius(), trans2->GetPosition(), circle2->GetRadius(), overlap, direction))
-			{
-				PushCircles(circle1, trans1, circle2, trans2, KinematicLocation::Both, overlap, direction);
-			}
-		}
-	}
-
-	// Box on Cir.
-	// K_b v S_c.
-	// S_b v K_c.
-	// K_b v K_c.
-	for (size_t i = 0; i < q.kinematicBoxes.size(); i++)
-	{
-		Transform* boxTrans = q.kinematicBoxesTransforms[i];
-		BoxCollider* boxCol = q.kinematicBoxes[i];
-		for (size_t j = 0; j < q.staticCircles.size(); j++)
-		{
-			Transform* circTrans = q.staticCirclesTransforms[j];
-			CircleCollider* circCol = q.staticCircles[j];
-
-			float overlap;
-			vec2 direction;
-			if (CollisionBetweenBoxCircle(boxTrans->GetPosition(), boxCol->GetSize() * boxTrans->GetScale() * 0.5f, circTrans->GetPosition(), circCol->GetRadius(), overlap, direction))
-			{
-				PushCircleBox(circCol, circTrans, boxCol, boxTrans, KinematicLocation::Right, overlap, direction);
-			}
-		}
-
-		for (size_t j = 0; j < q.kinematicCircles.size(); j++)
-		{
-			Transform* circTrans = q.kinematicCirclesTransforms[j];
-			CircleCollider* circCol = q.kinematicCircles[j];
-
-			float overlap;
-			vec2 direction;
-			if (CollisionBetweenBoxCircle(boxTrans->GetPosition(), boxCol->GetSize() * boxTrans->GetScale() * 0.5f, circTrans->GetPosition(), circCol->GetRadius(), overlap, direction))
-			{
-				PushCircleBox(circCol, circTrans, boxCol, boxTrans, KinematicLocation::Both, overlap, direction);
-			}
-		}
-	}
-	for (size_t i = 0; i < q.staticBoxes.size(); i++)
-	{
-		Transform* boxTrans = q.staticBoxesTransforms[i];
-		BoxCollider* boxCol = q.staticBoxes[i];
-		for (size_t j = 0; j < q.kinematicCircles.size(); j++)
-		{
-			Transform* circTrans = q.kinematicCirclesTransforms[j];
-			CircleCollider* circCol = q.kinematicCircles[j];
-
-			float overlap;
-			vec2 direction;
-			if (CollisionBetweenBoxCircle(boxTrans->GetPosition(), boxCol->GetSize() * boxTrans->GetScale() * 0.5f, circTrans->GetPosition(), circCol->GetRadius(), overlap, direction))
-			{
-				PushCircleBox(circCol, circTrans, boxCol, boxTrans, KinematicLocation::Left, overlap, direction);
-			}
-		}
-	}
-
 }
 
-bool CollisionManager::AabbCollisionOccured(const vec4& b1, const vec4& b2, float& dx, float& dy, vec2& direction)
+void CollisionManager::CallCollisionCheck(ICollider* body1, Transform* body1Transform, ICollider* body2, Transform* body2Transform, KinematicLocation location)
+{
+	if (body1->m_body == ShapeBody::Box)
+	{
+		BoxCollider* b1 = (BoxCollider*)body1;
+
+		if (body2->m_body == ShapeBody::Box)
+		{
+			BoxCollider* b2 = (BoxCollider*)body2;
+
+			TwoBodyCollisionCheck(b1, body1Transform, b2, body2Transform, location);
+			return;
+		}
+		else if (body2->m_body == ShapeBody::Circle)
+		{
+			CircleCollider* b2 = (CircleCollider*)body2;
+
+			TwoBodyCollisionCheck(b1, body1Transform, b2, body2Transform, location);
+			return;
+		}
+		else
+		{
+			CapsuleCollider* b2 = (CapsuleCollider*)body2;
+
+			TwoBodyCollisionCheck(b1, body1Transform, b2, body2Transform, location);
+			return;
+		}
+	} 
+	else if (body1->m_body == ShapeBody::Circle)
+	{
+		CircleCollider* b1 = (CircleCollider*)body1;
+
+		if (body2->m_body == ShapeBody::Box)
+		{
+			BoxCollider* b2 = (BoxCollider*)body2;
+
+			// Box First, then Circle.
+			if (location == KinematicLocation::Left) { location = KinematicLocation::Right; }
+			else if (location == KinematicLocation::Right) { location = KinematicLocation::Left; }
+
+			TwoBodyCollisionCheck(b2, body2Transform, b1, body1Transform, location);
+			return;
+		}
+		else if (body2->m_body == ShapeBody::Circle)
+		{
+			CircleCollider* b2 = (CircleCollider*)body2;
+
+			TwoBodyCollisionCheck(b1, body1Transform, b2, body2Transform, location);
+			return;
+		}
+		else if (body2->m_body == ShapeBody::Capsule)
+		{
+			CapsuleCollider* b2 = (CapsuleCollider*)body2;
+
+			TwoBodyCollisionCheck(b1, body1Transform, b2, body2Transform, location);
+			return;
+		}
+	}
+	else
+	{
+		CapsuleCollider* b1 = (CapsuleCollider*)body1;
+
+		if (body2->m_body == ShapeBody::Box)
+		{
+			BoxCollider* b2 = (BoxCollider*)body2;
+
+			// Box First, then Capsule.
+			if (location == KinematicLocation::Left) { location = KinematicLocation::Right; }
+			else if (location == KinematicLocation::Right) { location = KinematicLocation::Left; }
+
+			TwoBodyCollisionCheck(b2, body2Transform, b1, body1Transform, location);
+			return;
+		}
+		else if (body2->m_body == ShapeBody::Circle)
+		{
+			CircleCollider* b2 = (CircleCollider*)body2;
+
+			// Circle First, then Capsule.
+			if (location == KinematicLocation::Left) { location = KinematicLocation::Right; }
+			else if (location == KinematicLocation::Right) { location = KinematicLocation::Left; }
+
+			TwoBodyCollisionCheck(b2, body2Transform, b1, body1Transform, location);
+			return;
+		}
+		else if (body2->m_body == ShapeBody::Capsule)
+		{
+			CapsuleCollider* b2 = (CapsuleCollider*)body2;
+
+			TwoBodyCollisionCheck(b1, body1Transform, b2, body2Transform, location);
+			return;
+		}
+	}
+}
+
+bool CollisionManager::AabbCollisionOccured(const vec4& b1, const vec4& b2, vec2& overlap, vec2& direction)
 {
 	vec4 difference = b2 - b1;
 	vec2 dPos;
@@ -304,10 +331,10 @@ bool CollisionManager::AabbCollisionOccured(const vec4& b1, const vec4& b2, floa
 	vec2 minDistance = { difference.z, difference.w };
 
 	vec2 delta = dPos - minDistance;
-	dx = delta.x;
-	dy = delta.y;
+	overlap.x = delta.x;
+	overlap.y = delta.y;
 
-	return ((dx < 0.0f) && (dy < 0.0f));
+	return ((overlap.x < 0.0f) && (overlap.y < 0.0f));
 }
 
 
@@ -326,6 +353,20 @@ bool CollisionManager::CollisionBetweenCircles(vec2 c1Center, float radius1, vec
 	}
 
 	return (overlap > 0.0f);
+}
+
+bool CollisionManager::CollisionBetweenCaptules(vec2 capsule1Position, vec2 capsule1RectSize, float capsule1Radius, vec2 capsule2Position, vec2 capsule2RectSize, float capsule2Radius, float& overlap, vec2& direction)
+{
+	bool above;
+
+	bool collision = CollisionBetweenBoxesYaxis(capsule1Position, capsule1RectSize, capsule2Position, capsule2RectSize, overlap, direction, above);
+
+	if (collision) return true;
+
+	vec2 circle1Center = above ? capsule1Position - vec2(0.0f, capsule1RectSize.y) : capsule1Position + vec2(0.0f, capsule1RectSize.y);
+	vec2 circle2Center = above ? capsule2Position + vec2(0.0f, capsule2RectSize.y) : capsule2Position - vec2(0.0f, capsule2RectSize.y);
+
+	return CollisionBetweenCircles(circle1Center, capsule1Radius, circle2Center, capsule2Radius, overlap, direction);
 }
 
 bool CollisionManager::CollisionBetweenBoxCircle(vec2 boxPosition, vec2 boxSize, vec2 circleCenter, float radius, float& overlap, vec2& direction)
@@ -376,94 +417,108 @@ bool CollisionManager::CollisionBetweenBoxCircle(vec2 boxPosition, vec2 boxSize,
 	return (overlap < 0.0f);
 }
 
-void CollisionManager::PushBoxes(BoxCollider* lBody, Transform* lTransform, BoxCollider* rBody, Transform* rTransform, KinematicLocation location, float dx, float dy, vec2 direction)
+bool CollisionManager::CollisionBetweenBoxCapsule(const vec4& boxRect, vec2 capsulePosition, vec2 capsuleRectSize, float capsuleRadius, float& overlap, vec2& direction)
 {
-	vec2 moveVector = abs(dx) < abs(dy) ? vec2(abs(dx), 0.0f) : vec2(0.0f, abs(dy));
+	bool above;
 
-	// Check the directions so that the objects are pushed in the right direction.
-	if (location == KinematicLocation::Left)
-	{
-		if (!lBody->IsTrigger())
-		{
-			lTransform->AddToPosition(-direction * moveVector * 0.5f);
-		}
-	}
-	else if (location == KinematicLocation::Right)
-	{
-		if (!rBody->IsTrigger())
-		{
-			rTransform->AddToPosition(-direction * moveVector);
-		}
-	}
-	else
-	{
-		if (!lBody->IsTrigger() && !rBody->IsTrigger())
-		{
-			lTransform->AddToPosition(-direction * moveVector * 0.5f);
-			rTransform->AddToPosition(direction * moveVector * 0.5f);
-		}
-	}
+	bool collision = CollisionBetweenBoxesYaxis(vec2(boxRect.x, boxRect.y), vec2(boxRect.z, boxRect.w), capsulePosition, capsuleRectSize, overlap, direction, above);
 
-	lBody->CollisionOccured(rBody->GetEntity());
-	rBody->CollisionOccured(lBody->GetEntity());
+	if (collision) return true;
+
+	vec2 circleCenter = above ? capsulePosition + vec2(0.0f, capsuleRectSize.y) : capsulePosition - vec2(0.0f, capsuleRectSize.y);
+
+	collision = CollisionBetweenBoxCircle(vec2(boxRect.x, boxRect.y), vec2(boxRect.z, boxRect.w), circleCenter, capsuleRadius, overlap, direction);
+	direction *= -1;
+	return collision;
 }
 
-void CollisionManager::PushCircles(CircleCollider* lBody, Transform* lTransform, CircleCollider* rBody, Transform* rTransform, KinematicLocation location, float overlap, vec2 direction)
+bool CollisionManager::CollisionBetweenCircleCapsule(vec2 circleCenter, float circleRadius, vec2 capsulePosition, vec2 capsuleRectSize, float capsuleRadius, float& overlap, vec2& direction)
 {
-	if (location == KinematicLocation::Left)
+	bool above = !(circleCenter.y <= capsulePosition.y + capsuleRectSize.y);
+
+	if (capsulePosition.y - capsuleRectSize.y <= circleCenter.y && !above)
 	{
-		if (!lBody->IsTrigger())
+		float dx = circleCenter.x - capsulePosition.x;
+
+		overlap = abs(dx) - (capsuleRectSize.x + circleRadius);
+
+		bool collision = (overlap < 0.0f);
+
+		if (collision)
 		{
-			lTransform->AddToPosition(-direction * overlap);
+			direction = vec2(dx / abs(dx), 0.0f);
 		}
-	}
-	else if (location == KinematicLocation::Right)
-	{
-		if (!rBody->IsTrigger())
-		{
-			rTransform->AddToPosition(-direction * overlap);
-		}
-	}
-	else
-	{
-		if (!lBody->IsTrigger() && !rBody->IsTrigger())
-		{
-			lTransform->AddToPosition(-direction * overlap * 0.5f);
-			rTransform->AddToPosition(direction * overlap * 0.5f);
-		}
+
+		return collision;
 	}
 
-	lBody->CollisionOccured(rBody->GetEntity());
-	rBody->CollisionOccured(lBody->GetEntity());
+
+	vec2 closestPoint = above ? capsulePosition + vec2(0.0f, capsuleRectSize.y) : capsulePosition - vec2(0.0f, capsuleRectSize.y);
+
+	direction = circleCenter - closestPoint;
+
+	float distance = glm::length(direction);
+
+	overlap = distance - circleRadius - capsuleRadius;
+
+	bool collision = (overlap < 0.0f);
+
+	if (overlap)
+	{
+		direction /= distance;
+	}
+
+	return collision;
 }
 
-void CollisionManager::PushCircleBox(CircleCollider* lBody, Transform* lTransform, BoxCollider* rBody, Transform* rTransform, KinematicLocation location, float overlap, vec2 direction)
+bool CollisionManager::CollisionBetweenBoxesYaxis(vec2 box1Position, vec2 box1Size, vec2 box2Position, vec2 box2size, float& overlap, vec2& direction, bool& box1AboveWhenNoCollision)
 {
-	if (location == KinematicLocation::Left)
+	box1AboveWhenNoCollision = !(box1Position.y <= box2Position.y + box2size.y + box1Size.y);
+	bool collision = false;
+
+	if (box2Position.y - box2size.y - box1Size.y <= box1Position.y && !box1AboveWhenNoCollision)
 	{
-		if (!lBody->IsTrigger())
+		float dx = box1Position.x - box2Position.x;
+
+		overlap = abs(dx) - (box2size.x + box1Size.x);
+
+		collision = (overlap < 0.0f);
+
+		if (collision)
 		{
-			lTransform->AddToPosition(-direction * overlap);
+			direction = vec2(dx / abs(dx), 0.0f);
 		}
 	}
-	else if (location == KinematicLocation::Right)
+	return collision;
+}
+
+void CollisionManager::CallCollisionMethods()
+{
+	for (size_t i = 0; i < m_collidedThisFrame.size(); i++)
 	{
-		if (!rBody->IsTrigger())
-		{
-			rTransform->AddToPosition(direction * overlap);
-		}
+		Entity* e = m_colliderEntityPair[m_collidedThisFrame[i].first];
+		CollisionCallbackManager::Instance()->CollisionOccured(m_collidedThisFrame[i].first, m_collidedThisFrame[i].second, m_colliderEntityPair[m_collidedThisFrame[i].first], m_colliderEntityPair[m_collidedThisFrame[i].second]);
 	}
-	else
+
+	for (size_t i = 0; i < m_collidedLastFrame.size(); i++)
 	{
-		if (!lBody->IsTrigger() && !rBody->IsTrigger())
+		bool found = false;
+		for (size_t j = 0; j < m_collidedThisFrame.size(); j++)
 		{
-			lTransform->AddToPosition(-direction * overlap * 0.5f);
-			rTransform->AddToPosition(direction * overlap * 0.5f);
+			if (m_collidedLastFrame[i].first == m_collidedThisFrame[j].first && m_collidedLastFrame[i].second == m_collidedThisFrame[j].second)
+			{
+				found = true;
+			}
+		}
+
+		if (!found)
+		{
+			CollisionCallbackManager::Instance()->CollisionCompleted(m_collidedLastFrame[i].first, m_collidedLastFrame[i].second, m_colliderEntityPair[m_collidedLastFrame[i].first], m_colliderEntityPair[m_collidedLastFrame[i].second]);
 		}
 	}
 
-	lBody->CollisionOccured(rBody->GetEntity());
-	rBody->CollisionOccured(lBody->GetEntity());
+	m_collidedLastFrame = m_collidedThisFrame;
+	m_collidedThisFrame.clear();
 }
 
 } // Namespace jci.

@@ -32,6 +32,20 @@ public:
 
 		return false;
 	}
+
+	template<class T>
+	inline static bool VectorContains(const std::vector<T>& vec, const T& item)
+	{
+		for (T element : vec)
+		{
+			if (element == item)
+			{
+				return true;
+			}
+		}
+		
+		return false;
+	}
 };
 
 } // Namespace jci.

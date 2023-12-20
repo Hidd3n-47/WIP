@@ -9,4 +9,11 @@ enum class BodyType
 	Kinematic
 };
 
+enum class ShapeBody
+{
+	Box,
+	Circle,
+	Capsule
+};
+
 } // Namespace jci.

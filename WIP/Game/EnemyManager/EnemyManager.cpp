@@ -140,6 +140,6 @@ void EnemyManager::OnCollisionStay(jci::Entity* other)
 
 }
 
-void EnemyManager::OnCollisionExit()
+void EnemyManager::OnCollisionExit(jci::Entity* other)
 {
 }

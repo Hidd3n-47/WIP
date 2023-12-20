@@ -60,7 +60,7 @@ void DoorTrigger::OnCollisionStay(jci::Entity* other)
 	}
 }
 
-void DoorTrigger::OnCollisionExit()
+void DoorTrigger::OnCollisionExit(jci::Entity* other)
 {
 	door->setTexture(dm->getClosedText());
 }

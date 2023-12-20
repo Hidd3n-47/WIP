@@ -36,7 +36,7 @@ public:
 
 
 	template<class T>
-	inline T* AddComponent(IProperties* properties = nullptr)
+	inline T* AddComponent()
 	{
 		int mask = T::GetIdMask();
 		
@@ -46,7 +46,7 @@ public:
 			return GetComponent<T>();
 		}
 
-		T* comp = ComponentManager::Instance()->AddComponent<T>(properties);
+		T* comp = ComponentManager::Instance()->AddComponent<T>();
 		comp->OnComponentAdd(this);
 		m_componentIndices[T::GetType()] = comp->GetId();
 

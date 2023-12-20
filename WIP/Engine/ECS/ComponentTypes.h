@@ -6,6 +6,7 @@ enum class ComponentTypes
 	SpriteRenderer,
 	BoxCollider,
 	CircleCollider,
+	CapsuleCollider,
 	NavBlock,
 	AI,
 	Impulse,

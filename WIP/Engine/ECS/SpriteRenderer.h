@@ -40,7 +40,7 @@ public:
 
 	inline void SetSize(vec2 size) { m_size = size; }
 	inline void SetTexture(Texture* texture) { m_quad.texture = texture; }
-	inline void SetTexture(Texture* texture, uint8 layer) { m_quad.texture = texture; m_quad.layer = layer; }
+	inline void SetTexture(Texture* texture, float layer) { m_quad.texture = texture; m_quad.layer = layer; }
 	inline void SetTexture(uint32 textureId, uint32 index = 0) { m_quad.texture = TextureManager::Instance()->GetTexture(textureId); SetTextureIndex(index); }
 	inline void SetVerticalFlip(bool flip) { m_quad.flipVertically = flip; }
 	inline void SetLayer(uint8 layer) { m_quad.layer = layer; }

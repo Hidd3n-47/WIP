@@ -12,6 +12,7 @@ void TextureManager::Init()
 	CreateTexture("Assets/Texture/dbg/no_texture.png");
 	CreateTexture("Assets/Texture/dbg/dbg_box.png");
 	CreateTexture("Assets/Texture/dbg/dbg_circle.png");
+	CreateTexture("Assets/Texture/dbg/dbg_cap.png");
 }
 
 uint32 TextureManager::CreateTexture(const std::string& filePath, uint32 x, uint32 y)

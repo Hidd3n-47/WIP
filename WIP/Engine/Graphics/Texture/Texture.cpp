@@ -14,6 +14,7 @@ Texture::Texture(const std::string& filePath, int x, int y) :
 
 	m_localBuffer = stbi_load(filePath.c_str(), &m_width, &m_height, &m_bpp, 4);
 
+	ASSERT(m_bpp && m_width, "Failed to load texture at given filepath.");
 	ASSERT(m_bpp == 4, "The engine only supports textures with 4 channels.");
 
 	glGenTextures(1, &m_id);

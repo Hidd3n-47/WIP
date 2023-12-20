@@ -6,6 +6,7 @@
 
 #include <memory>
 
+#include <map>
 #include <array>
 #include <queue>
 #include <algorithm>

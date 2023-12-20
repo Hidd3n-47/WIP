@@ -119,22 +119,22 @@ void RendererManager::Begin()
 		vec2 topL(q->uvRect.x, q->uvRect.y + q->uvRect.w);
 
 		// Vertices.
-		m_verticesPtr->position = vec3(position - s1, (float)q->layer / 255.0f);
+		m_verticesPtr->position = vec3(position - s1, (float)(q->layer) / 256.0f);
 		m_verticesPtr->uvCoord = (q->flipVertically ? botR : botL);
 		m_verticesPtr->textureId = textureIndex;
 		m_verticesPtr++;
 		
-		m_verticesPtr->position = vec3(position.x + s2.x, position.y + s2.y, (float)q->layer / 255.0f);
+		m_verticesPtr->position = vec3(position.x + s2.x, position.y + s2.y, (float)(q->layer) / 256.0f);
 		m_verticesPtr->uvCoord = (q->flipVertically ? botL : botR);
 		m_verticesPtr->textureId = textureIndex;
 		m_verticesPtr++;
 		
-		m_verticesPtr->position = vec3(position + s1, (float)q->layer / 255.0f);
+		m_verticesPtr->position = vec3(position + s1, (float)(q->layer) / 256.0f);
 		m_verticesPtr->uvCoord = (q->flipVertically ? topL : topR);
 		m_verticesPtr->textureId = textureIndex;
 		m_verticesPtr++;
 		
-		m_verticesPtr->position = vec3(position.x + s3.x, position.y + s3.y, (float)q->layer / 255.0f);
+		m_verticesPtr->position = vec3(position.x + s3.x, position.y + s3.y, (float)(q->layer) / 256.0f);
 		m_verticesPtr->uvCoord = (q->flipVertically ? topR : topL);
 		m_verticesPtr->textureId = textureIndex;
 		m_verticesPtr++;

@@ -142,6 +142,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\Collision\CollisionCallback.cpp" />
+    <ClCompile Include="Engine\Collision\CollisionCallbackManager.cpp" />
+    <ClCompile Include="Engine\ECS\CapsuleCollider.cpp" />
     <ClCompile Include="Game\Door\DoorTrigger.cpp" />
     <ClCompile Include="Game\Door\Door.cpp" />
     <ClCompile Include="Game\Door\DoorManager.cpp" />
@@ -199,11 +202,13 @@
     <ClCompile Include="Engine\ParticleSystem\ParticleManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BinaryTree.h" />
+    <ClInclude Include="Engine\Collision\CollisionCallback.h" />
+    <ClInclude Include="Engine\Collision\CollisionCallbackManager.h" />
+    <ClInclude Include="Engine\ECS\CapsuleCollider.h" />
     <ClInclude Include="Game\Door\DoorTrigger.h" />
     <ClInclude Include="Game\Door\Door.h" />
     <ClInclude Include="Game\Door\DoorManager.h" />
-    <ClInclude Include="Engine\Collision\BodyType.h" />
+    <ClInclude Include="Engine\Collision\CollisionBodyDetails.h" />
     <ClInclude Include="Engine\ECS\CircleCollider.h" />
     <ClInclude Include="Engine\ECS\Animation.h" />
     <ClInclude Include="Engine\Animation\AnimationManager.h" />

@@ -54,7 +54,7 @@ void Player::Create(vec2 point, Gun* gun)
 
 	m_playChar->SetTag("Player");
 
-	jci::CircleCollider* cc = m_playChar->AddComponent<jci::CircleCollider>();
+	jci::CapsuleCollider* cc = m_playChar->AddComponent<jci::CapsuleCollider>();
 	cc->SetBodyType(jci::BodyType::Kinematic);
 	cc->SetCollisionMethods(this);
 
@@ -215,12 +215,15 @@ void Player::setLevel(Levels* temp)
 
 void Player::OnCollisionEnter(jci::Entity* other)
 {
+	DLOG("Entered collision with " + other->GetTag());
 }
 
 void Player::OnCollisionStay(jci::Entity* other)
 {
+	DLOG("Stayed collision with " + other->GetTag());
 }
 
-void Player::OnCollisionExit()
+void Player::OnCollisionExit(jci::Entity* other)
 {
+	DLOG("Exit collision with " + other->GetTag());
 }

@@ -10,44 +10,47 @@
 
 namespace jci {
 
-class CircleCollider : public IComponent, public ICollider
+class CapsuleCollider : public IComponent, public ICollider
 {
 public:
-	REGISTER_COMPONENT(ComponentTypes::CircleCollider);
-	
-	CircleCollider() { m_body = ShapeBody::Circle; }
-	~CircleCollider() = default;
+	REGISTER_COMPONENT(ComponentTypes::CapsuleCollider);
+
+	CapsuleCollider() { m_body = ShapeBody::Capsule; }
+	~CapsuleCollider() = default;
 
 	void OnComponentAdd(Entity* entity) final;
 	void OnComponentRemove() final;
 
 	// Accessors.
+	inline vec2 GetRectSize() const { return m_rectSize; }
 	inline float GetRadius() const { return m_radius; }
 	inline BodyType GetBodyType() const { return m_bodyType; }
 
 	// Mutators.
+	inline void SetRectSize(vec2 rectSize) { m_rectSize = rectSize; }
 	inline void SetRadius(float radius) { m_radius = radius; }
 	inline void SetBodyType(BodyType type) { m_bodyType = type; }
 
-	inline CircleCollider& operator=(CircleCollider& other) noexcept
+	inline CapsuleCollider& operator=(CapsuleCollider& other) noexcept
 	{
 		m_id = std::move(other.m_id);
 		m_entity = std::move(other.m_entity);
 		m_radius = std::move(other.m_radius);
 		m_bodyType = std::move(other.m_bodyType);
-		
+
 		return *this;
 	}
 private:
 	Entity*		m_entity = nullptr;
 	entId		m_id = invalid_id;
 
-	float		m_radius = 0.5f;
+	vec2		m_rectSize = vec2(0.5f, 0.5f);
+	float		m_radius = 0.25f;
 	BodyType	m_bodyType = BodyType::Static;
 
 #ifdef _DEBUG
 	Quad dbgQuad;
-	vec2 size = vec2(m_radius * 2.0f);
+	vec2 size = vec2(m_radius * 4.0f);
 #endif
 };
 

@@ -4,6 +4,7 @@
 #include "SpriteRenderer.h"
 #include "BoxCollider.h"
 #include "CircleCollider.h"
+#include "CapsuleCollider.h"
 #include "NavBlock.h"
 #include "AI.h"
 #include "Impulse.h"
@@ -49,68 +50,74 @@ public:
 	}
 
 	template<class T>
-	inline T* AddComponent(IProperties* properties)
+	inline T* AddComponent()
 	{
 		ASSERT(false, "Unhandled component added.");
 		return nullptr;
 	}
 
 	template<>
-	inline Transform* AddComponent<Transform>(IProperties* properties)
+	inline Transform* AddComponent<Transform>()
 	{
 		return RegisterComponent(ComponentTypes::Transform, m_transforms);
 	}
 
 	template<>
-	inline SpriteRenderer* AddComponent<SpriteRenderer>(IProperties* properties)
+	inline SpriteRenderer* AddComponent<SpriteRenderer>()
 	{
 		return RegisterComponent(ComponentTypes::SpriteRenderer, m_spriteRenderers);
 	}
 
 	template<>
-	inline BoxCollider* AddComponent<BoxCollider>(IProperties* properties)
+	inline BoxCollider* AddComponent<BoxCollider>()
 	{
 		return RegisterComponent(ComponentTypes::BoxCollider, m_boxColliders);
 	}
 
 	template<>
-	inline CircleCollider* AddComponent<CircleCollider>(IProperties* properties)
+	inline CircleCollider* AddComponent<CircleCollider>()
 	{
 		return RegisterComponent(ComponentTypes::CircleCollider, m_circleColliders);
 	}
 
 	template<>
-	inline NavBlock* AddComponent<NavBlock>(IProperties* properties)
+	inline CapsuleCollider* AddComponent<CapsuleCollider>()
+	{
+		return RegisterComponent(ComponentTypes::CapsuleCollider, m_capsuleColliders);
+	}
+
+	template<>
+	inline NavBlock* AddComponent<NavBlock>()
 	{
 		return RegisterComponent(ComponentTypes::NavBlock, m_navBlocks);
 	}
 
 	template<>
-	inline AI* AddComponent<AI>(IProperties* properties)
+	inline AI* AddComponent<AI>()
 	{
 		return RegisterComponent(ComponentTypes::AI, m_ais);
 	}
 
 	template<>
-	inline Impulse* AddComponent<Impulse>(IProperties* properties)
+	inline Impulse* AddComponent<Impulse>()
 	{
 		return RegisterComponent(ComponentTypes::Impulse, m_impulses);
 	}
 
 	template<>
-	inline Audio* AddComponent<Audio>(IProperties* properties)
+	inline Audio* AddComponent<Audio>()
 	{
 		return RegisterComponent(ComponentTypes::Audio, m_audios);
 	}
 
 	template<>
-	inline Animation* AddComponent<Animation>(IProperties* properties)
+	inline Animation* AddComponent<Animation>()
 	{
 		return RegisterComponent(ComponentTypes::Animation, m_animations);
 	}
 
 	template<>
-	inline ParticleEmission* AddComponent<ParticleEmission>(IProperties* properties)
+	inline ParticleEmission* AddComponent<ParticleEmission>()
 	{
 		return RegisterComponent(ComponentTypes::ParticleEmission, m_particleEmissions);
 	}
@@ -156,6 +163,12 @@ public:
 	inline CircleCollider* GetComponent<CircleCollider>(entId componentId)
 	{
 		return RetrieveComponent(m_circleColliders, componentId);
+	}
+
+	template<>
+	inline CapsuleCollider* GetComponent<CapsuleCollider>(entId componentId)
+	{
+		return RetrieveComponent(m_capsuleColliders, componentId);
 	}
 
 	template<>
@@ -218,6 +231,8 @@ public:
 			return DeregisterComponent(type, m_boxColliders, id);
 		case ComponentTypes::CircleCollider:
 			return DeregisterComponent(type, m_circleColliders, id);
+		case ComponentTypes::CapsuleCollider:
+			return DeregisterComponent(type, m_capsuleColliders, id);
 		case ComponentTypes::NavBlock:
 			return DeregisterComponent(type, m_navBlocks, id);
 		case ComponentTypes::AI:
@@ -323,6 +338,12 @@ public:
 	}
 
 	template<>
+	inline CapsuleCollider* GetComponentVector()
+	{
+		return &m_capsuleColliders[0];
+	}
+
+	template<>
 	inline NavBlock* GetComponentVector()
 	{ 
 		return &m_navBlocks[0];
@@ -371,6 +392,7 @@ private:
 	std::vector<SpriteRenderer>		m_spriteRenderers;
 	std::vector<BoxCollider>		m_boxColliders;
 	std::vector<CircleCollider>		m_circleColliders;
+	std::vector<CapsuleCollider>	m_capsuleColliders;
 	std::vector<NavBlock>			m_navBlocks;
 	std::vector<AI>					m_ais;
 	std::vector<Impulse>			m_impulses;
