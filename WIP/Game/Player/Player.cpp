@@ -44,8 +44,7 @@ void Player::Create(vec2 point, Gun* gun)
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	m_knife = m_currentScene->CreateEmptyEntity();
 	m_knife->GetComponent<jci::Transform>()->SetPosition(vec2(200.0f, 200.0f));//spawn off map
-	m_knife->AddComponent<jci::SpriteRenderer>();
-	m_knife->GetComponent<jci::SpriteRenderer>()->SetSize({ 0.7f,0.7f });
+	m_knife->AddComponent<jci::SpriteRenderer>()->SetSize({ 0.7f,0.7f });
 	//scene = jci::SceneManager::Instance()->GetCurrentScene();
 
 	m_playChar = m_currentScene->CreateEmptyEntity();

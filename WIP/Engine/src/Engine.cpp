@@ -96,7 +96,6 @@ void Engine::Run()
 		PhysicsManager::Instance()->Update(dt);
 		
 		CollisionManager::Instance()->Update(m_window->GetWidth(), m_window->GetHeight(), cam->GetPosition());
-		//CollisionManager::Instance()->Update(m_window->GetWidth(), m_window->GetHeight(), SceneManager::Instance()->GetCurrentScene()->GetCamera()->GetPosition());
 		
 		AIManager::Instance()->Update(dt);
 
