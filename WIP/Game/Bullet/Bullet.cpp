@@ -53,7 +53,7 @@ void Bullet::OnCollisionEnter(jci::Entity* other)
 {
 	if (other->GetTag() == "Enemy")
 	{
-
+		DLOG("Hit!");
 	}
 }
 
