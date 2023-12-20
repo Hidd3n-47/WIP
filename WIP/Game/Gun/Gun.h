@@ -10,7 +10,7 @@ public:
 	~Gun();
 	void Create(int rateOfFire);
 	int GetFireRate();
-	void FireGun(float time, vec2 position, jci::Scene* currentScene);
+	void FireGun(float time, vec2 position, jci::Scene* currentScene, vec2 orientMouse);
 
 private:
 	int m_fireRate;

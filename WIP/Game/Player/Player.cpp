@@ -154,7 +154,8 @@ void Player::Update(float time)
 	*m_position += direction;
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Left) && m_canFire && !m_isMelee)
 	{
-		m_equippedGun->FireGun(time, *m_position, m_currentScene);
+		
+		m_equippedGun->FireGun(time, *m_position, m_currentScene, vec2(m_width * 0.5f, m_height * 0.5f));
 		//fireTime = SDL_GetTicks();
 		m_canFire = false;
 		delete bulletCD;
