@@ -154,24 +154,12 @@ void Player::Update(float time)
 	*m_position += direction;
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Left) && m_canFire && !m_isMelee)
 	{
-		m_equippedGun->FireGun(time, *m_position, m_currentScene);
+		
+		m_equippedGun->FireGun(time, *m_position, m_currentScene, vec2(m_width * 0.5f, m_height * 0.5f));
 		//fireTime = SDL_GetTicks();
 		m_canFire = false;
 		delete bulletCD;
 		bulletCD = new jci::Timer(m_equippedGun->GetFireRate(), false);
-	}
-	for(int i = 0; i < bulletPool.size();i++)
-	{
-		if (bulletPool.at(i)->GetMove())
-		{
-			bulletPool.at(i)->body->GetComponent<jci::Transform>()->AddToPosition(bulletPool.at(i)->direction);
-		}
-		if (bulletPool.at(i)->GetSpawnTime() + 5000 <= SDL_GetTicks() && bulletPool.at(i)->GetMove())
-		{
-			DLOG("Despawn");
-			bulletPool.at(i)->body->GetComponent<jci::Transform>()->SetPosition(vec2(100,100));
-			bulletPool.at(i)->Delete();
-		}
 	}
 	
 

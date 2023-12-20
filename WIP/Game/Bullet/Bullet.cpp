@@ -1,9 +1,17 @@
 #include "pch.h"
 #include "Bullet.h"
 
-Bullet::Bullet(jci::Entity* e, vec2 d)
+Bullet::Bullet(jci::Entity* e)
 {
 	body = e;
+	direction = vec2(0,0);
+	spawnTime = 0;
+	isMove = false;
+}
+
+void Bullet::bulletFire(vec2 d)
+{
+	//body->GetComponent<jci::Transform>()->SetPosition(vec2(200.0f, 200.0f));
 	direction = d;
 	spawnTime = SDL_GetTicks();
 	isMove = true;
@@ -32,4 +40,20 @@ int Bullet::GetSpawnTime()
 void Bullet::Destroy()
 {
 	delete body;
+}
+
+void Bullet::OnCollisionEnter(jci::Entity* other)
+{
+	if (other->GetTag() == "Enemy")
+	{
+
+	}
+}
+
+void Bullet::OnCollisionStay(jci::Entity* other)
+{
+}
+
+void Bullet::OnCollisionExit()
+{
 }

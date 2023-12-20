@@ -13,7 +13,7 @@ Created texture Assets/Texture/Left wall.png
 Created texture Assets/Texture/Right wall.png
 Created texture Assets/Texture/Back left wall.png
 Created texture Assets/Texture/Back right wall.png
-Created texture Assets/Texture/Front wall.png
+Created texture Assets/Texture/Back wall.png
 Created texture Assets/Texture/Door.png
 Created texture Assets/Texture/Inv front left wall.png
 Created texture Assets/Texture/Inv front right wall.png
@@ -602,517 +602,2396 @@ Added component with id: ComponentTypes::SpriteRenderer to Game Object: 132
 Added component with id: ComponentTypes::BoxCollider to Game Object: 132
 Game object '132' already has component with id: 2
 Created texture Assets/Texture/Bullet.png
-Created texture Assets/Texture/Scientist.png
-Created texture Assets/Texture/Weapons/Bowie Knife.png
-Created texture Assets/Texture/Blank.png
 Created Entity with id: 133
 Added component with id: ComponentTypes::Transform to Game Object: 133
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 133
+Added component with id: ComponentTypes::BoxCollider to Game Object: 133
 Created Entity with id: 134
 Added component with id: ComponentTypes::Transform to Game Object: 134
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 134
-Added component with id: ComponentTypes::CircleCollider to Game Object: 134
-Added component with id: ComponentTypes::Impulse to Game Object: 134
-Game object '133' already has component with id: 2
-Created texture Assets/Texture/Tmp.png
+Added component with id: ComponentTypes::BoxCollider to Game Object: 134
 Created Entity with id: 135
 Added component with id: ComponentTypes::Transform to Game Object: 135
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 135
 Added component with id: ComponentTypes::BoxCollider to Game Object: 135
 Created Entity with id: 136
 Added component with id: ComponentTypes::Transform to Game Object: 136
-Added component with id: ComponentTypes::Animation to Game Object: 136
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 136
+Added component with id: ComponentTypes::BoxCollider to Game Object: 136
 Created Entity with id: 137
 Added component with id: ComponentTypes::Transform to Game Object: 137
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 137
-Added component with id: ComponentTypes::CircleCollider to Game Object: 137
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
+Added component with id: ComponentTypes::BoxCollider to Game Object: 137
 Created Entity with id: 138
 Added component with id: ComponentTypes::Transform to Game Object: 138
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 138
 Added component with id: ComponentTypes::BoxCollider to Game Object: 138
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
 Created Entity with id: 139
 Added component with id: ComponentTypes::Transform to Game Object: 139
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 139
 Added component with id: ComponentTypes::BoxCollider to Game Object: 139
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
 Created Entity with id: 140
 Added component with id: ComponentTypes::Transform to Game Object: 140
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 140
 Added component with id: ComponentTypes::BoxCollider to Game Object: 140
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
 Created Entity with id: 141
 Added component with id: ComponentTypes::Transform to Game Object: 141
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 141
 Added component with id: ComponentTypes::BoxCollider to Game Object: 141
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
-Game object '133' already has component with id: 2
+Created Entity with id: 142
+Added component with id: ComponentTypes::Transform to Game Object: 142
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 142
+Added component with id: ComponentTypes::BoxCollider to Game Object: 142
+Created Entity with id: 143
+Added component with id: ComponentTypes::Transform to Game Object: 143
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 143
+Added component with id: ComponentTypes::BoxCollider to Game Object: 143
+Created Entity with id: 144
+Added component with id: ComponentTypes::Transform to Game Object: 144
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 144
+Added component with id: ComponentTypes::BoxCollider to Game Object: 144
+Created Entity with id: 145
+Added component with id: ComponentTypes::Transform to Game Object: 145
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 145
+Added component with id: ComponentTypes::BoxCollider to Game Object: 145
+Created Entity with id: 146
+Added component with id: ComponentTypes::Transform to Game Object: 146
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 146
+Added component with id: ComponentTypes::BoxCollider to Game Object: 146
+Created Entity with id: 147
+Added component with id: ComponentTypes::Transform to Game Object: 147
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 147
+Added component with id: ComponentTypes::BoxCollider to Game Object: 147
+Created Entity with id: 148
+Added component with id: ComponentTypes::Transform to Game Object: 148
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 148
+Added component with id: ComponentTypes::BoxCollider to Game Object: 148
+Created Entity with id: 149
+Added component with id: ComponentTypes::Transform to Game Object: 149
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 149
+Added component with id: ComponentTypes::BoxCollider to Game Object: 149
+Created Entity with id: 150
+Added component with id: ComponentTypes::Transform to Game Object: 150
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 150
+Added component with id: ComponentTypes::BoxCollider to Game Object: 150
+Created Entity with id: 151
+Added component with id: ComponentTypes::Transform to Game Object: 151
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 151
+Added component with id: ComponentTypes::BoxCollider to Game Object: 151
+Created Entity with id: 152
+Added component with id: ComponentTypes::Transform to Game Object: 152
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 152
+Added component with id: ComponentTypes::BoxCollider to Game Object: 152
+Created Entity with id: 153
+Added component with id: ComponentTypes::Transform to Game Object: 153
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 153
+Added component with id: ComponentTypes::BoxCollider to Game Object: 153
+Created Entity with id: 154
+Added component with id: ComponentTypes::Transform to Game Object: 154
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 154
+Added component with id: ComponentTypes::BoxCollider to Game Object: 154
+Created Entity with id: 155
+Added component with id: ComponentTypes::Transform to Game Object: 155
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 155
+Added component with id: ComponentTypes::BoxCollider to Game Object: 155
+Created Entity with id: 156
+Added component with id: ComponentTypes::Transform to Game Object: 156
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 156
+Added component with id: ComponentTypes::BoxCollider to Game Object: 156
+Created Entity with id: 157
+Added component with id: ComponentTypes::Transform to Game Object: 157
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 157
+Added component with id: ComponentTypes::BoxCollider to Game Object: 157
+Created Entity with id: 158
+Added component with id: ComponentTypes::Transform to Game Object: 158
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 158
+Added component with id: ComponentTypes::BoxCollider to Game Object: 158
+Created Entity with id: 159
+Added component with id: ComponentTypes::Transform to Game Object: 159
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 159
+Added component with id: ComponentTypes::BoxCollider to Game Object: 159
+Created Entity with id: 160
+Added component with id: ComponentTypes::Transform to Game Object: 160
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 160
+Added component with id: ComponentTypes::BoxCollider to Game Object: 160
+Created Entity with id: 161
+Added component with id: ComponentTypes::Transform to Game Object: 161
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 161
+Added component with id: ComponentTypes::BoxCollider to Game Object: 161
+Created Entity with id: 162
+Added component with id: ComponentTypes::Transform to Game Object: 162
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 162
+Added component with id: ComponentTypes::BoxCollider to Game Object: 162
+Created Entity with id: 163
+Added component with id: ComponentTypes::Transform to Game Object: 163
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 163
+Added component with id: ComponentTypes::BoxCollider to Game Object: 163
+Created Entity with id: 164
+Added component with id: ComponentTypes::Transform to Game Object: 164
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 164
+Added component with id: ComponentTypes::BoxCollider to Game Object: 164
+Created Entity with id: 165
+Added component with id: ComponentTypes::Transform to Game Object: 165
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 165
+Added component with id: ComponentTypes::BoxCollider to Game Object: 165
+Created Entity with id: 166
+Added component with id: ComponentTypes::Transform to Game Object: 166
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 166
+Added component with id: ComponentTypes::BoxCollider to Game Object: 166
+Created Entity with id: 167
+Added component with id: ComponentTypes::Transform to Game Object: 167
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 167
+Added component with id: ComponentTypes::BoxCollider to Game Object: 167
+Created Entity with id: 168
+Added component with id: ComponentTypes::Transform to Game Object: 168
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 168
+Added component with id: ComponentTypes::BoxCollider to Game Object: 168
+Created Entity with id: 169
+Added component with id: ComponentTypes::Transform to Game Object: 169
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 169
+Added component with id: ComponentTypes::BoxCollider to Game Object: 169
+Created Entity with id: 170
+Added component with id: ComponentTypes::Transform to Game Object: 170
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 170
+Added component with id: ComponentTypes::BoxCollider to Game Object: 170
+Created Entity with id: 171
+Added component with id: ComponentTypes::Transform to Game Object: 171
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 171
+Added component with id: ComponentTypes::BoxCollider to Game Object: 171
+Created Entity with id: 172
+Added component with id: ComponentTypes::Transform to Game Object: 172
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 172
+Added component with id: ComponentTypes::BoxCollider to Game Object: 172
+Created Entity with id: 173
+Added component with id: ComponentTypes::Transform to Game Object: 173
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 173
+Added component with id: ComponentTypes::BoxCollider to Game Object: 173
+Created Entity with id: 174
+Added component with id: ComponentTypes::Transform to Game Object: 174
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 174
+Added component with id: ComponentTypes::BoxCollider to Game Object: 174
+Created Entity with id: 175
+Added component with id: ComponentTypes::Transform to Game Object: 175
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 175
+Added component with id: ComponentTypes::BoxCollider to Game Object: 175
+Created Entity with id: 176
+Added component with id: ComponentTypes::Transform to Game Object: 176
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 176
+Added component with id: ComponentTypes::BoxCollider to Game Object: 176
+Created Entity with id: 177
+Added component with id: ComponentTypes::Transform to Game Object: 177
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 177
+Added component with id: ComponentTypes::BoxCollider to Game Object: 177
+Created Entity with id: 178
+Added component with id: ComponentTypes::Transform to Game Object: 178
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 178
+Added component with id: ComponentTypes::BoxCollider to Game Object: 178
+Created Entity with id: 179
+Added component with id: ComponentTypes::Transform to Game Object: 179
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 179
+Added component with id: ComponentTypes::BoxCollider to Game Object: 179
+Created Entity with id: 180
+Added component with id: ComponentTypes::Transform to Game Object: 180
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 180
+Added component with id: ComponentTypes::BoxCollider to Game Object: 180
+Created Entity with id: 181
+Added component with id: ComponentTypes::Transform to Game Object: 181
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 181
+Added component with id: ComponentTypes::BoxCollider to Game Object: 181
+Created Entity with id: 182
+Added component with id: ComponentTypes::Transform to Game Object: 182
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 182
+Added component with id: ComponentTypes::BoxCollider to Game Object: 182
+Created Entity with id: 183
+Added component with id: ComponentTypes::Transform to Game Object: 183
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 183
+Added component with id: ComponentTypes::BoxCollider to Game Object: 183
+Created Entity with id: 184
+Added component with id: ComponentTypes::Transform to Game Object: 184
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 184
+Added component with id: ComponentTypes::BoxCollider to Game Object: 184
+Created Entity with id: 185
+Added component with id: ComponentTypes::Transform to Game Object: 185
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 185
+Added component with id: ComponentTypes::BoxCollider to Game Object: 185
+Created Entity with id: 186
+Added component with id: ComponentTypes::Transform to Game Object: 186
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 186
+Added component with id: ComponentTypes::BoxCollider to Game Object: 186
+Created Entity with id: 187
+Added component with id: ComponentTypes::Transform to Game Object: 187
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 187
+Added component with id: ComponentTypes::BoxCollider to Game Object: 187
+Created Entity with id: 188
+Added component with id: ComponentTypes::Transform to Game Object: 188
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 188
+Added component with id: ComponentTypes::BoxCollider to Game Object: 188
+Created Entity with id: 189
+Added component with id: ComponentTypes::Transform to Game Object: 189
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 189
+Added component with id: ComponentTypes::BoxCollider to Game Object: 189
+Created Entity with id: 190
+Added component with id: ComponentTypes::Transform to Game Object: 190
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 190
+Added component with id: ComponentTypes::BoxCollider to Game Object: 190
+Created Entity with id: 191
+Added component with id: ComponentTypes::Transform to Game Object: 191
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 191
+Added component with id: ComponentTypes::BoxCollider to Game Object: 191
+Created Entity with id: 192
+Added component with id: ComponentTypes::Transform to Game Object: 192
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 192
+Added component with id: ComponentTypes::BoxCollider to Game Object: 192
+Created Entity with id: 193
+Added component with id: ComponentTypes::Transform to Game Object: 193
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 193
+Added component with id: ComponentTypes::BoxCollider to Game Object: 193
+Created Entity with id: 194
+Added component with id: ComponentTypes::Transform to Game Object: 194
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 194
+Added component with id: ComponentTypes::BoxCollider to Game Object: 194
+Created Entity with id: 195
+Added component with id: ComponentTypes::Transform to Game Object: 195
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 195
+Added component with id: ComponentTypes::BoxCollider to Game Object: 195
+Created Entity with id: 196
+Added component with id: ComponentTypes::Transform to Game Object: 196
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 196
+Added component with id: ComponentTypes::BoxCollider to Game Object: 196
+Created Entity with id: 197
+Added component with id: ComponentTypes::Transform to Game Object: 197
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 197
+Added component with id: ComponentTypes::BoxCollider to Game Object: 197
+Created Entity with id: 198
+Added component with id: ComponentTypes::Transform to Game Object: 198
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 198
+Added component with id: ComponentTypes::BoxCollider to Game Object: 198
+Created Entity with id: 199
+Added component with id: ComponentTypes::Transform to Game Object: 199
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 199
+Added component with id: ComponentTypes::BoxCollider to Game Object: 199
+Created Entity with id: 200
+Added component with id: ComponentTypes::Transform to Game Object: 200
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 200
+Added component with id: ComponentTypes::BoxCollider to Game Object: 200
+Created Entity with id: 201
+Added component with id: ComponentTypes::Transform to Game Object: 201
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 201
+Added component with id: ComponentTypes::BoxCollider to Game Object: 201
+Created Entity with id: 202
+Added component with id: ComponentTypes::Transform to Game Object: 202
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 202
+Added component with id: ComponentTypes::BoxCollider to Game Object: 202
+Created Entity with id: 203
+Added component with id: ComponentTypes::Transform to Game Object: 203
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 203
+Added component with id: ComponentTypes::BoxCollider to Game Object: 203
+Created Entity with id: 204
+Added component with id: ComponentTypes::Transform to Game Object: 204
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 204
+Added component with id: ComponentTypes::BoxCollider to Game Object: 204
+Created Entity with id: 205
+Added component with id: ComponentTypes::Transform to Game Object: 205
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 205
+Added component with id: ComponentTypes::BoxCollider to Game Object: 205
+Created Entity with id: 206
+Added component with id: ComponentTypes::Transform to Game Object: 206
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 206
+Added component with id: ComponentTypes::BoxCollider to Game Object: 206
+Created Entity with id: 207
+Added component with id: ComponentTypes::Transform to Game Object: 207
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 207
+Added component with id: ComponentTypes::BoxCollider to Game Object: 207
+Created Entity with id: 208
+Added component with id: ComponentTypes::Transform to Game Object: 208
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 208
+Added component with id: ComponentTypes::BoxCollider to Game Object: 208
+Created Entity with id: 209
+Added component with id: ComponentTypes::Transform to Game Object: 209
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 209
+Added component with id: ComponentTypes::BoxCollider to Game Object: 209
+Created Entity with id: 210
+Added component with id: ComponentTypes::Transform to Game Object: 210
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 210
+Added component with id: ComponentTypes::BoxCollider to Game Object: 210
+Created Entity with id: 211
+Added component with id: ComponentTypes::Transform to Game Object: 211
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 211
+Added component with id: ComponentTypes::BoxCollider to Game Object: 211
+Created Entity with id: 212
+Added component with id: ComponentTypes::Transform to Game Object: 212
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 212
+Added component with id: ComponentTypes::BoxCollider to Game Object: 212
+Created Entity with id: 213
+Added component with id: ComponentTypes::Transform to Game Object: 213
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 213
+Added component with id: ComponentTypes::BoxCollider to Game Object: 213
+Created Entity with id: 214
+Added component with id: ComponentTypes::Transform to Game Object: 214
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 214
+Added component with id: ComponentTypes::BoxCollider to Game Object: 214
+Created Entity with id: 215
+Added component with id: ComponentTypes::Transform to Game Object: 215
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 215
+Added component with id: ComponentTypes::BoxCollider to Game Object: 215
+Created Entity with id: 216
+Added component with id: ComponentTypes::Transform to Game Object: 216
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 216
+Added component with id: ComponentTypes::BoxCollider to Game Object: 216
+Created Entity with id: 217
+Added component with id: ComponentTypes::Transform to Game Object: 217
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 217
+Added component with id: ComponentTypes::BoxCollider to Game Object: 217
+Created Entity with id: 218
+Added component with id: ComponentTypes::Transform to Game Object: 218
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 218
+Added component with id: ComponentTypes::BoxCollider to Game Object: 218
+Created Entity with id: 219
+Added component with id: ComponentTypes::Transform to Game Object: 219
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 219
+Added component with id: ComponentTypes::BoxCollider to Game Object: 219
+Created Entity with id: 220
+Added component with id: ComponentTypes::Transform to Game Object: 220
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 220
+Added component with id: ComponentTypes::BoxCollider to Game Object: 220
+Created Entity with id: 221
+Added component with id: ComponentTypes::Transform to Game Object: 221
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 221
+Added component with id: ComponentTypes::BoxCollider to Game Object: 221
+Created Entity with id: 222
+Added component with id: ComponentTypes::Transform to Game Object: 222
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 222
+Added component with id: ComponentTypes::BoxCollider to Game Object: 222
+Created Entity with id: 223
+Added component with id: ComponentTypes::Transform to Game Object: 223
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 223
+Added component with id: ComponentTypes::BoxCollider to Game Object: 223
+Created Entity with id: 224
+Added component with id: ComponentTypes::Transform to Game Object: 224
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 224
+Added component with id: ComponentTypes::BoxCollider to Game Object: 224
+Created Entity with id: 225
+Added component with id: ComponentTypes::Transform to Game Object: 225
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 225
+Added component with id: ComponentTypes::BoxCollider to Game Object: 225
+Created Entity with id: 226
+Added component with id: ComponentTypes::Transform to Game Object: 226
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 226
+Added component with id: ComponentTypes::BoxCollider to Game Object: 226
+Created Entity with id: 227
+Added component with id: ComponentTypes::Transform to Game Object: 227
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 227
+Added component with id: ComponentTypes::BoxCollider to Game Object: 227
+Created Entity with id: 228
+Added component with id: ComponentTypes::Transform to Game Object: 228
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 228
+Added component with id: ComponentTypes::BoxCollider to Game Object: 228
+Created Entity with id: 229
+Added component with id: ComponentTypes::Transform to Game Object: 229
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 229
+Added component with id: ComponentTypes::BoxCollider to Game Object: 229
+Created Entity with id: 230
+Added component with id: ComponentTypes::Transform to Game Object: 230
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 230
+Added component with id: ComponentTypes::BoxCollider to Game Object: 230
+Created Entity with id: 231
+Added component with id: ComponentTypes::Transform to Game Object: 231
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 231
+Added component with id: ComponentTypes::BoxCollider to Game Object: 231
+Created Entity with id: 232
+Added component with id: ComponentTypes::Transform to Game Object: 232
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 232
+Added component with id: ComponentTypes::BoxCollider to Game Object: 232
+Created Entity with id: 233
+Added component with id: ComponentTypes::Transform to Game Object: 233
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 233
+Added component with id: ComponentTypes::BoxCollider to Game Object: 233
+Created Entity with id: 234
+Added component with id: ComponentTypes::Transform to Game Object: 234
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 234
+Added component with id: ComponentTypes::BoxCollider to Game Object: 234
+Created Entity with id: 235
+Added component with id: ComponentTypes::Transform to Game Object: 235
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 235
+Added component with id: ComponentTypes::BoxCollider to Game Object: 235
+Created Entity with id: 236
+Added component with id: ComponentTypes::Transform to Game Object: 236
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 236
+Added component with id: ComponentTypes::BoxCollider to Game Object: 236
+Created Entity with id: 237
+Added component with id: ComponentTypes::Transform to Game Object: 237
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 237
+Added component with id: ComponentTypes::BoxCollider to Game Object: 237
+Created Entity with id: 238
+Added component with id: ComponentTypes::Transform to Game Object: 238
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 238
+Added component with id: ComponentTypes::BoxCollider to Game Object: 238
+Created Entity with id: 239
+Added component with id: ComponentTypes::Transform to Game Object: 239
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 239
+Added component with id: ComponentTypes::BoxCollider to Game Object: 239
+Created Entity with id: 240
+Added component with id: ComponentTypes::Transform to Game Object: 240
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 240
+Added component with id: ComponentTypes::BoxCollider to Game Object: 240
+Created Entity with id: 241
+Added component with id: ComponentTypes::Transform to Game Object: 241
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 241
+Added component with id: ComponentTypes::BoxCollider to Game Object: 241
+Created Entity with id: 242
+Added component with id: ComponentTypes::Transform to Game Object: 242
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 242
+Added component with id: ComponentTypes::BoxCollider to Game Object: 242
+Created Entity with id: 243
+Added component with id: ComponentTypes::Transform to Game Object: 243
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 243
+Added component with id: ComponentTypes::BoxCollider to Game Object: 243
+Created Entity with id: 244
+Added component with id: ComponentTypes::Transform to Game Object: 244
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 244
+Added component with id: ComponentTypes::BoxCollider to Game Object: 244
+Created Entity with id: 245
+Added component with id: ComponentTypes::Transform to Game Object: 245
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 245
+Added component with id: ComponentTypes::BoxCollider to Game Object: 245
+Created Entity with id: 246
+Added component with id: ComponentTypes::Transform to Game Object: 246
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 246
+Added component with id: ComponentTypes::BoxCollider to Game Object: 246
+Created Entity with id: 247
+Added component with id: ComponentTypes::Transform to Game Object: 247
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 247
+Added component with id: ComponentTypes::BoxCollider to Game Object: 247
+Created Entity with id: 248
+Added component with id: ComponentTypes::Transform to Game Object: 248
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 248
+Added component with id: ComponentTypes::BoxCollider to Game Object: 248
+Created Entity with id: 249
+Added component with id: ComponentTypes::Transform to Game Object: 249
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 249
+Added component with id: ComponentTypes::BoxCollider to Game Object: 249
+Created Entity with id: 250
+Added component with id: ComponentTypes::Transform to Game Object: 250
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 250
+Added component with id: ComponentTypes::BoxCollider to Game Object: 250
+Created Entity with id: 251
+Added component with id: ComponentTypes::Transform to Game Object: 251
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 251
+Added component with id: ComponentTypes::BoxCollider to Game Object: 251
+Created Entity with id: 252
+Added component with id: ComponentTypes::Transform to Game Object: 252
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 252
+Added component with id: ComponentTypes::BoxCollider to Game Object: 252
+Created Entity with id: 253
+Added component with id: ComponentTypes::Transform to Game Object: 253
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 253
+Added component with id: ComponentTypes::BoxCollider to Game Object: 253
+Created Entity with id: 254
+Added component with id: ComponentTypes::Transform to Game Object: 254
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 254
+Added component with id: ComponentTypes::BoxCollider to Game Object: 254
+Created Entity with id: 255
+Added component with id: ComponentTypes::Transform to Game Object: 255
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 255
+Added component with id: ComponentTypes::BoxCollider to Game Object: 255
+Created Entity with id: 256
+Added component with id: ComponentTypes::Transform to Game Object: 256
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 256
+Added component with id: ComponentTypes::BoxCollider to Game Object: 256
+Created Entity with id: 257
+Added component with id: ComponentTypes::Transform to Game Object: 257
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 257
+Added component with id: ComponentTypes::BoxCollider to Game Object: 257
+Created Entity with id: 258
+Added component with id: ComponentTypes::Transform to Game Object: 258
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 258
+Added component with id: ComponentTypes::BoxCollider to Game Object: 258
+Created Entity with id: 259
+Added component with id: ComponentTypes::Transform to Game Object: 259
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 259
+Added component with id: ComponentTypes::BoxCollider to Game Object: 259
+Created Entity with id: 260
+Added component with id: ComponentTypes::Transform to Game Object: 260
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 260
+Added component with id: ComponentTypes::BoxCollider to Game Object: 260
+Created Entity with id: 261
+Added component with id: ComponentTypes::Transform to Game Object: 261
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 261
+Added component with id: ComponentTypes::BoxCollider to Game Object: 261
+Created Entity with id: 262
+Added component with id: ComponentTypes::Transform to Game Object: 262
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 262
+Added component with id: ComponentTypes::BoxCollider to Game Object: 262
+Created Entity with id: 263
+Added component with id: ComponentTypes::Transform to Game Object: 263
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 263
+Added component with id: ComponentTypes::BoxCollider to Game Object: 263
+Created Entity with id: 264
+Added component with id: ComponentTypes::Transform to Game Object: 264
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 264
+Added component with id: ComponentTypes::BoxCollider to Game Object: 264
+Created Entity with id: 265
+Added component with id: ComponentTypes::Transform to Game Object: 265
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 265
+Added component with id: ComponentTypes::BoxCollider to Game Object: 265
+Created Entity with id: 266
+Added component with id: ComponentTypes::Transform to Game Object: 266
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 266
+Added component with id: ComponentTypes::BoxCollider to Game Object: 266
+Created Entity with id: 267
+Added component with id: ComponentTypes::Transform to Game Object: 267
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 267
+Added component with id: ComponentTypes::BoxCollider to Game Object: 267
+Created Entity with id: 268
+Added component with id: ComponentTypes::Transform to Game Object: 268
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 268
+Added component with id: ComponentTypes::BoxCollider to Game Object: 268
+Created Entity with id: 269
+Added component with id: ComponentTypes::Transform to Game Object: 269
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 269
+Added component with id: ComponentTypes::BoxCollider to Game Object: 269
+Created Entity with id: 270
+Added component with id: ComponentTypes::Transform to Game Object: 270
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 270
+Added component with id: ComponentTypes::BoxCollider to Game Object: 270
+Created Entity with id: 271
+Added component with id: ComponentTypes::Transform to Game Object: 271
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 271
+Added component with id: ComponentTypes::BoxCollider to Game Object: 271
+Created Entity with id: 272
+Added component with id: ComponentTypes::Transform to Game Object: 272
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 272
+Added component with id: ComponentTypes::BoxCollider to Game Object: 272
+Created Entity with id: 273
+Added component with id: ComponentTypes::Transform to Game Object: 273
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 273
+Added component with id: ComponentTypes::BoxCollider to Game Object: 273
+Created Entity with id: 274
+Added component with id: ComponentTypes::Transform to Game Object: 274
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 274
+Added component with id: ComponentTypes::BoxCollider to Game Object: 274
+Created Entity with id: 275
+Added component with id: ComponentTypes::Transform to Game Object: 275
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 275
+Added component with id: ComponentTypes::BoxCollider to Game Object: 275
+Created Entity with id: 276
+Added component with id: ComponentTypes::Transform to Game Object: 276
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 276
+Added component with id: ComponentTypes::BoxCollider to Game Object: 276
+Created Entity with id: 277
+Added component with id: ComponentTypes::Transform to Game Object: 277
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 277
+Added component with id: ComponentTypes::BoxCollider to Game Object: 277
+Created Entity with id: 278
+Added component with id: ComponentTypes::Transform to Game Object: 278
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 278
+Added component with id: ComponentTypes::BoxCollider to Game Object: 278
+Created Entity with id: 279
+Added component with id: ComponentTypes::Transform to Game Object: 279
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 279
+Added component with id: ComponentTypes::BoxCollider to Game Object: 279
+Created Entity with id: 280
+Added component with id: ComponentTypes::Transform to Game Object: 280
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 280
+Added component with id: ComponentTypes::BoxCollider to Game Object: 280
+Created Entity with id: 281
+Added component with id: ComponentTypes::Transform to Game Object: 281
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 281
+Added component with id: ComponentTypes::BoxCollider to Game Object: 281
+Created Entity with id: 282
+Added component with id: ComponentTypes::Transform to Game Object: 282
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 282
+Added component with id: ComponentTypes::BoxCollider to Game Object: 282
+Created Entity with id: 283
+Added component with id: ComponentTypes::Transform to Game Object: 283
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 283
+Added component with id: ComponentTypes::BoxCollider to Game Object: 283
+Created Entity with id: 284
+Added component with id: ComponentTypes::Transform to Game Object: 284
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 284
+Added component with id: ComponentTypes::BoxCollider to Game Object: 284
+Created Entity with id: 285
+Added component with id: ComponentTypes::Transform to Game Object: 285
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 285
+Added component with id: ComponentTypes::BoxCollider to Game Object: 285
+Created Entity with id: 286
+Added component with id: ComponentTypes::Transform to Game Object: 286
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 286
+Added component with id: ComponentTypes::BoxCollider to Game Object: 286
+Created Entity with id: 287
+Added component with id: ComponentTypes::Transform to Game Object: 287
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 287
+Added component with id: ComponentTypes::BoxCollider to Game Object: 287
+Created Entity with id: 288
+Added component with id: ComponentTypes::Transform to Game Object: 288
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 288
+Added component with id: ComponentTypes::BoxCollider to Game Object: 288
+Created Entity with id: 289
+Added component with id: ComponentTypes::Transform to Game Object: 289
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 289
+Added component with id: ComponentTypes::BoxCollider to Game Object: 289
+Created Entity with id: 290
+Added component with id: ComponentTypes::Transform to Game Object: 290
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 290
+Added component with id: ComponentTypes::BoxCollider to Game Object: 290
+Created Entity with id: 291
+Added component with id: ComponentTypes::Transform to Game Object: 291
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 291
+Added component with id: ComponentTypes::BoxCollider to Game Object: 291
+Created Entity with id: 292
+Added component with id: ComponentTypes::Transform to Game Object: 292
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 292
+Added component with id: ComponentTypes::BoxCollider to Game Object: 292
+Created Entity with id: 293
+Added component with id: ComponentTypes::Transform to Game Object: 293
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 293
+Added component with id: ComponentTypes::BoxCollider to Game Object: 293
+Created Entity with id: 294
+Added component with id: ComponentTypes::Transform to Game Object: 294
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 294
+Added component with id: ComponentTypes::BoxCollider to Game Object: 294
+Created Entity with id: 295
+Added component with id: ComponentTypes::Transform to Game Object: 295
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 295
+Added component with id: ComponentTypes::BoxCollider to Game Object: 295
+Created Entity with id: 296
+Added component with id: ComponentTypes::Transform to Game Object: 296
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 296
+Added component with id: ComponentTypes::BoxCollider to Game Object: 296
+Created Entity with id: 297
+Added component with id: ComponentTypes::Transform to Game Object: 297
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 297
+Added component with id: ComponentTypes::BoxCollider to Game Object: 297
+Created Entity with id: 298
+Added component with id: ComponentTypes::Transform to Game Object: 298
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 298
+Added component with id: ComponentTypes::BoxCollider to Game Object: 298
+Created Entity with id: 299
+Added component with id: ComponentTypes::Transform to Game Object: 299
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 299
+Added component with id: ComponentTypes::BoxCollider to Game Object: 299
+Created Entity with id: 300
+Added component with id: ComponentTypes::Transform to Game Object: 300
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 300
+Added component with id: ComponentTypes::BoxCollider to Game Object: 300
+Created Entity with id: 301
+Added component with id: ComponentTypes::Transform to Game Object: 301
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 301
+Added component with id: ComponentTypes::BoxCollider to Game Object: 301
+Created Entity with id: 302
+Added component with id: ComponentTypes::Transform to Game Object: 302
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 302
+Added component with id: ComponentTypes::BoxCollider to Game Object: 302
+Created Entity with id: 303
+Added component with id: ComponentTypes::Transform to Game Object: 303
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 303
+Added component with id: ComponentTypes::BoxCollider to Game Object: 303
+Created Entity with id: 304
+Added component with id: ComponentTypes::Transform to Game Object: 304
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 304
+Added component with id: ComponentTypes::BoxCollider to Game Object: 304
+Created Entity with id: 305
+Added component with id: ComponentTypes::Transform to Game Object: 305
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 305
+Added component with id: ComponentTypes::BoxCollider to Game Object: 305
+Created Entity with id: 306
+Added component with id: ComponentTypes::Transform to Game Object: 306
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 306
+Added component with id: ComponentTypes::BoxCollider to Game Object: 306
+Created Entity with id: 307
+Added component with id: ComponentTypes::Transform to Game Object: 307
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 307
+Added component with id: ComponentTypes::BoxCollider to Game Object: 307
+Created Entity with id: 308
+Added component with id: ComponentTypes::Transform to Game Object: 308
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 308
+Added component with id: ComponentTypes::BoxCollider to Game Object: 308
+Created Entity with id: 309
+Added component with id: ComponentTypes::Transform to Game Object: 309
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 309
+Added component with id: ComponentTypes::BoxCollider to Game Object: 309
+Created Entity with id: 310
+Added component with id: ComponentTypes::Transform to Game Object: 310
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 310
+Added component with id: ComponentTypes::BoxCollider to Game Object: 310
+Created Entity with id: 311
+Added component with id: ComponentTypes::Transform to Game Object: 311
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 311
+Added component with id: ComponentTypes::BoxCollider to Game Object: 311
+Created Entity with id: 312
+Added component with id: ComponentTypes::Transform to Game Object: 312
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 312
+Added component with id: ComponentTypes::BoxCollider to Game Object: 312
+Created Entity with id: 313
+Added component with id: ComponentTypes::Transform to Game Object: 313
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 313
+Added component with id: ComponentTypes::BoxCollider to Game Object: 313
+Created Entity with id: 314
+Added component with id: ComponentTypes::Transform to Game Object: 314
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 314
+Added component with id: ComponentTypes::BoxCollider to Game Object: 314
+Created Entity with id: 315
+Added component with id: ComponentTypes::Transform to Game Object: 315
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 315
+Added component with id: ComponentTypes::BoxCollider to Game Object: 315
+Created Entity with id: 316
+Added component with id: ComponentTypes::Transform to Game Object: 316
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 316
+Added component with id: ComponentTypes::BoxCollider to Game Object: 316
+Created Entity with id: 317
+Added component with id: ComponentTypes::Transform to Game Object: 317
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 317
+Added component with id: ComponentTypes::BoxCollider to Game Object: 317
+Created Entity with id: 318
+Added component with id: ComponentTypes::Transform to Game Object: 318
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 318
+Added component with id: ComponentTypes::BoxCollider to Game Object: 318
+Created Entity with id: 319
+Added component with id: ComponentTypes::Transform to Game Object: 319
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 319
+Added component with id: ComponentTypes::BoxCollider to Game Object: 319
+Created Entity with id: 320
+Added component with id: ComponentTypes::Transform to Game Object: 320
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 320
+Added component with id: ComponentTypes::BoxCollider to Game Object: 320
+Created Entity with id: 321
+Added component with id: ComponentTypes::Transform to Game Object: 321
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 321
+Added component with id: ComponentTypes::BoxCollider to Game Object: 321
+Created Entity with id: 322
+Added component with id: ComponentTypes::Transform to Game Object: 322
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 322
+Added component with id: ComponentTypes::BoxCollider to Game Object: 322
+Created Entity with id: 323
+Added component with id: ComponentTypes::Transform to Game Object: 323
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 323
+Added component with id: ComponentTypes::BoxCollider to Game Object: 323
+Created Entity with id: 324
+Added component with id: ComponentTypes::Transform to Game Object: 324
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 324
+Added component with id: ComponentTypes::BoxCollider to Game Object: 324
+Created Entity with id: 325
+Added component with id: ComponentTypes::Transform to Game Object: 325
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 325
+Added component with id: ComponentTypes::BoxCollider to Game Object: 325
+Created Entity with id: 326
+Added component with id: ComponentTypes::Transform to Game Object: 326
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 326
+Added component with id: ComponentTypes::BoxCollider to Game Object: 326
+Created Entity with id: 327
+Added component with id: ComponentTypes::Transform to Game Object: 327
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 327
+Added component with id: ComponentTypes::BoxCollider to Game Object: 327
+Created Entity with id: 328
+Added component with id: ComponentTypes::Transform to Game Object: 328
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 328
+Added component with id: ComponentTypes::BoxCollider to Game Object: 328
+Created Entity with id: 329
+Added component with id: ComponentTypes::Transform to Game Object: 329
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 329
+Added component with id: ComponentTypes::BoxCollider to Game Object: 329
+Created Entity with id: 330
+Added component with id: ComponentTypes::Transform to Game Object: 330
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 330
+Added component with id: ComponentTypes::BoxCollider to Game Object: 330
+Created Entity with id: 331
+Added component with id: ComponentTypes::Transform to Game Object: 331
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 331
+Added component with id: ComponentTypes::BoxCollider to Game Object: 331
+Created Entity with id: 332
+Added component with id: ComponentTypes::Transform to Game Object: 332
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 332
+Added component with id: ComponentTypes::BoxCollider to Game Object: 332
+Created texture Assets/Texture/Scientist.png
+Created texture Assets/Texture/Weapons/Bowie Knife.png
+Created texture Assets/Texture/Blank.png
+Created Entity with id: 333
+Added component with id: ComponentTypes::Transform to Game Object: 333
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 333
+Created Entity with id: 334
+Added component with id: ComponentTypes::Transform to Game Object: 334
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 334
+Added component with id: ComponentTypes::CircleCollider to Game Object: 334
+Added component with id: ComponentTypes::Impulse to Game Object: 334
+Game object '333' already has component with id: 2
+Created texture Assets/Texture/Tmp.png
+Created Entity with id: 335
+Added component with id: ComponentTypes::Transform to Game Object: 335
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 335
+Added component with id: ComponentTypes::BoxCollider to Game Object: 335
+Created Entity with id: 336
+Added component with id: ComponentTypes::Transform to Game Object: 336
+Added component with id: ComponentTypes::Animation to Game Object: 336
+Created Entity with id: 337
+Added component with id: ComponentTypes::Transform to Game Object: 337
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 337
+Added component with id: ComponentTypes::CircleCollider to Game Object: 337
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Created Entity with id: 338
+Added component with id: ComponentTypes::Transform to Game Object: 338
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 338
+Added component with id: ComponentTypes::BoxCollider to Game Object: 338
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Created Entity with id: 339
+Added component with id: ComponentTypes::Transform to Game Object: 339
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 339
+Added component with id: ComponentTypes::BoxCollider to Game Object: 339
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Created Entity with id: 340
+Added component with id: ComponentTypes::Transform to Game Object: 340
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 340
+Added component with id: ComponentTypes::BoxCollider to Game Object: 340
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Created Entity with id: 341
+Added component with id: ComponentTypes::Transform to Game Object: 341
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 341
+Added component with id: ComponentTypes::BoxCollider to Game Object: 341
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Created Entity with id: 342
+Added component with id: ComponentTypes::Transform to Game Object: 342
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 342
+Added component with id: ComponentTypes::BoxCollider to Game Object: 342
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Created Entity with id: 343
+Added component with id: ComponentTypes::Transform to Game Object: 343
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 343
+Added component with id: ComponentTypes::BoxCollider to Game Object: 343
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Created Entity with id: 344
+Added component with id: ComponentTypes::Transform to Game Object: 344
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 344
+Added component with id: ComponentTypes::BoxCollider to Game Object: 344
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Created Entity with id: 345
+Added component with id: ComponentTypes::Transform to Game Object: 345
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 345
+Added component with id: ComponentTypes::BoxCollider to Game Object: 345
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Created Entity with id: 346
+Added component with id: ComponentTypes::Transform to Game Object: 346
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 346
+Added component with id: ComponentTypes::BoxCollider to Game Object: 346
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Created Entity with id: 347
+Added component with id: ComponentTypes::Transform to Game Object: 347
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 347
+Added component with id: ComponentTypes::BoxCollider to Game Object: 347
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Created Entity with id: 348
+Added component with id: ComponentTypes::Transform to Game Object: 348
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 348
+Added component with id: ComponentTypes::BoxCollider to Game Object: 348
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Created Entity with id: 349
+Added component with id: ComponentTypes::Transform to Game Object: 349
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 349
+Added component with id: ComponentTypes::BoxCollider to Game Object: 349
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Created Entity with id: 350
+Added component with id: ComponentTypes::Transform to Game Object: 350
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 350
+Added component with id: ComponentTypes::BoxCollider to Game Object: 350
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Created Entity with id: 351
+Added component with id: ComponentTypes::Transform to Game Object: 351
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 351
+Added component with id: ComponentTypes::BoxCollider to Game Object: 351
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
+Game object '333' already has component with id: 2
 Destroyed Entity with id: 0
 Destroyed Entity with id: 1
 Destroyed Entity with id: 2
@@ -1255,4 +3134,214 @@ Destroyed Entity with id: 138
 Destroyed Entity with id: 139
 Destroyed Entity with id: 140
 Destroyed Entity with id: 141
+Destroyed Entity with id: 142
+Destroyed Entity with id: 143
+Destroyed Entity with id: 144
+Destroyed Entity with id: 145
+Destroyed Entity with id: 146
+Destroyed Entity with id: 147
+Destroyed Entity with id: 148
+Destroyed Entity with id: 149
+Destroyed Entity with id: 150
+Destroyed Entity with id: 151
+Destroyed Entity with id: 152
+Destroyed Entity with id: 153
+Destroyed Entity with id: 154
+Destroyed Entity with id: 155
+Destroyed Entity with id: 156
+Destroyed Entity with id: 157
+Destroyed Entity with id: 158
+Destroyed Entity with id: 159
+Destroyed Entity with id: 160
+Destroyed Entity with id: 161
+Destroyed Entity with id: 162
+Destroyed Entity with id: 163
+Destroyed Entity with id: 164
+Destroyed Entity with id: 165
+Destroyed Entity with id: 166
+Destroyed Entity with id: 167
+Destroyed Entity with id: 168
+Destroyed Entity with id: 169
+Destroyed Entity with id: 170
+Destroyed Entity with id: 171
+Destroyed Entity with id: 172
+Destroyed Entity with id: 173
+Destroyed Entity with id: 174
+Destroyed Entity with id: 175
+Destroyed Entity with id: 176
+Destroyed Entity with id: 177
+Destroyed Entity with id: 178
+Destroyed Entity with id: 179
+Destroyed Entity with id: 180
+Destroyed Entity with id: 181
+Destroyed Entity with id: 182
+Destroyed Entity with id: 183
+Destroyed Entity with id: 184
+Destroyed Entity with id: 185
+Destroyed Entity with id: 186
+Destroyed Entity with id: 187
+Destroyed Entity with id: 188
+Destroyed Entity with id: 189
+Destroyed Entity with id: 190
+Destroyed Entity with id: 191
+Destroyed Entity with id: 192
+Destroyed Entity with id: 193
+Destroyed Entity with id: 194
+Destroyed Entity with id: 195
+Destroyed Entity with id: 196
+Destroyed Entity with id: 197
+Destroyed Entity with id: 198
+Destroyed Entity with id: 199
+Destroyed Entity with id: 200
+Destroyed Entity with id: 201
+Destroyed Entity with id: 202
+Destroyed Entity with id: 203
+Destroyed Entity with id: 204
+Destroyed Entity with id: 205
+Destroyed Entity with id: 206
+Destroyed Entity with id: 207
+Destroyed Entity with id: 208
+Destroyed Entity with id: 209
+Destroyed Entity with id: 210
+Destroyed Entity with id: 211
+Destroyed Entity with id: 212
+Destroyed Entity with id: 213
+Destroyed Entity with id: 214
+Destroyed Entity with id: 215
+Destroyed Entity with id: 216
+Destroyed Entity with id: 217
+Destroyed Entity with id: 218
+Destroyed Entity with id: 219
+Destroyed Entity with id: 220
+Destroyed Entity with id: 221
+Destroyed Entity with id: 222
+Destroyed Entity with id: 223
+Destroyed Entity with id: 224
+Destroyed Entity with id: 225
+Destroyed Entity with id: 226
+Destroyed Entity with id: 227
+Destroyed Entity with id: 228
+Destroyed Entity with id: 229
+Destroyed Entity with id: 230
+Destroyed Entity with id: 231
+Destroyed Entity with id: 232
+Destroyed Entity with id: 233
+Destroyed Entity with id: 234
+Destroyed Entity with id: 235
+Destroyed Entity with id: 236
+Destroyed Entity with id: 237
+Destroyed Entity with id: 238
+Destroyed Entity with id: 239
+Destroyed Entity with id: 240
+Destroyed Entity with id: 241
+Destroyed Entity with id: 242
+Destroyed Entity with id: 243
+Destroyed Entity with id: 244
+Destroyed Entity with id: 245
+Destroyed Entity with id: 246
+Destroyed Entity with id: 247
+Destroyed Entity with id: 248
+Destroyed Entity with id: 249
+Destroyed Entity with id: 250
+Destroyed Entity with id: 251
+Destroyed Entity with id: 252
+Destroyed Entity with id: 253
+Destroyed Entity with id: 254
+Destroyed Entity with id: 255
+Destroyed Entity with id: 256
+Destroyed Entity with id: 257
+Destroyed Entity with id: 258
+Destroyed Entity with id: 259
+Destroyed Entity with id: 260
+Destroyed Entity with id: 261
+Destroyed Entity with id: 262
+Destroyed Entity with id: 263
+Destroyed Entity with id: 264
+Destroyed Entity with id: 265
+Destroyed Entity with id: 266
+Destroyed Entity with id: 267
+Destroyed Entity with id: 268
+Destroyed Entity with id: 269
+Destroyed Entity with id: 270
+Destroyed Entity with id: 271
+Destroyed Entity with id: 272
+Destroyed Entity with id: 273
+Destroyed Entity with id: 274
+Destroyed Entity with id: 275
+Destroyed Entity with id: 276
+Destroyed Entity with id: 277
+Destroyed Entity with id: 278
+Destroyed Entity with id: 279
+Destroyed Entity with id: 280
+Destroyed Entity with id: 281
+Destroyed Entity with id: 282
+Destroyed Entity with id: 283
+Destroyed Entity with id: 284
+Destroyed Entity with id: 285
+Destroyed Entity with id: 286
+Destroyed Entity with id: 287
+Destroyed Entity with id: 288
+Destroyed Entity with id: 289
+Destroyed Entity with id: 290
+Destroyed Entity with id: 291
+Destroyed Entity with id: 292
+Destroyed Entity with id: 293
+Destroyed Entity with id: 294
+Destroyed Entity with id: 295
+Destroyed Entity with id: 296
+Destroyed Entity with id: 297
+Destroyed Entity with id: 298
+Destroyed Entity with id: 299
+Destroyed Entity with id: 300
+Destroyed Entity with id: 301
+Destroyed Entity with id: 302
+Destroyed Entity with id: 303
+Destroyed Entity with id: 304
+Destroyed Entity with id: 305
+Destroyed Entity with id: 306
+Destroyed Entity with id: 307
+Destroyed Entity with id: 308
+Destroyed Entity with id: 309
+Destroyed Entity with id: 310
+Destroyed Entity with id: 311
+Destroyed Entity with id: 312
+Destroyed Entity with id: 313
+Destroyed Entity with id: 314
+Destroyed Entity with id: 315
+Destroyed Entity with id: 316
+Destroyed Entity with id: 317
+Destroyed Entity with id: 318
+Destroyed Entity with id: 319
+Destroyed Entity with id: 320
+Destroyed Entity with id: 321
+Destroyed Entity with id: 322
+Destroyed Entity with id: 323
+Destroyed Entity with id: 324
+Destroyed Entity with id: 325
+Destroyed Entity with id: 326
+Destroyed Entity with id: 327
+Destroyed Entity with id: 328
+Destroyed Entity with id: 329
+Destroyed Entity with id: 330
+Destroyed Entity with id: 331
+Destroyed Entity with id: 332
+Destroyed Entity with id: 333
+Destroyed Entity with id: 334
+Destroyed Entity with id: 335
+Destroyed Entity with id: 336
+Destroyed Entity with id: 337
+Destroyed Entity with id: 338
+Destroyed Entity with id: 339
+Destroyed Entity with id: 340
+Destroyed Entity with id: 341
+Destroyed Entity with id: 342
+Destroyed Entity with id: 343
+Destroyed Entity with id: 344
+Destroyed Entity with id: 345
+Destroyed Entity with id: 346
+Destroyed Entity with id: 347
+Destroyed Entity with id: 348
+Destroyed Entity with id: 349
+Destroyed Entity with id: 350
+Destroyed Entity with id: 351
 Destroyed scene with name: MainScene
