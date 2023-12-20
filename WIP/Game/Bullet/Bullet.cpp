@@ -46,7 +46,7 @@ void Bullet::OnCollisionEnter(jci::Entity* other)
 {
 	if (other->GetTag() == "Enemy")
 	{
-
+		DLOG("Hit!");
 	}
 }
 
@@ -54,6 +54,6 @@ void Bullet::OnCollisionStay(jci::Entity* other)
 {
 }
 
-void Bullet::OnCollisionExit()
+void Bullet::OnCollisionExit(jci::Entity* other)
 {
 }
