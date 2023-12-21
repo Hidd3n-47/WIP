@@ -78,7 +78,7 @@ void Application::Create()
 void Application::Update(float dt)
 {
 	p1->Update(dt);
-	manager->Update();
+	manager->Update(dt);
 	EnemyManager::getEnemyManager()->Update(dt);
 	//z1->Update(dt);
 }
