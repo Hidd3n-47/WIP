@@ -12,7 +12,7 @@ public:
 	inline IStateMachine(IState* startinState) : m_state(startinState) { m_state->OnStateEnter(); }
 	virtual ~IStateMachine() = default;
 	
-	inline void Update() { m_state->OnStateUpdate(); }
+	inline void Update(float dt) { m_state->OnStateUpdate(dt); }
 
 	inline void ChangeState(IState* newState) { m_state = newState; }
 private:

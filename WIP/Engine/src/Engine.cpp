@@ -91,7 +91,7 @@ void Engine::Run()
 
 		AnimationManager::Instance()->Update();
 
-		StateMachineManager::Instance()->Update();
+		StateMachineManager::Instance()->Update(dt);
 
 		PhysicsManager::Instance()->Update(dt);
 		

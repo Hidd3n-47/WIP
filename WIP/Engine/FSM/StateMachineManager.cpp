@@ -7,11 +7,11 @@ namespace jci {
 
 StateMachineManager* StateMachineManager::m_instance = nullptr;
 
-void StateMachineManager::Update()
+void StateMachineManager::Update(float dt)
 {
 	for (IStateMachine* stateMachine : m_stateMachines)
 	{
-		stateMachine->Update();
+		stateMachine->Update(dt);
 	}
 }
 

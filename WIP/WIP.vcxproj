@@ -167,7 +167,9 @@
     <ClCompile Include="Game\Gun\Gun.cpp" />
     <ClCompile Include="Game\Levels\Levels.cpp" />
     <ClCompile Include="Game\Player\Player.cpp" />
+    <ClCompile Include="Game\Player\PlayerStates.cpp" />
     <ClCompile Include="Game\Player\PlayerStateMachine.cpp" />
+    <ClCompile Include="Game\Player\PlayerStateManager.cpp" />
     <ClCompile Include="Game\src\Application.cpp" />
     <ClCompile Include="Engine\Camera\Camera.cpp" />
     <ClCompile Include="Engine\src\Engine.cpp" />
@@ -240,7 +242,9 @@
     <ClInclude Include="Game\EnemyManager\EnemyManager.h" />
     <ClInclude Include="Game\Levels\Levels.h" />
     <ClInclude Include="Game\Player\Player.h" />
+    <ClInclude Include="Game\Player\PlayerStates.h" />
     <ClInclude Include="Game\Player\PlayerStateMachine.h" />
+    <ClInclude Include="Game\Player\PlayerStateManager.h" />
     <ClInclude Include="Game\src\Application.h" />
     <ClInclude Include="Engine\Camera\Camera.h" />
     <ClInclude Include="Engine\ECS\Entity.h" />
