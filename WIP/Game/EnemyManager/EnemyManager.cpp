@@ -25,15 +25,12 @@ Uint32 EnemyManager::getZombieTexture()
 	return zombieText;
 }
 
-bool EnemyManager::PlayerOutOfRange()
+bool EnemyManager::PlayerOutOfRange(jci::Entity* spawner)
 {
-	float minDistance = 2.0f;//Not directly overlapping
-	for (auto i : EnemySquares)
+	float minDistance = 3.0f;//Not directly overlapping
+	if (glm::length(player->GetPos() - spawner->GetComponent<jci::Transform>()->GetPosition()) < minDistance)
 	{
-		if (abs(i->GetComponent<jci::Transform>()->GetPosition() - player->GetPos()).length() < minDistance)
-		{
-			return false;//fail at first overlap
-		}
+		return false;//fail at first overlap
 	}
 	return true;//success
 }
@@ -95,7 +92,7 @@ void EnemyManager::Update(float dt)
 	}
 	else
 	{
-		if (spawnCD->TimerTick() == jci::TimerStatus::TimeElapsed && PlayerOutOfRange())
+		if (spawnCD->TimerTick() == jci::TimerStatus::TimeElapsed)
 		{
 			//DLOG("Timer Elapsed");
 			if (spawnQueue-1 < 0)
@@ -105,10 +102,14 @@ void EnemyManager::Update(float dt)
 			}
 			else
 			{
-				spawnQueue--;
+				vec2 SpawnPosition;
 				for (auto f : EnemySquares)
 				{
-					CreateZombie(f->GetComponent<jci::Transform>()->GetPosition());
+					spawnQueue--;
+					if (PlayerOutOfRange(f))
+					{
+						CreateZombie(f->GetComponent<jci::Transform>()->GetPosition());
+					}
 				}
 			}
 		}
