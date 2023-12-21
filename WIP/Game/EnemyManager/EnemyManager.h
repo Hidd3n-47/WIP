@@ -19,7 +19,7 @@ namespace jci
 		int spawnQueue;
 		jci::Timer* spawnCD;
 		bool PlayerInCollisionRange;
-		bool PlayerOutOfRange();
+		bool PlayerOutOfRange(jci::Entity* spawner);
 		void CreateZombie(vec2 point);
 		EnemyManager();
 	public:
