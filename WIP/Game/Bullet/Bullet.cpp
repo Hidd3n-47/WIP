@@ -17,11 +17,12 @@ void Bullet::bulletFire(vec2 d)
 	isMove = true;
 }
 
-void Bullet::SetActive(vec2 playerPosition, vec2 direction)
+void Bullet::SetActive(vec2 playerPosition, vec2 dir)
 {
 	body->SetActive(true);
+	isMove = true;
 	body->GetComponent<jci::Transform>()->SetPosition(playerPosition);
-	direction = direction;
+	direction = dir;
 }
 
 void Bullet::Update()

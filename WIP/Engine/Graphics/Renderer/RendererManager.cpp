@@ -74,7 +74,7 @@ void RendererManager::Begin()
 
 	for(const Quad* q : m_quads)
 	{
-		if (q->active && !q->active)
+		if (q->active && !*q->active)
 		{
 			continue;
 		}

@@ -28,13 +28,13 @@ void BulletManager::Create()
 	}
 }
 
-void BulletManager::Update()
+void BulletManager::Update(float dt)
 {
 	for (int i = 0; i < bulletPool.size(); i++)
 	{
 		if (bulletPool.at(i)->GetMove())
 		{
-			bulletPool.at(i)->body->GetComponent<jci::Transform>()->AddToPosition(bulletPool.at(i)->direction);
+			bulletPool.at(i)->body->GetComponent<jci::Transform>()->AddToPosition(bulletPool.at(i)->direction * dt);
 		}
 		if (bulletPool.at(i)->GetSpawnTime() + 5000 <= SDL_GetTicks() && bulletPool.at(i)->GetMove())
 		{

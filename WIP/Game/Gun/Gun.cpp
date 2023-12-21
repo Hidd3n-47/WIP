@@ -8,7 +8,7 @@
 Gun::Gun(BulletManager* bM)
 {
 	bulletManager = bM;
-	m_bulletSpeed = 0.01f;
+	m_bulletSpeed = 5.0f;
 }
 
 void Gun::Create(int rateOfFire)

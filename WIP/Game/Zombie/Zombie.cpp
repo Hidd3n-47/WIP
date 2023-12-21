@@ -80,7 +80,8 @@ void Zombie::OnCollisionEnter(jci::Entity* other)
 
 		if (hp <= 0.0f)
 		{
-			jci::Engine::Instance()->DestroyEntity(zombert);
+			//jci::Engine::Instance()->DestroyEntity(zombert);
+			zombert->SetActive(false);
 		}
 		
 	}	
