@@ -32,3 +32,45 @@ private:
 	PlayerS* m_player = nullptr;
 	uint32 m_movingTexture = 0;
 };
+
+class PlayerDashingState : public jci::IState
+{
+public:
+	PlayerDashingState() = default;
+	~PlayerDashingState() = default;
+
+	virtual void OnStateEnter() final;
+	virtual void OnStateUpdate(float dt) final;
+	virtual void OnStateExit() final;
+private:
+	PlayerS* m_player = nullptr;
+	uint32 m_movingTexture = 0;
+};
+
+class PlayerMeleeState : public jci::IState
+{
+public:
+	PlayerMeleeState() = default;
+	~PlayerMeleeState() = default;
+
+	virtual void OnStateEnter() final;
+	virtual void OnStateUpdate(float dt) final;
+	virtual void OnStateExit() final;
+private:
+	PlayerS* m_player = nullptr;
+	uint32 m_movingTexture = 0;
+};
+
+class PlayerShootingState : public jci::IState
+{
+public:
+	PlayerShootingState() = default;
+	~PlayerShootingState() = default;
+
+	virtual void OnStateEnter() final;
+	virtual void OnStateUpdate(float dt) final;
+	virtual void OnStateExit() final;
+private:
+	PlayerS* m_player = nullptr;
+	uint32 m_movingTexture = 0;
+};

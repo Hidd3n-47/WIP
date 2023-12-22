@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -168,7 +168,6 @@
     <ClCompile Include="Game\Levels\Levels.cpp" />
     <ClCompile Include="Game\Player\Player.cpp" />
     <ClCompile Include="Game\Player\PlayerStates.cpp" />
-    <ClCompile Include="Game\Player\PlayerStateMachine.cpp" />
     <ClCompile Include="Game\Player\PlayerStateManager.cpp" />
     <ClCompile Include="Game\src\Application.cpp" />
     <ClCompile Include="Engine\Camera\Camera.cpp" />
@@ -243,7 +242,6 @@
     <ClInclude Include="Game\Levels\Levels.h" />
     <ClInclude Include="Game\Player\Player.h" />
     <ClInclude Include="Game\Player\PlayerStates.h" />
-    <ClInclude Include="Game\Player\PlayerStateMachine.h" />
     <ClInclude Include="Game\Player\PlayerStateManager.h" />
     <ClInclude Include="Game\src\Application.h" />
     <ClInclude Include="Engine\Camera\Camera.h" />

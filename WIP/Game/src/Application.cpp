@@ -27,7 +27,7 @@ void Application::Create()
 	p1->Create(map->GetSpawnPoint(), g1);
 	p1->setLevel(map);*/
 
-	PlayerStateManager::Instance()->Init(map->GetSpawnPoint());
+	PlayerStateManager::Instance()->Init(map->GetSpawnPoint(), g1);
 
 	//uint32 text = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Tmp.png", 4, 1);
 

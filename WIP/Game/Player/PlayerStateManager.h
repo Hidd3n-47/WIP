@@ -2,6 +2,7 @@
 
 #include <Engine/Collision/ICollision.h>
 #include <Engine/FSM/IState.h>
+#include <Game/Gun/Gun.h>
 
 namespace jci
 {
@@ -14,6 +15,14 @@ struct PlayerS
 	jci::Entity*	playerEntity	= nullptr;
 	vec2*			position		= nullptr;
 	float			speed			= 5.0f;
+	jci::Entity*	m_knife			= nullptr;
+	jci::Timer*		stabbin			= nullptr;
+	Gun*			m_equippedGun	= nullptr;
+	uint32			m_blankTexture;
+	uint32			m_knifeTexture;
+	float			m_width;
+	float			m_height;
+	float			time;
 
 	vec2 GetInputDirection();
 };
@@ -23,6 +32,8 @@ enum class PlayerState
 	Idle = 0,
 	Moving,
 	Dashing,
+	Melee,
+	Shooting,
 	/* Reloading, */
 	Count // To keep track of the number of player states.
 };
@@ -32,7 +43,7 @@ class PlayerStateManager : public jci::ICollision
 public:
 	inline static PlayerStateManager* Instance() { return m_instance == nullptr ? m_instance = new PlayerStateManager() : m_instance; }
 
-	void Init(vec2 playerStartPosition);
+	void Init(vec2 playerStartPosition, Gun* theGun);
 
 	void Update(float dt);
 
