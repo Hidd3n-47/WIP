@@ -34,7 +34,7 @@ enum class PlayerState
 	Dashing,
 	Melee,
 	Shooting,
-	/* Reloading, */
+	Reloading, 
 	Count // To keep track of the number of player states.
 };
 

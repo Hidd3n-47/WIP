@@ -38,6 +38,11 @@ void PlayerIdleState::OnStateUpdate(float dt)
 		PlayerStateManager::Instance()->SetState(PlayerState::Shooting);
 	}
 
+	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_r))
+	{
+		PlayerStateManager::Instance()->SetState(PlayerState::Reloading);
+	}
+
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Right))
 	{
 		PlayerStateManager::Instance()->SetState(PlayerState::Melee);
@@ -79,6 +84,11 @@ void PlayerMovingState::OnStateUpdate(float dt)
 		PlayerStateManager::Instance()->SetState(PlayerState::Shooting);
 	}
 
+	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_r))
+	{
+		PlayerStateManager::Instance()->SetState(PlayerState::Reloading);
+	}
+
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Right))
 	{
 		PlayerStateManager::Instance()->SetState(PlayerState::Melee);
@@ -96,7 +106,7 @@ void PlayerMovingState::OnStateExit()
 {
 }
 
-// ---------------------------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------------------------
 
 // ---------------------------------------------------- Player Dashing State --------------------------------------------------------------
 
@@ -137,7 +147,7 @@ void PlayerDashingState::OnStateExit()
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 
-// ---------------------------------------------------- Player Melee State --------------------------------------------------------------
+// ---------------------------------------------------- Player Melee State ---------------------------------------------------------------
 
 void PlayerMeleeState::OnStateEnter()
 {
@@ -175,7 +185,7 @@ void PlayerMeleeState::OnStateExit()
 	m_player->m_knife->GetComponent<jci::Transform>()->SetPosition(vec2(200.0f, 200.0f));
 }
 
-// ---------------------------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------------------------
 
 // ---------------------------------------------------- Player Shooting State --------------------------------------------------------------
 
@@ -203,6 +213,38 @@ void PlayerShootingState::OnStateUpdate(float dt)
 }
 
 void PlayerShootingState::OnStateExit()
+{
+
+}
+
+// ---------------------------------------------------------------------------------------------------------------------------------------
+
+// ---------------------------------------------------- Player Reloading State --------------------------------------------------------------
+
+void PlayerReloadingState::OnStateEnter()
+{
+	if (!m_player)
+	{
+		m_player = PlayerStateManager::Instance()->GetPlayer();
+	}
+
+	m_player->m_equippedGun->m_inClip = m_player->m_equippedGun->m_magSize;
+}
+
+void PlayerReloadingState::OnStateUpdate(float dt)
+{
+	vec2 direction = m_player->GetInputDirection();
+	if (direction != vec2(0.0f))
+	{
+		PlayerStateManager::Instance()->SetState(PlayerState::Moving);
+	}
+	else
+	{
+		PlayerStateManager::Instance()->SetState(PlayerState::Idle);
+	}
+}
+
+void PlayerReloadingState::OnStateExit()
 {
 
 }

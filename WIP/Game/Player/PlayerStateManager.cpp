@@ -40,6 +40,7 @@ PlayerStateManager::PlayerStateManager()
 	m_playerStates.push_back(new PlayerShootingState());
 	m_playerStates.push_back(new PlayerMeleeState());
 	m_playerStates.push_back(new PlayerDashingState());
+	m_playerStates.push_back(new PlayerReloadingState());
 
 }
 

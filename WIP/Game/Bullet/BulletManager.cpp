@@ -46,7 +46,7 @@ void BulletManager::Update(float dt)
 
 void BulletManager::ShootBullet(vec2 d, vec2 playPos)
 {
-	if (nextBullet > POOLSIZE)
+	if (nextBullet > POOLSIZE-1)
 	{
 		nextBullet = 0;
 	}

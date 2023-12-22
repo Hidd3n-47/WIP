@@ -74,3 +74,17 @@ private:
 	PlayerS* m_player = nullptr;
 	uint32 m_movingTexture = 0;
 };
+
+class PlayerReloadingState : public jci::IState
+{
+public:
+	PlayerReloadingState() = default;
+	~PlayerReloadingState() = default;
+
+	virtual void OnStateEnter() final;
+	virtual void OnStateUpdate(float dt) final;
+	virtual void OnStateExit() final;
+private:
+	PlayerS* m_player = nullptr;
+	uint32 m_movingTexture = 0;
+};
