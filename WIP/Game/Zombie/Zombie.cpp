@@ -5,6 +5,7 @@
 #include <Engine/ECS/SpriteRenderer.h>
 #include <Engine/ECS/BoxCollider.h>
 #include <Engine/Input/InputManager.h>
+#include <Engine/ECS/ParticleEmission.h>
 #include <Game/Bullet/Bullet.h>
 #include <Game/Player/Player.h>
 
@@ -34,14 +35,28 @@ void Zombie::Create(vec2 point, Player* play, uint32 zombieTexture) //Spawn at s
 	player = play;
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	zombert = m_currentScene->CreateEmptyEntity();
-	zombert->GetComponent<jci::Transform>()->SetPosition(point);
+	m_position = zombert->GetComponent<jci::Transform>()->GetPositionPointer();
+	*m_position = point;
 	zombert->AddComponent<jci::SpriteRenderer>()->SetTexture(zombieTexture);
 	zombert->SetTag("Enemy");
 	jci::BoxCollider* bc = zombert->AddComponent<jci::BoxCollider>();
 	bc->SetBodyType(jci::BodyType::Kinematic);
 	bc->SetCollisionMethods(this);
 	zombert->GetComponent<jci::BoxCollider>()->SetSize({ 0.6f, 1.0f });
+	m_particles = zombert->AddComponent<jci::ParticleEmission>();
 	hp = 30;
+
+	jci::ParticleProperties props;
+	props.position = vec2(6, -6);
+	props.color = vec4(0.533f, 0.031f, 0.031f, 1.0f);
+	props.sizeVariation = 0.05f;
+	props.lifeTime = 0.6f;
+	props.startSize = 0.1f;
+	props.endSize = 0.01f;
+	props.velocity = vec2(1.f, 0.0f);
+	props.velocityVariation = vec2(1.0f, 0.8f);
+	props.numParticles = 20;
+	m_particles->SetProperties(props);
 	//zombert->AddComponent<jci::AI>()->SetTargetPosition(Application::Instance()->GetPlayerPositionPointer());
 }
 
@@ -75,6 +90,8 @@ void Zombie::OnCollisionEnter(jci::Entity* other)
 {
 	if (other->GetTag() == "Bullet")
 	{
+		m_particles->SetParticlePosition(*m_position);
+		m_particles->Emit();
 		hp -= 10.0f;
 		std::cout << "Damaged the zombie for 10hp. Hp is " << hp << "\n";
 

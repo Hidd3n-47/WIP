@@ -34,6 +34,15 @@ struct Quad
 	bool		flipVertically		= false;
 };
 
+struct ParticleVertex
+{
+	inline ParticleVertex() = default;
+	inline ParticleVertex(vec2 position, vec4 color);
+
+	vec3 position;
+	vec4 color;
+};
+
 class RendererManager
 {
 public:
@@ -43,14 +52,14 @@ public:
 	void RemoveQuadFromQueue(Quad* quad);
 
 	void Init();
-	void Begin();
 
+	void Begin();
 	void End();
 	void Flush();
 
 	inline void Destroy() { delete m_instance; }
 
-	const uint32 MAX_QUADS = (MAX_ENTITIES - 1) * 2;
+	const uint32 MAX_QUADS = (MAX_ENTITIES - 1);
 	static const uint32 MAX_TEXTURE_SLOTS = 32;
 
 	inline void SetLightPosition(vec2* lightPos) { m_lightPosition = lightPos; }
@@ -62,15 +71,27 @@ private:
 
 	std::vector<Quad*> m_quads;
 
+	// Sprite Renderering.
 	VertexBuffer* m_vertexBuffer	= nullptr;
 	VertexArray* m_vertexArray		= nullptr;
 	Vertex* m_verticesBase			= nullptr;
 	Vertex* m_verticesPtr			= nullptr;
 	Shader* m_shader				= nullptr;
 
+	// Particle Rendering.
+	VertexBuffer* m_particleVertexBuffer	= nullptr;
+	VertexArray* m_particleVertexArray		= nullptr;
+	ParticleVertex* m_particleVerticesBase	= nullptr;
+	ParticleVertex* m_particleVerticesPtr	= nullptr;
+	Shader* m_particleShader				= nullptr;
+
+	// Textures.
 	std::array<Texture*, MAX_TEXTURE_SLOTS> m_textureSlots;
-	uint32 textureSlotIndex = 0;
-	uint32 indexCount = 0;
+	uint32 m_textureSlotIndex = 0;
+
+	// Indices.
+	uint32 m_indexCount = 0;
+	uint32 m_particleIndexCount = 0;
 
 	vec2* m_lightPosition = nullptr;
 };

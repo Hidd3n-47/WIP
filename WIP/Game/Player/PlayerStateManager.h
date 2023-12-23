@@ -53,6 +53,11 @@ public:
 	*/
 	inline vec2 GetPlayerPosition() const { return *m_player.position; }
 	/***
+	* Get the pointer of the player position.
+	*
+	*/
+	inline vec2* GetPlayerPositionPointer() { return m_player.position; }
+	/***
 	* Get the player.
 	*
 	*/

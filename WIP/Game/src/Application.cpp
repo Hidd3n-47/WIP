@@ -29,19 +29,11 @@ void Application::Create()
 
 	PlayerStateManager::Instance()->Init(map->GetSpawnPoint(), g1);
 
-	//uint32 text = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Tmp.png", 4, 1);
+	/*z1 = new Zombie();
+	z1->Create({ 11, -6 }, PlayerStateManager::Instance()->GetPlayerPositionPointer(), em->getZombieTexture());*/
+	
 
-	/*Zombie* z1 = new Zombie();
-	z1->Create({ 11, -6 }, p1, em->getZombieTexture());
-	jci::Entity* e = m_currentScene->CreateEmptyEntity();
-	jci::Animation* a = e->AddComponent<jci::Animation>();
-	a->SetTexture(text);
-	a->SetAnimationCount(4);
-	a->SetTimeBetweenFrames(0.3f);
-	em->spawnWave(300);
-	em->setPlayer(p1);
-
-	jci::Entity* e1 = m_currentScene->CreateEmptyEntity();
+	/*jci::Entity* e1 = m_currentScene->CreateEmptyEntity();
 	e1->GetComponent<jci::Transform>()->SetPosition({ 8, -6 });
 	e1->AddComponent<jci::SpriteRenderer>()->SetTexture(em->getZombieTexture());
 	e1->AddComponent<jci::CircleCollider>()->SetBodyType(jci::BodyType::Kinematic);*/
@@ -54,4 +46,5 @@ void Application::Update(float dt)
 	manager->Update(dt);
 	EnemyManager::getEnemyManager()->Update(dt);
 	//z1->Update(dt);
+
 }

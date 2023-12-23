@@ -5,6 +5,8 @@
 
 namespace jci {
 
+ParticleManager* ParticleManager::m_instance = nullptr;
+
 void ParticleManager::Update(float dt)
 {
 	for (Particle& p : m_particles)
@@ -17,15 +19,16 @@ void ParticleManager::Update(float dt)
 		if (p.lifeRemaining <= 0.0f)
 		{
 			p.active = false;
+			continue;
 		}
 
 		p.lifeRemaining -= dt;
 		p.position += p.velocity * dt;
 		p.rotation += 0.001f * dt;
 
-		/*float percentage = p.lifeRemaining / p.lifeTime;
-		color.a = color.a * percentage;
-		float size = glm::lerp(p.endSize, p.startSize, percentage);*/
+		float percentage = p.lifeRemaining / p.lifeTime;
+		p.color.a = percentage;
+		p.size = p.endSize + percentage * (p.startSize - p.endSize);
 	}
 }
 
@@ -49,7 +52,7 @@ void ParticleManager::Emit(const ParticleProperties& properties)
 		particle.startSize = properties.startSize + properties.sizeVariation * (Random::Instance()->Rand() - 0.5f);
 		particle.endSize = properties.endSize;
 
-		m_particleIndex = --m_particleIndex % m_particles.size();
+		m_particleIndex = (m_particleIndex + 1) % MAX_PARTICLES;
 	}
 }
 

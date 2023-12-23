@@ -18,19 +18,20 @@ struct ParticleProperties
 
 class ParticleManager
 {
+	friend class RendererManager;
 public:
 	inline static ParticleManager* Instance() { return !m_instance ? m_instance = new ParticleManager() : m_instance; }
 
 	void Update(float dt);
 
 	void Emit(const ParticleProperties& properties);
+
+	const uint16 MAX_PARTICLES = 1500;
 private:
 	inline ParticleManager() { m_particles.resize(MAX_PARTICLES); }
 	~ParticleManager() = default;
 
 	static ParticleManager* m_instance;
-
-	const uint16 MAX_PARTICLES = 1500;
 
 	struct Particle
 	{
@@ -39,13 +40,14 @@ private:
 		vec4	color;
 		float	startSize;
 		float	endSize;
+		float	size;
 		float	rotation;
 		float	lifeTime;
 		float	lifeRemaining;
 		bool	active;
 	};
 	std::vector<Particle> m_particles;
-	uint16 m_particleIndex = MAX_PARTICLES - 1;
+	uint16 m_particleIndex = 0;
 };
 
 }// Namespace jci.

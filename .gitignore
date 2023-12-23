@@ -399,3 +399,4 @@ FodyWeavers.xsd
 
 # Remove Engine Log
 EngineLog/
+WIP/EngineLog/log.jci

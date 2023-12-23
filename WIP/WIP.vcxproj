@@ -183,7 +183,6 @@
     <ClCompile Include="Engine\Scene\SceneManager.cpp" />
     <ClCompile Include="Engine\Scene\Scene.cpp" />
     <ClCompile Include="Engine\Graphics\Renderer\Shader.cpp" />
-    <ClCompile Include="Engine\Graphics\Renderer\Renderer.cpp" />
     <ClCompile Include="Engine\ECS\SpriteRenderer.cpp" />
     <ClCompile Include="Engine\Graphics\Texture\Texture.cpp" />
     <ClCompile Include="deps\include\stb_image\stb_image.cpp" />
@@ -257,7 +256,6 @@
     <ClInclude Include="Engine\Scene\SceneManager.h" />
     <ClInclude Include="Engine\Scene\Scene.h" />
     <ClInclude Include="Engine\Graphics\Renderer\Shader.h" />
-    <ClInclude Include="Engine\Graphics\Renderer\Renderer.h" />
     <ClInclude Include="Engine\ECS\IComponent.h" />
     <ClInclude Include="Engine\ECS\SpriteRenderer.h" />
     <ClInclude Include="Engine\Graphics\Texture\Texture.h" />
@@ -282,6 +280,8 @@
     <None Include="Assets\Levels\TestRoom.csv" />
     <None Include="Assets\Shader\light.frag" />
     <None Include="Assets\Shader\light.vert" />
+    <None Include="Assets\Shader\particleShader.frag" />
+    <None Include="Assets\Shader\particleShader.vert" />
     <None Include="Assets\Shader\shader.frag" />
     <None Include="Assets\Shader\shader.vert" />
   </ItemGroup>

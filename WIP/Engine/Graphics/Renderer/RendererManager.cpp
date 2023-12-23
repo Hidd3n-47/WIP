@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "RendererManager.h"
 
-#include "Renderer.h"
 #include "ECS/Entity.h"
 #include "ECS/Transform.h"
 #include "Scene/SceneManager.h"
@@ -19,6 +18,7 @@ RendererManager* RendererManager::m_instance = nullptr;
 
 void RendererManager::Init()
 { 
+	// Sprite Rendering.
 	m_vertexArray = new VertexArray();
 
 	m_vertexBuffer = new VertexBuffer(MAX_QUADS * sizeof(Vertex) * 4);
@@ -27,9 +27,9 @@ void RendererManager::Init()
 
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), nullptr);
-	glEnableVertexAttribArray(1);					
+	glEnableVertexAttribArray(1);
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(sizeof(float) * 3));
-	glEnableVertexAttribArray(2);					
+	glEnableVertexAttribArray(2);
 	glVertexAttribPointer(2, 1, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(sizeof(float) * 5));
 
 	m_verticesBase = new Vertex[MAX_QUADS * 4];
@@ -65,12 +65,52 @@ void RendererManager::Init()
 	m_shader->UploadUniformIntArray("u_texture", samplers, MAX_TEXTURE_SLOTS);
 
 	delete[] indices;
+
+	// ParticleRenderering.
+	const uint16 MAX_PARTICLES = ParticleManager::Instance()->MAX_PARTICLES;
+
+	m_particleVertexArray = new VertexArray();
+
+	m_particleVertexBuffer = new VertexBuffer(MAX_PARTICLES * sizeof(ParticleVertex) * 4);
+
+	m_particleVertexArray->SetVertexBuffer(m_particleVertexBuffer);
+
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(ParticleVertex), nullptr);
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(ParticleVertex), (void*)(sizeof(float) * 3));
+
+	m_particleVerticesBase = new ParticleVertex[MAX_PARTICLES * 4];
+	m_particleVerticesPtr = m_particleVerticesBase;
+
+	uint32* partIndices = new uint32[MAX_PARTICLES * 6];
+
+	offset = 0;
+	for (uint32 i = 0; i < MAX_PARTICLES * 6; i += 6)
+	{
+		partIndices[i + 0] = offset + 0;
+		partIndices[i + 1] = offset + 1;
+		partIndices[i + 2] = offset + 2;
+
+		partIndices[i + 3] = offset + 2;
+		partIndices[i + 4] = offset + 3;
+		partIndices[i + 5] = offset + 0;
+
+		offset += 4;
+	}
+
+	m_particleVertexArray->SetIndexBuffer(partIndices, MAX_PARTICLES * 6);
+
+	m_particleShader = new Shader("Assets/Shader/particleShader.vert", "Assets/Shader/particleShader.frag");
+	m_particleShader->Bind();
+
+	delete[] partIndices;
 }
 
 void RendererManager::Begin()
 {
 	m_verticesPtr = m_verticesBase;
-	indexCount = 0;
+	m_indexCount = 0;
 
 	for(const Quad* q : m_quads)
 	{
@@ -84,7 +124,7 @@ void RendererManager::Begin()
 		Texture* texture = !q->texture ? TextureManager::Instance()->GetTexture(EngineTextureIndex::NoTexture) : q->texture;
 
 		float textureIndex = -1.0f;
-		for (uint32 i = 0; i < textureSlotIndex; i++)
+		for (uint32 i = 0; i < m_textureSlotIndex; i++)
 		{
 			if (m_textureSlots[i] == texture)
 			{
@@ -95,9 +135,9 @@ void RendererManager::Begin()
 
 		if (textureIndex == -1.0f)
 		{
-			textureIndex = (float)textureSlotIndex;
-			m_textureSlots[textureSlotIndex] = texture;
-			textureSlotIndex++;
+			textureIndex = (float)m_textureSlotIndex;
+			m_textureSlots[m_textureSlotIndex] = texture;
+			m_textureSlotIndex++;
 		}
 
 		// Rotation.
@@ -144,33 +184,56 @@ void RendererManager::Begin()
 		m_verticesPtr->textureId = textureIndex;
 		m_verticesPtr++;
 
-		indexCount += 6;
+		m_indexCount += 6;
+	}
+
+	m_particleVerticesPtr = m_particleVerticesBase;
+	m_particleIndexCount = 0;
+
+	uint32 numParticles = ParticleManager::Instance()->m_particleIndex;
+	std::vector<ParticleManager::Particle> particles = ParticleManager::Instance()->m_particles;
+	for (uint32 i = 0; i < numParticles; i++)
+	{
+		float size = particles[i].size;
+
+		m_particleVerticesPtr->position = vec3(particles[i].position - size, 0.99f);
+		m_particleVerticesPtr->color = particles[i].color;
+		m_particleVerticesPtr++;
+
+		m_particleVerticesPtr->position = vec3(particles[i].position.x + size, particles[i].position.y - size, 0.99f);
+		m_particleVerticesPtr->color = particles[i].color;
+		m_particleVerticesPtr++;
+
+		m_particleVerticesPtr->position = vec3(particles[i].position + size, 0.99f);
+		m_particleVerticesPtr->color = particles[i].color;
+		m_particleVerticesPtr++;
+
+		m_particleVerticesPtr->position = vec3(particles[i].position.x - size, particles[i].position.y + size, 0.99f);
+		m_particleVerticesPtr->color = particles[i].color;
+		m_particleVerticesPtr++;
+
+		m_particleIndexCount += 6;
 	}
 }
 
 void RendererManager::End()
 {
-	m_shader->UploadUniformMat4("u_orthoProjMatrix", SceneManager::Instance()->GetCurrentScene()->GetCamera()->GetViewProjMat());
-
-	if (m_lightPosition)
-	{
-		m_shader->UploadUniformVec2("u_lightPos", *m_lightPosition);
-	}
-	else
-	{
-		m_shader->UploadUniformVec2("u_lightPos", vec2(0.0f));
-	}
-
 	uint32 size = (ubyte*)m_verticesPtr - (ubyte*)m_verticesBase;
-	
+	m_vertexBuffer->Bind();
 	m_vertexBuffer->SetData(m_verticesBase, size);
+
+	size = (ubyte*)m_particleVerticesPtr - (ubyte*)m_particleVerticesBase;
+	m_particleVertexBuffer->Bind();
+	m_particleVertexBuffer->SetData(m_particleVerticesBase, size);
 
 	Flush();
 }
 
 void RendererManager::Flush()
 {
-	for (uint32 i = 0; i < textureSlotIndex; i++)
+	mat4 viewProj = SceneManager::Instance()->GetCurrentScene()->GetCamera()->GetViewProjMat();
+
+	for (uint32 i = 0; i < m_textureSlotIndex; i++)
 	{
 		glActiveTexture(GL_TEXTURE0 + i);
 		m_textureSlots[i]->Bind();
@@ -178,7 +241,13 @@ void RendererManager::Flush()
 	
 	m_vertexArray->Bind();
 	m_shader->Bind();
-	glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, nullptr);
+	m_shader->UploadUniformMat4("u_orthoProjMatrix", viewProj);
+	glDrawElements(GL_TRIANGLES, m_indexCount, GL_UNSIGNED_INT, nullptr);
+
+	m_particleVertexArray->Bind();
+	m_particleShader->Bind();
+	m_particleShader->UploadUniformMat4("u_orthoProjMatrix", viewProj);
+	glDrawElements(GL_TRIANGLES, m_particleIndexCount, GL_UNSIGNED_INT, nullptr);
 }
 
 

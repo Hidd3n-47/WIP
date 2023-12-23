@@ -10,7 +10,6 @@
 #include "Physics/PhysicsManager.h"
 #include "FSM/StateMachineManager.h"
 #include "Graphics/Texture/Texture.h"
-#include "Graphics/Renderer/Renderer.h"
 #include "Collision/CollisionManager.h"
 #include "Animation/AnimationManager.h"
 #include "Graphics/Texture/TextureManager.h"
@@ -99,9 +98,9 @@ void Engine::Run()
 		
 		AIManager::Instance()->Update(dt);
 
-		//Camera* cam = SceneManager::Instance()->UpdateCurrentScene(dt);
-
 		AfterUpdate();
+
+		ParticleManager::Instance()->Update(dt);
 
 		Render();
 	}
@@ -118,7 +117,6 @@ void Engine::Destroy()
 	SceneManager::Instance()->Destory();
 
 	RendererManager::Instance()->Destroy();
-	Renderer::Destroy();
 
 	m_window->Destroy();
 
