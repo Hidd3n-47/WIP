@@ -35,13 +35,13 @@ PlayerStateManager* PlayerStateManager::m_instance = nullptr;
 
 PlayerStateManager::PlayerStateManager()
 {
+	// Push back the states in the order of 'PlayerState'.
 	m_playerStates.push_back(new PlayerIdleState());
 	m_playerStates.push_back(new PlayerMovingState());
-	m_playerStates.push_back(new PlayerShootingState());
-	m_playerStates.push_back(new PlayerMeleeState());
 	m_playerStates.push_back(new PlayerDashingState());
+	m_playerStates.push_back(new PlayerMeleeState());
+	m_playerStates.push_back(new PlayerShootingState());
 	m_playerStates.push_back(new PlayerReloadingState());
-
 }
 
 PlayerStateManager::~PlayerStateManager()

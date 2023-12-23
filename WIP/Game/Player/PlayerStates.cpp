@@ -30,22 +30,25 @@ void PlayerIdleState::OnStateUpdate(float dt)
 	if (direction != vec2(0.0f))
 	{
 		PlayerStateManager::Instance()->SetState(PlayerState::Moving);
-		//*(m_player->position) += direction * m_player->speed * dt;
+		return;
 	}
 
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Left))
 	{
 		PlayerStateManager::Instance()->SetState(PlayerState::Shooting);
+		return;
 	}
 
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_r))
 	{
 		PlayerStateManager::Instance()->SetState(PlayerState::Reloading);
+		return;
 	}
 
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Right))
 	{
 		PlayerStateManager::Instance()->SetState(PlayerState::Melee);
+		return;
 	}
 }
 
@@ -77,26 +80,31 @@ void PlayerMovingState::OnStateUpdate(float dt)
 	if (direction == vec2(0.0f))
 	{
 		PlayerStateManager::Instance()->SetState(PlayerState::Idle);
+		return;
 	}
 
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Left))
 	{
 		PlayerStateManager::Instance()->SetState(PlayerState::Shooting);
+		return;
 	}
 
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_r))
 	{
 		PlayerStateManager::Instance()->SetState(PlayerState::Reloading);
+		return;
 	}
 
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Right))
 	{
 		PlayerStateManager::Instance()->SetState(PlayerState::Melee);
+		return;
 	}
 
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_Space))
 	{
 		PlayerStateManager::Instance()->SetState(PlayerState::Dashing);
+		return;
 	}
 
 	*(m_player->position) += direction * m_player->speed * dt;

@@ -46,5 +46,4 @@ void Application::Update(float dt)
 	manager->Update(dt);
 	EnemyManager::getEnemyManager()->Update(dt);
 	//z1->Update(dt);
-
 }
