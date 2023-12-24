@@ -23,6 +23,8 @@ public:
 	int GetSpawnTime();
 	void Destroy();
 	bool GetMove();
+	int GetDmg();
+	void SetDmg(int damage);
 	void Delete(); 
 	jci::Entity* body;
 	vec2 direction;
@@ -30,6 +32,7 @@ public:
 private:
 	int spawnTime;
 	bool isMove;
+	int dmg;
 
 	void OnCollisionEnter(jci::Entity* other) final;
 	void OnCollisionStay(jci::Entity* other) final;

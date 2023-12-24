@@ -88,6 +88,7 @@ void PlayerStateManager::Init(vec2 playerStartPosition, Gun* theGun)
 	m_player.bulletCD = new jci::Timer(0, false);
 	m_player.meleeCD = new jci::Timer(0, false);
 	m_player.stabbin = new jci::Timer(0, false);
+	m_player.reload = new jci::Timer(0, false);
 
 	m_player.m_dashTime = 2.0f;
 	m_player.m_stabTime = 2.0f;
@@ -116,6 +117,11 @@ void PlayerStateManager::Update(float dt)
 	{
 		m_player.m_canStab = true;
 	}
+	if (m_player.reload->TimerTick() == jci::TimerStatus::TimerCompleted && m_player.hasReloaded == false)
+	{
+		m_player.hasReloaded = true;
+		m_player.m_equippedGun->m_inClip = m_player.m_equippedGun->m_magSize;
+	}
 }
 
 void PlayerStateManager::SetState(PlayerState state)
@@ -123,6 +129,56 @@ void PlayerStateManager::SetState(PlayerState state)
 	m_playerStates[(int)m_state]->OnStateExit(); 
 	m_state = state; 
 	m_playerStates[(int)m_state]->OnStateEnter();
+}
+
+void PlayerS::MaxHpUp()
+{
+	m_hp += 10;
+	m_maxHp += 10;
+}
+
+void PlayerS::FasterReload()
+{
+	if (m_equippedGun->m_reloadTimer > 0.5f)
+	{
+		m_equippedGun->m_reloadTimer -= 0.1f;
+	}
+}
+
+void PlayerS::FasterFireRate()
+{
+	if (m_equippedGun->GetFireRate() > 0.25f)
+	{
+		m_equippedGun->SetFireRate(m_equippedGun->GetFireRate() - 0.15f);
+	}
+}
+
+void PlayerS::DmgUpRateDown()
+{
+	m_equippedGun->SetBulletDamage(m_equippedGun->GetBulletDamage()+3.0f);
+	m_equippedGun->SetFireRate(m_equippedGun->GetFireRate() + 0.15f);
+}
+
+void PlayerS::RateUpDmgDown()
+{
+	if (m_equippedGun->GetFireRate() > 0.4f && m_equippedGun->GetBulletDamage() > 5)
+	{
+		m_equippedGun->SetBulletDamage(m_equippedGun->GetBulletDamage() - 1.0f);
+		m_equippedGun->SetFireRate(m_equippedGun->GetFireRate() - 0.3f);
+	}
+	else if (m_equippedGun->GetFireRate() > 0.25f && m_equippedGun->GetBulletDamage() > 5)
+	{
+		m_equippedGun->SetBulletDamage(m_equippedGun->GetBulletDamage() - 1.0f);
+		m_equippedGun->SetFireRate(0.25f);
+	}
+}
+
+void PlayerS::LessDashCD()
+{
+	if (m_dashTime > 0.5f)
+	{
+		m_dashTime -= 0.3f;
+	}
 }
 
 void PlayerStateManager::OnCollisionEnter(jci::Entity* other)
@@ -135,4 +191,12 @@ void PlayerStateManager::OnCollisionStay(jci::Entity* other)
 
 void PlayerStateManager::OnCollisionExit(jci::Entity* other)
 {
+}
+
+PlayerS::~PlayerS()
+{
+	//delete stabbin;
+	delete dashCD;
+	delete bulletCD;
+	delete meleeCD;
 }

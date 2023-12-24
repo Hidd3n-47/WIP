@@ -55,3 +55,16 @@ void BulletManager::ShootBullet(vec2 d, vec2 playPos)
 	bulletPool.at(nextBullet)->bulletFire(d);*/
 	nextBullet += 1;
 }
+
+void BulletManager::SetBulletDamage(int bullDmg)
+{
+	for (auto i : bulletPool)
+	{
+		i->SetDmg(bullDmg);
+	}
+}
+
+int BulletManager::GetBulletDamage()
+{
+	bulletPool.at(nextBullet)->GetDmg();
+}

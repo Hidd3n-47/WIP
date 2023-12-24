@@ -11,9 +11,10 @@ Gun::Gun(BulletManager* bM)
 	m_bulletSpeed = 5.0f;
 	m_magSize = 30;
 	m_inClip = m_magSize;
+	m_reloadTimer = 1.0f;
 }
 
-void Gun::Create(int rateOfFire)
+void Gun::Create(float rateOfFire)
 {
 	m_fireRate = rateOfFire;
 	
@@ -22,6 +23,11 @@ void Gun::Create(int rateOfFire)
 int Gun::GetFireRate()
 {
 	return m_fireRate;
+}
+
+void Gun::SetFireRate(float rateOfFire)
+{
+	m_fireRate = rateOfFire;
 }
 
 void Gun::FireGun(float time, vec2 position, jci::Scene* currentScene, vec2 orientMouse)
@@ -42,4 +48,14 @@ void Gun::FireGun(float time, vec2 position, jci::Scene* currentScene, vec2 orie
 		std::cout << time << "\n";
 		bulletManager->ShootBullet(moveDirection, position);
 	}
+}
+
+void Gun::SetBulletDamage(int bullDmg)
+{
+	bulletManager->SetBulletDamage(bullDmg);
+}
+
+int Gun::GetBulletDamage()
+{
+	return bulletManager->GetBulletDamage();
 }
