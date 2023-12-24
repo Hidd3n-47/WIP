@@ -14,15 +14,23 @@ struct PlayerS
 {
 	jci::Entity*	playerEntity	= nullptr;
 	vec2*			position		= nullptr;
-	float			speed			= 5.0f;
 	jci::Entity*	m_knife			= nullptr;
 	jci::Timer*		stabbin			= nullptr;
+	jci::Timer*		dashCD			= nullptr;
+	jci::Timer*		bulletCD		= nullptr;
+	jci::Timer*		meleeCD			= nullptr;
 	Gun*			m_equippedGun	= nullptr;
 	uint32			m_blankTexture;
 	uint32			m_knifeTexture;
+	float			speed = 5.0f;
 	float			m_width;
 	float			m_height;
 	float			time;
+	bool			m_canFire = true;
+	bool			m_canStab = true;
+	bool			m_canDash = true;
+	int				m_dashTime;
+	int				m_stabTime;
 
 	vec2 GetInputDirection();
 };
@@ -72,6 +80,9 @@ public:
 	*
 	*/
 	void SetState(PlayerState state);
+
+	
+
 private:
 	PlayerStateManager();
 	~PlayerStateManager();

@@ -1405,6 +1405,7 @@ Added component with id: ComponentTypes::SpriteRenderer to Game Object: 332
 Added component with id: ComponentTypes::BoxCollider to Game Object: 332
 Created Entity with id: 333
 Added component with id: ComponentTypes::Transform to Game Object: 333
+Added component with id: ComponentTypes::Impulse to Game Object: 333
 Created texture Assets/Texture/Scientist.png
 Created texture Assets/Texture/Blank.png
 Added component with id: ComponentTypes::Animation to Game Object: 333

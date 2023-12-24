@@ -4,6 +4,7 @@
 #include <Engine/Graphics/Texture/TextureManager.h>
 #include <Engine/Input/InputManager.h>
 #include <Engine/Scene/SceneManager.h>
+//#include <Engine/ECS/Impulse.h>
 
 #include "PlayerStates.h"
 
@@ -61,6 +62,9 @@ void PlayerStateManager::Init(vec2 playerStartPosition, Gun* theGun)
 	m_player.m_height = (float)jci::Engine::Instance()->GetScreenHeight();
 	m_player.playerEntity = currentScene->CreateEmptyEntity();
 	m_player.playerEntity->SetTag("Player");
+	m_player.playerEntity->AddComponent<jci::Impulse>();
+	m_player.playerEntity->GetComponent<jci::Impulse>()->SetDampening(1);
+	m_player.playerEntity->GetComponent<jci::Impulse>()->SetDampeningFactor(0.75f);
 
 	uint32 text = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Scientist.png");
 	m_player.m_blankTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Blank.png");
@@ -80,6 +84,14 @@ void PlayerStateManager::Init(vec2 playerStartPosition, Gun* theGun)
 
 	m_player.m_knifeTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Weapons/Bowie Knife.png");
 
+	m_player.dashCD = new jci::Timer(0, false);
+	m_player.bulletCD = new jci::Timer(0, false);
+	m_player.meleeCD = new jci::Timer(0, false);
+	m_player.stabbin = new jci::Timer(0, false);
+
+	m_player.m_dashTime = 2.0f;
+	m_player.m_stabTime = 2.0f;
+
 	m_player.position = m_player.playerEntity->GetComponent<jci::Transform>()->GetPositionPointer();
 	*m_player.position = playerStartPosition;
 
@@ -92,6 +104,18 @@ void PlayerStateManager::Update(float dt)
 {
 	m_playerStates[(int)m_state]->OnStateUpdate(dt);
 	m_player.time = dt;
+	if (m_player.dashCD->TimerTick() == jci::TimerStatus::TimerCompleted)
+	{
+		m_player.m_canDash = true;
+	}
+	if (m_player.bulletCD->TimerTick() == jci::TimerStatus::TimerCompleted)
+	{
+		m_player.m_canFire = true;
+	}
+	if (m_player.meleeCD->TimerTick() == jci::TimerStatus::TimerCompleted)
+	{
+		m_player.m_canStab = true;
+	}
 }
 
 void PlayerStateManager::SetState(PlayerState state)
