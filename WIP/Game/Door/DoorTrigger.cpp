@@ -22,6 +22,7 @@ jci::Entity* DoorTrigger::Create(vec2 point, uint32 TextureID)
 	jci::BoxCollider* bc = trigger->AddComponent<jci::BoxCollider>();
 	bc->SetBodyType(jci::BodyType::Kinematic);
 	bc->SetTrigger(true);
+	bc->SetCollisionMethods(this);
 	trigger->GetComponent<jci::BoxCollider>()->SetSize({ 0.5f, 0.5f });
 	return trigger;
 }
@@ -38,18 +39,6 @@ void DoorTrigger::setDoor(Door* temp)
 
 void DoorTrigger::OnCollisionEnter(jci::Entity* other)
 {
-	if (other->GetTag() == "Player")
-	{
-		if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_e))
-		{
-			//Load level script
-			//tempscript:
-			{
-				Levels* map = Levels::getCurrentMap();
-				map->LoadLevelFromFile("Assets/Levels/TestRoom.csv");
-			}
-		}
-	}
 }
 
 void DoorTrigger::OnCollisionStay(jci::Entity* other)
@@ -57,6 +46,16 @@ void DoorTrigger::OnCollisionStay(jci::Entity* other)
 	if (other->GetTag() == "Player")
 	{
 		door->setTexture(dm->getOpenText());
+		if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_e))
+		{
+			//Load level script
+			//tempscript:
+			{
+				Levels* map = Levels::getCurrentMap();
+				map->LoadLevelFromFile("Assets/Levels/TestRoom.csv");
+				other->GetComponent<jci::Transform>()->SetPosition(map->GetSpawnPoint());
+			}
+		}
 	}
 }
 

@@ -1417,7 +1417,7 @@ Game object '334' already has component with id: 2
 Created texture Assets/Texture/Weapons/Bowie Knife.png
 Created texture Assets/Texture/PlayerIdle.png
 Created texture Assets/Texture/Scientist.png
-Created texture Assets/Texture/Scientist.png
+Game object '32' already has component with id: 2
 Destroyed Entity with id: 0
 Destroyed Entity with id: 1
 Destroyed Entity with id: 2
@@ -1687,70 +1687,4 @@ Destroyed Entity with id: 265
 Destroyed Entity with id: 266
 Destroyed Entity with id: 267
 Destroyed Entity with id: 268
-Destroyed Entity with id: 269
-Destroyed Entity with id: 270
-Destroyed Entity with id: 271
-Destroyed Entity with id: 272
-Destroyed Entity with id: 273
-Destroyed Entity with id: 274
-Destroyed Entity with id: 275
-Destroyed Entity with id: 276
-Destroyed Entity with id: 277
-Destroyed Entity with id: 278
-Destroyed Entity with id: 279
-Destroyed Entity with id: 280
-Destroyed Entity with id: 281
-Destroyed Entity with id: 282
-Destroyed Entity with id: 283
-Destroyed Entity with id: 284
-Destroyed Entity with id: 285
-Destroyed Entity with id: 286
-Destroyed Entity with id: 287
-Destroyed Entity with id: 288
-Destroyed Entity with id: 289
-Destroyed Entity with id: 290
-Destroyed Entity with id: 291
-Destroyed Entity with id: 292
-Destroyed Entity with id: 293
-Destroyed Entity with id: 294
-Destroyed Entity with id: 295
-Destroyed Entity with id: 296
-Destroyed Entity with id: 297
-Destroyed Entity with id: 298
-Destroyed Entity with id: 299
-Destroyed Entity with id: 300
-Destroyed Entity with id: 301
-Destroyed Entity with id: 302
-Destroyed Entity with id: 303
-Destroyed Entity with id: 304
-Destroyed Entity with id: 305
-Destroyed Entity with id: 306
-Destroyed Entity with id: 307
-Destroyed Entity with id: 308
-Destroyed Entity with id: 309
-Destroyed Entity with id: 310
-Destroyed Entity with id: 311
-Destroyed Entity with id: 312
-Destroyed Entity with id: 313
-Destroyed Entity with id: 314
-Destroyed Entity with id: 315
-Destroyed Entity with id: 316
-Destroyed Entity with id: 317
-Destroyed Entity with id: 318
-Destroyed Entity with id: 319
-Destroyed Entity with id: 320
-Destroyed Entity with id: 321
-Destroyed Entity with id: 322
-Destroyed Entity with id: 323
-Destroyed Entity with id: 324
-Destroyed Entity with id: 325
-Destroyed Entity with id: 326
-Destroyed Entity with id: 327
-Destroyed Entity with id: 328
-Destroyed Entity with id: 329
-Destroyed Entity with id: 330
-Destroyed Entity with id: 331
-Destroyed Entity with id: 332
-Destroyed Entity with id: 333
-Destroyed Entity with id: 334
-Destroyed scene with name: MainScene
+Destroyed Entity
