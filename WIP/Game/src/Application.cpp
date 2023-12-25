@@ -45,5 +45,6 @@ void Application::Update(float dt)
 	PlayerStateManager::Instance()->Update(dt);
 	manager->Update(dt);
 	EnemyManager::getEnemyManager()->Update(dt);
+	ChallengeManager::getChallengeManager()->getCurrentChallenge()->Update(dt);
 	//z1->Update(dt);
 }
