@@ -217,7 +217,15 @@ void PlayerShootingState::OnStateEnter()
 		m_player = PlayerStateManager::Instance()->GetPlayer();
 	}
 	m_player->m_canFire = false;
-	m_player->m_equippedGun->FireGun(m_player->time, *m_player->position, jci::SceneManager::Instance()->GetCurrentScene(), vec2(m_player->m_width * 0.5f, m_player->m_height * 0.5f));
+	if (m_player->tripSwitch)
+	{
+		m_player->m_equippedGun->FireGun(m_player->time, *m_player->position, jci::SceneManager::Instance()->GetCurrentScene(), vec2(m_player->m_width * 0.5f, m_player->m_height * 0.5f));
+		m_player->tripSwitch = false;
+	}
+	else
+	{
+		m_player->tripSwitch = true;
+	}
 }
 
 void PlayerShootingState::OnStateUpdate(float dt)
@@ -251,8 +259,9 @@ void PlayerReloadingState::OnStateEnter()
 	{
 		m_player = PlayerStateManager::Instance()->GetPlayer();
 	}
-
-	m_player->m_equippedGun->m_inClip = m_player->m_equippedGun->m_magSize;
+	m_player->hasReloaded = false;
+	m_player->reload = new jci::Timer(m_player->m_equippedGun->m_reloadTimer, false);
+	//m_player->m_equippedGun->m_inClip = m_player->m_equippedGun->m_magSize;
 }
 
 void PlayerReloadingState::OnStateUpdate(float dt)

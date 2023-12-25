@@ -19,6 +19,7 @@ struct PlayerS
 	jci::Timer*		dashCD			= nullptr;
 	jci::Timer*		bulletCD		= nullptr;
 	jci::Timer*		meleeCD			= nullptr;
+	jci::Timer*		reload			= nullptr;
 	Gun*			m_equippedGun	= nullptr;
 	uint32			m_blankTexture;
 	uint32			m_knifeTexture;
@@ -29,10 +30,21 @@ struct PlayerS
 	bool			m_canFire = true;
 	bool			m_canStab = true;
 	bool			m_canDash = true;
-	int				m_dashTime;
-	int				m_stabTime;
+	bool			hasReloaded = false;
+	bool			tripSwitch = false;
+	float			m_dashTime;
+	float			m_stabTime;
+	int				m_maxHp;
+	int				m_hp;
 
+	void MaxHpUp();
+	void FasterReload();
+	void FasterFireRate();
+	void DmgUpRateDown();
+	void RateUpDmgDown();
+	void LessDashCD();
 	vec2 GetInputDirection();
+	~PlayerS();
 };
 
 enum class PlayerState
@@ -79,9 +91,7 @@ public:
 	* Set the players state.
 	*
 	*/
-	void SetState(PlayerState state);
-
-	
+	void SetState(PlayerState state);	
 
 private:
 	PlayerStateManager();

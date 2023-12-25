@@ -7,6 +7,7 @@ Bullet::Bullet(jci::Entity* e)
 	direction = vec2(0,0);
 	spawnTime = 0;
 	isMove = false;
+	dmg = 10;
 }
 
 void Bullet::bulletFire(vec2 d)
@@ -33,6 +34,16 @@ void Bullet::Update()
 bool Bullet::GetMove()
 {
 	return isMove;
+}
+
+int Bullet::GetDmg()
+{
+	return dmg;
+}
+
+void Bullet::SetDmg(int damage)
+{
+	dmg = damage;
 }
 
 void Bullet::Delete()

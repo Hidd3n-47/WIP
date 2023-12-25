@@ -19,6 +19,8 @@ public:
 	void Create();
 	void ShootBullet(vec2 d, vec2 playPos);
 	void Update(float dt);
+	void SetBulletDamage(int bullDmg);
+	int GetBulletDamage();
 private:
 	std::vector<Bullet*>	bulletPool;
 	const int POOLSIZE = 200;
