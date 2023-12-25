@@ -17,7 +17,6 @@ public:
 	void clear();
 	void setDoor(Door* temp);
 	static DoorManager* getDoorManager();
-	void Update(float dt);
 	uint32 getOpenText();
 	uint32 getClosedText();
 };

@@ -43,6 +43,11 @@ void DoorTrigger::OnCollisionEnter(jci::Entity* other)
 
 void DoorTrigger::OnCollisionStay(jci::Entity* other)
 {
+	if (trigger == nullptr)
+	{
+		delete this;
+		return;
+	}
 	if (other->GetTag() == "Player")
 	{
 		door->setTexture(dm->getOpenText());
@@ -61,5 +66,6 @@ void DoorTrigger::OnCollisionStay(jci::Entity* other)
 
 void DoorTrigger::OnCollisionExit(jci::Entity* other)
 {
-	door->setTexture(dm->getClosedText());
+	if (door != nullptr)
+		door->setTexture(dm->getClosedText());
 }

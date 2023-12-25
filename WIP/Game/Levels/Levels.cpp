@@ -9,7 +9,7 @@
 #include <Engine/Graphics/Texture/TextureManager.h>
 #include "Game/Door/Door.h"
 #include "Game/Door/DoorTrigger.h"
-
+#include <Game/Challenges/ChallengeManager.h>
 static Levels* map;
 
 Levels::Levels()
@@ -133,6 +133,7 @@ void Levels::LoadLevel(std::string fileString)
 	{
 		WipeLevel();
 	}
+	ChallengeManager::getChallengeManager()->newChallenge();
 	std::vector<std::string>parsedString = split(fileString, ',');//split via spaces first
 	//ASSERT(false, fileString);
 	float currentX = 0;

@@ -6,7 +6,7 @@
 #include <Engine/ECS/BoxCollider.h>
 #include <Engine/ECS/SpriteRenderer.h>
 #include <Game/EnemyManager/EnemyManager.h>
-
+#include <Game/Challenges/ChallengeManager.h>
 #include "Game/Player/PlayerStateManager.h"
 
 Application* Application::m_instance = nullptr;
@@ -18,6 +18,7 @@ void Application::Create()
 	map->LoadLevelFromFile("Assets/Levels/TestRoom.csv");
 	EnemyManager* em = EnemyManager::getEnemyManager();
 
+
 	manager = new BulletManager();
 	manager->Create();
 	g1 = new Gun(manager);
@@ -28,7 +29,6 @@ void Application::Create()
 	p1->setLevel(map);*/
 
 	PlayerStateManager::Instance()->Init(map->GetSpawnPoint(), g1);
-
 	/*z1 = new Zombie();
 	z1->Create({ 11, -6 }, PlayerStateManager::Instance()->GetPlayerPositionPointer(), em->getZombieTexture());*/
 	

@@ -32,9 +32,12 @@ void PlayerIdleState::OnStateUpdate(float dt)
 		PlayerStateManager::Instance()->SetState(PlayerState::Moving);
 		return;
 	}
+	//if (m_player->m_canFire)
+	//	DLOG("Canfire is true");
 
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Left) && m_player->m_canFire)
 	{
+		//DLOG("Mousebuttonleft pressed");
 		PlayerStateManager::Instance()->SetState(PlayerState::Shooting);
 		return;
 	}
