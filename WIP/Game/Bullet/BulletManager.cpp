@@ -66,5 +66,5 @@ void BulletManager::SetBulletDamage(int bullDmg)
 
 int BulletManager::GetBulletDamage()
 {
-	bulletPool.at(nextBullet)->GetDmg();
+	return 	bulletPool.at(nextBullet)->GetDmg();
 }

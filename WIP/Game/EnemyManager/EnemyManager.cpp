@@ -28,7 +28,8 @@ Uint32 EnemyManager::getZombieTexture()
 bool EnemyManager::PlayerOutOfRange(jci::Entity* spawner)
 {
 	float minDistance = 3.0f;//Not directly overlapping
-	if (glm::length(player->GetPos() - spawner->GetComponent<jci::Transform>()->GetPosition()) < minDistance)
+	//if (glm::length(player->GetPos() - spawner->GetComponent<jci::Transform>()->GetPosition()) < minDistance)
+	if (glm::length(player->playerEntity->GetComponent<jci::Transform>()->GetPosition() - spawner->GetComponent<jci::Transform>()->GetPosition()) < minDistance)
 	{
 		return false;//fail at first overlap
 	}
@@ -67,7 +68,7 @@ void EnemyManager::clearZombies()
 	Zombies.clear();
 }
 
-void EnemyManager::setPlayer(Player* playertemp)
+void EnemyManager::setPlayer(PlayerS* playertemp)
 {
 	player = playertemp;
 }

@@ -7,7 +7,7 @@
 #include <Engine/Input/InputManager.h>
 #include <Engine/ECS/ParticleEmission.h>
 #include <Game/Bullet/Bullet.h>
-#include <Game/Player/Player.h>
+#include <Game/Player/PlayerStateManager.h>
 
 
 #include "Game/src/Application.h"
@@ -30,7 +30,7 @@ Zombie::Zombie()
 //	zombert->GetComponent<jci::BoxCollider>()->SetSize({ 0.6f, 1.0f });
 //}
 
-void Zombie::Create(vec2 point, Player* play, uint32 zombieTexture) //Spawn at specifics
+void Zombie::Create(vec2 point, PlayerS* play, uint32 zombieTexture) //Spawn at specifics
 {
 	player = play;
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
@@ -66,7 +66,7 @@ void Zombie::Update(float time)
 	if (hp > 0)
 	{
 		const float SPEED = 0.008f;
-		vec2 direction = player->GetPos() - zombert->GetComponent<jci::Transform>()->GetPosition();
+		vec2 direction = player->playerEntity->GetComponent<jci::Transform>()->GetPosition() - zombert->GetComponent<jci::Transform>()->GetPosition();
 
 		if (direction != vec2(0.0f))
 		{

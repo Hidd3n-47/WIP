@@ -29,6 +29,7 @@ void Application::Create()
 	p1->setLevel(map);*/
 
 	PlayerStateManager::Instance()->Init(map->GetSpawnPoint(), g1);
+	em->setPlayer(PlayerStateManager::Instance()->GetPlayer());
 	/*z1 = new Zombie();
 	z1->Create({ 11, -6 }, PlayerStateManager::Instance()->GetPlayerPositionPointer(), em->getZombieTexture());*/
 	

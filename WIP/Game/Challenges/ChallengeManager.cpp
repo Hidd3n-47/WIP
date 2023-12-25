@@ -31,6 +31,6 @@ ChallengeParent* ChallengeManager::getCurrentChallenge()
 
 void ChallengeManager::newChallenge()
 {
-	currentChallenge = challenges.at(jci::Random::Instance()->Rand()* challenges.size() + 1);
+	currentChallenge = challenges.at((int)jci::Random::Instance()->Rand()* challenges.size());
 	currentChallenge->Reset();
 }

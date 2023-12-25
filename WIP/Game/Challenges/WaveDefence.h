@@ -8,7 +8,7 @@ private:
 	int waveCount;
 
 public:
-	virtual void Update() final;
-	virtual void Reset() final;
+	void Update(float dt);
+	void Reset();
 };
 

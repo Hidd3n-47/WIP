@@ -2,7 +2,7 @@
 
 #include <Engine/Collision/ICollision.h>
 
-class Player;
+class PlayerS;
 
 namespace jci
 {
@@ -16,14 +16,14 @@ class Zombie : public jci::ICollision
 public:
 	Zombie();
 	~Zombie();
-	void Create(vec2 point, Player* play, uint32 zombieTexture);
+	void Create(vec2 point, PlayerS* play, uint32 zombieTexture);
 	void Update(float time);
 	//void Create(Levels map, Player* play);
 	jci::Entity* getEntity();
 	jci::Scene* m_currentScene;
 
 private:
-	Player* player;
+	PlayerS* player;
 	jci::Entity* zombert;
 	jci::ParticleEmission* m_particles;
 	float hp;

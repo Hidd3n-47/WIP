@@ -133,7 +133,7 @@ void Levels::LoadLevel(std::string fileString)
 	{
 		WipeLevel();
 	}
-	//ChallengeManager::getChallengeManager()->newChallenge();
+	ChallengeManager::getChallengeManager()->newChallenge();
 	std::vector<std::string>parsedString = split(fileString, ',');//split via spaces first
 	//ASSERT(false, fileString);
 	float currentX = 0;

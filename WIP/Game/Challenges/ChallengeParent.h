@@ -2,7 +2,7 @@
 class ChallengeParent
 {
 public:
-	void Update(float dt);
-	void Reset();
+	virtual void Update(float dt);
+	virtual void Reset();
 };
 
