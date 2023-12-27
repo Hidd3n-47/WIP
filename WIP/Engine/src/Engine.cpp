@@ -4,6 +4,7 @@
 #include "Time/Time.h"
 #include "IO/IOManager.h"
 #include "Random/Random.h"
+#include "UI/ButtonManager.h"
 #include "Input/InputManager.h"
 #include "Scene/SceneManager.h"
 #include "Pathfinding/AIManager.h"
@@ -97,6 +98,8 @@ void Engine::Run()
 		CollisionManager::Instance()->Update(m_window->GetWidth(), m_window->GetHeight(), cam->GetPosition());
 		
 		AIManager::Instance()->Update(dt);
+
+		ButtonManager::Instance()->Update();
 
 		AfterUpdate();
 

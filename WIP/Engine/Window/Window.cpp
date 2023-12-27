@@ -2,6 +2,7 @@
 #include "Window.h"
 
 #include "Time/Time.h"
+#include "UI/ButtonManager.h"
 
 namespace jci {
 
@@ -30,6 +31,15 @@ void Window::Destroy()
 	SDL_DestroyWindow(m_windowHandle);
 }
 
+
+void Window::Resize(uint16 width, uint16 height) 
+{ 
+	m_width = width; m_height = height; 
+	glViewport(0, 0, m_width, m_height); 
+	ButtonManager::Instance()->SetScreenDimensions(width, height);
+	DLOG("Window resized to: " + std::to_string(width) + " x " + std::to_string(height)); 
+}
+
 void Window::Init()
 {
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
@@ -39,6 +49,7 @@ void Window::Init()
 	SDL_GLContext glContext = SDL_GL_CreateContext(m_windowHandle);
 	ASSERT(glContext != 0, "Failed to create SDL GL Window Context.");
 
+	ButtonManager::Instance()->SetScreenDimensions(m_width, m_height);
 	DLOG("Created window: " + m_title + " " + std::to_string(m_width) + " x " + std::to_string(m_height));
 }
 

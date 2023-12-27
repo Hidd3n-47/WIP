@@ -17,8 +17,8 @@ struct Node : HeapItem<Node*>
 
 	Node* parent = nullptr;
 
-	uint32 gCost = 0;
-	uint32 hCost = 0;
+	uint32 gCost = -1;
+	uint32 hCost = -1;
 
 	inline uint32 fCost() const { return gCost + hCost; }
 

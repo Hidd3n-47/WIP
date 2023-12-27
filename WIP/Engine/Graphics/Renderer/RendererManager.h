@@ -37,10 +37,10 @@ struct Quad
 struct ParticleVertex
 {
 	inline ParticleVertex() = default;
-	inline ParticleVertex(vec2 position, vec4 color);
+	inline ParticleVertex(vec2 position, vec4 color) : position(vec3(position, 0.99f)), color(color) { /* Empty. */ }
 
-	vec3 position;
-	vec4 color;
+	vec3 position = vec3(0.0f);
+	vec4 color = vec4(1.0f);
 };
 
 class RendererManager
@@ -61,8 +61,6 @@ public:
 
 	const uint32 MAX_QUADS = (MAX_ENTITIES - 1);
 	static const uint32 MAX_TEXTURE_SLOTS = 32;
-
-	inline void SetLightPosition(vec2* lightPos) { m_lightPosition = lightPos; }
 private:
 	RendererManager() = default;
 	~RendererManager() = default;
@@ -89,11 +87,9 @@ private:
 	std::array<Texture*, MAX_TEXTURE_SLOTS> m_textureSlots;
 	uint32 m_textureSlotIndex = 0;
 
-	// Indices.
+	// Index Count.
 	uint32 m_indexCount = 0;
 	uint32 m_particleIndexCount = 0;
-
-	vec2* m_lightPosition = nullptr;
 };
 
 } // Namespace jci.

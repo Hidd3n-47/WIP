@@ -1416,6 +1416,9 @@ Added component with id: ComponentTypes::SpriteRenderer to Game Object: 334
 Game object '334' already has component with id: 2
 Created texture Assets/Texture/Weapons/Bowie Knife.png
 Created texture Assets/Texture/PlayerIdle.png
+Created Entity with id: 335
+Added component with id: ComponentTypes::Transform to Game Object: 335
+Added component with id: ComponentTypes::UiButton to Game Object: 335
 Destroyed Entity with id: 0
 Destroyed Entity with id: 1
 Destroyed Entity with id: 2
@@ -1751,4 +1754,5 @@ Destroyed Entity with id: 331
 Destroyed Entity with id: 332
 Destroyed Entity with id: 333
 Destroyed Entity with id: 334
+Destroyed Entity with id: 335
 Destroyed scene with name: MainScene

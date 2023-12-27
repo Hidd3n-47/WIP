@@ -28,7 +28,11 @@ public:
 	{
 		for (auto it = m_componentIndices.begin(); it != m_componentIndices.end(); it++)
 		{
-			ComponentManager::Instance()->RemoveComponent(it->first, it->second);
+			Entity* e = ComponentManager::Instance()->RemoveComponent(it->first, it->second);
+			if (e)
+			{
+				e->SetComponentId(it->first, it->second);
+			}
 		}
 
 		DOUT("Destroyed Entity with id: " + std::to_string(m_id));
@@ -60,6 +64,7 @@ public:
 	template<class T>
 	inline T* GetComponent()
 	{
+		ASSERT(m_id != invalid_id, "Entity has been marked with invalid id and is still trying to be accessed.");
 		int mask = T::GetIdMask();
 
 		if (!(m_componentMask & mask))
@@ -85,15 +90,16 @@ public:
 
 	// Mutators.
 	inline void SetTag(const std::string& tag) { m_tag = tag; }
-	inline void SetComponentId(ComponentTypes type, entId newId) { m_componentIndices[type] = newId; }
 	inline void SetActive(bool active) { m_active = active; }
 private:
 	std::unordered_map<ComponentTypes, entId>	m_componentIndices;
 
+	inline void SetComponentId(ComponentTypes type, entId newId) { m_componentIndices[type] = newId; }
+
 	Scene* m_scene = nullptr;
 	std::vector<Entity*> m_child; // TODO (Christian): Implement this.
 	Entity* m_parent = nullptr;
-	uint16 m_id;
+	entId m_id;
 	uint16 m_componentMask;
 	bool m_active = true;
 

@@ -2,6 +2,8 @@
 
 #include "Scene.h"
 
+#include "UI/ButtonManager.h"
+
 /***
 =========================================================================================
 SCENE_MANAGER:
@@ -75,7 +77,7 @@ public:
 	* Sets the currently active scene.
 	*		-> TODO (Christian): Add an on Scene load and on Scene unload.
 	*/
-	inline void SetCurrentScene(Scene* scene) { m_currentScene = scene; }
+	inline void SetCurrentScene(Scene* scene) { m_currentScene = scene; ButtonManager::Instance()->SetCamera(m_currentScene->GetCamera()); }
 
 	void Destory();
 private:

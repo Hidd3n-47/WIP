@@ -31,21 +31,25 @@ public:
 		T first = m_items[0];
 		m_arrayIndex--;
 		m_items[0] = m_items[m_arrayIndex];
+		m_items[0]->SetHeapIndex(0);
 		SortDown(m_items[0]);
 		return first;
 	}
 
 	inline void SortUp(T item)
 	{
-		uint32 parentIndex = (item->GetHeapIndex() - 1) / 2;
+		if (m_arrayIndex == 0) return;
 
+		uint32 parentIndex = (item->GetHeapIndex() - 1) / 2;
 		while (1)
 		{
-			T parent = m_items[m_arrayIndex];
+			T parent = m_items[parentIndex];
 
 			if (!item->HeapLowerIndexThan(parent)) return;
 
 			Swap(item, parent);
+
+			if (item->GetHeapIndex() == 0) return;
 			parentIndex = (item->GetHeapIndex() - 1) / 2;
 		}
 	}
@@ -80,7 +84,7 @@ private:
 	T* m_items;
 	uint32 m_arrayIndex = 0;
 
-	inline void Swap(T a, T b)
+	inline void Swap(T& a, T& b)
 	{
 		uint32 aIndex = a->GetHeapIndex();
 

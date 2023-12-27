@@ -13,7 +13,7 @@ class Entity;
 class BoxCollider;
 class CircleCollider;
 class Transform;
-class ICollision;
+struct ICollision;
 
 struct Quarter
 {
@@ -176,33 +176,26 @@ private:
 	template<class LeftBody, class RightBody, class OverlapType>
 	inline void PushBodies(LeftBody* lBody, Transform* lTransform, RightBody* rBody, Transform* rTransform, KinematicLocation location, OverlapType overlap, vec2 direction)
 	{
+		if (lBody->IsTrigger() || rBody->IsTrigger()) return;
+
 		if (location == KinematicLocation::Left)
 		{
-			if (!lBody->IsTrigger())
-			{
 				lTransform->AddToPosition(-direction * overlap);
 
 				return;
-			}
 		}
 		else if (location == KinematicLocation::Right)
 		{
-			if (!rBody->IsTrigger())
-			{
 				rTransform->AddToPosition(-direction * overlap);
 
 				return;
-			}
 		}
 		else
 		{
-			if (!lBody->IsTrigger() && !rBody->IsTrigger())
-			{
 				lTransform->AddToPosition(-direction * overlap * 0.5f);
 				rTransform->AddToPosition(direction * overlap * 0.5f);
 
 				return;
-			}
 		}
 	}
 };

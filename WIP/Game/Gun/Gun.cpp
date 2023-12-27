@@ -45,7 +45,7 @@ void Gun::FireGun(float time, vec2 position, jci::Scene* currentScene, vec2 orie
 		moveDirection.y *= -1;
 		moveDirection = glm::normalize(moveDirection);
 		moveDirection *= m_bulletSpeed;
-		std::cout << time << "\n";
+
 		bulletManager->ShootBullet(moveDirection, position);
 	}
 }

@@ -11,6 +11,7 @@
 #include "Audio.h"
 #include "Animation.h"
 #include "ParticleEmission.h"
+#include "UiButton.h"
 
 namespace jci {
 
@@ -122,6 +123,12 @@ public:
 		return RegisterComponent(ComponentTypes::ParticleEmission, m_particleEmissions);
 	}
 
+	template<>
+	inline UiButton* AddComponent<UiButton>()
+	{
+		return RegisterComponent(ComponentTypes::UiButton, m_uiButtons);
+	}
+
 	template<class ComponentClass>
 	inline ComponentClass* RetrieveComponent(std::vector<ComponentClass>& componetVector, entId componentId)
 	{
@@ -207,16 +214,29 @@ public:
 		return RetrieveComponent(m_particleEmissions, componentId);
 	}
 
+	template<>
+	inline UiButton* GetComponent<UiButton>(entId componentId)
+	{
+		return RetrieveComponent(m_uiButtons, componentId);
+	}
+
 	template<class ComponentClass>
 	inline Entity* DeregisterComponent(ComponentTypes type, std::vector<ComponentClass>& componentVector, entId id)
 	{
 		ASSERT(componentVector[id].GetId() != invalid_id, "Component has invalid id whilst existing.");
 
-		m_componentIndices[(entId)type]--;
+		entId componentSize = --m_componentIndices[(entId)type];
+
+		if (componentSize == id)
+		{
+			componentVector[componentSize].SetId(invalid_id);
+			return nullptr;
+		}
+
 		componentVector[id].OnComponentRemove();
-		componentVector[id] = componentVector.back();
-		componentVector.back().SetId(invalid_id);
-		return componentVector.back().GetEntity();
+		componentVector[id] = componentVector[componentSize];
+		componentVector[componentSize].SetId(invalid_id);
+		return componentVector[id].GetEntity();
 	}
 
 	inline Entity* RemoveComponent(ComponentTypes type, entId id)
@@ -245,6 +265,8 @@ public:
 			return DeregisterComponent(type, m_animations, id);
 		case ComponentTypes::ParticleEmission:
 			return DeregisterComponent(type, m_particleEmissions, id);
+		case ComponentTypes::UiButton:
+			return DeregisterComponent(type, m_uiButtons, id);
 		default:
 			ASSERT(false, "Unhandled component removal.");
 			return nullptr;
@@ -379,6 +401,12 @@ public:
 		return &m_particleEmissions[0];
 	}
 
+	template<>
+	inline UiButton* GetComponentVector()
+	{
+		return &m_uiButtons[0];
+	}
+
 	inline entId GetComponentCount(ComponentTypes type) const { return m_componentIndices[(entId)type]; }
 
 	// TODO (Christian) Add a remove component.
@@ -399,6 +427,7 @@ private:
 	std::vector<Audio>				m_audios;
 	std::vector<Animation>			m_animations;
 	std::vector<ParticleEmission>	m_particleEmissions;
+	std::vector<UiButton>			m_uiButtons;
 
 	entId	m_componentIndices[(entId)ComponentTypes::Count];
 };

@@ -7,7 +7,8 @@ namespace jci {
 
 Camera::Camera(float left, float right, float top, float bottom) :
 	m_projMat(glm::ortho(left, right, bottom, top, -10.0f, 10.0f)),
-	m_viewMat(1.0f)
+	m_viewMat(1.0f),
+	m_halfExtents(vec2(right, top))
 {
 	m_viewProjMat = m_projMat * m_viewMat;
 }

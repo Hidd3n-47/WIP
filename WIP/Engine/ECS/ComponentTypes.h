@@ -13,5 +13,6 @@ enum class ComponentTypes
 	Audio,
 	Animation,
 	ParticleEmission,
+	UiButton,
 	Count // Total number of components.
 };

@@ -142,6 +142,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\ECS\UiButton.cpp" />
+    <ClCompile Include="Engine\UI\ButtonManager.cpp" />
     <ClCompile Include="Game\Challenges\ChallengeParent.cpp" />
     <ClCompile Include="Game\Challenges\ChallengeManager.cpp" />
     <ClCompile Include="Engine\Collision\CollisionCallbackManager.cpp" />
@@ -204,6 +206,9 @@
     <ClCompile Include="Game\Challenges\WaveDefence.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine\UI\ButtonManager.h" />
+    <ClInclude Include="Engine\ECS\AnchorPoints.h" />
+    <ClInclude Include="Engine\ECS\UiButton.h" />
     <ClInclude Include="Game\Challenges\ChallengeParent.h" />
     <ClInclude Include="Game\Challenges\ChallengeManager.h" />
     <ClInclude Include="Engine\Collision\CollisionCallback.h" />

@@ -60,7 +60,6 @@ void Player::Create(vec2 point, Gun* gun)
 	m_position = m_playChar->GetComponent<jci::Transform>()->GetPositionPointer();
 	m_currentScene->GetCamera()->SetFollowPosition(m_position);
 	m_playChar->AddComponent<jci::Impulse>();
-	jci::RendererManager::Instance()->SetLightPosition(m_playChar->GetComponent<jci::Transform>()->GetPositionPointer());
 
 	dashCD = new jci::Timer(0, false);
 	meleeCD = new jci::Timer(0, false);

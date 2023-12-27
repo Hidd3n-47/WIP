@@ -6,5 +6,4 @@ namespace jci {
 EntityManager* EntityManager::m_instance = nullptr;
 
 
-
-}
+} // Namespace jci.
