@@ -10,10 +10,12 @@
 #include "Game/Door/Door.h"
 #include "Game/Door/DoorTrigger.h"
 #include <Game/Challenges/ChallengeManager.h>
+#include "Engine/Random/Random.h"
 static Levels* map;
 
 Levels::Levels()
 {
+	LevelSquare = new std::vector<jci::Entity*>;
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	wall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/squareWITHAW!!.png");
 	topleftwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Front left wall.png");
@@ -33,6 +35,18 @@ Levels::Levels()
 	inversebotright = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv back right wall.png");
 	em = EnemyManager::getEnemyManager();
 	dm = DoorManager::getDoorManager();
+	LoadLevelFromFile("Assets/Levels/TestRoom.csv");//LeveList[0]
+	LevelList.push_back(*LevelSquare);
+	deactiveLevel(*LevelSquare);
+	LevelSquare->clear();
+	LoadLevelFromFile("Assets/Levels/Theatre.csv");//LeveList[1]
+	LevelList.push_back(*LevelSquare);
+	deactiveLevel(*LevelSquare);
+	LevelSquare->clear();
+	LoadLevelFromFile("Assets/Levels/NOLAGROOM.csv");
+	LevelList.push_back(*LevelSquare);
+	deactiveLevel(*LevelSquare);
+	LevelSquare->clear();
 	//DLOG(std::to_string(wall));
 }
 
@@ -61,7 +75,7 @@ void Levels::createWall(float x, float y)
 	e->AddComponent<jci::SpriteRenderer>()->SetTexture(wall, 25);
 	e->AddComponent<jci::BoxCollider>();
 
-	LevelSquare.push_back(e);
+	LevelSquare->push_back(e);
 }
 
 void Levels::createFloor(float x, float y)
@@ -69,7 +83,7 @@ void Levels::createFloor(float x, float y)
 	jci::Entity* newFloor = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
 	newFloor->GetComponent<jci::Transform>()->SetPosition({ x,  y });
 	newFloor->AddComponent<jci::NavBlock>();
-	LevelSquare.push_back(newFloor);
+	LevelSquare->push_back(newFloor);
 }
 
 void Levels::createEnemySpawnPoint(float x, float y)
@@ -78,7 +92,7 @@ void Levels::createEnemySpawnPoint(float x, float y)
 	newFloor->GetComponent<jci::Transform>()->SetPosition({ x,  y });
 	//newFloor->AddComponent<jci::BoxCollider>();
 	newFloor->AddComponent<jci::NavBlock>();
-	LevelSquare.push_back(newFloor);
+	LevelSquare->push_back(newFloor);
 	em->EnemySquares.push_back(newFloor);
 }
 
@@ -86,7 +100,7 @@ void Levels::createDoor(float x, float y)
 {
 	//CREATE DOOR;
 	Door* newDoor = new Door();
-	LevelSquare.push_back(newDoor->Create(vec2(x, y), dm->getClosedText()));
+	LevelSquare->push_back(newDoor->Create(vec2(x, y), dm->getClosedText()));
 	dm->setDoor(newDoor->getDoor());
 	dm->getDoorSquares().push_back(newDoor->getDoor());
 }
@@ -94,7 +108,7 @@ void Levels::createDoor(float x, float y)
 void Levels::createDoorTrigger(float x, float y)
 {
 	DoorTrigger* newFloor = new DoorTrigger();
-	LevelSquare.push_back(newFloor->Create(vec2(x, y), floor));
+	LevelSquare->push_back(newFloor->Create(vec2(x, y), floor));
 	newFloor->setDoor(dm->getDoor());
 	dm->getDoorSquares().push_back(newFloor->getThis());
 }
@@ -104,10 +118,27 @@ void Levels::createSpawnPoint(float x, float y)
 	jci::Entity* newFloor = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();//create empty entity
 	newFloor->GetComponent<jci::Transform>()->SetPosition({ x,  y });
 	newFloor->AddComponent<jci::NavBlock>();
-	LevelSquare.push_back(newFloor);
+	LevelSquare->push_back(newFloor);
 //floor with extra steps;
-	spawnPointX = x;
-	spawnPointY = y;
+	spawnPoints.push_back(newFloor);
+}
+
+std::vector<jci::Entity*> Levels::deactiveLevel(std::vector<jci::Entity*> squares)
+{
+	for (auto i : squares)
+	{
+		i->SetActive(false);
+	}
+	return squares;
+}
+
+std::vector<jci::Entity*> Levels::activateLevel(std::vector<jci::Entity*> squares)
+{
+	for (auto i : squares)
+	{
+		i->SetActive(true);
+	}
+	return squares;
 }
 
 std::vector<std::string> Levels::split(const std::string& string, const char splitter)//function that splits input string into a vector;
@@ -129,11 +160,10 @@ void Levels::LoadLevelFromFile(std::string filepath)
 
 void Levels::LoadLevel(std::string fileString)
 {
-	if (LevelSquare.size() > 0)
-	{
-		WipeLevel();
-	}
-	ChallengeManager::getChallengeManager()->newChallenge();
+	//if (LevelSquare->size() > 0)
+	//{
+	//	WipeLevel();
+	//}
 	std::vector<std::string>parsedString = split(fileString, ',');//split via spaces first
 	//ASSERT(false, fileString);
 	float currentX = 0;
@@ -142,7 +172,7 @@ void Levels::LoadLevel(std::string fileString)
 	for (auto i : parsedString)
 	{
 		//take parsedString and start creating the level squares;
-		if (i == "99\n99" || i == "99\n" || i == "\n")//if new line...
+		if (i == "99\n99" || i == "99\n" || i == "\n99" || i == "\n")//if new line...
 		{
 			currentY -= height;//step down next layer
 			currentX = 0;//this is for centering wall length around camera
@@ -151,7 +181,7 @@ void Levels::LoadLevel(std::string fileString)
 		{
 			//script to create debugwall at locations
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(wall);
+			LevelSquare->back()->AddComponent<jci::SpriteRenderer>()->SetTexture(wall);
 			currentX += width;//iterate length of singular square
 
 		}
@@ -159,7 +189,7 @@ void Levels::LoadLevel(std::string fileString)
 		{
 			//script to create top left wall at locations
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(topleftwall);
+			LevelSquare->back()->AddComponent<jci::SpriteRenderer>()->SetTexture(topleftwall);
 			currentX += width;//iterate length of singular square
 
 		}
@@ -167,56 +197,56 @@ void Levels::LoadLevel(std::string fileString)
 		{
 			//script to create floors at locations
 			createFloor(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>() ->SetTexture(floor);
+			LevelSquare->back()->AddComponent<jci::SpriteRenderer>() ->SetTexture(floor);
 			currentX += width;//iterate length of singular square
 		}
 		else if (i == "3")
 		{
 			//script to create top right wall at locations
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(toprightwall);
+			LevelSquare->back()->AddComponent<jci::SpriteRenderer>()->SetTexture(toprightwall);
 			currentX += width;//iterate length of singular square
 		}
 		else if (i == "4")
 		{
 			//script to create top wall at locations
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(topwall);
+			LevelSquare->back()->AddComponent<jci::SpriteRenderer>()->SetTexture(topwall);
 			currentX += width;//iterate length of singular square
 		}
 		else if (i == "5")
 		{
 			//script to create left wall at locations
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(leftwall);
+			LevelSquare->back()->AddComponent<jci::SpriteRenderer>()->SetTexture(leftwall);
 			currentX += width;//iterate length of singular square
 		}
 		else if (i == "6")
 		{
 			//script to create right wall at locations
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(rightwall);
+			LevelSquare->back()->AddComponent<jci::SpriteRenderer>()->SetTexture(rightwall);
 			currentX += width;//iterate length of singular square
 		}
 		else if (i == "7")
 		{
 			//script to create bot left wall at locations
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(botleftwall);
+			LevelSquare->back()->AddComponent<jci::SpriteRenderer>()->SetTexture(botleftwall);
 			currentX += width;//iterate length of singular square
 		}
 		else if (i == "8")
 		{
 			//script to create bot right wall at locations
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(botrightwall);
+			LevelSquare->back()->AddComponent<jci::SpriteRenderer>()->SetTexture(botrightwall);
 			currentX += width;//iterate length of singular square
 		}
 		else if (i == "9")
 		{
 			//script to create bot wall at locations
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(botwall);
+			LevelSquare->back()->AddComponent<jci::SpriteRenderer>()->SetTexture(botwall);
 			currentX += width;//iterate length of singular square
 		}
 		else if (i == "10")
@@ -228,26 +258,26 @@ void Levels::LoadLevel(std::string fileString)
 		else if (i == "11")//inv topleft
 		{
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(inversetopleft);
+			LevelSquare->back()->AddComponent<jci::SpriteRenderer>()->SetTexture(inversetopleft);
 			currentX += width;
 		}
 		else if (i == "12")//inv front right
 		{
 
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(inversetopright);
+			LevelSquare->back()->AddComponent<jci::SpriteRenderer>()->SetTexture(inversetopright);
 			currentX += width;
 		}
 		else if (i == "13")//inv back left
 		{
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(inversebotleft);
+			LevelSquare->back()->AddComponent<jci::SpriteRenderer>()->SetTexture(inversebotleft);
 			currentX += width;
 		}
 		else if (i == "14")// inv back right
 		{
 			createWall(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(inversebotright);
+			LevelSquare->back()->AddComponent<jci::SpriteRenderer>()->SetTexture(inversebotright);
 			currentX += width;
 		}
 		else if (i == "15")
@@ -259,13 +289,13 @@ void Levels::LoadLevel(std::string fileString)
 		else if (i == "79")
 		{
 			createEnemySpawnPoint(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(floor);
+			LevelSquare->back()->AddComponent<jci::SpriteRenderer>()->SetTexture(floor);
 			currentX += width;
 		}
 		else if (i == "89")//spawnpoint
 		{
 			createSpawnPoint(currentX, currentY);
-			LevelSquare.back()->AddComponent<jci::SpriteRenderer>()->SetTexture(floor);
+			LevelSquare->back()->AddComponent<jci::SpriteRenderer>()->SetTexture(floor);
 			currentX += width;//iterate length of singular square
 
 		}
@@ -285,11 +315,11 @@ void Levels::LoadLevel(std::string fileString)
 
 void Levels::WipeLevel()
 {
-	for (auto i : LevelSquare)//Just destroy without default destroy logic;
+	for (auto i : *LevelSquare)//Just destroy without default destroy logic;
 	{
 		jci::Engine::Instance()->DestroyEntity(i);
 	}
-	LevelSquare.clear();
+	LevelSquare->clear();
 	em->clearSquares();
 	em->clearZombies();
 	dm->clear();
@@ -297,20 +327,43 @@ void Levels::WipeLevel()
 
 int Levels::getSpawnPointX()
 {
-	return spawnPointX;
+	for (auto i : spawnPoints)
+	{
+		if (i->IsActive())
+			return i->GetComponent<jci::Transform>()->GetPosition().x;
+	}
 }
 
 int Levels::getSpawnPointY()
 {
-	return spawnPointY;
+	for (auto i : spawnPoints)
+	{
+		if (i->IsActive())
+			return i->GetComponent<jci::Transform>()->GetPosition().y;
+	}
 }
 
 vec2 Levels::GetSpawnPoint()
 {
-	return vec2(spawnPointX,spawnPointY);
+	for (auto i : spawnPoints)
+	{
+		if (i->IsActive())
+			return i->GetComponent<jci::Transform>()->GetPosition();
+	}
 }
 
 EnemyManager* Levels::getEM()
 {
 	return em;
+}
+
+void Levels::newLevel()
+{
+	em->clearZombies();//Wipezombies
+	if (LevelSquare->size() > 0)
+	{
+		deactiveLevel(*LevelSquare);
+	}
+	ChallengeManager::getChallengeManager()->newChallenge();
+	*LevelSquare = activateLevel(LevelList.at((int)(jci::Random::Instance()->Rand()* LevelList.size())));
 }

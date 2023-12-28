@@ -19,6 +19,7 @@ jci::Entity* DoorTrigger::Create(vec2 point, uint32 TextureID)
 	trigger = m_currentScene->CreateEmptyEntity();
 	trigger->GetComponent<jci::Transform>()->SetPosition(point);
 	trigger->AddComponent<jci::SpriteRenderer>()->SetTexture(TextureID);
+	debugSpriteRenderRef = trigger->GetComponent<jci::SpriteRenderer>();
 	jci::BoxCollider* bc = trigger->AddComponent<jci::BoxCollider>();
 	bc->SetBodyType(jci::BodyType::Kinematic);
 	bc->SetTrigger(true);
@@ -43,14 +44,14 @@ void DoorTrigger::OnCollisionEnter(jci::Entity* other)
 
 void DoorTrigger::OnCollisionStay(jci::Entity* other)
 {
-	if (trigger->GetComponent<jci::SpriteRenderer>() == nullptr)
-	{
-		delete this;
-		return;
-	}
+	//if (debugSpriteRenderRef == nullptr)
+	//{
+	//	delete this;
+	//	return;
+	//}
 	if (other->GetTag() == "Player")
 	{
-		door->AddComponent<jci::SpriteRenderer>()->SetTexture(dm->getOpenText());
+		door->GetComponent<jci::SpriteRenderer>()->SetTexture(dm->getOpenText());
 		if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_e))
 		{
 			//Load level script
@@ -66,6 +67,6 @@ void DoorTrigger::OnCollisionStay(jci::Entity* other)
 
 void DoorTrigger::OnCollisionExit(jci::Entity* other)
 {
-	if (door->GetComponent<jci::SpriteRenderer>() != nullptr)
-		door->AddComponent<jci::SpriteRenderer>()->SetTexture(dm->getClosedText());
+	//if (door != nullptr)
+		door->GetComponent<jci::SpriteRenderer>()->SetTexture(dm->getClosedText());
 }

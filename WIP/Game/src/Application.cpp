@@ -32,7 +32,7 @@ void Application::Create()
 {
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	Levels* map = Levels::getCurrentMap();
-	map->LoadLevelFromFile("Assets/Levels/TestRoom.csv");
+	map->newLevel();
 	EnemyManager* em = EnemyManager::getEnemyManager();
 
 

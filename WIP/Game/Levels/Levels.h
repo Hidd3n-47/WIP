@@ -8,10 +8,12 @@
 class Levels
 {
 private:
-	std::vector<jci::Entity*> LevelSquare;
+	std::vector<jci::Entity*>* LevelSquare;
 	EnemyManager* em;
 	DoorManager* dm;
+	std::vector<std::vector<jci::Entity*>> LevelList;
 	jci::Scene* m_currentScene;
+	std::vector<jci::Entity*> spawnPoints;
 	Levels();
 
 	void createWall(float x, float y);
@@ -20,6 +22,8 @@ private:
 	void createDoor(float x, float y);
 	void createDoorTrigger(float x, float y);
 	void createSpawnPoint(float x, float y);//Spawn point
+	std::vector<jci::Entity*> deactiveLevel(std::vector<jci::Entity*> squares);
+	std::vector<jci::Entity*> activateLevel(std::vector<jci::Entity*> squares);
 
 
 public:
@@ -34,6 +38,7 @@ public:
 	int getSpawnPointY();
 	vec2 GetSpawnPoint();
 	EnemyManager* getEM();
+	void newLevel();
 
 /*/////////////////////////////////////////////////////FORMAT////////////////////////////////////////////////////
 1.Create a new CSV file
@@ -87,9 +92,6 @@ public:
 	const int spawnPoint = 89;
 	const int enemySpawnPoint = 79;
 	*/
-
-	float spawnPointX;
-	float spawnPointY;
 	
 };
 

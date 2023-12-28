@@ -3,11 +3,17 @@
 #include "Game/Door/Door.h"
 #include <Engine/Collision/ICollision.h>
 
+namespace jci
+{
+	class SpriteRenderer;
+}
+
 class DoorTrigger : public jci::ICollision
 {
 private:
 	jci::Entity* door;
 	jci::Entity* trigger;
+	jci::SpriteRenderer* debugSpriteRenderRef;
 	DoorManager* dm;
 public:
 	DoorTrigger();

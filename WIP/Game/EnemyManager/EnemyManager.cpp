@@ -107,7 +107,7 @@ void EnemyManager::Update(float dt)
 				for (auto f : EnemySquares)
 				{
 					spawnQueue--;
-					if (PlayerOutOfRange(f))
+					if (PlayerOutOfRange(f) && f->IsActive())
 					{
 						CreateZombie(f->GetComponent<jci::Transform>()->GetPosition());
 					}
