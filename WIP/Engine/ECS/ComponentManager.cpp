@@ -21,6 +21,7 @@ void ComponentManager::Init()
 	m_animations.resize(MAX_ENTITIES);
 	m_particleEmissions.resize(MAX_ENTITIES);
 	m_uiButtons.resize(MAX_ENTITIES);
+	m_uiSprites.resize(MAX_ENTITIES);
 
 	memset(m_componentIndices, 0, (entId)ComponentTypes::Count * sizeof(entId));
 }

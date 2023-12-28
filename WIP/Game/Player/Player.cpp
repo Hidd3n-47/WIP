@@ -49,7 +49,9 @@ void Player::Create(vec2 point, Gun* gun)
 
 	m_playChar = m_currentScene->CreateEmptyEntity();
 	m_playChar->GetComponent<jci::Transform>()->SetPosition(point);
-	m_playChar->AddComponent<jci::SpriteRenderer>()->SetTexture(text);
+	jci::SpriteRenderer* sr = m_playChar->AddComponent<jci::SpriteRenderer>();
+	sr->SetTexture(text);
+	sr->SetLayer(1);
 
 	m_playChar->SetTag("Player");
 

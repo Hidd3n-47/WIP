@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "ButtonManager.h"
+#include "UiManager.h"
 
 #include "Camera/Camera.h"
 #include "ECS/ComponentManager.h"
@@ -7,9 +7,9 @@
 
 namespace jci {
 
-ButtonManager* ButtonManager::m_instance = nullptr;
+UiManager* UiManager::m_instance = nullptr;
 
-void ButtonManager::Update()
+void UiManager::Update()
 {
 	ASSERT(m_screenWidth != -1 && m_screenHeight != -1, "Screen dimensions have not been set correctly.");
 	ASSERT(m_camera, "Invalid camera cached.");
@@ -57,8 +57,16 @@ void ButtonManager::Update()
 			}
 		}
 	}
+
+	UiSprite* sprites = ComponentManager::Instance()->GetComponentVector<UiSprite>();
+	for (entId i = 0; i < ComponentManager::Instance()->GetComponentCount(ComponentTypes::UiSprite); i++)
+	{
+		vec2 spritePosition = GetAnchorPosition(sprites[i].m_anchorPoint) + sprites[i].m_padding;
+
+		*sprites[i].m_quad.position = spritePosition + m_camera->GetPosition();
+	}
 }
-vec2 ButtonManager::GetAnchorPosition(AnchorPoints anchor)
+vec2 UiManager::GetAnchorPosition(AnchorPoints anchor)
 {
 	switch (anchor)
 	{

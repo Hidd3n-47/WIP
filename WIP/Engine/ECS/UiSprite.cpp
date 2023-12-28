@@ -5,7 +5,7 @@
 
 namespace jci {
 
-void UiButton::OnComponentAdd(Entity* entity)
+void UiSprite::OnComponentAdd(Entity* entity)
 {
 	m_entity = entity;
 	RendererManager::Instance()->AddQuadToQueue(&m_quad);
@@ -16,7 +16,7 @@ void UiButton::OnComponentAdd(Entity* entity)
 	m_quad.active = m_entity->GetActivePointer();
 }
 
-void UiButton::OnComponentRemove()
+void UiSprite::OnComponentRemove()
 {
 	RendererManager::Instance()->RemoveQuadFromQueue(&m_quad);
 }

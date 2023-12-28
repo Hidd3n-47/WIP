@@ -16,11 +16,11 @@ class foo : public jci::IButtonMethods
 {
 public:
 	// Inherited via IButtonMethods
-	void OnButtonHover() override
+	void OnButtonHover() final
 	{
 		DLOG("Hovering");
 	}
-	void OnButtonPress() override
+	void OnButtonPress() final
 	{
 		DLOG("-----------Pressed.");
 	}
@@ -51,6 +51,8 @@ void Application::Create()
 	b->SetButtonMethods(f);
 	b->SetAnchorPoint(jci::AnchorPoints::TopLeft);
 	b->SetPadding(vec2(1.0f, -1.0f));
+
+	e1->AddComponent<jci::UiSprite>()->SetTexture(jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::Dbg_Box));
 	/*e1->GetComponent<jci::Transform>()->SetPosition({ 8, -6 });
 	e1->AddComponent<jci::SpriteRenderer>()->SetTexture(em->getZombieTexture());
 	e1->AddComponent<jci::CircleCollider>()->SetBodyType(jci::BodyType::Kinematic);*/

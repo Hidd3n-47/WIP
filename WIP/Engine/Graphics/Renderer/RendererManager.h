@@ -59,7 +59,8 @@ public:
 
 	inline void Destroy() { delete m_instance; }
 
-	const uint32 MAX_QUADS = (MAX_ENTITIES - 1);
+	// Max quads is number of components that can have quads: 1) SpriteRenderer, 2) UiButton, 3) UiSprite.
+	const uint32 MAX_QUADS = (MAX_ENTITIES - 1) * 3;
 	static const uint32 MAX_TEXTURE_SLOTS = 32;
 private:
 	RendererManager() = default;

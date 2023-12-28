@@ -2,7 +2,7 @@
 
 #include "Scene.h"
 
-#include "UI/ButtonManager.h"
+#include "UI/UiManager.h"
 
 /***
 =========================================================================================
@@ -44,7 +44,6 @@ public:
 	*/
 	inline Camera* UpdateCurrentScene(float dt) { ASSERT(m_currentScene, "Cannot update a scene that is nullptr."); return m_currentScene->Update(dt); }
 	
-
 	// Accessors.
 	/***
 	* Gets a scene by the passed in name.
@@ -77,7 +76,7 @@ public:
 	* Sets the currently active scene.
 	*		-> TODO (Christian): Add an on Scene load and on Scene unload.
 	*/
-	inline void SetCurrentScene(Scene* scene) { m_currentScene = scene; ButtonManager::Instance()->SetCamera(m_currentScene->GetCamera()); }
+	inline void SetCurrentScene(Scene* scene) { m_currentScene = scene; UiManager::Instance()->SetCamera(m_currentScene->GetCamera()); }
 
 	void Destory();
 private:

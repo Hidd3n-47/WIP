@@ -14,5 +14,6 @@ enum class ComponentTypes
 	Animation,
 	ParticleEmission,
 	UiButton,
+	UiSprite,
 	Count // Total number of components.
 };

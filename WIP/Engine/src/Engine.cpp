@@ -3,8 +3,8 @@
 
 #include "Time/Time.h"
 #include "IO/IOManager.h"
+#include "UI/UiManager.h"
 #include "Random/Random.h"
-#include "UI/ButtonManager.h"
 #include "Input/InputManager.h"
 #include "Scene/SceneManager.h"
 #include "Pathfinding/AIManager.h"
@@ -60,7 +60,7 @@ void Engine::Init()
 	ASSERT(vsyncDisable == 0, "Failed to turn off VSYNC.");
 
 	glEnable(GL_DEPTH_TEST);
-	glDepthFunc(GL_ALWAYS);
+	glDepthFunc(GL_LEQUAL);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
@@ -91,7 +91,7 @@ void Engine::Run()
 
 		AnimationManager::Instance()->Update();
 
-		StateMachineManager::Instance()->Update(dt);
+		//StateMachineManager::Instance()->Update(dt);
 
 		PhysicsManager::Instance()->Update(dt);
 		
@@ -99,7 +99,7 @@ void Engine::Run()
 		
 		AIManager::Instance()->Update(dt);
 
-		ButtonManager::Instance()->Update();
+		UiManager::Instance()->Update();
 
 		AfterUpdate();
 
@@ -147,8 +147,6 @@ void Engine::AfterUpdate()
 			m_entsToDestroy.pop_back();
 		}
 	}
-
-	ASSERT(m_entsToDestroy.size() == 0, " ");
 }
 
 void Engine::Render()

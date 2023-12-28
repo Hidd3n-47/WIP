@@ -6,10 +6,10 @@ namespace jci {
 
 class Camera;
 
-class ButtonManager
+class UiManager
 {
 public:
-	inline static ButtonManager* Instance() { return !m_instance ? m_instance = new ButtonManager() : m_instance; }
+	inline static UiManager* Instance() { return !m_instance ? m_instance = new UiManager() : m_instance; }
 
 	void Update();
 
@@ -19,10 +19,10 @@ public:
 
 	inline void SetCamera(Camera* camera) { m_camera = camera; }
 private:
-	ButtonManager() = default;
-	~ButtonManager() = default;
+	UiManager() = default;
+	~UiManager() = default;
 
-	static ButtonManager* m_instance;
+	static UiManager* m_instance;
 
 	uint16 m_screenWidth = -1;
 	uint16 m_screenHeight = -1;
