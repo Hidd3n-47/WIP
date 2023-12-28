@@ -32,7 +32,7 @@ jci::Entity* DoorTrigger::getThis()
 	return trigger;
 }
 
-void DoorTrigger::setDoor(Door* temp)
+void DoorTrigger::setDoor(jci::Entity* temp)
 {
 	door = temp;
 }
@@ -43,14 +43,14 @@ void DoorTrigger::OnCollisionEnter(jci::Entity* other)
 
 void DoorTrigger::OnCollisionStay(jci::Entity* other)
 {
-	if (trigger == nullptr)
+	if (trigger->GetComponent<jci::SpriteRenderer>() == nullptr)
 	{
 		delete this;
 		return;
 	}
 	if (other->GetTag() == "Player")
 	{
-		door->setTexture(dm->getOpenText());
+		door->AddComponent<jci::SpriteRenderer>()->SetTexture(dm->getOpenText());
 		if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_e))
 		{
 			//Load level script
@@ -66,6 +66,6 @@ void DoorTrigger::OnCollisionStay(jci::Entity* other)
 
 void DoorTrigger::OnCollisionExit(jci::Entity* other)
 {
-	if (door != nullptr)
-		door->setTexture(dm->getClosedText());
+	if (door->GetComponent<jci::SpriteRenderer>() != nullptr)
+		door->AddComponent<jci::SpriteRenderer>()->SetTexture(dm->getClosedText());
 }

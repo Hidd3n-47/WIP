@@ -20,7 +20,7 @@ std::vector<jci::Entity*> DoorManager::getDoorSquares()
 	return doorRelatedSquares;
 }
 
-Door* DoorManager::getDoor()
+jci::Entity* DoorManager::getDoor()
 {
 	return door;
 }
@@ -34,7 +34,7 @@ void DoorManager::clear()
 	doorRelatedSquares.clear();
 }
 
-void DoorManager::setDoor(Door* temp)
+void DoorManager::setDoor(jci::Entity* temp)
 {
 	door = temp;
 }

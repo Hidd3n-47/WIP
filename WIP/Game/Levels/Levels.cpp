@@ -87,7 +87,7 @@ void Levels::createDoor(float x, float y)
 	//CREATE DOOR;
 	Door* newDoor = new Door();
 	LevelSquare.push_back(newDoor->Create(vec2(x, y), dm->getClosedText()));
-	dm->setDoor(newDoor);
+	dm->setDoor(newDoor->getDoor());
 	dm->getDoorSquares().push_back(newDoor->getDoor());
 }
 

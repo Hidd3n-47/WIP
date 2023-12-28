@@ -6,7 +6,7 @@
 class DoorTrigger : public jci::ICollision
 {
 private:
-	Door* door;
+	jci::Entity* door;
 	jci::Entity* trigger;
 	DoorManager* dm;
 public:
@@ -14,7 +14,7 @@ public:
 	~DoorTrigger();
 	jci::Entity* Create(vec2 point, uint32 TextureID);
 	jci::Entity* getThis();
-	void setDoor(Door* temp);
+	void setDoor(jci::Entity* temp);
 	void OnCollisionEnter(jci::Entity* other) final;
 	void OnCollisionStay(jci::Entity* other) final;
 	void OnCollisionExit(jci::Entity* other) final;
