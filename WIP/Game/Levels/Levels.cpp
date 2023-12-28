@@ -103,6 +103,7 @@ void Levels::createDoor(float x, float y)
 	LevelSquare->push_back(newDoor->Create(vec2(x, y), dm->getClosedText()));
 	dm->setDoor(newDoor->getDoor());
 	dm->getDoorSquares().push_back(newDoor->getDoor());
+	doors.push_back(newDoor);
 }
 
 void Levels::createDoorTrigger(float x, float y)
@@ -111,6 +112,7 @@ void Levels::createDoorTrigger(float x, float y)
 	LevelSquare->push_back(newFloor->Create(vec2(x, y), floor));
 	newFloor->setDoor(dm->getDoor());
 	dm->getDoorSquares().push_back(newFloor->getThis());
+	doorTriggers.push_back(newFloor);
 }
 
 void Levels::createSpawnPoint(float x, float y)
@@ -363,6 +365,20 @@ void Levels::newLevel()
 	if (LevelSquare->size() > 0)
 	{
 		deactiveLevel(*LevelSquare);
+	}
+	for (auto i : doors)
+	{
+		if (i->getDoor()->IsActive())
+		{
+			dm->setDoor(i->getDoor());
+			for (auto f : doorTriggers)
+			{
+				if (f->getThis()->IsActive())
+				{
+					f->setDoor(i->getDoor());
+				}
+			}
+		}
 	}
 	ChallengeManager::getChallengeManager()->newChallenge();
 	*LevelSquare = activateLevel(LevelList.at((int)(jci::Random::Instance()->Rand()* LevelList.size())));

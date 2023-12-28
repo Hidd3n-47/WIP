@@ -6,7 +6,7 @@ class DoorManager
 private:
 	Uint32 openText;
 	Uint32 closedText;
-	jci::Entity* door;
+	jci::Entity* door;//redundant
 	std::vector<jci::Entity*> doorRelatedSquares;
 	DoorManager();
 	void doorToggle(int index);

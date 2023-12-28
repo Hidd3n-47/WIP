@@ -5,6 +5,8 @@
 #include <Game/EnemyManager/EnemyManager.h>
 #include <Game/Door/DoorManager.h>
 
+class DoorTrigger;
+
 class Levels
 {
 private:
@@ -14,6 +16,8 @@ private:
 	std::vector<std::vector<jci::Entity*>> LevelList;
 	jci::Scene* m_currentScene;
 	std::vector<jci::Entity*> spawnPoints;
+	std::vector<Door*> doors;
+	std::vector<DoorTrigger*> doorTriggers;
 	Levels();
 
 	void createWall(float x, float y);
