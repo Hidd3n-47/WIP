@@ -10,6 +10,7 @@
 #include "Game/Door/Door.h"
 #include "Game/Door/DoorTrigger.h"
 #include <Game/Challenges/ChallengeManager.h>
+#include "Engine/Random/Random.h"
 static Levels* map;
 
 Levels::Levels()
@@ -33,6 +34,9 @@ Levels::Levels()
 	inversebotright = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv back right wall.png");
 	em = EnemyManager::getEnemyManager();
 	dm = DoorManager::getDoorManager();
+	LevelList.push_back("Assets/Levels/TestRoom.csv");
+	LevelList.push_back("Assets/Levels/Theatre.csv");
+	LevelList.push_back("Assets/Levels/NOLAGROOM.csv");
 	//DLOG(std::to_string(wall));
 }
 
@@ -142,7 +146,7 @@ void Levels::LoadLevel(std::string fileString)
 	for (auto i : parsedString)
 	{
 		//take parsedString and start creating the level squares;
-		if (i == "99\n99" || i == "99\n" || i == "\n")//if new line...
+		if (i == "99\n99" || i == "99\n" || i == "\n99" || i == "\n")//if new line...
 		{
 			currentY -= height;//step down next layer
 			currentX = 0;//this is for centering wall length around camera
@@ -313,4 +317,9 @@ vec2 Levels::GetSpawnPoint()
 EnemyManager* Levels::getEM()
 {
 	return em;
+}
+
+void Levels::newLevel()
+{
+	LoadLevelFromFile(LevelList.at((int)(jci::Random::Instance()->Rand()* LevelList.size())));
 }

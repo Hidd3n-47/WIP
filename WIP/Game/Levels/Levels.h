@@ -11,6 +11,7 @@ private:
 	std::vector<jci::Entity*> LevelSquare;
 	EnemyManager* em;
 	DoorManager* dm;
+	std::vector<std::string> LevelList;
 	jci::Scene* m_currentScene;
 	Levels();
 
@@ -34,6 +35,7 @@ public:
 	int getSpawnPointY();
 	vec2 GetSpawnPoint();
 	EnemyManager* getEM();
+	void newLevel();
 
 /*/////////////////////////////////////////////////////FORMAT////////////////////////////////////////////////////
 1.Create a new CSV file

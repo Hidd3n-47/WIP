@@ -291,6 +291,7 @@
   <ItemGroup>
     <None Include="Assets\Levels\NOLAGROOM.csv" />
     <None Include="Assets\Levels\TestRoom.csv" />
+    <None Include="Assets\Levels\Theatre.csv" />
     <None Include="Assets\Shader\light.frag" />
     <None Include="Assets\Shader\light.vert" />
     <None Include="Assets\Shader\particleShader.frag" />

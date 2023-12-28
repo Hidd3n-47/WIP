@@ -57,7 +57,7 @@ void DoorTrigger::OnCollisionStay(jci::Entity* other)
 			//tempscript:
 			{
 				Levels* map = Levels::getCurrentMap();
-				map->LoadLevelFromFile("Assets/Levels/TestRoom.csv");
+				map->newLevel();
 				other->GetComponent<jci::Transform>()->SetPosition(map->GetSpawnPoint());
 			}
 		}
