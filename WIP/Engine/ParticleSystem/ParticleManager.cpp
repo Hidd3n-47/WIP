@@ -22,9 +22,15 @@ void ParticleManager::Update(float dt)
 			continue;
 		}
 
+		float movementPercentage = p.movementLifeRemaining / p.movementLifeTime;
+		if (movementPercentage >= 0.0f)
+		{
+			p.movementLifeRemaining -= dt;
+			p.position += p.velocity * dt;
+			p.rotation += 0.001f * dt;
+		}
+		
 		p.lifeRemaining -= dt;
-		p.position += p.velocity * dt;
-		p.rotation += 0.001f * dt;
 
 		float percentage = p.lifeRemaining / p.lifeTime;
 		p.color.a = percentage;
@@ -41,7 +47,7 @@ void ParticleManager::Emit(const ParticleProperties& properties)
 		particle.position = properties.position;
 		particle.rotation = Random::Instance()->Rand() * 360.0f;
 
-		particle.velocity = properties.velocity;
+		particle.velocity = properties.direction * properties.speed;
 		particle.velocity.x += properties.velocityVariation.x * (Random::Instance()->Rand() - 0.5f);
 		particle.velocity.y += properties.velocityVariation.y * (Random::Instance()->Rand() - 0.5f);
 
@@ -49,6 +55,8 @@ void ParticleManager::Emit(const ParticleProperties& properties)
 
 		particle.lifeTime = properties.lifeTime;
 		particle.lifeRemaining = particle.lifeTime;
+		particle.movementLifeTime = properties.movementLifeTime;
+		particle.movementLifeRemaining = particle.movementLifeTime;
 		particle.startSize = properties.startSize + properties.sizeVariation * (Random::Instance()->Rand() - 0.5f);
 		particle.endSize = properties.endSize;
 

@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "Bullet.h"
 
+#include <Engine/ECS/ParticleEmission.h>
+
 Bullet::Bullet(jci::Entity* e)
 {
 	body = e;
@@ -8,6 +10,22 @@ Bullet::Bullet(jci::Entity* e)
 	spawnTime = 0;
 	isMove = false;
 	dmg = 10;
+
+	e->GetComponent<jci::BoxCollider>()->SetCollisionMethods(this);
+	m_particles = e->AddComponent<jci::ParticleEmission>();
+
+	jci::ParticleProperties props;
+	props.position = vec2(6, -6);
+	props.color = vec4(0.533f, 0.031f, 0.031f, 1.0f);
+	props.sizeVariation = 0.05f;
+	props.lifeTime = 4.6f;
+	props.movementLifeTime = 0.15f;
+	props.startSize = 0.1f;
+	props.endSize = 0.05f;
+	props.speed = 8.0f;
+	props.velocityVariation = vec2(3.5f, 3.8f);
+	props.numParticles = 20;
+	m_particles->SetProperties(props);
 }
 
 void Bullet::bulletFire(vec2 d)
@@ -65,7 +83,9 @@ void Bullet::OnCollisionEnter(jci::Entity* other)
 {
 	if (other->GetTag() == "Enemy")
 	{
-		DLOG("Hit!");
+		m_particles->SetParticlePosition(body->GetComponent<jci::Transform>()->GetPosition());
+		m_particles->SetParticleDirection(glm::normalize(direction));
+		m_particles->Emit();
 	}
 }
 

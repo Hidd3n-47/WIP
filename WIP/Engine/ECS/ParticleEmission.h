@@ -18,6 +18,7 @@ public:
 	inline ParticleProperties& GetProperties() { return m_properties; }
 
 	inline void SetParticlePosition(vec2 position) { m_properties.position = position; }
+	inline void SetParticleDirection(vec2 direction) { m_properties.direction = direction; }
 	inline void SetProperties(ParticleProperties& properties) { m_properties = properties; }
 
 	inline ParticleEmission& operator=(ParticleEmission& other) noexcept

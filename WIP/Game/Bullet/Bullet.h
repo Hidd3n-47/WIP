@@ -9,6 +9,7 @@
 namespace jci {
 	class Scene;
 	class Entity;
+	class ParticleEmission;
 }
 
 struct Bullet : public jci::ICollision
@@ -33,6 +34,7 @@ private:
 	int spawnTime;
 	bool isMove;
 	int dmg;
+	jci::ParticleEmission* m_particles;
 
 	void OnCollisionEnter(jci::Entity* other) final;
 	void OnCollisionStay(jci::Entity* other) final;

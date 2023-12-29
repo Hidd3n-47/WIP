@@ -25,7 +25,7 @@ public:
 private:
 	PlayerS* player;
 	jci::Entity* zombert;
-	jci::ParticleEmission* m_particles;
+
 	float hp;
 	vec2* m_position;
 	void OnCollisionEnter(jci::Entity* other) final;

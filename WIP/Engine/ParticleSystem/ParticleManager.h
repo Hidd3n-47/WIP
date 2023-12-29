@@ -5,15 +5,17 @@ namespace jci {
 struct ParticleProperties
 {
 	vec2	position;
-	vec2	velocity;
+	vec2	direction;
+	float	speed;
 	vec2	velocityVariation;
 	vec4	color;
 	float	startSize;
 	float	endSize;
 	float	sizeVariation;
 
-	float	lifeTime		= 1.0f;
-	uint32	numParticles	= 1;
+	float	lifeTime			= 1.0f;
+	float	movementLifeTime	= 1.0f;
+	uint32	numParticles		= 1;
 };
 
 class ParticleManager
@@ -43,7 +45,9 @@ private:
 		float	size;
 		float	rotation;
 		float	lifeTime;
+		float	movementLifeTime;
 		float	lifeRemaining;
+		float	movementLifeRemaining;
 		bool	active;
 	};
 	std::vector<Particle> m_particles;
