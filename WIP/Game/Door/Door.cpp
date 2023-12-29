@@ -18,7 +18,6 @@ jci::Entity* Door::Create(vec2 point, uint32 TextureID)
 	door->AddComponent<jci::SpriteRenderer>()->SetTexture(TextureID);
 	jci::BoxCollider* bc = door->AddComponent<jci::BoxCollider>();
 	bc->SetBodyType(jci::BodyType::Static);
-	bc->SetTrigger(true);
 	return door;
 }
 
