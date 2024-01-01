@@ -43,10 +43,19 @@ Levels::Levels()
 	LevelList.push_back(*LevelSquare);
 	deactiveLevel(*LevelSquare);
 	LevelSquare->clear();
-	LoadLevelFromFile("Assets/Levels/NOLAGROOM.csv");
+	//LoadLevelFromFile("Assets/Levels/NOLAGROOM.csv");
+	//LevelList.push_back(*LevelSquare);
+	//deactiveLevel(*LevelSquare);
+	//LevelSquare->clear();
+	LoadLevelFromFile("Assets/Levels/Vault.csv");
 	LevelList.push_back(*LevelSquare);
 	deactiveLevel(*LevelSquare);
 	LevelSquare->clear();
+	LoadLevelFromFile("Assets/Levels/NotSoEmptyLab.csv");
+	LevelList.push_back(*LevelSquare);
+	deactiveLevel(*LevelSquare);
+	LevelSquare->clear();
+
 	//DLOG(std::to_string(wall));
 }
 

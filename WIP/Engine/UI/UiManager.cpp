@@ -4,6 +4,8 @@
 #include "Camera/Camera.h"
 #include "ECS/ComponentManager.h"
 #include "Input/InputManager.h"
+#include "UIManager.h"
+#include "UIManager.h"
 
 namespace jci {
 

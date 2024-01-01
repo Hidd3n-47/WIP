@@ -213,6 +213,12 @@
     <ClCompile Include="Game\Challenges\WaveDefence.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Game\UIManager\GameUIManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Challenges\Survive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\src\Engine.h">
@@ -455,6 +461,12 @@
     <ClInclude Include="Game\Challenges\WaveDefence.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Game\UIManager\GameUIManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Challenges\Survive.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shader\shader.frag" />
@@ -466,6 +478,8 @@
     <None Include="Assets\Shader\particleShader.frag" />
     <None Include="Assets\Shader\particleShader.vert" />
     <None Include="Assets\Levels\Theatre.csv" />
+    <None Include="Assets\Levels\Vault.csv" />
+    <None Include="Assets\Levels\NotSoEmptyLab.csv" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Texture\Back left wall.png">

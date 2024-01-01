@@ -104,11 +104,12 @@ void EnemyManager::Update(float dt)
 			else
 			{
 				vec2 SpawnPosition;
+				spawnQueue--;
 				for (auto f : EnemySquares)
 				{
-					spawnQueue--;
 					if (PlayerOutOfRange(f) && f->IsActive())
 					{
+						//DLOG("Spawning zomb");
 						CreateZombie(f->GetComponent<jci::Transform>()->GetPosition());
 					}
 				}

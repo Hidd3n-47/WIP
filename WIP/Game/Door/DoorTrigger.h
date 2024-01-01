@@ -2,6 +2,7 @@
 #include <Game/Door/DoorManager.h>
 #include "Game/Door/Door.h"
 #include <Engine/Collision/ICollision.h>
+#include "Game/Challenges/ChallengeManager.h"
 
 namespace jci
 {
@@ -15,6 +16,7 @@ private:
 	jci::Entity* trigger;
 	jci::SpriteRenderer* debugSpriteRenderRef;
 	DoorManager* dm;
+	ChallengeManager* cm;
 public:
 	DoorTrigger();
 	~DoorTrigger();

@@ -7,6 +7,7 @@
 DoorTrigger::DoorTrigger()
 {
 	dm = DoorManager::getDoorManager();
+	cm = ChallengeManager::getChallengeManager();
 }
 
 DoorTrigger::~DoorTrigger()
@@ -49,7 +50,7 @@ void DoorTrigger::OnCollisionStay(jci::Entity* other)
 	//	delete this;
 	//	return;
 	//}
-	if (other->GetTag() == "Player")
+	if (other->GetTag() == "Player" && cm->getCurrentChallenge()->getCompleted())
 	{
 		door->GetComponent<jci::SpriteRenderer>()->SetTexture(dm->getOpenText());
 		if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_e))

@@ -2,13 +2,16 @@
 #include "ChallengeManager.h"
 #include "Engine/Random/Random.h"
 #include "WaveDefence.h"
+#include "Survive.h"
 
 ChallengeManager* ChallengeManager::challengeManager = nullptr;
 
 ChallengeManager::ChallengeManager()
 {
+	Survive* survive = new Survive;
 	WaveDefence* waveDefence = new WaveDefence;
 	challenges.push_back(waveDefence);
+	challenges.push_back(survive);
 }
 
 ChallengeManager* ChallengeManager::getChallengeManager()

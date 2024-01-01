@@ -145,6 +145,7 @@
     <ClCompile Include="Engine\ECS\UiButton.cpp" />
     <ClCompile Include="Engine\ECS\UiSprite.cpp" />
     <ClCompile Include="Engine\UI\UiManager.cpp" />
+    <ClCompile Include="Game\Challenges\Survive.cpp" />
     <ClCompile Include="Game\Challenges\ChallengeParent.cpp" />
     <ClCompile Include="Game\Challenges\ChallengeManager.cpp" />
     <ClCompile Include="Engine\Collision\CollisionCallbackManager.cpp" />
@@ -205,12 +206,14 @@
     <ClCompile Include="Engine\ECS\ParticleEmission.cpp" />
     <ClCompile Include="Engine\ParticleSystem\ParticleManager.cpp" />
     <ClCompile Include="Game\Challenges\WaveDefence.cpp" />
+    <ClCompile Include="Game\UIManager\GameUIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\ECS\UiSprite.h" />
     <ClInclude Include="Engine\UI\UiManager.h" />
     <ClInclude Include="Engine\ECS\AnchorPoints.h" />
     <ClInclude Include="Engine\ECS\UiButton.h" />
+    <ClInclude Include="Game\Challenges\Survive.h" />
     <ClInclude Include="Game\Challenges\ChallengeParent.h" />
     <ClInclude Include="Game\Challenges\ChallengeManager.h" />
     <ClInclude Include="Engine\Collision\CollisionCallback.h" />
@@ -287,11 +290,14 @@
     <ClInclude Include="Engine\ECS\ParticleEmission.h" />
     <ClInclude Include="Engine\ParticleSystem\ParticleManager.h" />
     <ClInclude Include="Game\Challenges\WaveDefence.h" />
+    <ClInclude Include="Game\UIManager\GameUIManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Levels\NOLAGROOM.csv" />
+    <None Include="Assets\Levels\NotSoEmptyLab.csv" />
     <None Include="Assets\Levels\TestRoom.csv" />
     <None Include="Assets\Levels\Theatre.csv" />
+    <None Include="Assets\Levels\Vault.csv" />
     <None Include="Assets\Shader\light.frag" />
     <None Include="Assets\Shader\light.vert" />
     <None Include="Assets\Shader\particleShader.frag" />
