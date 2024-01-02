@@ -376,7 +376,7 @@ public:
 
 	inline entId GetComponentCount(ComponentTypes type) const { return m_componentIndices[(entId)type]; }
 
-	// TODO (Christian) Add a remove component.
+	inline void ResetComponents() { memset(m_componentIndices, 0, (entId)ComponentTypes::Count * sizeof(entId)); }
 private:
 	ComponentManager()	= default;
 	~ComponentManager()	= default;

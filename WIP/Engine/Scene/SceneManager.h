@@ -74,9 +74,9 @@ public:
 	void SetSceneName(uint16 id, const std::string newName);
 	/***
 	* Sets the currently active scene.
-	*		-> TODO (Christian): Add an on Scene load and on Scene unload.
+	*
 	*/
-	inline void SetCurrentScene(Scene* scene) { m_currentScene = scene; UiManager::Instance()->SetCamera(m_currentScene->GetCamera()); }
+	void SetCurrentScene(Scene* scene);
 
 	void Destory();
 private:

@@ -108,5 +108,12 @@ void SceneManager::Destory()
 	delete m_instance; 
 }
 
+void SceneManager::SetCurrentScene(Scene* scene)
+{ 
+	m_currentScene = scene; 
+	UiManager::Instance()->SetCamera(m_currentScene->GetCamera()); 
+	ComponentManager::Instance()->ResetComponents();
+}
+
 
 } // Namespace jci.
