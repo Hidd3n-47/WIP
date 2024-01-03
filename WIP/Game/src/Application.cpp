@@ -12,6 +12,7 @@
 #include "Game/EnemyManager/EnemyManager.h"
 #include "Game/Challenges/ChallengeManager.h"
 #include "Game/Player/PlayerStateManager.h"
+#include <Game/UIManager/GameUIManager.h>
 
 class foo : public jci::IButtonMethods
 {
@@ -66,6 +67,18 @@ void Application::Create()
 
 void Application::Update(float dt)
 {
+	if (!ChallengeManager::getChallengeManager()->getCurrentChallenge()->getCompleted())
+	{
+		PlayerStateManager::Instance()->Update(dt);
+		manager->Update(dt);
+		EnemyManager::getEnemyManager()->Update(dt);
+		ChallengeManager::getChallengeManager()->getCurrentChallenge()->Update(dt);
+	}
+	else
+	{
+		GameUIManager::getGameUIManager()->perkToggle();
+	}
+}
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_o))
 	{
 		jci::SceneManager::Instance()->SetCurrentScene(m_gameScene);

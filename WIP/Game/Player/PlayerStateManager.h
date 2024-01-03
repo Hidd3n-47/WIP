@@ -3,6 +3,7 @@
 #include <Engine/Collision/ICollision.h>
 #include <Engine/FSM/IState.h>
 #include <Game/Gun/Gun.h>
+#include <Game/Perks/PerkParent.h>
 
 namespace jci
 {
