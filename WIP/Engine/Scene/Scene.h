@@ -54,6 +54,11 @@ public:
 	* Will never return null as every scene need's a Camera.
 	*/
 	inline Camera* GetCamera() const { return m_camera; };
+	/***
+	* Clear all the entities of the scene.
+	* 
+	*/
+	inline void ClearEntities() { m_entityIndex = 0; m_entities.clear(); }
 private:
 	std::string m_name;
 	uint16 m_id;

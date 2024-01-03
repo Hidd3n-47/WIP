@@ -42,7 +42,7 @@ public:
 	* Call the Update method on the currently active Scene.
 	*
 	*/
-	inline Camera* UpdateCurrentScene(float dt) { ASSERT(m_currentScene, "Cannot update a scene that is nullptr."); return m_currentScene->Update(dt); }
+	Camera* UpdateCurrentScene(float dt);
 	
 	// Accessors.
 	/***
@@ -76,7 +76,7 @@ public:
 	* Sets the currently active scene.
 	*
 	*/
-	void SetCurrentScene(Scene* scene);
+	inline void SetCurrentScene(Scene* scene) { m_sceneToChangeTo = scene; }
 
 	void Destory();
 private:
@@ -88,6 +88,8 @@ private:
 	uint16 m_sceneId = 0;
 	std::unordered_map<uint16, Scene*> m_scenes;
 	Scene* m_currentScene = nullptr;
+
+	Scene* m_sceneToChangeTo = nullptr;
 };
 
 } // Namespace jci.

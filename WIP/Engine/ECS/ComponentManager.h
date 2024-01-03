@@ -39,6 +39,7 @@ public:
 	inline static ComponentManager* Instance() { return m_instance == nullptr ? m_instance = new ComponentManager() : m_instance; }
 
 	void Init();
+	void Destroy();
 
 	template<class ComponentClass>
 	inline ComponentClass* RegisterComponent(ComponentTypes type, std::vector<ComponentClass>& componentVector)
