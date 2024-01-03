@@ -7,7 +7,7 @@ static GameUIManager* gameUIManager;
 
 GameUIManager::GameUIManager()
 {
-
+	perkLeft->getButton()->GetComponent<jci::Transform>()->SetPosition(vec2(1,1));//pos;
 }
 
 std::vector<jci::UiButton*> GameUIManager::GetscreenButtons()
