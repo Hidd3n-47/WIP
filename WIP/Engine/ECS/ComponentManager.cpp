@@ -26,4 +26,23 @@ void ComponentManager::Init()
 	ResetComponents();
 }
 
+void ComponentManager::Destroy()
+{
+	m_transforms.clear();
+	m_spriteRenderers.clear();
+	m_boxColliders.clear();
+	m_circleColliders.clear();
+	m_capsuleColliders.clear();
+	m_navBlocks.clear();
+	m_ais.clear();
+	m_impulses.clear();
+	m_audios.clear();
+	m_animations.clear();
+	m_particleEmissions.clear();
+	m_uiButtons.clear();
+	m_uiSprites.clear();
+
+	delete m_instance;
+}
+
 } // Namespace jci.

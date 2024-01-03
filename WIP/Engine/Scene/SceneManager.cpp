@@ -57,16 +57,6 @@ Camera* SceneManager::UpdateCurrentScene(float dt)
 {
 	ASSERT(m_currentScene, "Cannot update a scene that is nullptr.");
 
-	if (m_sceneToChangeTo)
-	{
-		m_currentScene->ClearEntities();
-
-		m_currentScene = m_sceneToChangeTo;
-		m_sceneToChangeTo = nullptr;
-		UiManager::Instance()->SetCamera(m_currentScene->GetCamera());
-		ComponentManager::Instance()->ResetComponents();
-	}
-
 	return m_currentScene->Update(dt);
 }
 
@@ -118,6 +108,27 @@ void SceneManager::SetSceneName(uint16 id, const std::string newName)
 	}
 
 	ASSERT(false, "Scene with id '" + std::to_string(id) + "' is not a current scene.");
+}
+
+void SceneManager::SetCurrentScene(Scene* scene) 
+{ 
+	if (m_currentScene)
+	{
+		m_currentScene->CacheEntities();
+		m_currentScene->ClearEntities();
+		ComponentManager::Instance()->ResetComponents();
+
+		m_currentScene = scene;
+		m_currentScene->RetrieveCachedEntities();
+
+		UiManager::Instance()->SetCamera(m_currentScene->GetCamera());
+	}
+	else
+	{
+		m_currentScene = scene;
+		UiManager::Instance()->SetCamera(m_currentScene->GetCamera());
+	}
+	
 }
 
 void SceneManager::Destory()

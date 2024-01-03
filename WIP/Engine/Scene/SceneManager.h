@@ -76,7 +76,7 @@ public:
 	* Sets the currently active scene.
 	*
 	*/
-	inline void SetCurrentScene(Scene* scene) { m_sceneToChangeTo = scene; }
+	void SetCurrentScene(Scene* scene);
 
 	void Destory();
 private:
@@ -88,8 +88,6 @@ private:
 	uint16 m_sceneId = 0;
 	std::unordered_map<uint16, Scene*> m_scenes;
 	Scene* m_currentScene = nullptr;
-
-	Scene* m_sceneToChangeTo = nullptr;
 };
 
 } // Namespace jci.

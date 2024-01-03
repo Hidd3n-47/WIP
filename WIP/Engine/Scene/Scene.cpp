@@ -47,8 +47,34 @@ void Scene::RemoveEnity(Entity* entity)
 			return;
 		}
 	}
+}
 
-	//delete entity;
+void Scene::CacheEntities()
+{
+	ASSERT(m_cachedEntities.size(), "Cached entity vector size is not zero.");
+	if (m_entities.size()) { return; }
+
+	m_cachedEntities.resize(m_entities.size());
+
+	for (Entity* ent : m_entities)
+	{
+		ent->CacheComponets();
+		Entity e = *ent;
+		m_cachedEntities.push_back(e);
+	}
+}
+
+void Scene::RetrieveCachedEntities()
+{
+	for (Entity e : m_cachedEntities)
+	{
+		Entity* ent = new Entity(this, m_entityIndex);
+		*ent = e;
+		ent->SetId(m_entityIndex++);
+		ent->RetrieveComponents();
+		m_entities.push_back(ent);
+	}
+	m_cachedEntities.clear();
 }
 
 } // Namespace jci.

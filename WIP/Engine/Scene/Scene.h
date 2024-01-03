@@ -59,12 +59,17 @@ public:
 	* 
 	*/
 	inline void ClearEntities() { m_entityIndex = 0; m_entities.clear(); }
+
+	void CacheEntities();
+	void RetrieveCachedEntities();
 private:
 	std::string m_name;
 	uint16 m_id;
 	uint16 m_entityIndex = 0;
 	std::vector<Entity*> m_entities;
 	Camera* m_camera;
+
+	std::vector<Entity> m_cachedEntities;
 };
 
 } // Namespace jci.
