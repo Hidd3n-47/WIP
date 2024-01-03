@@ -17,6 +17,7 @@ public:
 
 	virtual void SetId(entId id) = 0;
 
+	virtual ComponentTypes GetComponentType() const = 0;
 };
 
 } // Namespace jci.

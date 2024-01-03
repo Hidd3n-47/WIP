@@ -87,6 +87,10 @@ void Bullet::OnCollisionEnter(jci::Entity* other)
 		m_particles->SetParticleDirection(glm::normalize(direction));
 		m_particles->Emit();
 	}
+	if (!(other->GetTag() == "Player" || other->GetTag() == "Bullet"))
+	{
+		body->GetComponent<jci::Transform>()->SetPosition(vec2(10000000.0f));
+	}
 }
 
 void Bullet::OnCollisionStay(jci::Entity* other)

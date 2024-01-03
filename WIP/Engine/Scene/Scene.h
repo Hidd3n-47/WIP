@@ -54,12 +54,22 @@ public:
 	* Will never return null as every scene need's a Camera.
 	*/
 	inline Camera* GetCamera() const { return m_camera; };
+	/***
+	* Clear all the entities of the scene.
+	* 
+	*/
+	inline void ClearEntities() { m_entityIndex = 0; m_entities.clear(); }
+
+	void CacheEntities();
+	void RetrieveCachedEntities();
 private:
 	std::string m_name;
 	uint16 m_id;
 	uint16 m_entityIndex = 0;
 	std::vector<Entity*> m_entities;
 	Camera* m_camera;
+
+	std::vector<Entity> m_cachedEntities;
 };
 
 } // Namespace jci.

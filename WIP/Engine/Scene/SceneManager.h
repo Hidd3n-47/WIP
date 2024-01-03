@@ -42,7 +42,7 @@ public:
 	* Call the Update method on the currently active Scene.
 	*
 	*/
-	inline Camera* UpdateCurrentScene(float dt) { ASSERT(m_currentScene, "Cannot update a scene that is nullptr."); return m_currentScene->Update(dt); }
+	Camera* UpdateCurrentScene(float dt);
 	
 	// Accessors.
 	/***

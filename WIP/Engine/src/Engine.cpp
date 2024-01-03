@@ -68,6 +68,8 @@ void Engine::Init()
 
 	RendererManager::Instance()->Init();
 
+	AudioManager::Instance()->Init();
+
 	Application::Instance()->Create();
 
 	Random::Instance()->Init();
@@ -90,8 +92,6 @@ void Engine::Run()
 		Application::Instance()->Update(dt);
 
 		AnimationManager::Instance()->Update();
-
-		//StateMachineManager::Instance()->Update(dt);
 
 		PhysicsManager::Instance()->Update(dt);
 		
@@ -118,6 +118,8 @@ void Engine::Destroy()
 	CollisionManager::Instance()->Destroy();
 
 	SceneManager::Instance()->Destory();
+
+	ComponentManager::Instance()->Destroy();
 
 	RendererManager::Instance()->Destroy();
 
