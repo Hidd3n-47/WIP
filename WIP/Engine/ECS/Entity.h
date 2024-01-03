@@ -15,6 +15,7 @@ class Scene;
 class Entity
 {
 public:
+	Entity() = default;
 	inline Entity(Scene* scene, uint16 id) :
 		m_scene(scene),
 		m_id(id)
@@ -78,6 +79,28 @@ public:
 		return nullptr;
 	}
 
+	void CacheComponets()
+	{
+		ASSERT(m_cachedComponents.size(), "Cached component vector size is not zero.");
+		if (m_componentIndices.size()) { return; }
+
+		m_cachedComponents.resize(m_componentIndices.size());
+		for (auto it : m_componentIndices)
+		{
+			m_cachedComponents.push_back(ComponentManager::Instance()->GetComponentCopy(it.first, it.second));
+		}
+	}
+
+	void RetrieveComponents()
+	{
+		for (IComponent* cachedComp : m_cachedComponents)
+		{
+			ComponentManager::Instance()->RegisterCachedComponent(cachedComp);
+		}
+
+		m_cachedComponents.clear();
+	}
+
 	inline void DestoryEntity() { Engine::Instance()->DestroyEntity(this); }
 	
 	inline Scene* GetScene() const { return m_scene; }
@@ -91,19 +114,33 @@ public:
 	// Mutators.
 	inline void SetTag(const std::string& tag) { m_tag = tag; }
 	inline void SetActive(bool active) { m_active = active; }
+	inline void SetId(entId id) { m_id = id; }
+	
+	inline Entity& operator=(Entity& other) noexcept
+	{
+		m_componentIndices = std::move(other.m_componentIndices);
+		m_scene = other.m_scene;
+		m_id = other.m_id;
+		m_componentMask = other.m_componentMask;
+		m_active = other.m_active;
+		m_tag = other.m_tag;
+		m_cachedComponents = std::move(other.m_cachedComponents);
+
+		return *this;
+	}
 private:
 	std::unordered_map<ComponentTypes, entId>	m_componentIndices;
 
 	inline void SetComponentId(ComponentTypes type, entId newId) { m_componentIndices[type] = newId; }
 
 	Scene* m_scene = nullptr;
-	std::vector<Entity*> m_child; // TODO (Christian): Implement this.
-	Entity* m_parent = nullptr;
 	entId m_id;
 	uint16 m_componentMask;
 	bool m_active = true;
 
 	std::string m_tag = "Untagged";
+
+	std::vector<IComponent*> m_cachedComponents;
 };
 
 } // Namespace jci.

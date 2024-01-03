@@ -53,6 +53,13 @@ void SceneManager::DestoryScene(uint16 id)
 	ASSERT(false, "Scene with id '" + std::to_string(id) + "' is not a current scene and could not be removed.");
 }
 
+Camera* SceneManager::UpdateCurrentScene(float dt)
+{
+	ASSERT(m_currentScene, "Cannot update a scene that is nullptr.");
+
+	return m_currentScene->Update(dt);
+}
+
 Scene* SceneManager::GetScene(const std::string& name)
 {
 	for (auto it = m_scenes.begin(); it != m_scenes.end(); it++)
@@ -103,10 +110,30 @@ void SceneManager::SetSceneName(uint16 id, const std::string newName)
 	ASSERT(false, "Scene with id '" + std::to_string(id) + "' is not a current scene.");
 }
 
+void SceneManager::SetCurrentScene(Scene* scene) 
+{ 
+	if (m_currentScene)
+	{
+		m_currentScene->CacheEntities();
+		m_currentScene->ClearEntities();
+		ComponentManager::Instance()->ResetComponents();
+
+		m_currentScene = scene;
+		m_currentScene->RetrieveCachedEntities();
+
+		UiManager::Instance()->SetCamera(m_currentScene->GetCamera());
+	}
+	else
+	{
+		m_currentScene = scene;
+		UiManager::Instance()->SetCamera(m_currentScene->GetCamera());
+	}
+	
+}
+
 void SceneManager::Destory()
 { 
 	delete m_instance; 
 }
-
 
 } // Namespace jci.

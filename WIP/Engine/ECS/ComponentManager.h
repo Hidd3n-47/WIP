@@ -39,6 +39,7 @@ public:
 	inline static ComponentManager* Instance() { return m_instance == nullptr ? m_instance = new ComponentManager() : m_instance; }
 
 	void Init();
+	void Destroy();
 
 	template<class ComponentClass>
 	inline ComponentClass* RegisterComponent(ComponentTypes type, std::vector<ComponentClass>& componentVector)
@@ -48,6 +49,16 @@ public:
 		ComponentClass comp;
 		comp.SetId(componentIndex);
 		componentVector[componentIndex] = comp;
+		return &componentVector[componentIndex];
+	}
+
+	template<class ComponentClass>
+	inline ComponentClass* RegisterComponent(ComponentTypes type, std::vector<ComponentClass>& componentVector, ComponentClass component)
+	{
+		entId componentIndex = m_componentIndices[(entId)type]++;
+
+		component.SetId(componentIndex);
+		componentVector[componentIndex] = component;
 		return &componentVector[componentIndex];
 	}
 
@@ -376,7 +387,132 @@ public:
 
 	inline entId GetComponentCount(ComponentTypes type) const { return m_componentIndices[(entId)type]; }
 
-	// TODO (Christian) Add a remove component.
+	inline void ResetComponents() { memset(m_componentIndices, 0, (entId)ComponentTypes::Count * sizeof(entId)); }
+
+	inline IComponent* GetComponentCopy(ComponentTypes type, entId id)
+	{
+		switch (type)
+		{
+		case ComponentTypes::Transform:
+		{
+			Transform t = m_transforms[id];
+			return (IComponent*)&t;
+		}
+		case ComponentTypes::SpriteRenderer:
+		{
+			SpriteRenderer sr = m_spriteRenderers[id];
+			return (IComponent*)&sr;
+		}
+		case ComponentTypes::BoxCollider:
+		{
+			BoxCollider bc = m_boxColliders[id];
+			return (IComponent*)&bc;
+		}
+		case ComponentTypes::CircleCollider:
+		{
+			CircleCollider cc = m_circleColliders[id];
+			return (IComponent*)&cc;
+		}
+		case ComponentTypes::CapsuleCollider:
+		{
+			CapsuleCollider cc = m_capsuleColliders[id];
+			return (IComponent*)&cc;
+		}
+		case ComponentTypes::NavBlock:
+		{
+			NavBlock nb = m_navBlocks[id];
+			return (IComponent*)&nb;
+		}
+		case ComponentTypes::AI:
+		{
+			AI ai = m_ais[id];
+			return (IComponent*)&ai;
+		}
+		case ComponentTypes::Impulse:
+		{
+			Impulse i = m_impulses[id];
+			return (IComponent*)&i;
+		}
+		case ComponentTypes::Audio:
+		{
+			Audio a = m_audios[id];
+			return (IComponent*)&a;
+		}
+		case ComponentTypes::Animation:
+		{
+			Animation a = m_animations[id];
+			return (IComponent*)&a;
+		}
+		case ComponentTypes::ParticleEmission:
+		{
+			ParticleEmission pe = m_particleEmissions[id];
+			return (IComponent*)&pe;
+		}
+		case ComponentTypes::UiButton:
+		{
+			UiButton ub = m_uiButtons[id];
+			return (IComponent*)&ub;
+		}
+		case ComponentTypes::UiSprite:
+		{
+			UiSprite us = m_uiSprites[id];
+			return (IComponent*)&us;
+		}
+		default:
+			ASSERT(false, "Unhandled component removal.");
+			return nullptr;
+		}
+	}
+
+	void RegisterCachedComponent(IComponent* component)
+	{
+		ComponentTypes type = component->GetComponentType();
+		switch (type)
+		{
+		case ComponentTypes::Transform:
+			RegisterComponent(type, m_transforms, *(Transform*)component);
+			break;
+		case ComponentTypes::SpriteRenderer:
+			RegisterComponent(type, m_spriteRenderers, *(SpriteRenderer*)component);
+			break;
+		case ComponentTypes::BoxCollider:
+			RegisterComponent(type, m_boxColliders, *(BoxCollider*)component);
+			break;
+		case ComponentTypes::CircleCollider:
+			RegisterComponent(type, m_circleColliders, *(CircleCollider*)component);
+			break;
+		case ComponentTypes::CapsuleCollider:
+			RegisterComponent(type, m_capsuleColliders, *(CapsuleCollider*)component);
+			break;
+		case ComponentTypes::NavBlock:
+			RegisterComponent(type, m_navBlocks, *(NavBlock*)component);
+			break;
+		case ComponentTypes::AI:
+			RegisterComponent(type, m_ais, *(AI*)component);
+			break;
+		case ComponentTypes::Impulse:
+			RegisterComponent(type, m_impulses, *(Impulse*)component);
+			break;
+		case ComponentTypes::Audio:
+			RegisterComponent(type, m_audios, *(Audio*)component);
+			break;
+		case ComponentTypes::Animation:
+			RegisterComponent(type, m_animations, *(Animation*)component);
+			break;
+		case ComponentTypes::ParticleEmission:
+			RegisterComponent(type, m_particleEmissions, *(ParticleEmission*)component);
+			break;
+		case ComponentTypes::UiButton:
+			RegisterComponent(type, m_uiButtons, *(UiButton*)component);
+			break;
+		case ComponentTypes::UiSprite:
+			RegisterComponent(type, m_uiSprites, *(UiSprite*)component);
+			break;
+		default:
+			ASSERT(false, "Unhandled component removal.");
+			break;
+		}
+	}
 private:
 	ComponentManager()	= default;
 	~ComponentManager()	= default;
