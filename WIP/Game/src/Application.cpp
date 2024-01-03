@@ -6,6 +6,7 @@
 #include <Engine/ECS/BoxCollider.h>
 #include <Engine/Input/InputManager.h>
 #include <Engine/ECS/SpriteRenderer.h>
+#include <Engine/Scene/SceneManager.h>
 
 #include "Game/Levels/Levels.h"
 #include "Game/EnemyManager/EnemyManager.h"
@@ -56,9 +57,41 @@ void Application::Create()
 	/*e1->GetComponent<jci::Transform>()->SetPosition({ 8, -6 });
 	e1->AddComponent<jci::SpriteRenderer>()->SetTexture(em->getZombieTexture());
 	e1->AddComponent<jci::CircleCollider>()->SetBodyType(jci::BodyType::Kinematic);*/
+
+	/*m_gameScene = jci::SceneManager::Instance()->CreateScene("GameScene");
+	m_startMenu = jci::SceneManager::Instance()->CreateScene("Start");
+	m_currentScene = m_startMenu;
+	jci::SceneManager::Instance()->SetCurrentScene(m_currentScene);*/
 }
 
 void Application::Update(float dt)
+{
+	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_o))
+	{
+		jci::SceneManager::Instance()->SetCurrentScene(m_gameScene);
+	}
+	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_p))
+	{
+		jci::SceneManager::Instance()->SetCurrentScene(m_gameScene);
+	}
+	/*switch(m_currentScene)
+		case State::*/
+	if (m_currentScene == m_startMenu)
+	{
+		startUpdate(dt);
+	}
+	else if (m_currentScene == m_gameScene)
+	{
+		gameUpdate(dt);
+	}
+}
+
+void Application::startUpdate(float dt)
+{
+
+}
+
+void Application::gameUpdate(float dt)
 {
 	PlayerStateManager::Instance()->Update(dt);
 	manager->Update(dt);

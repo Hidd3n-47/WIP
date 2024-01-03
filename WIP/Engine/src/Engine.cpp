@@ -49,7 +49,7 @@ void Engine::Init()
 	std::cout << std::endl;
 #endif
 
-	SceneManager::Instance()->SetCurrentScene(SceneManager::Instance()->CreateScene("MainScene"));
+	
 
 	TextureManager::Instance()->Init();
 
@@ -68,7 +68,7 @@ void Engine::Init()
 
 	RendererManager::Instance()->Init();
 
-	AudioManager::Instance()->Init();
+//	AudioManager::Instance()->Init();
 
 	Application::Instance()->Create();
 
