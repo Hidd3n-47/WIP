@@ -10,7 +10,7 @@ private:
 public:
 	PerkButton();
 	jci::Entity* getButton();
-	void OnButtonHover() final;
+	void OnButtonHover() final {};
 	void OnButtonPress() final;
 };
 

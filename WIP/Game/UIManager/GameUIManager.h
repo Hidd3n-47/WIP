@@ -17,6 +17,7 @@ private:
 public:
 	GameUIManager(const GameUIManager& obj) = delete;
 	std::vector<jci::UiButton*> GetscreenButtons();
+	void perkToggle();
 	static GameUIManager* getGameUIManager();
 
 };
