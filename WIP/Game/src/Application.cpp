@@ -59,10 +59,10 @@ void Application::Create()
 	e1->AddComponent<jci::SpriteRenderer>()->SetTexture(em->getZombieTexture());
 	e1->AddComponent<jci::CircleCollider>()->SetBodyType(jci::BodyType::Kinematic);*/
 
-	/*m_gameScene = jci::SceneManager::Instance()->CreateScene("GameScene");
+	//m_gameScene = jci::SceneManager::Instance()->CreateScene("GameScene");
 	m_startMenu = jci::SceneManager::Instance()->CreateScene("Start");
-	m_currentScene = m_startMenu;
-	jci::SceneManager::Instance()->SetCurrentScene(m_currentScene);*/
+	//m_currentScene = m_startMenu;
+	//jci::SceneManager::Instance()->SetCurrentScene(m_currentScene);
 }
 
 void Application::Update(float dt)
@@ -78,14 +78,15 @@ void Application::Update(float dt)
 	{
 		GameUIManager::getGameUIManager()->perkToggle();
 	}
-}
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_o))
 	{
 		jci::SceneManager::Instance()->SetCurrentScene(m_gameScene);
+		m_currentScene = m_gameScene;
 	}
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_p))
 	{
-		jci::SceneManager::Instance()->SetCurrentScene(m_gameScene);
+		jci::SceneManager::Instance()->SetCurrentScene(m_startMenu);
+		m_currentScene = m_startMenu;
 	}
 	/*switch(m_currentScene)
 		case State::*/
@@ -98,6 +99,7 @@ void Application::Update(float dt)
 		gameUpdate(dt);
 	}
 }
+
 
 void Application::startUpdate(float dt)
 {
