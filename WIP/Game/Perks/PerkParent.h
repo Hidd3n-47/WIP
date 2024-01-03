@@ -12,7 +12,7 @@ enum Perks
 
 class PerkParent
 {
-private:
+protected:
 	Perks tag;
 public:
 	Perks getTag() { return tag; };
