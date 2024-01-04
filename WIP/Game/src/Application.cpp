@@ -12,7 +12,7 @@
 #include "Game/EnemyManager/EnemyManager.h"
 #include "Game/Challenges/ChallengeManager.h"
 #include "Game/Player/PlayerStateManager.h"
-#include <Game/UIManager/GameUIManager.h>
+#include "Game/UIManager/GameUIManager.h"
 
 Application* Application::m_instance = nullptr;
 

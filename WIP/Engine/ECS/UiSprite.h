@@ -3,6 +3,7 @@
 
 #include "IComponent.h"
 
+#include "Graphics/Renderer/IRenderable.h"
 #include "Graphics/Renderer/RendererManager.h"
 #include "Graphics/Texture/TextureManager.h"
 #include "AnchorPoints.h"
@@ -11,7 +12,7 @@ namespace jci {
 
 struct Quad;
 
-class UiSprite : public IComponent
+class UiSprite : public IComponent, public IRenderable
 {
 	friend class UiManager;
 public:
@@ -20,22 +21,17 @@ public:
 	UiSprite() = default;
 	~UiSprite() = default;
 
-	void OnComponentAdd(Entity* entity) final;
-	void OnComponentRemove() final;
-
+	inline void OnComponentAdd(Entity* entity) final { m_entity = entity; }
+	inline void OnComponentRemove() final { }
+	
 	inline AnchorPoints		GetAnchorPoint()	const { return m_anchorPoint; }
 
 	inline vec2		GetPadding()	const { return m_padding; }
-	inline vec2		GetSize()		const { return m_size; }
 	inline bool		GetPressed()	const { return m_pressed; }
 
-	inline void SetTexture(uint32 textureId, uint32 index = 0)	{ m_quad.texture = TextureManager::Instance()->GetTexture(textureId); }
-	inline void SetTexture(Texture* texture, uint8 layer)		{ m_quad.texture = texture; m_quad.layer = layer; }
 	inline void SetAnchorPoint(AnchorPoints anchorPoint)		{ m_anchorPoint = anchorPoint; }
 
-	inline void SetTexture(Texture* texture){ m_quad.texture = texture; }
 	inline void SetPadding(vec2 padding)	{ m_padding = padding; }
-	inline void SetSize(vec2 size)			{ m_size = size; }
 
 	inline UiSprite& operator=(UiSprite& other) noexcept
 	{
@@ -43,7 +39,7 @@ public:
 		m_entity = std::move(other.m_entity);
 		m_anchorPoint = other.m_anchorPoint;
 		m_padding = std::move(other.m_padding);
-		m_size = std::move(other.m_size);
+		//m_size = std::move(other.m_size);
 		m_pressed = other.m_pressed;
 
 		return *this;
@@ -54,11 +50,8 @@ private:
 
 	AnchorPoints	m_anchorPoint	= AnchorPoints::Middle;
 
-	vec2 m_position = vec2(0.0f);
 	vec2 m_padding	= vec2(0.0f);
-	vec2 m_size		= vec2(1.0f);
 	bool m_pressed	= false;
-	Quad m_quad;
 };
 
 } // Namespace jci.

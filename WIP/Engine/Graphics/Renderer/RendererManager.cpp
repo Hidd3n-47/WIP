@@ -2,10 +2,9 @@
 #include "RendererManager.h"
 
 #include "ECS/Entity.h"
-#include "ECS/Transform.h"
-#include "Scene/SceneManager.h"
 #include "ECS/SpriteRenderer.h"
-#include "Graphics/Texture/Texture.h"
+#include "Scene/SceneManager.h"
+#include "Graphics/Texture/TextureManager.h"
 
 #include "VertexArray.h"
 #include "VertexBuffer.h"
@@ -126,199 +125,64 @@ void RendererManager::Init()
 
 void RendererManager::Begin()
 {
+	// ------------------------ Sprites ------------------------
+	m_verticesPtr = m_verticesBase;
+	m_indexCount = 0;
+	// Sprite Renderer component.
 	{
-		m_verticesPtr = m_verticesBase;
-		m_indexCount = 0;
 		SpriteRenderer* sprite = ComponentManager::Instance()->GetComponentVector<SpriteRenderer>();
 		entId count = ComponentManager::Instance()->GetComponentCount(ComponentTypes::SpriteRenderer);
 		for (entId i = 0; i < count; i++)
 		{
-
-			Entity* ent = sprite[i].m_entity;
-			Transform* transform = ent->GetComponent<Transform>();
-
-			if (!ent->IsActive())
-			{
-				continue;
-			}
-
-			vec2 position = transform->GetPosition();
-
-			Texture* texture = sprite[i].GetTexture();
-
-			float textureIndex = -1.0f;
-			for (uint32 tex = 0; tex < m_textureSlotIndex; tex++)
-			{
-				if (m_textureSlots[tex] == texture)
-				{
-					textureIndex = (float)tex;
-					break;
-				}
-			}
-
-			if (textureIndex == -1.0f)
-			{
-				textureIndex = (float)m_textureSlotIndex;
-				m_textureSlots[m_textureSlotIndex] = texture;
-				m_textureSlotIndex++;
-			}
-
-			// Rotation.
-			vec2 halfSize = sprite[i].m_size * 0.5f;
-
-			float angle = transform->GetRotation();
-
-			float sina = glm::sin(glm::radians(angle));
-			float cosa = glm::cos(glm::radians(angle));
-
-			float xsina = halfSize.x * sina;
-			float xcosa = halfSize.x * cosa;
-			float ysina = halfSize.y * sina;
-			float ycosa = halfSize.y * cosa;
-
-			vec2 s1 = vec2( xcosa - ysina,  ycosa + xsina);
-			vec2 s2 = vec2( xcosa + ysina, -ycosa + xsina);
-			vec2 s3 = vec2(-xcosa - ysina,  ycosa - xsina);
-
-			float layer = (float)(sprite[i].m_layer) / 256.0f;
-
-			bool flipVertically = sprite[i].m_flipY;
-
-			// uv calculations.
-			vec2 botL(sprite[i].m_uvRect.x, sprite[i].m_uvRect.y);
-			vec2 botR(sprite[i].m_uvRect.x + sprite[i].m_uvRect.z, sprite[i].m_uvRect.y);
-			vec2 topR(sprite[i].m_uvRect.x + sprite[i].m_uvRect.z, sprite[i].m_uvRect.y + sprite[i].m_uvRect.w);
-			vec2 topL(sprite[i].m_uvRect.x, sprite[i].m_uvRect.y + sprite[i].m_uvRect.w);
-
-			// Vertices.
-			m_verticesPtr->position = vec3(position - s1, layer);
-			m_verticesPtr->uvCoord = (flipVertically ? botR : botL);
-			m_verticesPtr->textureId = textureIndex;
-			m_verticesPtr++;
-
-			m_verticesPtr->position = vec3(position.x + s2.x, position.y + s2.y, layer);
-			m_verticesPtr->uvCoord = (flipVertically ? botL : botR);
-			m_verticesPtr->textureId = textureIndex;
-			m_verticesPtr++;
-
-			m_verticesPtr->position = vec3(position + s1, layer);
-			m_verticesPtr->uvCoord = (flipVertically ? topL : topR);
-			m_verticesPtr->textureId = textureIndex;
-			m_verticesPtr++;
-
-			m_verticesPtr->position = vec3(position.x + s3.x, position.y + s3.y, layer);
-			m_verticesPtr->uvCoord = (flipVertically ? topR : topL);
-			m_verticesPtr->textureId = textureIndex;
-			m_verticesPtr++;
-
-			m_indexCount += 6;
+			AddRenderableToRenderBuffer((IRenderable*)&sprite[i], sprite[i].GetEntity());
+		}
+	}
+	// UI Sprites component.
+	{
+		UiSprite* uiSprite = ComponentManager::Instance()->GetComponentVector<UiSprite>();
+		entId count = ComponentManager::Instance()->GetComponentCount(ComponentTypes::UiSprite);
+		for (entId i = 0; i < count; i++)
+		{
+			AddRenderableToRenderBuffer((IRenderable*)&uiSprite[i], uiSprite[i].GetEntity());
+		}
+	}
+	// UI Buttons component.
+	{
+		UiButton* uiButton = ComponentManager::Instance()->GetComponentVector<UiButton>();
+		entId count = ComponentManager::Instance()->GetComponentCount(ComponentTypes::UiButton);
+		for (entId i = 0; i < count; i++)
+		{
+			AddRenderableToRenderBuffer((IRenderable*)&uiButton[i], uiButton[i].GetEntity());
 		}
 	}
 
-	//	for (const Quad* q : m_quads)
-	//	{
-	//		if (q->active && !*q->active)
-	//		{
-	//			continue;
-	//		}
+	// ------------------------ Particle System ------------------------
+	m_particleVerticesPtr = m_particleVerticesBase;
+	m_particleIndexCount = 0;
 
-	//		vec2 position = !q->position ? vec2(0.0f) : *q->position;
-
-	//		Texture* texture = !q->texture ? TextureManager::Instance()->GetTexture(EngineTextureIndex::NoTexture) : q->texture;
-
-	//		float textureIndex = -1.0f;
-	//		for (uint32 i = 0; i < m_textureSlotIndex; i++)
-	//		{
-	//			if (m_textureSlots[i] == texture)
-	//			{
-	//				textureIndex = (float)i;
-	//				break;
-	//			}
-	//		}
-
-	//		if (textureIndex == -1.0f)
-	//		{
-	//			textureIndex = (float)m_textureSlotIndex;
-	//			m_textureSlots[m_textureSlotIndex] = texture;
-	//			m_textureSlotIndex++;
-	//		}
-
-	//		// Rotation.
-	//		vec2 size = !q->size ? vec2(0.5f) : *q->size * 0.5f;
-
-	//		float angle = !q->rotation ? 0.0f : *q->rotation;
-
-	//		float sina = glm::sin(glm::radians(angle));
-	//		float cosa = glm::cos(glm::radians(angle));
-
-	//		float xsina = size.x * sina;
-	//		float xcosa = size.x * cosa;
-	//		float ysina = size.y * sina;
-	//		float ycosa = size.y * cosa;
-
-	//		vec2 s1 = vec2(xcosa - ysina, ycosa + xsina);
-	//		vec2 s2 = vec2(xcosa + ysina, -ycosa + xsina);
-	//		vec2 s3 = vec2(-xcosa - ysina, ycosa - xsina);
-
-	//		// uv calculations.
-	//		vec2 botL(q->uvRect.x, q->uvRect.y);
-	//		vec2 botR(q->uvRect.x + q->uvRect.z, q->uvRect.y);
-	//		vec2 topR(q->uvRect.x + q->uvRect.z, q->uvRect.y + q->uvRect.w);
-	//		vec2 topL(q->uvRect.x, q->uvRect.y + q->uvRect.w);
-
-	//		// Vertices.
-	//		m_verticesPtr->position = vec3(position - s1, (float)(q->layer) / 256.0f);
-	//		m_verticesPtr->uvCoord = (q->flipVertically ? botR : botL);
-	//		m_verticesPtr->textureId = textureIndex;
-	//		m_verticesPtr++;
-
-	//		m_verticesPtr->position = vec3(position.x + s2.x, position.y + s2.y, (float)(q->layer) / 256.0f);
-	//		m_verticesPtr->uvCoord = (q->flipVertically ? botL : botR);
-	//		m_verticesPtr->textureId = textureIndex;
-	//		m_verticesPtr++;
-
-	//		m_verticesPtr->position = vec3(position + s1, (float)(q->layer) / 256.0f);
-	//		m_verticesPtr->uvCoord = (q->flipVertically ? topL : topR);
-	//		m_verticesPtr->textureId = textureIndex;
-	//		m_verticesPtr++;
-
-	//		m_verticesPtr->position = vec3(position.x + s3.x, position.y + s3.y, (float)(q->layer) / 256.0f);
-	//		m_verticesPtr->uvCoord = (q->flipVertically ? topR : topL);
-	//		m_verticesPtr->textureId = textureIndex;
-	//		m_verticesPtr++;
-
-	//		m_indexCount += 6;
-	//	}
-	//}
-
+	uint32 numParticles = ParticleManager::Instance()->m_particleIndex;
+	std::vector<ParticleManager::Particle> particles = ParticleManager::Instance()->m_particles;
+	for (uint32 i = 0; i < numParticles; i++)
 	{
-		m_particleVerticesPtr = m_particleVerticesBase;
-		m_particleIndexCount = 0;
+		float size = particles[i].size;
 
-		uint32 numParticles = ParticleManager::Instance()->m_particleIndex;
-		std::vector<ParticleManager::Particle> particles = ParticleManager::Instance()->m_particles;
-		for (uint32 i = 0; i < numParticles; i++)
-		{
-			float size = particles[i].size;
+		m_particleVerticesPtr->position = vec3(particles[i].position - size, 0.0f);
+		m_particleVerticesPtr->color = particles[i].color;
+		m_particleVerticesPtr++;
 
-			m_particleVerticesPtr->position = vec3(particles[i].position - size, 0.0f);
-			m_particleVerticesPtr->color = particles[i].color;
-			m_particleVerticesPtr++;
+		m_particleVerticesPtr->position = vec3(particles[i].position.x + size, particles[i].position.y - size, 0.0f);
+		m_particleVerticesPtr->color = particles[i].color;
+		m_particleVerticesPtr++;
 
-			m_particleVerticesPtr->position = vec3(particles[i].position.x + size, particles[i].position.y - size, 0.0f);
-			m_particleVerticesPtr->color = particles[i].color;
-			m_particleVerticesPtr++;
+		m_particleVerticesPtr->position = vec3(particles[i].position + size, 0.0f);
+		m_particleVerticesPtr->color = particles[i].color;
+		m_particleVerticesPtr++;
 
-			m_particleVerticesPtr->position = vec3(particles[i].position + size, 0.0f);
-			m_particleVerticesPtr->color = particles[i].color;
-			m_particleVerticesPtr++;
+		m_particleVerticesPtr->position = vec3(particles[i].position.x - size, particles[i].position.y + size, 0.0f);
+		m_particleVerticesPtr->color = particles[i].color;
+		m_particleVerticesPtr++;
 
-			m_particleVerticesPtr->position = vec3(particles[i].position.x - size, particles[i].position.y + size, 0.0f);
-			m_particleVerticesPtr->color = particles[i].color;
-			m_particleVerticesPtr++;
-
-			m_particleIndexCount += 6;
-		}
+		m_particleIndexCount += 6;
 	}
 }
 
@@ -356,25 +220,86 @@ void RendererManager::Flush()
 	glDrawElements(GL_TRIANGLES, m_particleIndexCount, GL_UNSIGNED_INT, nullptr);
 }
 
-
-void RendererManager::AddQuadToQueue(Quad* quad)
+void RendererManager::AddRenderableToRenderBuffer(IRenderable* renderable, Entity* entity)
 {
-	m_quads.push_back(quad);
-}
+	Transform* transform = entity->GetComponent<Transform>();
 
-void RendererManager::RemoveQuadFromQueue(Quad* quad)
-{
-	for (int i = 0; i < m_quads.size(); i++)
+	if (!entity->IsActive())
 	{
-		if (m_quads[i] == quad)
+		return;
+	}
+
+	vec2 position = transform->GetPosition();
+
+	Texture* texture = renderable->GetTexture();
+	texture = texture ? texture : TextureManager::Instance()->GetTexture(EngineTextureIndex::NoTexture);
+
+	float textureIndex = -1.0f;
+	for (uint32 tex = 0; tex < m_textureSlotIndex; tex++)
+	{
+		if (m_textureSlots[tex] == texture)
 		{
-			m_quads[i] = m_quads.back();
-			m_quads.pop_back();
-			return;
+			textureIndex = (float)tex;
+			break;
 		}
 	}
 
-	//ASSERT(false, "Quad to renderer not found to remove.");
+	if (textureIndex == -1.0f)
+	{
+		textureIndex = (float)m_textureSlotIndex;
+		m_textureSlots[m_textureSlotIndex] = texture;
+		m_textureSlotIndex++;
+	}
+
+	// Rotation.
+	vec2 halfSize = renderable->m_size * 0.5f;
+
+	float angle = transform->GetRotation();
+
+	float sina = glm::sin(glm::radians(angle));
+	float cosa = glm::cos(glm::radians(angle));
+
+	float xsina = halfSize.x * sina;
+	float xcosa = halfSize.x * cosa;
+	float ysina = halfSize.y * sina;
+	float ycosa = halfSize.y * cosa;
+
+	vec2 s1 = vec2( xcosa - ysina,  ycosa + xsina);
+	vec2 s2 = vec2( xcosa + ysina, -ycosa + xsina);
+	vec2 s3 = vec2(-xcosa - ysina,  ycosa - xsina);
+
+	float layer = (float)(renderable->m_layer) / 256.0f;
+
+	bool flipVertically = renderable->m_flipY;
+
+	// uv calculations.
+	vec2 botL(renderable->m_uvRect.x, renderable->m_uvRect.y);
+	vec2 botR(renderable->m_uvRect.x + renderable->m_uvRect.z, renderable->m_uvRect.y);
+	vec2 topR(renderable->m_uvRect.x + renderable->m_uvRect.z, renderable->m_uvRect.y + renderable->m_uvRect.w);
+	vec2 topL(renderable->m_uvRect.x, renderable->m_uvRect.y + renderable->m_uvRect.w);
+
+	// Vertices.
+	m_verticesPtr->position = vec3(position - s1, layer);
+	m_verticesPtr->uvCoord = (flipVertically ? botR : botL);
+	m_verticesPtr->textureId = textureIndex;
+	m_verticesPtr++;
+
+	m_verticesPtr->position = vec3(position.x + s2.x, position.y + s2.y, layer);
+	m_verticesPtr->uvCoord = (flipVertically ? botL : botR);
+	m_verticesPtr->textureId = textureIndex;
+	m_verticesPtr++;
+
+	m_verticesPtr->position = vec3(position + s1, layer);
+	m_verticesPtr->uvCoord = (flipVertically ? topL : topR);
+	m_verticesPtr->textureId = textureIndex;
+	m_verticesPtr++;
+
+	m_verticesPtr->position = vec3(position.x + s3.x, position.y + s3.y, layer);
+	m_verticesPtr->uvCoord = (flipVertically ? topR : topL);
+	m_verticesPtr->textureId = textureIndex;
+	m_verticesPtr++;
+
+	m_indexCount += 6;
 }
 
 } // Namespace jci.

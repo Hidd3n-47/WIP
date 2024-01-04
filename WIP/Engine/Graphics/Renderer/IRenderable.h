@@ -8,6 +8,7 @@ namespace jci {
 
 class IRenderable
 {
+	friend class RendererManager;
 public:
 	virtual ~IRenderable() = default;
 

@@ -49,8 +49,8 @@ private:
 	BodyType	m_bodyType = BodyType::Static;
 
 #ifdef _DEBUG
-	Quad dbgQuad;
-	vec2 size = vec2(m_radius * 4.0f);
+	/*Quad dbgQuad;
+	vec2 size = vec2(m_radius * 4.0f);*/
 #endif
 };
 

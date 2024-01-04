@@ -192,7 +192,6 @@
     <ClCompile Include="Engine\Scene\SceneManager.cpp" />
     <ClCompile Include="Engine\Scene\Scene.cpp" />
     <ClCompile Include="Engine\Graphics\Renderer\Shader.cpp" />
-    <ClCompile Include="Engine\ECS\SpriteRenderer.cpp" />
     <ClCompile Include="Engine\Graphics\Texture\Texture.cpp" />
     <ClCompile Include="deps\include\stb_image\stb_image.cpp" />
     <ClCompile Include="Engine\Graphics\Renderer\IndexBuffer.cpp" />

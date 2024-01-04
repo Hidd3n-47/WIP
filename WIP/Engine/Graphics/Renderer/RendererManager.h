@@ -1,38 +1,17 @@
 #pragma once
 
+#include "ECS/ComponentTypes.h"
+
 namespace jci {
 
+class Entity;
+class IRenderable;
 class SpriteRenderer;
 class VertexArray;
 class VertexBuffer;
 class Shader;
 class Texture;
 struct Vertex;
-
-struct Quad
-{
-	inline Quad() = default;
-	inline Quad(vec2* size, vec4 uvRect, vec2* position, float* rotation, Texture* texture, bool* active, uint8 layer, bool flipVertically) :
-				size(size),
-				uvRect(uvRect),	
-				position(position),
-				rotation(rotation),
-				texture(texture),
-				layer(layer),
-				flipVertically(flipVertically)
-	{ 
-		/* Empty. */ 
-	}
-	
-	vec2*		size				= nullptr;
-	vec4		uvRect				= vec4(0.0f, 0.0f, 1.0f, 1.0f);
-	vec2*		position			= nullptr;
-	float*		rotation			= nullptr;
-	Texture*	texture				= nullptr;
-	bool*		active				= nullptr;
-	uint8		layer				= 0;
-	bool		flipVertically		= false;
-};
 
 struct ParticleVertex
 {
@@ -59,9 +38,6 @@ class RendererManager
 public:
 	inline static RendererManager* Instance() { return m_instance == nullptr ? m_instance = new RendererManager() : m_instance; }
 
-	void AddQuadToQueue(Quad* quad);
-	void RemoveQuadFromQueue(Quad* quad);
-
 	void Init();
 
 	void Begin();
@@ -79,21 +55,19 @@ private:
 
 	static RendererManager* m_instance;
 
-	std::vector<Quad*> m_quads;
-
 	// Sprite Renderering.
-	VertexBuffer* m_vertexBuffer	= nullptr;
-	VertexArray* m_vertexArray		= nullptr;
-	Vertex* m_verticesBase			= nullptr;
-	Vertex* m_verticesPtr			= nullptr;
-	Shader* m_shader				= nullptr;
+	VertexBuffer*	m_vertexBuffer	= nullptr;
+	VertexArray*	m_vertexArray	= nullptr;
+	Vertex*			m_verticesBase	= nullptr;
+	Vertex*			m_verticesPtr	= nullptr;
+	Shader*			m_shader		= nullptr;
 
 	// Particle Rendering.
-	VertexBuffer* m_particleVertexBuffer	= nullptr;
-	VertexArray* m_particleVertexArray		= nullptr;
+	VertexBuffer*	m_particleVertexBuffer	= nullptr;
+	VertexArray*	m_particleVertexArray	= nullptr;
 	ParticleVertex* m_particleVerticesBase	= nullptr;
 	ParticleVertex* m_particleVerticesPtr	= nullptr;
-	Shader* m_particleShader				= nullptr;
+	Shader*			m_particleShader		= nullptr;
 
 	// Textures.
 	std::array<Texture*, MAX_TEXTURE_SLOTS> m_textureSlots = { };
@@ -103,6 +77,8 @@ private:
 	uint32 m_indexCount = 0;
 	uint32 m_particleIndexCount = 0;
 	uint32 m_uiIndexCount = 0;
+
+	void AddRenderableToRenderBuffer(IRenderable* renderable, Entity* entity);
 };
 
 } // Namespace jci.

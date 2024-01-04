@@ -46,7 +46,7 @@ private:
 	BodyType	m_bodyType	= BodyType::Static;
 
 #ifdef _DEBUG
-	Quad dbgQuad;
+	//Quad dbgQuad;
 #endif
 };
 

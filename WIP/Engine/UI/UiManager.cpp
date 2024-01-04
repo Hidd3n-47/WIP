@@ -37,7 +37,7 @@ void UiManager::Update()
 		
 		vec2 positionVector = abs(buttonPosition - mouseP);
 
-		*buttons[i].m_quad.position = buttonPosition + m_camera->GetPosition();
+		buttons[i].GetEntity()->GetComponent<Transform>()->SetPosition(buttonPosition + m_camera->GetPosition());
 		
 		vec2 size = buttons[i].m_size * 0.5f;
 		if (positionVector.x >= size.x  || positionVector.y >= size.y)
