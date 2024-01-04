@@ -19,9 +19,9 @@ public:
 
 	void Create();
 	void Update(float dt);
-	void startUpdate(float dt);
-	void gameUpdate(float dt);
-	inline void Destroy() { delete m_instance; }
+	void StartUpdate(float dt);
+	void GameUpdate(float dt);
+	void Destroy();
 
 private:
 	Application() = default;
@@ -40,6 +40,6 @@ private:
 	BulletManager* manager = nullptr;
 
 	jci::Audio* m_bgMusic = nullptr;
-	PlayerS* m_player;
+	PlayerS* m_player = nullptr;
 };
 

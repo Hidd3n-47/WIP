@@ -57,9 +57,7 @@ void Gun::FireGun(float time, vec2 position, jci::Scene* currentScene)
 	{
 		m_inClip -= 1;
 		
-		m_shootingAnimationTimer = new jci::Timer(0.15f)
-
-		DLOG("Firing");
+		m_shootingAnimationTimer = new jci::Timer(0.15f);
 
 		vec2 mousePosition = jci::InputManager::Instance()->GetMousePosition();
 		float width = jci::Engine::Instance()->GetScreenWidth();

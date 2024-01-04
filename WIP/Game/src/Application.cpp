@@ -14,12 +14,12 @@
 #include "Game/Player/PlayerStateManager.h"
 #include <Game/UIManager/GameUIManager.h>
 
-
 Application* Application::m_instance = nullptr;
 
 void Application::Create()
 {
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
+	m_gameScene = m_currentScene;
 	Levels* map = Levels::getCurrentMap();
 	map->newLevel();
 	EnemyManager* em = EnemyManager::getEnemyManager();
@@ -37,24 +37,17 @@ void Application::Create()
 
 	PlayerStateManager::Instance()->Init(map->GetSpawnPoint(), g1);
 	em->setPlayer(m_player);
-	PlayerStateManager::Instance()->Init(map->GetSpawnPoint(), g1);
-	em->setPlayer(PlayerStateManager::Instance()->GetPlayer());
 	
 
-	jci::Entity* e1 = m_currentScene->CreateEmptyEntity();
-	foo* f = new foo();
+	/*jci::Entity* e1 = m_currentScene->CreateEmptyEntity();
 	jci::UiButton* b = e1->AddComponent<jci::UiButton>();
-	b->SetButtonMethods(f);
 	b->SetAnchorPoint(jci::AnchorPoints::TopLeft);
 	b->SetPadding(vec2(1.0f, -1.0f));
 
-	e1->AddComponent<jci::UiSprite>()->SetTexture(jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::Dbg_Box));
-	/*e1->GetComponent<jci::Transform>()->SetPosition({ 8, -6 });
-	e1->AddComponent<jci::SpriteRenderer>()->SetTexture(em->getZombieTexture());
-	e1->AddComponent<jci::CircleCollider>()->SetBodyType(jci::BodyType::Kinematic);*/
+	e1->AddComponent<jci::UiSprite>()->SetTexture(jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::Dbg_Box));*/
 
 	//m_gameScene = jci::SceneManager::Instance()->CreateScene("GameScene");
-	m_startMenu = jci::SceneManager::Instance()->CreateScene("Start");
+	//m_startMenu = jci::SceneManager::Instance()->CreateScene("Start");
 	//m_currentScene = m_startMenu;
 	//jci::SceneManager::Instance()->SetCurrentScene(m_currentScene);
 }
@@ -86,21 +79,21 @@ void Application::Update(float dt)
 		case State::*/
 	if (m_currentScene == m_startMenu)
 	{
-		startUpdate(dt);
+		StartUpdate(dt);
 	}
 	else if (m_currentScene == m_gameScene)
 	{
-		gameUpdate(dt);
+		GameUpdate(dt);
 	}
 }
 
 
-void Application::startUpdate(float dt)
+void Application::StartUpdate(float dt)
 {
 
 }
 
-void Application::gameUpdate(float dt)
+void Application::GameUpdate(float dt)
 {
 	PlayerStateManager::Instance()->Update(dt);
 	manager->Update(dt);
@@ -108,7 +101,6 @@ void Application::gameUpdate(float dt)
 	ChallengeManager::getChallengeManager()->getCurrentChallenge()->Update(dt);
 	g1->Update(m_player->GetPosition());
 }
-
 
 void Application::Destroy()
 {
