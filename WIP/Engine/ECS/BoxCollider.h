@@ -4,9 +4,6 @@
 #include "Collision/ICollision.h"
 #include "Collision/CollisionBodyDetails.h"
 
-#ifdef _DEBUG
-#include "Graphics/Renderer/RendererManager.h"
-#endif
 
 namespace jci {
 
@@ -18,8 +15,8 @@ public:
 	BoxCollider() { m_body = ShapeBody::Box; }
 	~BoxCollider() = default;
 
-	void OnComponentAdd(Entity* entity) final;
-	void OnComponentRemove() final;
+	inline void OnComponentAdd(Entity* entity) final { m_entity = entity; }
+	inline void OnComponentRemove() final { }
 
 	// Accessors.
 	inline vec2 GetSize() const { return m_size; }
@@ -44,10 +41,6 @@ private:
 
 	vec2		m_size		= vec2(1.0f);
 	BodyType	m_bodyType	= BodyType::Static;
-
-#ifdef _DEBUG
-	//Quad dbgQuad;
-#endif
 };
 
 } // Namespace jci.

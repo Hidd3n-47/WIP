@@ -35,12 +35,19 @@ public:
 
 	inline UiSprite& operator=(UiSprite& other) noexcept
 	{
-		m_id = std::move(other.m_id);
-		m_entity = std::move(other.m_entity);
+		m_id		= other.m_id;
+		m_entity	= other.m_entity;
+
 		m_anchorPoint = other.m_anchorPoint;
-		m_padding = std::move(other.m_padding);
-		//m_size = std::move(other.m_size);
+
+		m_padding = other.m_padding;
 		m_pressed = other.m_pressed;
+
+		m_texture	= other.m_texture;
+		m_uvRect	= other.m_uvRect;
+		m_size		= other.m_size;
+		m_layer		= other.m_layer;
+		m_flipY		= other.m_flipY;
 
 		return *this;
 	}

@@ -71,6 +71,8 @@ private:
 
 	vec2*	m_followPosition = nullptr;
 
+	float m_followSpeed = 15.0f;
+
 	void RecalculateViewMatrix();
 };
 

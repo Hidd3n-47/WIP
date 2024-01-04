@@ -149,11 +149,9 @@
     <ClCompile Include="Game\Challenges\ChallengeParent.cpp" />
     <ClCompile Include="Game\Challenges\ChallengeManager.cpp" />
     <ClCompile Include="Engine\Collision\CollisionCallbackManager.cpp" />
-    <ClCompile Include="Engine\ECS\CapsuleCollider.cpp" />
     <ClCompile Include="Game\Door\DoorTrigger.cpp" />
     <ClCompile Include="Game\Door\Door.cpp" />
     <ClCompile Include="Game\Door\DoorManager.cpp" />
-    <ClCompile Include="Engine\ECS\CircleCollider.cpp" />
     <ClCompile Include="Engine\Animation\AnimationManager.cpp" />
     <ClCompile Include="Engine\Audio\AudioManager.cpp" />
     <ClCompile Include="Engine\Random\Random.cpp" />
@@ -166,7 +164,6 @@
     <ClCompile Include="Game\Bullet\BulletManager.cpp" />
     <ClCompile Include="Game\Bullet\Bullet.cpp" />
     <ClCompile Include="Engine\Collision\CollisionManager.cpp" />
-    <ClCompile Include="Engine\ECS\BoxCollider.cpp" />
     <ClCompile Include="Engine\IO\IOManager.cpp" />
     <ClCompile Include="Engine\Time\Time.cpp" />
     <ClCompile Include="Game\Gun\Gun.cpp" />

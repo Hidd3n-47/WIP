@@ -17,7 +17,11 @@ void Camera::Update()
 {
 	if (!m_followPosition) { return; }
 
-	SetPosition(*m_followPosition);
+	//vec2 direction = glm::normalize(*m_followPosition - m_position);
+
+	vec2 postion = m_position + (*m_followPosition - m_position) * 1.0f / 15.0f;
+
+	SetPosition(postion);
 }
 
 void Camera::RecalculateViewMatrix()

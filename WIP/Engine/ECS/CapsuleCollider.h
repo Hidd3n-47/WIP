@@ -18,8 +18,8 @@ public:
 	CapsuleCollider() { m_body = ShapeBody::Capsule; }
 	~CapsuleCollider() = default;
 
-	void OnComponentAdd(Entity* entity) final;
-	void OnComponentRemove() final;
+	inline void OnComponentAdd(Entity* entity) final { m_entity = entity; }
+	inline void OnComponentRemove() final { }
 
 	// Accessors.
 	inline vec2 GetRectSize() const { return m_rectSize; }
@@ -47,11 +47,6 @@ private:
 	vec2		m_rectSize = vec2(0.5f, 0.5f);
 	float		m_radius = 0.25f;
 	BodyType	m_bodyType = BodyType::Static;
-
-#ifdef _DEBUG
-	/*Quad dbgQuad;
-	vec2 size = vec2(m_radius * 4.0f);*/
-#endif
 };
 
 } // Namespace jci.

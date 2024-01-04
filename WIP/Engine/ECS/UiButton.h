@@ -44,12 +44,20 @@ public:
 
 	inline UiButton& operator=(UiButton& other) noexcept
 	{
-		m_id = std::move(other.m_id);
-		m_entity = std::move(other.m_entity);
-		m_anchorPoint = other.m_anchorPoint;
-		m_padding = std::move(other.m_padding);
+		m_id		= other.m_id;
+		m_entity	= other.m_entity;
+
+		m_buttonMethods = other.m_buttonMethods;
+		m_anchorPoint	= other.m_anchorPoint;
+
+		m_padding = other.m_padding;
 		m_pressed = other.m_pressed;
-		m_buttonMethods = std::move(other.m_buttonMethods);
+
+		m_texture	= other.m_texture;
+		m_uvRect	= other.m_uvRect;
+		m_size		= other.m_size;
+		m_layer		= other.m_layer;
+		m_flipY		= other.m_flipY;
 
 		return *this;
 	}
