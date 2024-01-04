@@ -21,15 +21,14 @@ void BulletManager::Create()
 		bulletObj->SetActive(false);
 		bulletObj->GetComponent<jci::Transform>()->SetPosition(vec2(-15000000000000.0f));
 
+		jci::SpriteRenderer* sr = bulletObj->AddComponent<jci::SpriteRenderer>();
+		sr->SetTexture(m_bulletTexture);
+		sr->SetSize(vec2(0.6f, 0.6f));
+
 		jci::Animation* anim = bulletObj->AddComponent<jci::Animation>();
-		anim->SetTexture(m_bulletTexture);
-		anim->SetSize(vec2(0.6f, 0.6f));
 		anim->SetTimeBetweenFrames(.15f);
 		anim->SetAnimationCount(4);
 		anim->SetLooping(false);
-
-		//bulletObj->AddComponent<jci::SpriteRenderer>()->SetTexture(m_bulletTexture);
-		//bulletObj->GetComponent<jci::SpriteRenderer>()->SetSize({ 0.35f, 0.1f });
 
 		jci::BoxCollider* bc = bulletObj->AddComponent<jci::BoxCollider>();
 		bc->SetBodyType(jci::BodyType::Kinematic);

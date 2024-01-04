@@ -154,7 +154,6 @@
     <ClCompile Include="Game\Door\Door.cpp" />
     <ClCompile Include="Game\Door\DoorManager.cpp" />
     <ClCompile Include="Engine\ECS\CircleCollider.cpp" />
-    <ClCompile Include="Engine\ECS\Animation.cpp" />
     <ClCompile Include="Engine\Animation\AnimationManager.cpp" />
     <ClCompile Include="Engine\Audio\AudioManager.cpp" />
     <ClCompile Include="Engine\Random\Random.cpp" />
@@ -303,6 +302,7 @@
     <ClInclude Include="Game\UIManager\PerkButton.h" />
     <ClInclude Include="Game\Perks\PerkParent.h" />
     <ClInclude Include="Game\Perks\tanky.h" />
+    <ClInclude Include="Engine\Graphics\Renderer\IRenderable.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Levels\NOLAGROOM.csv" />

@@ -95,15 +95,8 @@ private:
 	ParticleVertex* m_particleVerticesPtr	= nullptr;
 	Shader* m_particleShader				= nullptr;
 
-	// UI Rendering.
-	VertexBuffer* m_uiVertexBuffer	= nullptr;
-	VertexArray* m_uiVertexArray	= nullptr;
-	UiVertex* m_uiVerticesBase		= nullptr;
-	UiVertex* m_uiVerticesPtr		= nullptr;
-	Shader* m_uiShader				= nullptr;
-
 	// Textures.
-	std::array<Texture*, MAX_TEXTURE_SLOTS> m_textureSlots;
+	std::array<Texture*, MAX_TEXTURE_SLOTS> m_textureSlots = { };
 	uint32 m_textureSlotIndex = 0;
 
 	// Index Count.

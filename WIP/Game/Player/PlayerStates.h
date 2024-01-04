@@ -21,7 +21,6 @@ public:
 	virtual void OnStateExit() final;
 private:
 	PlayerS* m_player = nullptr;
-	jci::Animation* m_animator = nullptr;
 };
 
 class PlayerMovingState : public jci::IState
@@ -35,7 +34,6 @@ public:
 	virtual void OnStateExit() final;
 private:
 	PlayerS* m_player = nullptr;
-	jci::Animation* m_animator = nullptr;
 };
 
 class PlayerDashingState : public jci::IState

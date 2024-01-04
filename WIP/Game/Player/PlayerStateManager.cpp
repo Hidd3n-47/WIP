@@ -77,10 +77,11 @@ void PlayerStateManager::Init(vec2 playerStartPosition, Gun* theGun)
 
 	uint32 text = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/PlayerSpriteSheet.png", 10, 1);
 	m_player.m_blankTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Blank.png");
-	jci::Animation* anim = m_player.playerEntity->AddComponent<jci::Animation>();
-	anim->SetTexture(text);
-	anim->SetTimeBetweenFrames(0.3f);
-	anim->SetSize(vec2(0.6f, 1.2f));
+	m_player.playerEntity->AddComponent<jci::Animation>()->SetTimeBetweenFrames(0.3f);
+
+	jci::SpriteRenderer* sr = m_player.playerEntity->AddComponent<jci::SpriteRenderer>();
+	sr->SetTexture(text);
+	sr->SetSize(vec2(0.6f, 1.2f));
 
 	jci::CapsuleCollider* cc = m_player.playerEntity->AddComponent<jci::CapsuleCollider>();
 	cc->SetBodyType(jci::BodyType::Kinematic);

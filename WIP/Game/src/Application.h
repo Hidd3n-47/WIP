@@ -1,7 +1,5 @@
 #pragma once
 
-#include "Game/Player/Player.h"
-
 namespace jci
 {
 class Audio;

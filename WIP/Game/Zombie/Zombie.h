@@ -27,8 +27,6 @@ public:
 private:
 	PlayerS* player;
 	jci::Entity* zombert;
-	jci::Audio* m_audio;
-	jci::Animation* m_animator;
 
 	float hp;
 	vec2* m_position;

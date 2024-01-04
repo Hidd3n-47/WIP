@@ -35,9 +35,6 @@ private:
 	BulletManager* bulletManager;
 
 	jci::Entity* m_entity;
-	jci::Audio* m_sound;
-	jci::Transform* m_transform;
-	jci::SpriteRenderer* m_spriteRenderer;
 
 	uint32 m_gunTexture;
 	uint32 m_gunShootTexture;
