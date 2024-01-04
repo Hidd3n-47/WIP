@@ -12,9 +12,13 @@ private:
 	PerkButton* perkLeft;
 	PerkButton* perkMiddle;
 	PerkButton* perkRight;
+	std::vector<PerkButton*> perkButtons;
+	bool isPerksSet;
 	std::vector<jci::UiButton*> screenButtons;
 	GameUIManager();
 public:
+	void perkSet();
+	bool getPerkToggle();
 	GameUIManager(const GameUIManager& obj) = delete;
 	std::vector<jci::UiButton*> GetscreenButtons();
 	void perkToggle();

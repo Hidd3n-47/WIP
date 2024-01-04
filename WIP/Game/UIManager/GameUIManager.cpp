@@ -2,16 +2,83 @@
 #include <Engine/ECS/UiButton.h>
 #include "GameUIManager.h"
 #include <Engine/Camera/Camera.h>
+#include "Engine/Random/Random.h"
+#include "Game/Perks/tanky.h"
+#include "Game/Perks/biggerBullets.h"
+#include "Game/Perks/lighterBullets.h"
+#include "Game/Perks/doubleTap.h"
+#include "Game/Perks/evasive.h"
+#include "Game/Perks/swiftHands.h"
 
 static GameUIManager* gameUIManager;
 
 
 GameUIManager::GameUIManager()
 {
+	isPerksSet = false;
+	perkLeft = new PerkButton();
+	perkMiddle = new PerkButton();
+	perkRight = new PerkButton();
 	perkLeft->getButton()->GetComponent<jci::Transform>()->SetPosition(vec2(0+jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->GetHalfExtents().x/2, jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->GetHalfExtents().y));//pos;
 	perkMiddle->getButton()->GetComponent<jci::Transform>()->SetPosition(vec2(jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->GetHalfExtents().x, jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->GetHalfExtents().y));//pos;
 	perkRight->getButton()->GetComponent<jci::Transform>()->SetPosition(vec2(jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->GetHalfExtents().x+ jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->GetHalfExtents().x / 2, jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->GetHalfExtents().y));//pos;
 	perkToggle();
+	perkButtons.push_back(perkLeft);
+	perkButtons.push_back(perkMiddle);
+	perkButtons.push_back(perkRight);
+}
+
+void GameUIManager::perkSet()
+{
+	for (auto i : perkButtons)
+	{
+		if (!(i->getPerk() == nullptr))
+		{
+			delete perkLeft->getPerk();
+		}
+		PerkParent* temp;
+		switch ((int)jci::Random::Instance()->Rand() * 6)
+		{
+		case 0:
+			temp = new tanky();
+			i->setPerk(temp);
+			i->getPerk()->setTag(Perks::Tanky);
+			break;
+		case 1:
+			temp = new biggerBullets();
+			i->setPerk(temp);
+			i->getPerk()->setTag(Perks::BiggerBullets);
+			break;
+		case 2:
+			temp = new lighterBullets();
+			i->setPerk(temp);
+			i->getPerk()->setTag(Perks::LighterBullets);
+			break;
+		case 3:
+			temp = new evasive();
+			i->setPerk(temp);
+			i->getPerk()->setTag(Perks::Evasive);
+			break;
+		case 4:
+			temp = new doubleTap();
+			i->setPerk(temp);
+			i->getPerk()->setTag(Perks::DoubleTap);
+			break;
+		case 5:
+			temp = new swiftHands();
+			i->setPerk(temp);
+			i->getPerk()->setTag(Perks::SwiftHands);
+			break;
+		default:
+			break;
+		}
+	}
+	isPerksSet = true;
+}
+
+bool GameUIManager::getPerkToggle()
+{
+	return isPerksSet;
 }
 
 std::vector<jci::UiButton*> GameUIManager::GetscreenButtons()
@@ -21,6 +88,7 @@ std::vector<jci::UiButton*> GameUIManager::GetscreenButtons()
 
 void GameUIManager::perkToggle()
 {
+	isPerksSet = !isPerksSet;
 	perkLeft->getButton()->SetActive(!perkLeft->getButton()->IsActive());
 	perkMiddle->getButton()->SetActive(!perkLeft->getButton()->IsActive());
 	perkRight->getButton()->SetActive(!perkLeft->getButton()->IsActive());
