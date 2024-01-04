@@ -31,5 +31,11 @@ void main()
 	//vec3 lightIntensity = ambient * light;
 	//
 	//color = vec4(pixel.rgb * lightIntensity, pixel.a);
+
 	color = vec4(texture(u_texture[int(v_texIndex)], v_texCoord));
+
+	if(color.a == 0.0)
+	{
+		discard;
+	}
 }
