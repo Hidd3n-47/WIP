@@ -177,7 +177,6 @@
     <ClCompile Include="Game\Perks\evasive.cpp" />
     <ClCompile Include="Game\Perks\lighterBullets.cpp" />
     <ClCompile Include="Game\Perks\swiftHands.cpp" />
-    <ClCompile Include="Game\Player\Player.cpp" />
     <ClCompile Include="Game\Player\PlayerStates.cpp" />
     <ClCompile Include="Game\Player\PlayerStateManager.cpp" />
     <ClCompile Include="Game\src\Application.cpp" />
@@ -266,7 +265,6 @@
     <ClInclude Include="Game\Perks\evasive.h" />
     <ClInclude Include="Game\Perks\lighterBullets.h" />
     <ClInclude Include="Game\Perks\swiftHands.h" />
-    <ClInclude Include="Game\Player\Player.h" />
     <ClInclude Include="Game\Player\PlayerStates.h" />
     <ClInclude Include="Game\Player\PlayerStateManager.h" />
     <ClInclude Include="Game\src\Application.h" />

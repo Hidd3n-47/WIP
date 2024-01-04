@@ -56,15 +56,6 @@ void Application::Create()
 
 void Application::Update(float dt)
 {
-	if (!GameUIManager::getGameUIManager()->getPerkToggle())
-	{
-		PlayerStateManager::Instance()->Update(dt);
-		manager->Update(dt);
-		EnemyManager::getEnemyManager()->Update(dt);
-		ChallengeManager::getChallengeManager()->getCurrentChallenge()->Update(dt);
-		/*switch(m_currentScene)
-			case State::*/
-	}
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_o))
 	{
 		jci::SceneManager::Instance()->SetCurrentScene(m_gameScene);
@@ -97,7 +88,7 @@ void Application::StartUpdate(float dt)
 
 void Application::GameUpdate(float dt)
 {
-	if (!ChallengeManager::getChallengeManager()->getCurrentChallenge()->getCompleted())
+	/*if (!ChallengeManager::getChallengeManager()->getCurrentChallenge()->getCompleted())
 	{
 		PlayerStateManager::Instance()->Update(dt);
 		manager->Update(dt);
@@ -108,6 +99,13 @@ void Application::GameUpdate(float dt)
 	else
 	{
 		GameUIManager::getGameUIManager()->perkToggle();
+	}*/
+	if (!GameUIManager::getGameUIManager()->getPerkToggle())
+	{
+		PlayerStateManager::Instance()->Update(dt);
+		manager->Update(dt);
+		EnemyManager::getEnemyManager()->Update(dt);
+		ChallengeManager::getChallengeManager()->getCurrentChallenge()->Update(dt);
 	}
 }
 
