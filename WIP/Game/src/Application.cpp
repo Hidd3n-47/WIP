@@ -60,6 +60,7 @@ void Application::Create()
 	e1->AddComponent<jci::CircleCollider>()->SetBodyType(jci::BodyType::Kinematic);*/
 
 	//m_gameScene = jci::SceneManager::Instance()->CreateScene("GameScene");
+	m_gameScene = jci::SceneManager::Instance()->GetScene("MainScene");
 	m_startMenu = jci::SceneManager::Instance()->CreateScene("Start");
 	//m_currentScene = m_startMenu;
 	//jci::SceneManager::Instance()->SetCurrentScene(m_currentScene);
@@ -67,17 +68,6 @@ void Application::Create()
 
 void Application::Update(float dt)
 {
-	if (!ChallengeManager::getChallengeManager()->getCurrentChallenge()->getCompleted())
-	{
-		PlayerStateManager::Instance()->Update(dt);
-		manager->Update(dt);
-		EnemyManager::getEnemyManager()->Update(dt);
-		ChallengeManager::getChallengeManager()->getCurrentChallenge()->Update(dt);
-	}
-	else
-	{
-		GameUIManager::getGameUIManager()->perkToggle();
-	}
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_o))
 	{
 		jci::SceneManager::Instance()->SetCurrentScene(m_gameScene);
@@ -108,8 +98,15 @@ void Application::startUpdate(float dt)
 
 void Application::gameUpdate(float dt)
 {
-	PlayerStateManager::Instance()->Update(dt);
-	manager->Update(dt);
-	EnemyManager::getEnemyManager()->Update(dt);
-	ChallengeManager::getChallengeManager()->getCurrentChallenge()->Update(dt);
+	if (!ChallengeManager::getChallengeManager()->getCurrentChallenge()->getCompleted())
+	{
+		PlayerStateManager::Instance()->Update(dt);
+		manager->Update(dt);
+		EnemyManager::getEnemyManager()->Update(dt);
+		ChallengeManager::getChallengeManager()->getCurrentChallenge()->Update(dt);
+	}
+	else
+	{
+		GameUIManager::getGameUIManager()->perkToggle();
+	}
 }
