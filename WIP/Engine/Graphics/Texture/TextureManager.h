@@ -19,8 +19,10 @@ public:
 	inline static TextureManager* Instance() { return m_instance == nullptr ? m_instance = new TextureManager() : m_instance; }
 
 	void Init();
+	void Destory();
 
 	uint32 CreateTexture(const std::string& filePath, uint32 x = 1, uint32 y = 1);
+	uint32 CreateTexture(uint32 textureWidth, uint32 textureHeight, char* textureBuffer);
 
 	Texture* GetTexture(uint32 id);
 	inline Texture* GetTexture(EngineTextureIndex id) { return GetTexture((uint32)id); }

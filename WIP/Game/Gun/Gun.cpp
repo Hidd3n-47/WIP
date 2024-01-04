@@ -1,23 +1,44 @@
 #include "pch.h"
 #include "Gun.h"
+
 #include <Engine/Scene/SceneManager.h>
-#include <Game/Bullet/Bullet.h>
+#include <Engine/ECS/Animation.h>
+
 #include <Game/Bullet/BulletManager.h>
+#include <Game/Bullet/Bullet.h>
 #include <Game/Player/Player.h>
 
 Gun::Gun(BulletManager* bM)
 {
 	bulletManager = bM;
-	m_bulletSpeed = 5.0f;
+	m_bulletSpeed = 10.0f;
 	m_magSize = 30;
 	m_inClip = m_magSize;
 	m_reloadTimer = 1.0f;
+
+	m_entity = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();
+	m_transform = m_entity->GetComponent<jci::Transform>();
+	m_sound = m_entity->AddComponent<jci::Audio>();
+	m_sound->SetSoundEffect(jci::AudioManager::Instance()->LoadSound("Assets/Audio/shot.mp3"));
+
+	m_gunTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Gun.png");
+	m_gunShootTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/GunShooting.png");
+
+	m_spriteRenderer = m_entity->AddComponent<jci::SpriteRenderer>();
+	m_spriteRenderer->SetTexture(m_gunTexture);
+	m_spriteRenderer->SetLayer(2);
+	m_spriteRenderer->SetSize(vec2(2.f, 0.5f));
 }
+
+Gun::~Gun()
+{
+	delete m_shootingAnimationTimer;
+}
+
 
 void Gun::Create(float rateOfFire)
 {
 	m_fireRate = rateOfFire;
-	
 }
 
 int Gun::GetFireRate()
@@ -30,23 +51,30 @@ void Gun::SetFireRate(float rateOfFire)
 	m_fireRate = rateOfFire;
 }
 
-void Gun::FireGun(float time, vec2 position, jci::Scene* currentScene, vec2 orientMouse)
+void Gun::FireGun(float time, vec2 position, jci::Scene* currentScene)
 {
 	if (m_inClip > 1)
 	{
 		m_inClip -= 1;
+		
+		m_shootingAnimationTimer = new jci::Timer(0.15f)
+
 		DLOG("Firing");
-		//find angle: (y-jci::InputManager::Instance()->GetMousePosition().y)/(x-jci::InputManager::Instance()->GetMousePosition().x)
-		vec2 mouseCoords = jci::InputManager::Instance()->GetMousePosition() - orientMouse;
-		vec2 moveDirection = glm::normalize(mouseCoords);
-		//int num = bulletPool.size() - 1;
 
+		vec2 mousePosition = jci::InputManager::Instance()->GetMousePosition();
+		float width = jci::Engine::Instance()->GetScreenWidth();
+		float height = jci::Engine::Instance()->GetScreenHeight();
 
-		moveDirection.y *= -1;
-		moveDirection = glm::normalize(moveDirection);
+		vec2 mouseP = (mousePosition / vec2(width, height) * 2.0f - 1.0f);
+		mouseP.y *= -1.0f;
+
+		vec2 moveDirection = glm::normalize(mouseP);
 		moveDirection *= m_bulletSpeed;
 
-		bulletManager->ShootBullet(moveDirection, position);
+
+		m_sound->PlaySound();
+
+		bulletManager->ShootBullet(moveDirection, position, m_gunAngle);
 	}
 }
 
@@ -58,4 +86,54 @@ void Gun::SetBulletDamage(int bullDmg)
 int Gun::GetBulletDamage()
 {
 	return bulletManager->GetBulletDamage();
+}
+
+void Gun::Update(vec2 playerPosition)
+{
+
+	if (m_shootingAnimationTimer)
+	{
+		if (m_shootingAnimationTimer->TimerTick() == jci::TimerStatus::TimerCompleted)
+		{
+			m_spriteRenderer->SetTexture(m_gunTexture);
+			delete m_shootingAnimationTimer;
+			m_shootingAnimationTimer = nullptr;
+		}
+		else
+		{
+			m_spriteRenderer->SetTexture(m_gunShootTexture);
+		}
+	}
+
+	m_transform->SetPosition(playerPosition - vec2(0.0f, 0.2f));
+	vec2 mousePosition = jci::InputManager::Instance()->GetMousePosition();
+	float width = jci::Engine::Instance()->GetScreenWidth();
+	float height = jci::Engine::Instance()->GetScreenHeight();
+
+	vec2 mouseP = (mousePosition / vec2(width, height) * 2.0f - 1.0f);
+	mouseP.y *= -1.0f;
+
+	m_gunAngle = glm::degrees(glm::atan(mouseP.y, mouseP.x));
+	
+	if (m_gunAngle < 0.0f)
+	{
+		m_spriteRenderer->SetLayer(2);
+		m_gunAngle += 360.0f;
+	}
+	else
+	{
+		m_spriteRenderer->SetLayer(0);
+	}
+
+	if (mouseP.x < 0.0f)
+	{
+		m_spriteRenderer->SetVerticalFlip(true);
+		float a = m_gunAngle - 180.0f;
+		m_spriteRenderer->SetRotation(a);
+	}
+	else
+	{
+		m_spriteRenderer->SetVerticalFlip(false);
+		m_spriteRenderer->SetRotation(m_gunAngle);
+	}
 }

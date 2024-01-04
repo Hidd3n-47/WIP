@@ -13,5 +13,7 @@ public:
 	static ChallengeManager* getChallengeManager();
 	ChallengeParent* getCurrentChallenge();
 	void newChallenge();
+
+	void Destroy();
 };
 

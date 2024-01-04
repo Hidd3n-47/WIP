@@ -10,6 +10,13 @@ DoorManager::DoorManager()
 	closedText = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Door.png");
 }
 
+void DoorManager::Destroy()
+{
+	clear();
+
+	delete doorManager;
+}
+
 void DoorManager::doorToggle(int index)
 {
 

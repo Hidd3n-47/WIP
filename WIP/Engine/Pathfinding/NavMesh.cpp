@@ -54,7 +54,6 @@ void NavMesh::GenerateConnections()
 				m_nodes[j]->connections.push_back(m_nodes[i]);
 				m_nodes[j]->distanceToConnection.push_back(distance);
 			}
-
 		}
 	}
 }

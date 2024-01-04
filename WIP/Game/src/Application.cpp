@@ -12,19 +12,6 @@
 #include "Game/Challenges/ChallengeManager.h"
 #include "Game/Player/PlayerStateManager.h"
 
-class foo : public jci::IButtonMethods
-{
-public:
-	// Inherited via IButtonMethods
-	void OnButtonHover() final
-	{
-		DLOG("Hovering");
-	}
-	void OnButtonPress() final
-	{
-		DLOG("-----------Pressed.");
-	}
-};
 
 Application* Application::m_instance = nullptr;
 
@@ -35,27 +22,19 @@ void Application::Create()
 	map->newLevel();
 	EnemyManager* em = EnemyManager::getEnemyManager();
 
+	m_bgMusic = m_currentScene->CreateEmptyEntity()->AddComponent<jci::Audio>();
+	m_bgMusic->SetMusic("Assets/Audio/playingBg.mp3", 20);
+	m_bgMusic->PlayMusic();
 
 	manager = new BulletManager();
 	manager->Create();
 	g1 = new Gun(manager);
 	g1->Create(1);
 
+	m_player = PlayerStateManager::Instance()->GetPlayer();
+
 	PlayerStateManager::Instance()->Init(map->GetSpawnPoint(), g1);
-	em->setPlayer(PlayerStateManager::Instance()->GetPlayer());
-	
-
-	jci::Entity* e1 = m_currentScene->CreateEmptyEntity();
-	foo* f = new foo();
-	jci::UiButton* b = e1->AddComponent<jci::UiButton>();
-	b->SetButtonMethods(f);
-	b->SetAnchorPoint(jci::AnchorPoints::TopLeft);
-	b->SetPadding(vec2(1.0f, -1.0f));
-
-	e1->AddComponent<jci::UiSprite>()->SetTexture(jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::Dbg_Box));
-	/*e1->GetComponent<jci::Transform>()->SetPosition({ 8, -6 });
-	e1->AddComponent<jci::SpriteRenderer>()->SetTexture(em->getZombieTexture());
-	e1->AddComponent<jci::CircleCollider>()->SetBodyType(jci::BodyType::Kinematic);*/
+	em->setPlayer(m_player);
 }
 
 void Application::Update(float dt)
@@ -64,4 +43,25 @@ void Application::Update(float dt)
 	manager->Update(dt);
 	EnemyManager::getEnemyManager()->Update(dt);
 	ChallengeManager::getChallengeManager()->getCurrentChallenge()->Update(dt);
+	g1->Update(m_player->GetPosition());
+}
+
+
+void Application::Destroy()
+{
+	PlayerStateManager::Instance()->Destroy();
+
+	delete g1;
+
+	delete manager;
+
+	DoorManager::getDoorManager()->Destroy();
+
+	EnemyManager::getEnemyManager()->Destroy();
+
+	ChallengeManager::getChallengeManager()->Destroy();
+
+	Levels::getCurrentMap()->Destroy();
+
+	delete m_instance;
 }

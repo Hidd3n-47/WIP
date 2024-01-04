@@ -7,6 +7,12 @@
 
 static EnemyManager* enemyManager;
 
+void EnemyManager::Destroy()
+{ 
+	delete spawnCD; 
+	delete enemyManager; 
+}
+
 void EnemyManager::CreateZombie(vec2 point)
 {
 	Zombie* zombie = new Zombie;
@@ -17,7 +23,7 @@ void EnemyManager::CreateZombie(vec2 point)
 EnemyManager::EnemyManager()
 {
 	PlayerInCollisionRange = true;
-	zombieText = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Zomb.png");
+	zombieText = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Enemy.png", 6, 1);
 }
 
 Uint32 EnemyManager::getZombieTexture()
@@ -29,7 +35,7 @@ bool EnemyManager::PlayerOutOfRange(jci::Entity* spawner)
 {
 	float minDistance = 3.0f;//Not directly overlapping
 	//if (glm::length(player->GetPos() - spawner->GetComponent<jci::Transform>()->GetPosition()) < minDistance)
-	if (glm::length(player->playerEntity->GetComponent<jci::Transform>()->GetPosition() - spawner->GetComponent<jci::Transform>()->GetPosition()) < minDistance)
+	if (glm::length(player->GetPosition() - spawner->GetComponent<jci::Transform>()->GetPosition()) < minDistance)
 	{
 		return false;//fail at first overlap
 	}

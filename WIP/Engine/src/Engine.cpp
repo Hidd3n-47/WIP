@@ -9,12 +9,12 @@
 #include "Scene/SceneManager.h"
 #include "Pathfinding/AIManager.h"
 #include "Physics/PhysicsManager.h"
-#include "FSM/StateMachineManager.h"
 #include "Graphics/Texture/Texture.h"
 #include "Collision/CollisionManager.h"
 #include "Animation/AnimationManager.h"
 #include "Graphics/Texture/TextureManager.h"
 #include "Graphics/Renderer/RendererManager.h"
+#include "Collision/CollisionCallbackManager.h"
 
 #include "Game/src/Application.h"
 
@@ -91,13 +91,13 @@ void Engine::Run()
 
 		Application::Instance()->Update(dt);
 
-		AnimationManager::Instance()->Update();
+		AnimationManager::Update();
 
-		PhysicsManager::Instance()->Update(dt);
+		PhysicsManager::Update(dt);
 		
 		CollisionManager::Instance()->Update(m_window->GetWidth(), m_window->GetHeight(), cam->GetPosition());
 		
-		AIManager::Instance()->Update(dt);
+		AIManager::Update(dt);
 
 		UiManager::Instance()->Update();
 
@@ -111,23 +111,39 @@ void Engine::Run()
 
 void Engine::Destroy()
 {
+	Random::Instance()->Destroy();
+
+	TextureManager::Instance()->Destory();
+
 	Application::Instance()->Destroy();
 
 	InputManager::Instance()->Destroy();
 
+	CollisionCallbackManager::Instance()->Destroy();
 	CollisionManager::Instance()->Destroy();
 
 	SceneManager::Instance()->Destory();
 
 	ComponentManager::Instance()->Destroy();
 
+	UiManager::Instance()->Destroy();
+
+	ParticleManager::Instance()->Destroy();
+
+	PathfindingManager::Instance()->Destroy();
+
+	AudioManager::Instance()->Destroy();
+
 	RendererManager::Instance()->Destroy();
+
+	Time::Instance()->Destroy();
 
 	m_window->Destroy();
 
 	SDL_Quit();
 
 	DOUT_CLOSE();
+	IOManager::Instance()->Destroy();
 
 	delete m_instance;
 }

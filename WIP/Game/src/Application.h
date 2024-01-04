@@ -1,13 +1,16 @@
 #pragma once
 
-#include <Engine/Scene/SceneManager.h>
-#include <Engine/ECS/Entity.h>
-#include <Game/Player/Player.h>
-#include <Game/Zombie/Zombie.h>
-#include <Game/Gun/Gun.h>
-#include <vector>
-#include <Time/Timer.h>
-#include <Game/Bullet/BulletManager.h>
+#include "Game/Player/Player.h"
+
+namespace jci
+{
+class Audio;
+}
+
+class Zombie;
+class Gun;
+class BulletManager;
+class PlayerS;
 
 class Application
 {
@@ -16,9 +19,8 @@ public:
 
 	void Create();
 	void Update(float dt);
-	inline void Destroy() { delete m_instance; }
+	void Destroy();
 
-	inline vec2* GetPlayerPositionPointer() const { return p1->GetPosPointer(); }
 private:
 	Application() = default;
 	~Application() = default;
@@ -29,9 +31,11 @@ private:
 
 	std::vector<jci::Entity*> UpdatePool;
 
-	Player* p1 = nullptr;
 	Zombie* z1 = nullptr;
 	Gun* g1 = nullptr;
 	BulletManager* manager = nullptr;
+
+	jci::Audio* m_bgMusic = nullptr;
+	PlayerS* m_player;
 };
 

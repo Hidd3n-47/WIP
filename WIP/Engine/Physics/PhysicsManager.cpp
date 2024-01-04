@@ -6,8 +6,6 @@
 
 namespace jci {
 
-PhysicsManager* PhysicsManager::m_instance = nullptr;
-
 void PhysicsManager::Update(float dt)
 {
 	Impulse* impulses = ComponentManager::Instance()->GetComponentVector<Impulse>();

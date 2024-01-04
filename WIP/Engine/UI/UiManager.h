@@ -11,6 +11,8 @@ class UiManager
 public:
 	inline static UiManager* Instance() { return !m_instance ? m_instance = new UiManager() : m_instance; }
 
+	inline void Destroy() { delete m_instance; }
+
 	void Update();
 
 	vec2 GetAnchorPosition(AnchorPoints anchor);

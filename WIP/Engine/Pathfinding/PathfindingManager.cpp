@@ -8,6 +8,12 @@ namespace jci {
 
 PathfindingManager* PathfindingManager::m_instance = nullptr;
 
+void PathfindingManager::Destroy()
+{
+	delete m_mesh; 
+	delete m_instance; 
+}
+
 void PathfindingManager::RegisterNavBlock(Node* node)
 {
 	if (!m_mesh)

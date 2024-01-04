@@ -8,6 +8,7 @@ public:
 	inline static Random* Instance() { return !m_instance ? m_instance = new Random() : m_instance; }
 
 	void Init();
+	inline void Destroy() { delete m_instance; }
 	/***
 	* Get a random number between 0.0f and 1.0f.
 	* 

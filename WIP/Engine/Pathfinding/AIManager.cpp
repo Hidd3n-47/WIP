@@ -6,8 +6,6 @@
 
 namespace jci {
 
-AIManager* AIManager::m_instance = nullptr;
-
 void AIManager::Update(float dt)
 {
 	AI* aiComp = ComponentManager::Instance()->GetComponentVector<AI>();
@@ -34,7 +32,7 @@ void AIManager::Update(float dt)
             }
 
             dist = glm::normalize(dist);
-            *position += speed * dist * dt; // TODO (Christian) Add speed method here for the entities.
+            *position += speed * dist * dt; 
             return;
         }
 

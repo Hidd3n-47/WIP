@@ -5,8 +5,6 @@
 
 namespace jci {
 
-AnimationManager* AnimationManager::m_instance = nullptr;
-
 void AnimationManager::Update()
 {
 	Animation* animation = ComponentManager::Instance()->GetComponentVector<Animation>();
@@ -16,7 +14,11 @@ void AnimationManager::Update()
 
 		if (animation[i].m_frameTimer.TimerTick() == TimerStatus::TimeElapsed)
 		{
-			animation[i].m_animationIndex = (animation[i].m_animationIndex + 1) % animation[i].m_animationCount;
+			if (++animation[i].m_animationIndex >= animation[i].m_animationCount)
+			{
+				animation[i].m_animationIndex = animation[i].m_loop ? animation[i].m_startIndex : animation[i].m_animationCount - 1;
+			}
+
 			animation[i].SetTextureIndex(animation[i].m_animationIndex);
 		}
 	}

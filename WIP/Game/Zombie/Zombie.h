@@ -6,8 +6,10 @@ class PlayerS;
 
 namespace jci
 {
+	class Audio;
 	class Entity;
 	class Transform;
+	class Animation;
 	class ParticleEmission;
 }
 
@@ -25,6 +27,8 @@ public:
 private:
 	PlayerS* player;
 	jci::Entity* zombert;
+	jci::Audio* m_audio;
+	jci::Animation* m_animator;
 
 	float hp;
 	vec2* m_position;

@@ -15,6 +15,8 @@ public:
 	void CollisionOccured(ICollider* collider, ICollider* other, Entity* left, Entity* right);
 	void CollisionCompleted(ICollider* collider, ICollider* other, Entity* left, Entity* right);
 
+	inline void Destroy() { m_colliderCallbacks.clear(); delete m_instance; }
+
 private:
 	CollisionCallbackManager() = default;
 	~CollisionCallbackManager() = default;

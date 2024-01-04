@@ -4026,10 +4026,12 @@ Added component with id: ComponentTypes::ParticleEmission to Game Object: 882
 Created Entity with id: 883
 Added component with id: ComponentTypes::Transform to Game Object: 883
 Added component with id: ComponentTypes::Audio to Game Object: 883
+Added component with id: ComponentTypes::Animation to Game Object: 883
+Created texture Assets/Texture/gun.png
 Created Entity with id: 884
 Added component with id: ComponentTypes::Transform to Game Object: 884
 Added component with id: ComponentTypes::Impulse to Game Object: 884
-Created texture Assets/Texture/Scientist.png
+Created texture Assets/Texture/PlayerSpriteSheet.png
 Created texture Assets/Texture/Blank.png
 Added component with id: ComponentTypes::Animation to Game Object: 884
 Added component with id: ComponentTypes::CapsuleCollider to Game Object: 884
@@ -4038,58 +4040,8 @@ Added component with id: ComponentTypes::Transform to Game Object: 885
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 885
 Game object '885' already has component with id: 2
 Created texture Assets/Texture/Weapons/Bowie Knife.png
-Created texture Assets/Texture/PlayerIdle.png
 Created Entity with id: 886
 Added component with id: ComponentTypes::Transform to Game Object: 886
-Added component with id: ComponentTypes::UiSprite to Game Object: 886
-Created Entity with id: 887
-Added component with id: ComponentTypes::Transform to Game Object: 887
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 887
-Added component with id: ComponentTypes::BoxCollider to Game Object: 887
-Created Entity with id: 888
-Added component with id: ComponentTypes::Transform to Game Object: 888
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 888
-Added component with id: ComponentTypes::BoxCollider to Game Object: 888
-Created Entity with id: 889
-Added component with id: ComponentTypes::Transform to Game Object: 889
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 889
-Added component with id: ComponentTypes::BoxCollider to Game Object: 889
-Created Entity with id: 890
-Added component with id: ComponentTypes::Transform to Game Object: 890
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 890
-Added component with id: ComponentTypes::BoxCollider to Game Object: 890
-Created Entity with id: 891
-Added component with id: ComponentTypes::Transform to Game Object: 891
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 891
-Added component with id: ComponentTypes::BoxCollider to Game Object: 891
-Created Entity with id: 892
-Added component with id: ComponentTypes::Transform to Game Object: 892
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 892
-Added component with id: ComponentTypes::BoxCollider to Game Object: 892
-Created Entity with id: 893
-Added component with id: ComponentTypes::Transform to Game Object: 893
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 893
-Added component with id: ComponentTypes::BoxCollider to Game Object: 893
-Created Entity with id: 894
-Added component with id: ComponentTypes::Transform to Game Object: 894
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 894
-Added component with id: ComponentTypes::BoxCollider to Game Object: 894
-Created Entity with id: 895
-Added component with id: ComponentTypes::Transform to Game Object: 895
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 895
-Added component with id: ComponentTypes::BoxCollider to Game Object: 895
-Created Entity with id: 896
-Added component with id: ComponentTypes::Transform to Game Object: 896
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 896
-Added component with id: ComponentTypes::BoxCollider to Game Object: 896
-Created Entity with id: 897
-Added component with id: ComponentTypes::Transform to Game Object: 897
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 897
-Added component with id: ComponentTypes::BoxCollider to Game Object: 897
-Created Entity with id: 898
-Added component with id: ComponentTypes::Transform to Game Object: 898
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 898
-Added component with id: ComponentTypes::BoxCollider to Game Object: 898
 Destroyed Entity with id: 0
 Destroyed Entity with id: 1
 Destroyed Entity with id: 2
@@ -4977,16 +4929,4 @@ Destroyed Entity with id: 883
 Destroyed Entity with id: 884
 Destroyed Entity with id: 885
 Destroyed Entity with id: 886
-Destroyed Entity with id: 887
-Destroyed Entity with id: 888
-Destroyed Entity with id: 889
-Destroyed Entity with id: 890
-Destroyed Entity with id: 891
-Destroyed Entity with id: 892
-Destroyed Entity with id: 893
-Destroyed Entity with id: 894
-Destroyed Entity with id: 895
-Destroyed Entity with id: 896
-Destroyed Entity with id: 897
-Destroyed Entity with id: 898
 Destroyed scene with name: MainScene

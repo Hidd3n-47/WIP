@@ -8,8 +8,8 @@ ChallengeManager* ChallengeManager::challengeManager = nullptr;
 
 ChallengeManager::ChallengeManager()
 {
-	Survive* survive = new Survive;
-	WaveDefence* waveDefence = new WaveDefence;
+	Survive* survive = new Survive();
+	WaveDefence* waveDefence = new WaveDefence();
 	challenges.push_back(waveDefence);
 	challenges.push_back(survive);
 }
@@ -34,6 +34,17 @@ ChallengeParent* ChallengeManager::getCurrentChallenge()
 
 void ChallengeManager::newChallenge()
 {
-	currentChallenge = challenges.at((int)jci::Random::Instance()->Rand()* challenges.size());
+	currentChallenge = challenges.at((int)jci::Random::Instance()->Rand() * challenges.size());
 	currentChallenge->Reset();
+}
+
+void ChallengeManager::Destroy()
+{
+	for (size_t i = 0; i < challenges.size(); i++)
+	{
+		delete challenges[i];
+	}
+	challenges.clear();
+
+	delete challengeManager;
 }
