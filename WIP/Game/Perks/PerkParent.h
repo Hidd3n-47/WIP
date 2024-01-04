@@ -1,13 +1,13 @@
 #pragma once
-
+#include "Game/EnemyManager/EnemyManager.h"
 enum Perks
 {
-	tanky,
-	swiftHands,
-	doubleTap,
-	biggerBullets,
-	lighterBullets,
-	evasive
+	Tanky,
+	SwiftHands,
+	DoubleTap,
+	BiggerBullets,
+	LighterBullets,
+	Evasive
 };
 
 class PerkParent
@@ -15,6 +15,7 @@ class PerkParent
 protected:
 	Perks tag;
 public:
+	void setTag(Perks temp);
 	Perks getTag() { return tag; };
 	virtual void activate();
 };

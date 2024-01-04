@@ -20,6 +20,7 @@ void Application::Create()
 {
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	m_gameScene = m_currentScene;
+	GameUIManager::getGameUIManager()->perkToggle();
 	Levels* map = Levels::getCurrentMap();
 	map->newLevel();
 	EnemyManager* em = EnemyManager::getEnemyManager();
@@ -55,6 +56,15 @@ void Application::Create()
 
 void Application::Update(float dt)
 {
+	if (!GameUIManager::getGameUIManager()->getPerkToggle())
+	{
+		PlayerStateManager::Instance()->Update(dt);
+		manager->Update(dt);
+		EnemyManager::getEnemyManager()->Update(dt);
+		ChallengeManager::getChallengeManager()->getCurrentChallenge()->Update(dt);
+		/*switch(m_currentScene)
+			case State::*/
+	}
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_o))
 	{
 		jci::SceneManager::Instance()->SetCurrentScene(m_gameScene);
@@ -65,8 +75,6 @@ void Application::Update(float dt)
 		jci::SceneManager::Instance()->SetCurrentScene(m_startMenu);
 		m_currentScene = m_startMenu;
 	}
-	/*switch(m_currentScene)
-		case State::*/
 	if (m_currentScene == m_startMenu)
 	{
 		StartUpdate(dt);
@@ -93,6 +101,7 @@ void Application::GameUpdate(float dt)
 	{
 		PlayerStateManager::Instance()->Update(dt);
 		manager->Update(dt);
+		g1->Update(m_player->GetPosition());
 		EnemyManager::getEnemyManager()->Update(dt);
 		ChallengeManager::getChallengeManager()->getCurrentChallenge()->Update(dt);
 	}

@@ -11,6 +11,7 @@
 #include "Game/Door/DoorTrigger.h"
 #include <Game/Challenges/ChallengeManager.h>
 #include "Engine/Random/Random.h"
+#include <Game/UIManager/GameUIManager.h>
 static Levels* map;
 
 Levels::Levels()

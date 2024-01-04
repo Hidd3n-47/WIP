@@ -8,6 +8,16 @@ PerkButton::PerkButton()
 	thisButton->GetComponent<jci::UiButton>()->SetButtonMethods(this);
 }
 
+void PerkButton::setPerk(PerkParent* temp)
+{
+	thisPerk = temp;
+}
+
+PerkParent* PerkButton::getPerk()
+{
+	return thisPerk;
+}
+
 jci::Entity* PerkButton::getButton()
 {
 	return thisButton;
@@ -15,6 +25,6 @@ jci::Entity* PerkButton::getButton()
 
 void PerkButton::OnButtonPress()
 {
-	thisPerk.activate();
+	thisPerk->activate();
 	GameUIManager::getGameUIManager()->perkToggle();
 }
