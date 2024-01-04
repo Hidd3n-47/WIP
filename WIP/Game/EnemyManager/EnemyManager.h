@@ -32,6 +32,7 @@ namespace jci
 		//std::vector<jci::Entity*> getEnemySquares();
 		void clearSquares();
 		void clearZombies();
+		PlayerS* getPlayer();
 		void setPlayer(PlayerS* playertemp);
 		void spawnWave(int waveCount);
 		void Update(float dt);

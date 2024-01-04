@@ -68,6 +68,11 @@ void EnemyManager::clearZombies()
 	Zombies.clear();
 }
 
+PlayerS* EnemyManager::getPlayer()
+{
+	return player;
+}
+
 void EnemyManager::setPlayer(PlayerS* playertemp)
 {
 	player = playertemp;

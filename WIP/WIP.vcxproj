@@ -172,6 +172,11 @@
     <ClCompile Include="Engine\Time\Time.cpp" />
     <ClCompile Include="Game\Gun\Gun.cpp" />
     <ClCompile Include="Game\Levels\Levels.cpp" />
+    <ClCompile Include="Game\Perks\biggerBullets.cpp" />
+    <ClCompile Include="Game\Perks\doubleTap.cpp" />
+    <ClCompile Include="Game\Perks\evasive.cpp" />
+    <ClCompile Include="Game\Perks\lighterBullets.cpp" />
+    <ClCompile Include="Game\Perks\swiftHands.cpp" />
     <ClCompile Include="Game\Player\Player.cpp" />
     <ClCompile Include="Game\Player\PlayerStates.cpp" />
     <ClCompile Include="Game\Player\PlayerStateManager.cpp" />
@@ -209,6 +214,7 @@
     <ClCompile Include="Game\UIManager\GameUIManager.cpp" />
     <ClCompile Include="Game\UIManager\PerkButton.cpp" />
     <ClCompile Include="Game\Perks\PerkParent.cpp" />
+    <ClCompile Include="Game\Perks\tanky.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\ECS\UiSprite.h" />
@@ -256,6 +262,11 @@
     <ClInclude Include="Engine\Utilities\Utils.h" />
     <ClInclude Include="Game\EnemyManager\EnemyManager.h" />
     <ClInclude Include="Game\Levels\Levels.h" />
+    <ClInclude Include="Game\Perks\biggerBullets.h" />
+    <ClInclude Include="Game\Perks\doubleTap.h" />
+    <ClInclude Include="Game\Perks\evasive.h" />
+    <ClInclude Include="Game\Perks\lighterBullets.h" />
+    <ClInclude Include="Game\Perks\swiftHands.h" />
     <ClInclude Include="Game\Player\Player.h" />
     <ClInclude Include="Game\Player\PlayerStates.h" />
     <ClInclude Include="Game\Player\PlayerStateManager.h" />
@@ -295,6 +306,7 @@
     <ClInclude Include="Game\UIManager\GameUIManager.h" />
     <ClInclude Include="Game\UIManager\PerkButton.h" />
     <ClInclude Include="Game\Perks\PerkParent.h" />
+    <ClInclude Include="Game\Perks\tanky.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Levels\NOLAGROOM.csv" />
