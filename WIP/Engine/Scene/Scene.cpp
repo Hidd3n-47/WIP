@@ -51,7 +51,7 @@ void Scene::RemoveEnity(Entity* entity)
 
 void Scene::CacheEntities()
 {
-	ASSERT(m_cachedEntities.size(), "Cached entity vector size is not zero.");
+	ASSERT(!m_cachedEntities.size(), "Cached entity vector size is not zero.");
 	if (m_entities.size()) { return; }
 
 	m_cachedEntities.resize(m_entities.size());

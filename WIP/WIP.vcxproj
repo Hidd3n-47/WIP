@@ -206,6 +206,8 @@
     <ClCompile Include="Engine\ParticleSystem\ParticleManager.cpp" />
     <ClCompile Include="Game\Challenges\WaveDefence.cpp" />
     <ClCompile Include="Game\UIManager\GameUIManager.cpp" />
+    <ClCompile Include="Game\UIManager\PerkButton.cpp" />
+    <ClCompile Include="Game\Perks\PerkParent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\ECS\UiSprite.h" />
@@ -289,6 +291,8 @@
     <ClInclude Include="Engine\ParticleSystem\ParticleManager.h" />
     <ClInclude Include="Game\Challenges\WaveDefence.h" />
     <ClInclude Include="Game\UIManager\GameUIManager.h" />
+    <ClInclude Include="Game\UIManager\PerkButton.h" />
+    <ClInclude Include="Game\Perks\PerkParent.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Levels\NOLAGROOM.csv" />

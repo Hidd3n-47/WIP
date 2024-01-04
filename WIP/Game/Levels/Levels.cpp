@@ -77,7 +77,7 @@ void Levels::createWall(float x, float y)
 	e->GetComponent<jci::Transform>()->SetPosition({ x, y });
 	e->AddComponent<jci::SpriteRenderer>()->SetTexture(wall, 25);
 	e->AddComponent<jci::BoxCollider>();
-
+	e->SetTag("Wall");
 	LevelSquare->push_back(e);
 }
 
@@ -107,6 +107,7 @@ void Levels::createDoor(float x, float y)
 	dm->setDoor(newDoor->getDoor());
 	dm->getDoorSquares().push_back(newDoor->getDoor());
 	doors.push_back(newDoor);
+	dm->getDoor()->SetTag("Wall");
 }
 
 void Levels::createDoorTrigger(float x, float y)

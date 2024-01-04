@@ -68,7 +68,7 @@ void Engine::Init()
 
 	RendererManager::Instance()->Init();
 
-	AudioManager::Instance()->Init();
+//	AudioManager::Instance()->Init();
 
 	Application::Instance()->Create();
 

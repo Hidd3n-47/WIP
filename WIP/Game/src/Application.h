@@ -19,7 +19,9 @@ public:
 
 	void Create();
 	void Update(float dt);
-	void Destroy();
+	void startUpdate(float dt);
+	void gameUpdate(float dt);
+	inline void Destroy() { delete m_instance; }
 
 private:
 	Application() = default;
@@ -28,6 +30,8 @@ private:
 	static Application* m_instance;
 
 	jci::Scene* m_currentScene = nullptr;
+	jci::Scene* m_gameScene = nullptr;
+	jci::Scene* m_startMenu = nullptr;
 
 	std::vector<jci::Entity*> UpdatePool;
 
