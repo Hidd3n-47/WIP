@@ -15,7 +15,7 @@ static GameUIManager* gameUIManager;
 
 GameUIManager::GameUIManager()
 {
-	isPerksSet = false;
+	isPerksSet = true;
 	perkLeft = new PerkButton();
 	perkMiddle = new PerkButton();
 	perkRight = new PerkButton();
@@ -35,6 +35,7 @@ void GameUIManager::perkSet()
 		if (!(i->getPerk() == nullptr))
 		{
 			delete perkLeft->getPerk();
+			perkLeft->setPerk(nullptr);
 		}
 		PerkParent* temp;
 		switch ((int)jci::Random::Instance()->Rand() * 6)
@@ -90,8 +91,8 @@ void GameUIManager::perkToggle()
 {
 	isPerksSet = !isPerksSet;
 	perkLeft->getButton()->SetActive(!perkLeft->getButton()->IsActive());
-	perkMiddle->getButton()->SetActive(!perkLeft->getButton()->IsActive());
-	perkRight->getButton()->SetActive(!perkLeft->getButton()->IsActive());
+	perkMiddle->getButton()->SetActive(!perkMiddle->getButton()->IsActive());
+	perkRight->getButton()->SetActive(!perkRight->getButton()->IsActive());
 }
 
 GameUIManager* GameUIManager::getGameUIManager()
