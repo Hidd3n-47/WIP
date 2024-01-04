@@ -97,3 +97,22 @@ void Application::GameUpdate(float dt)
 		GameUIManager::getGameUIManager()->perkToggle();
 	}
 }
+
+void Application::Destroy()
+{
+	PlayerStateManager::Instance()->Destroy();
+
+	delete g1;
+
+	delete manager;
+
+	DoorManager::getDoorManager()->Destroy();
+
+	EnemyManager::getEnemyManager()->Destroy();
+
+	ChallengeManager::getChallengeManager()->Destroy();
+
+	Levels::getCurrentMap()->Destroy();
+
+	delete m_instance;
+}

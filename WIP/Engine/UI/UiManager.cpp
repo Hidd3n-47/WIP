@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "UiManager.h"
 
+#include <ECS/Entity.h>
 #include "Camera/Camera.h"
 #include "ECS/ComponentManager.h"
 #include "Input/InputManager.h"
@@ -22,6 +23,11 @@ void UiManager::Update()
 	UiButton* buttons = ComponentManager::Instance()->GetComponentVector<UiButton>();
 	for (entId i = 0; i < ComponentManager::Instance()->GetComponentCount(ComponentTypes::UiButton); i++)
 	{
+		if (!buttons[i].GetEntity()->IsActive())
+		{
+			continue;
+		}
+
 		vec2 buttonPosition = GetAnchorPosition(buttons[i].m_anchorPoint) + buttons[i].m_padding;
 
 		// Scale between 0.0f-1.0f, multiply by 2 and subtract 1 to get -1.0f-1.0f, half extents to get -cam.x-cam.x and similarly for cam.y.
