@@ -89,6 +89,7 @@ void Application::GameUpdate(float dt)
 	{
 		PlayerStateManager::Instance()->Update(dt);
 		manager->Update(dt);
+		g1->Update(m_player->GetPosition());
 		EnemyManager::getEnemyManager()->Update(dt);
 		ChallengeManager::getChallengeManager()->getCurrentChallenge()->Update(dt);
 	}
