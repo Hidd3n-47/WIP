@@ -15,12 +15,32 @@ void TextureManager::Init()
 	CreateTexture("Assets/Texture/dbg/dbg_cap.png");
 }
 
+void TextureManager::Destory()
+{
+	for (auto& it : m_textures)
+	{
+		delete it.second;
+	}
+	m_textures.clear();
+
+	delete m_instance;
+}
+
 uint32 TextureManager::CreateTexture(const std::string& filePath, uint32 x, uint32 y)
 {
 	ASSERT(m_index < 32, "Max textures reached for current performance of renderer.");
 
 	DOUT("Created texture " + filePath);
 	m_textures[m_index] = new Texture(filePath, x, y);
+
+	return m_index++;
+}
+
+uint32 TextureManager::CreateTexture(uint32 textureWidth, uint32 textureHeight, char* textureBuffer)
+{
+	ASSERT(m_index < 32, "Max textures reached for current performance of renderer.");
+
+	m_textures[m_index] = new Texture(textureBuffer, textureWidth, textureHeight);
 
 	return m_index++;
 }

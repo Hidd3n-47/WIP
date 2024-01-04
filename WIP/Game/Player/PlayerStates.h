@@ -1,7 +1,12 @@
 #pragma once
 
 #include <FSM/IState.h>
-#include <Time/Timer.h>
+
+namespace jci
+{
+class Timer;
+class Animation;
+}
 
 struct PlayerS;
 
@@ -16,7 +21,7 @@ public:
 	virtual void OnStateExit() final;
 private:
 	PlayerS* m_player = nullptr;
-	uint32 m_idleTexture = 0;
+	jci::Animation* m_animator = nullptr;
 };
 
 class PlayerMovingState : public jci::IState
@@ -30,7 +35,7 @@ public:
 	virtual void OnStateExit() final;
 private:
 	PlayerS* m_player = nullptr;
-	uint32 m_movingTexture = 0;
+	jci::Animation* m_animator = nullptr;
 };
 
 class PlayerDashingState : public jci::IState

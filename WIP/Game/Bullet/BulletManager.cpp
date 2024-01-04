@@ -1,14 +1,18 @@
 #include "pch.h"
 #include "BulletManager.h"
 
-BulletManager::BulletManager()
+BulletManager::~BulletManager()
 {
-	
+	for (size_t i = 0; i < bulletPool.size(); i++)
+	{
+		delete bulletPool[i];
+	}
+	bulletPool.clear();
 }
 
 void BulletManager::Create()
 {
-	m_bulletTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Bullet.png");
+	m_bulletTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Bullet.png", 4, 1);
 	jci::SceneManager::Instance()->GetCurrentScene();
 	nextBullet = 0;
 	for (int i = 0; i < POOLSIZE; i++)
@@ -16,8 +20,17 @@ void BulletManager::Create()
 		jci::Entity* bulletObj = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();
 		bulletObj->SetActive(false);
 		bulletObj->GetComponent<jci::Transform>()->SetPosition(vec2(-15000000000000.0f));
-		bulletObj->AddComponent<jci::SpriteRenderer>()->SetTexture(m_bulletTexture);
-		bulletObj->GetComponent<jci::SpriteRenderer>()->SetSize({ 0.35f, 0.1f });
+
+		jci::Animation* anim = bulletObj->AddComponent<jci::Animation>();
+		anim->SetTexture(m_bulletTexture);
+		anim->SetSize(vec2(0.6f, 0.6f));
+		anim->SetTimeBetweenFrames(.15f);
+		anim->SetAnimationCount(4);
+		anim->SetLooping(false);
+
+		//bulletObj->AddComponent<jci::SpriteRenderer>()->SetTexture(m_bulletTexture);
+		//bulletObj->GetComponent<jci::SpriteRenderer>()->SetSize({ 0.35f, 0.1f });
+
 		jci::BoxCollider* bc = bulletObj->AddComponent<jci::BoxCollider>();
 		bc->SetBodyType(jci::BodyType::Kinematic);
 		bc->SetTrigger(true);
@@ -36,23 +49,17 @@ void BulletManager::Update(float dt)
 		{
 			bulletPool.at(i)->body->GetComponent<jci::Transform>()->AddToPosition(bulletPool.at(i)->direction * dt);
 		}
-		if (bulletPool.at(i)->GetSpawnTime() + 5000 <= SDL_GetTicks() && bulletPool.at(i)->GetMove())
-		{
-			//DLOG("Despawn");
-			//bulletPool.at(i)->Delete();
-		}
 	}
 }
 
-void BulletManager::ShootBullet(vec2 d, vec2 playPos)
+void BulletManager::ShootBullet(vec2 d, vec2 playPos, float angle)
 {
 	if (nextBullet > POOLSIZE-1)
 	{
 		nextBullet = 0;
 	}
-	bulletPool.at(nextBullet)->SetActive(playPos, d);
-	/*bulletPool.at(nextBullet)->body->GetComponent<jci::Transform>()->SetPosition(playPos);
-	bulletPool.at(nextBullet)->bulletFire(d);*/
+	bulletPool.at(nextBullet)->SetActive(playPos, d, angle);
+	
 	nextBullet += 1;
 }
 

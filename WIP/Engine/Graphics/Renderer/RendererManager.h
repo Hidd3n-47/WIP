@@ -37,10 +37,21 @@ struct Quad
 struct ParticleVertex
 {
 	inline ParticleVertex() = default;
-	inline ParticleVertex(vec2 position, vec4 color) : position(vec3(position, 0.99f)), color(color) { /* Empty. */ }
+	inline ParticleVertex(vec2 position, vec4 color) : position(vec3(position, 0.0f)), color(color) { /* Empty. */ }
 
 	vec3 position = vec3(0.0f);
 	vec4 color = vec4(1.0f);
+};
+
+struct UiVertex
+{
+	inline UiVertex() = default;
+	inline UiVertex(vec2 position, vec4 color, vec2 uv, float textureIndex) : position(position), color(color), uv(uv), textureIndex(textureIndex) { }
+
+	vec2 position = vec2(0.0f);
+	vec4 color = vec4(1.0f);
+	vec2 uv = vec2(0.0f);
+	float textureIndex = 0.0f;
 };
 
 class RendererManager
@@ -64,7 +75,7 @@ public:
 	static const uint32 MAX_TEXTURE_SLOTS = 32;
 private:
 	RendererManager() = default;
-	~RendererManager() = default;
+	~RendererManager();
 
 	static RendererManager* m_instance;
 
@@ -84,6 +95,13 @@ private:
 	ParticleVertex* m_particleVerticesPtr	= nullptr;
 	Shader* m_particleShader				= nullptr;
 
+	// UI Rendering.
+	VertexBuffer* m_uiVertexBuffer	= nullptr;
+	VertexArray* m_uiVertexArray	= nullptr;
+	UiVertex* m_uiVerticesBase		= nullptr;
+	UiVertex* m_uiVerticesPtr		= nullptr;
+	Shader* m_uiShader				= nullptr;
+
 	// Textures.
 	std::array<Texture*, MAX_TEXTURE_SLOTS> m_textureSlots;
 	uint32 m_textureSlotIndex = 0;
@@ -91,6 +109,7 @@ private:
 	// Index Count.
 	uint32 m_indexCount = 0;
 	uint32 m_particleIndexCount = 0;
+	uint32 m_uiIndexCount = 0;
 };
 
 } // Namespace jci.

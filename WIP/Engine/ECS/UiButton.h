@@ -55,6 +55,7 @@ public:
 		m_size = std::move(other.m_size);
 		m_pressed = other.m_pressed;
 		m_buttonMethods = std::move(other.m_buttonMethods);
+		m_quad = std::move(other.m_quad);
 
 		return *this;
 	}

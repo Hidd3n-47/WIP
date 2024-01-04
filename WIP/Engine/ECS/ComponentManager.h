@@ -253,6 +253,7 @@ public:
 
 		if (componentSize == id)
 		{
+			componentVector[componentSize].OnComponentRemove();
 			componentVector[componentSize].SetId(invalid_id);
 			return nullptr;
 		}

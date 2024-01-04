@@ -3,7 +3,7 @@
 layout(location = 0)out vec4 color;
 
 uniform sampler2D u_texture[32];
-uniform vec2 u_lightPos;
+//uniform vec2 u_lightPos;
 
 in vec2 v_texCoord;
 in float v_texIndex;

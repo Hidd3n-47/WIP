@@ -9,7 +9,7 @@ class VertexArray
 {
 public:
 	VertexArray();
-	inline ~VertexArray() { glDeleteVertexArrays(1, &m_id); } // Question -> Clean up index buffer and vertex Buffer.
+	inline ~VertexArray() { delete m_indexBuffer; glDeleteVertexArrays(1, &m_id); }
 
 	void Bind() const;
 	inline void Unbind() const { glBindVertexArray(0); }

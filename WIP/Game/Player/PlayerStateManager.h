@@ -11,10 +11,29 @@ namespace jci
 }
 
 // TODO (Isaac): Rename this to "Player" once you abstract Player.cpp and Player.h and can delete it.
-struct PlayerS
+class PlayerS
 {
+	friend class PlayerStateManager;
+	friend class PlayerIdleState;
+	friend class PlayerMovingState;
+	friend class PlayerDashingState;
+	friend class PlayerMeleeState;
+	friend class PlayerReloadingState;
+	friend class PlayerShootingState;
+public:
+	~PlayerS();
+	void MaxHpUp();
+	void FasterReload();
+	void FasterFireRate();
+	void DmgUpRateDown();
+	void RateUpDmgDown();
+	void LessDashCD();
+	vec2 GetInputDirection();
+
+	inline vec2 GetPosition() const { return *m_position; }
+private:
 	jci::Entity*	playerEntity	= nullptr;
-	vec2*			position		= nullptr;
+	vec2*			m_position		= nullptr;
 	jci::Entity*	m_knife			= nullptr;
 	jci::Timer*		stabbin			= nullptr;
 	jci::Timer*		dashCD			= nullptr;
@@ -38,14 +57,6 @@ struct PlayerS
 	int				m_maxHp;
 	int				m_hp;
 
-	void MaxHpUp();
-	void FasterReload();
-	void FasterFireRate();
-	void DmgUpRateDown();
-	void RateUpDmgDown();
-	void LessDashCD();
-	vec2 GetInputDirection();
-	~PlayerS();
 };
 
 enum class PlayerState
@@ -65,6 +76,7 @@ public:
 	inline static PlayerStateManager* Instance() { return m_instance == nullptr ? m_instance = new PlayerStateManager() : m_instance; }
 
 	void Init(vec2 playerStartPosition, Gun* theGun);
+	inline void Destroy() { delete m_instance; }
 
 	void Update(float dt);
 
@@ -72,12 +84,12 @@ public:
 	* Get the position of the player.
 	*
 	*/
-	inline vec2 GetPlayerPosition() const { return *m_player.position; }
+	inline vec2 GetPlayerPosition() const { return *m_player.m_position; }
 	/***
 	* Get the pointer of the player position.
 	*
 	*/
-	inline vec2* GetPlayerPositionPointer() { return m_player.position; }
+	inline vec2* GetPlayerPositionPointer() { return m_player.m_position; }
 	/***
 	* Get the player.
 	*
@@ -87,7 +99,7 @@ public:
 	* Set the position of the player.
 	* 
 	*/
-	inline void SetPlayerPosition(vec2 position) { *m_player.position = position; }
+	inline void SetPlayerPosition(vec2 position) { *m_player.m_position = position; }
 	/***
 	* Set the players state.
 	*

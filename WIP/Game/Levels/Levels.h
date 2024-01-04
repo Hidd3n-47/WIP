@@ -44,6 +44,8 @@ public:
 	EnemyManager* getEM();
 	void newLevel();
 
+	void Destroy();
+
 /*/////////////////////////////////////////////////////FORMAT////////////////////////////////////////////////////
 1.Create a new CSV file
 2.ENSURE LEVEL IS FULLY ENCASED IN EMPTY SPACES

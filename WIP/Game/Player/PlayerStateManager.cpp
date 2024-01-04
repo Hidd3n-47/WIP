@@ -32,6 +32,15 @@ vec2 PlayerS::GetInputDirection()
 	return direction;
 }
 
+PlayerS::~PlayerS()
+{
+	delete stabbin;
+	delete dashCD;
+	delete bulletCD;
+	delete meleeCD;
+	delete reload;
+}
+
 PlayerStateManager* PlayerStateManager::m_instance = nullptr;
 
 PlayerStateManager::PlayerStateManager()
@@ -66,9 +75,12 @@ void PlayerStateManager::Init(vec2 playerStartPosition, Gun* theGun)
 	m_player.playerEntity->GetComponent<jci::Impulse>()->SetDampening(1);
 	m_player.playerEntity->GetComponent<jci::Impulse>()->SetDampeningFactor(0.75f);
 
-	uint32 text = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Scientist.png");
+	uint32 text = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/PlayerSpriteSheet.png", 10, 1);
 	m_player.m_blankTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Blank.png");
-	m_player.playerEntity->AddComponent<jci::Animation>()->SetTexture(text);
+	jci::Animation* anim = m_player.playerEntity->AddComponent<jci::Animation>();
+	anim->SetTexture(text);
+	anim->SetTimeBetweenFrames(0.3f);
+	anim->SetSize(vec2(0.6f, 1.2f));
 
 	jci::CapsuleCollider* cc = m_player.playerEntity->AddComponent<jci::CapsuleCollider>();
 	cc->SetBodyType(jci::BodyType::Kinematic);
@@ -93,10 +105,10 @@ void PlayerStateManager::Init(vec2 playerStartPosition, Gun* theGun)
 	m_player.m_dashTime = 2.0f;
 	m_player.m_stabTime = 2.0f;
 
-	m_player.position = m_player.playerEntity->GetComponent<jci::Transform>()->GetPositionPointer();
-	*m_player.position = playerStartPosition;
+	m_player.m_position = m_player.playerEntity->GetComponent<jci::Transform>()->GetPositionPointer();
+	*m_player.m_position = playerStartPosition;
 
-	currentScene->GetCamera()->SetFollowPosition(m_player.position);
+	currentScene->GetCamera()->SetFollowPosition(m_player.m_position);
 
 	m_playerStates[(int)m_state]->OnStateEnter();
 }
@@ -191,12 +203,4 @@ void PlayerStateManager::OnCollisionStay(jci::Entity* other)
 
 void PlayerStateManager::OnCollisionExit(jci::Entity* other)
 {
-}
-
-PlayerS::~PlayerS()
-{
-	//delete stabbin;
-	delete dashCD;
-	delete bulletCD;
-	delete meleeCD;
 }

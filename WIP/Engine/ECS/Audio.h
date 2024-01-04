@@ -2,6 +2,7 @@
 #include "pch.h"
 
 #include "IComponent.h"
+#include "Audio/AudioManager.h"
 #include "Audio/SoundEffect.h"
 
 namespace jci {
@@ -20,21 +21,37 @@ public:
 	* Play the sound effect attached to component.
 	* 
 	*/
-	inline void PlaySound() const { ASSERT(m_sound, "Sound effect not loaded."); if(m_sound) m_sound->Play(); }
+	inline void PlaySound() const { AudioManager::Instance()->PlaySound(m_sound); }
+	/***
+	* Play the music attached to component.
+	*
+	*/
+	inline void PlayMusic() const { AudioManager::Instance()->PlayMusic(m_music); }
+
 
 	// Accessors.
 	/***
 	* Get the sound effect attached to the component.
 	*
 	*/
-	inline SoundEffect* GetSoundEffect() const { return m_sound; }
+	inline uint32 GetSoundEffectId() const { return m_sound; }
 
 	// Mutators.
 	/***
 	* Set the sound effect of the component.
 	*
 	*/
-	inline void SetSoundEffect(SoundEffect* soundEffect) { m_sound = soundEffect; }
+	inline void SetSoundEffect(uint32 soundEffect) { m_sound = soundEffect; }
+	/***
+	* Set the sound effect of the component.
+	* Volume is between 0 - 128, with 128 being the louded.
+	*/
+	inline void SetSoundEffect(const std::string& filePath, int volume = 128) { m_sound = AudioManager::Instance()->LoadSound(filePath, volume); }
+	/***
+	* Set the music of the component.
+	* Volume is between 0 - 128, with 128 being the louded.
+	*/
+	inline void SetMusic(const std::string& filePath, int volume = 128) { m_music = AudioManager::Instance()->LoadMusic(filePath, volume); }
 
 	inline Audio& operator=(Audio& other) noexcept
 	{
@@ -45,10 +62,11 @@ public:
 		return *this;
 	}
 private:
-	Entity*			m_entity = nullptr;
-	entId			m_id = invalid_id;
+	Entity*	m_entity = nullptr;
+	entId	m_id = invalid_id;
 
-	SoundEffect*	m_sound = nullptr;
+	uint32	m_sound;
+	uint32	m_music;
 };
 
 } // Namespace jci.

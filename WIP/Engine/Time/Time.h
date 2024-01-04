@@ -13,6 +13,8 @@ class Time
 public:
 	inline static Time* Instance() { return m_instance == nullptr ? m_instance = new Time() : m_instance; }
 
+	inline void Destroy() { delete m_instance; }
+
 	/***
 	* Method which calculates delta time and delays engine to meet target fps.
 	* Returns delta time.
@@ -40,7 +42,7 @@ public:
 	inline void SetMaxFps(float maxFps) { m_maxFps = maxFps; m_targetFrameTime = 1.0f / maxFps; }
 private:
 	Time() = default;
-	inline ~Time() { delete m_instance; }
+	~Time() = default;
 
 	static Time* m_instance;
 

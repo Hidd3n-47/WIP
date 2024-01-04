@@ -24,6 +24,8 @@ class ParticleManager
 public:
 	inline static ParticleManager* Instance() { return !m_instance ? m_instance = new ParticleManager() : m_instance; }
 
+	inline void Destroy() { m_particles.clear(); delete m_instance; }
+
 	void Update(float dt);
 
 	void Emit(const ParticleProperties& properties);

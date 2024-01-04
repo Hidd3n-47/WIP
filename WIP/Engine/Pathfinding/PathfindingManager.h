@@ -10,6 +10,8 @@ class PathfindingManager
 public:
 	inline static PathfindingManager* Instance() { return m_instance == nullptr ? m_instance = new PathfindingManager() : m_instance; }
 
+	void Destroy();
+
 	inline void BeginUpload() { m_pauseConnecting = true; }
 	inline void EndUpload() { m_pauseConnecting = false; }
 
