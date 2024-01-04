@@ -36,6 +36,7 @@ Levels::Levels()
 	inversebotright = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv back right wall.png");
 	em = EnemyManager::getEnemyManager();
 	dm = DoorManager::getDoorManager();
+
 	LoadLevelFromFile("Assets/Levels/TestRoom.csv");//LeveList[0]
 	LevelList.push_back(*LevelSquare);
 	deactiveLevel(*LevelSquare);
@@ -56,14 +57,7 @@ Levels::Levels()
 	LevelList.push_back(*LevelSquare);
 	deactiveLevel(*LevelSquare);
 	LevelSquare->clear();
-
-	//DLOG(std::to_string(wall));
 }
-
-//Levels::~Levels()
-//{
-//	WipeLevel();
-//}
 
 Levels* Levels::getCurrentMap()
 {
@@ -173,12 +167,9 @@ void Levels::LoadLevelFromFile(std::string filepath)
 
 void Levels::LoadLevel(std::string fileString)
 {
-	//if (LevelSquare->size() > 0)
-	//{
-	//	WipeLevel();
-	//}
+	
 	std::vector<std::string>parsedString = split(fileString, ',');//split via spaces first
-	//ASSERT(false, fileString);
+	
 	float currentX = 0;
 	float currentY = 0;
 
@@ -322,7 +313,6 @@ void Levels::LoadLevel(std::string fileString)
 			ASSERT(false, "John's Error: Square's key is invalid \"You made your map wrong!!\"");
 			jci::Log::DebugLog("John's Error: Square's key is invalid!");
 		}
-
 	}
 }
 
@@ -391,6 +381,29 @@ void Levels::newLevel()
 			}
 		}
 	}
+
 	ChallengeManager::getChallengeManager()->newChallenge();
 	*LevelSquare = activateLevel(LevelList.at((int)(jci::Random::Instance()->Rand()* LevelList.size())));
+}
+
+void Levels::Destroy()
+{
+	LevelSquare->clear();
+	delete LevelSquare;
+	LevelList.clear();
+	spawnPoints.clear();
+
+	for (size_t i = 0; i < doors.size(); i++)
+	{
+		delete doors[i];
+	}
+	doors.clear();
+
+	for (size_t i = 0; i < doorTriggers.size(); i++)
+	{
+		delete doorTriggers[i];
+	}
+	doorTriggers.clear();
+
+	delete map;
 }

@@ -3,7 +3,7 @@
 layout(location = 0)out vec4 color;
 
 uniform sampler2D u_texture[32];
-uniform vec2 u_lightPos;
+//uniform vec2 u_lightPos;
 
 in vec2 v_texCoord;
 in float v_texIndex;
@@ -31,5 +31,11 @@ void main()
 	//vec3 lightIntensity = ambient * light;
 	//
 	//color = vec4(pixel.rgb * lightIntensity, pixel.a);
+
 	color = vec4(texture(u_texture[int(v_texIndex)], v_texCoord));
+
+	if(color.a == 0.0)
+	{
+		discard;
+	}
 }

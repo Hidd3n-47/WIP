@@ -203,7 +203,6 @@
     <ClCompile Include="Engine\Graphics\Texture\TextureManager.cpp" />
     <ClCompile Include="Game\Zombie\Zombie.cpp" />
     <ClCompile Include="Engine\Time\Timer.cpp" />
-    <ClCompile Include="Engine\FSM\StateMachineManager.cpp" />
     <ClCompile Include="Engine\ECS\NavBlock.cpp" />
     <ClCompile Include="Engine\Pathfinding\PathfindingManager.cpp" />
     <ClCompile Include="Engine\Pathfinding\NavMesh.cpp" />
@@ -294,7 +293,6 @@
     <ClInclude Include="Engine\Graphics\Texture\TextureManager.h" />
     <ClInclude Include="Game\Zombie\Zombie.h" />
     <ClInclude Include="Engine\Time\Timer.h" />
-    <ClInclude Include="Engine\FSM\StateMachineManager.h" />
     <ClInclude Include="Engine\FSM\IStateMachine.h" />
     <ClInclude Include="Engine\ECS\NavBlock.h" />
     <ClInclude Include="Engine\Pathfinding\PathfindingManager.h" />

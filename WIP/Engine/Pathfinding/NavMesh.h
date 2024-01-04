@@ -7,8 +7,8 @@ struct Node;
 class NavMesh
 {
 public:
-	inline void AddNode(Node* node)		{ m_nodes.push_back(node); }
-	inline void RemoveNode(Node* node)	{ Utils::RemoveFromVectorByBackCopy(node, m_nodes); }
+	inline void AddNode(Node* node)		{ /*m_nodes.push_back(node);*/ }
+	inline void RemoveNode(Node* node)	{ /*Utils::RemoveFromVectorByBackCopy(node, m_nodes);*/ }
 	
 	Node* FindNodeFromPoint(vec2 point);
 

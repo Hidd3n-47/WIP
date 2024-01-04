@@ -8,6 +8,7 @@ namespace jci {
 struct Node : HeapItem<Node*>
 {
 	inline Node(vec2 position, vec2 halfSize) : position(position), halfSize(halfSize) { /* Empty. */ }
+	inline ~Node() { connections.clear(); distanceToConnection.clear(); }
 
 	vec2	position;
 	vec2	halfSize;
@@ -27,7 +28,7 @@ struct Node : HeapItem<Node*>
 	inline bool HeapLowerIndexThan(Node* other) const final { return ( fCost() == other->fCost() ? ( hCost < other->hCost ) : ( fCost() < other->fCost() ) ); }
 
 private:
-	uint32 m_heapIndex;
+	uint32 m_heapIndex = -1;
 };
 
 } // Namespace jci.

@@ -15,9 +15,11 @@ namespace jci {
 class BulletManager
 {
 public:
-	BulletManager();
+	BulletManager() = default;
+	~BulletManager();
+
 	void Create();
-	void ShootBullet(vec2 d, vec2 playPos);
+	void ShootBullet(vec2 d, vec2 playPos, float angle);
 	void Update(float dt);
 	void SetBulletDamage(int bullDmg);
 	int GetBulletDamage();

@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "UiManager.h"
 
+#include <ECS/Entity.h>
 #include "Camera/Camera.h"
 #include "ECS/ComponentManager.h"
 #include "Input/InputManager.h"
@@ -22,6 +23,11 @@ void UiManager::Update()
 	UiButton* buttons = ComponentManager::Instance()->GetComponentVector<UiButton>();
 	for (entId i = 0; i < ComponentManager::Instance()->GetComponentCount(ComponentTypes::UiButton); i++)
 	{
+		if (!buttons[i].GetEntity()->IsActive())
+		{
+			continue;
+		}
+
 		vec2 buttonPosition = GetAnchorPosition(buttons[i].m_anchorPoint) + buttons[i].m_padding;
 
 		// Scale between 0.0f-1.0f, multiply by 2 and subtract 1 to get -1.0f-1.0f, half extents to get -cam.x-cam.x and similarly for cam.y.
@@ -60,18 +66,36 @@ void UiManager::Update()
 		}
 	}
 
-	UiSprite* sprites = ComponentManager::Instance()->GetComponentVector<UiSprite>();
+	/*UiSprite* sprites = ComponentManager::Instance()->GetComponentVector<UiSprite>();
 	for (entId i = 0; i < ComponentManager::Instance()->GetComponentCount(ComponentTypes::UiSprite); i++)
 	{
 		vec2 spritePosition = GetAnchorPosition(sprites[i].m_anchorPoint) + sprites[i].m_padding;
 
-		*sprites[i].m_quad.position = spritePosition + m_camera->GetPosition();
-	}
+		sprites[i].m_position = spritePosition + m_camera->GetPosition();
+	}*/
 }
 vec2 UiManager::GetAnchorPosition(AnchorPoints anchor)
 {
 	switch (anchor)
 	{
+	/*case AnchorPoints::TopLeft:
+		return vec2(-1.0f, 1.0f);
+	case AnchorPoints::TopMiddle:
+		return vec2(0.0f, 1.0f);
+	case AnchorPoints::TopRight:
+		return vec2(1.0f);
+	case AnchorPoints::Middle:
+		return vec2(0.0f);
+	case AnchorPoints::BotRight:
+		return vec2(1.0f, -1.0f);
+	case AnchorPoints::BotMiddle:
+		return vec2(0.0f, -1.0f);
+	case AnchorPoints::BotLeft:
+		return vec2(-1.0f);
+	default:
+		ASSERT(false, "Unhandled anchor position.");
+		return vec2(0.0f);*/
+
 	case AnchorPoints::TopLeft:
 		return vec2(-m_camera->GetHalfExtents().x, m_camera->GetHalfExtents().y);
 	case AnchorPoints::TopMiddle:

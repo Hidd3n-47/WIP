@@ -15,6 +15,8 @@ class IOManager
 public:
 	inline static IOManager* Instance() { return m_instance == nullptr ? m_instance = new IOManager() : m_instance; }
 
+	inline void Destroy() { delete m_instance; }
+
 	/***
 	* Load a given text file at given file path and stores contents in a vector.
 	* Vector stores each line seperately.
@@ -33,7 +35,7 @@ public:
 
 private:
 	IOManager() = default;
-	inline ~IOManager() { delete m_instance; }
+	~IOManager() = default;
 
 	static IOManager* m_instance;
 

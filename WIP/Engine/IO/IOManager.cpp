@@ -8,7 +8,7 @@ IOManager* IOManager::m_instance = nullptr;
 void IOManager::LoadTextFile(std::vector<std::string>& fileContents, const std::string& filePath)
 {
 	m_fileReadOnly.open(filePath.c_str(), std::ios::in);
-
+	
 	if (m_fileReadOnly.fail())
 	{
 		ASSERT(false, "Failed to open file.\nFile Path: " + filePath);

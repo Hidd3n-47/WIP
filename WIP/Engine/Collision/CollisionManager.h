@@ -99,7 +99,6 @@ private:
 
 		PushBodies(lBody, lTransform, rBody, rTransform, location, overlap, direction);
 
-		//m_collidedThisFrame[lBody] = rBody;
 		m_collidedThisFrame.push_back(std::make_pair(lBody, rBody));
 	}
 
@@ -118,7 +117,6 @@ private:
 		PushBodies(lBody, lTransform, rBody, rTransform, location, overlap, direction);
 
 		m_collidedThisFrame.push_back(std::make_pair(lBody, rBody));
-		//m_collidedThisFrame[lBody] = rBody;
 	}
 
 	template<>
@@ -136,7 +134,6 @@ private:
 
 		PushBodies(rBody, rTransform, lBody, lTransform, location, overlap, -direction * directionMultiplier);
 
-		//m_collidedThisFrame[lBody] = rBody; 
 		m_collidedThisFrame.push_back(std::make_pair(lBody, rBody));
 	}
 
@@ -155,7 +152,6 @@ private:
 		PushBodies(lBody, lTransform, rBody, rTransform, location, abs(overlap), direction * directionMultiplier);
 
 		m_collidedThisFrame.push_back(std::make_pair(lBody, rBody));
-		//m_collidedThisFrame[lBody] = rBody;
 	}
 
 	template<>
@@ -170,7 +166,6 @@ private:
 		PushBodies(lBody, lTransform, rBody, rTransform, location, abs(overlap), direction * directionMultiplier);
 
 		m_collidedThisFrame.push_back(std::make_pair(lBody, rBody));
-		//m_collidedThisFrame[lBody] = rBody;
 	}
 
 	template<class LeftBody, class RightBody, class OverlapType>

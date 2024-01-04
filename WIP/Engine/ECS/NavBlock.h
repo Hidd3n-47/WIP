@@ -13,7 +13,7 @@ public:
 	REGISTER_COMPONENT(ComponentTypes::NavBlock);
 
 	void OnComponentAdd(Entity* entity) final;
-	inline void OnComponentRemove() final { PathfindingManager::Instance()->DeregisterNavBlock(m_node); }
+	inline void OnComponentRemove() final { PathfindingManager::Instance()->DeregisterNavBlock(m_node); delete m_node; }
 
 	// Accessors.
 	inline vec2 GetPosition()	const { return m_node->position; }
