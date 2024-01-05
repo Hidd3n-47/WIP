@@ -25,6 +25,7 @@ public:
 	void Destroy();
 	bool GetMove();
 	int GetDmg();
+	void PierceUp(int pierceNum);
 	void SetDmg(int damage);
 	void Delete(); 
 	jci::Entity* body;
@@ -34,6 +35,7 @@ private:
 	int spawnTime;
 	bool isMove;
 	int dmg;
+	int m_pierced;
 	jci::ParticleEmission* m_particles;
 
 	void OnCollisionEnter(jci::Entity* other) final;

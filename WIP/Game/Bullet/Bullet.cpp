@@ -10,6 +10,7 @@ Bullet::Bullet(jci::Entity* e)
 	spawnTime = 0;
 	isMove = false;
 	dmg = 10;
+	m_pierced = 1;
 
 	e->GetComponent<jci::BoxCollider>()->SetCollisionMethods(this);
 	m_particles = e->AddComponent<jci::ParticleEmission>();
@@ -65,6 +66,11 @@ int Bullet::GetDmg()
 	return dmg;
 }
 
+void Bullet::PierceUp(int pierceNum)
+{
+	m_pierced = pierceNum;
+}
+
 void Bullet::SetDmg(int damage)
 {
 	dmg = damage;
@@ -89,11 +95,13 @@ void Bullet::OnCollisionEnter(jci::Entity* other)
 {
 	if (other->GetTag() == "Enemy")
 	{
+		DLOG("Pierce: " + std::to_string(m_pierced));
 		m_particles->SetParticlePosition(body->GetComponent<jci::Transform>()->GetPosition());
 		m_particles->SetParticleDirection(glm::normalize(direction));
 		m_particles->Emit();
+		m_pierced -= 1;
 	}
-	if (!(other->GetTag() == "Player" || other->GetTag() == "Bullet"))
+	if (!(other->GetTag() == "Player" || other->GetTag() == "Bullet") && m_pierced < 1)
 	{
 		body->GetComponent<jci::Transform>()->SetPosition(vec2(10000000.0f));
 	}

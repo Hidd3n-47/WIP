@@ -15,7 +15,7 @@ namespace jci {
 class BulletManager
 {
 public:
-	BulletManager() = default;
+	BulletManager();
 	~BulletManager();
 
 	void Create();
@@ -23,6 +23,7 @@ public:
 	void Update(float dt);
 	void SetBulletDamage(int bullDmg);
 	int GetBulletDamage();
+	int m_pierceCount;
 private:
 	std::vector<Bullet*>	bulletPool;
 	const int POOLSIZE = 200;
