@@ -14,7 +14,7 @@ namespace jci
 	class EnemyManager : public jci::ICollision
 	{
 	private:
-		PlayerS* player;
+		Player* player;
 		Uint32 zombieText;
 		int spawnQueue;
 		jci::Timer* spawnCD;
@@ -34,8 +34,8 @@ namespace jci
 		//std::vector<jci::Entity*> getEnemySquares();
 		void clearSquares();
 		void clearZombies();
-		PlayerS* getPlayer();
-		void setPlayer(PlayerS* playertemp);
+		Player* getPlayer();
+		void setPlayer(Player* playertemp);
 		void spawnWave(int waveCount);
 		void Update(float dt);
 		void OnCollisionEnter(jci::Entity* other) final;

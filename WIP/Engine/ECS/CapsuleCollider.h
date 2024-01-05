@@ -4,10 +4,6 @@
 #include "Collision/ICollision.h"
 #include "Collision/CollisionBodyDetails.h"
 
-#ifdef _DEBUG
-#include "Graphics/Renderer/RendererManager.h"
-#endif
-
 namespace jci {
 
 class CapsuleCollider : public IComponent, public ICollider

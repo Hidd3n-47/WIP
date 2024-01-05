@@ -30,7 +30,7 @@ void CollisionManager::Update(uint16 screenWidth, uint16 screenHeight, vec2 came
 
 	BoxCollider* boxes = ComponentManager::Instance()->GetComponentVector<BoxCollider>();
 
-	// Create quarters with 0.5 units overlap to prevent collision misses.
+	// Create quarters with 1 unit overlap to prevent collision misses.
 	for (entId i = 0; i < ComponentManager::Instance()->GetComponentCount(ComponentTypes::BoxCollider); i++)
 	{
 		if (!boxes[i].GetEntity()->IsActive())
@@ -44,24 +44,24 @@ void CollisionManager::Update(uint16 screenWidth, uint16 screenHeight, vec2 came
 		std::vector<int> quartsIndex;
 
 		vec2 size = boxes[i].GetSize() * 0.5f;
-		if (boxPos.x > cameraPosition.x - size.x)
+		if (boxPos.x > cameraPosition.x - 1.0f)
 		{
-			if (boxPos.y > cameraPosition.y - size.y)
+			if (boxPos.y > cameraPosition.y - 1.0f)
 			{
 				quartsIndex.push_back(0);
 			}
-			if(boxPos.y < cameraPosition.y + size.y)
+			if(boxPos.y < cameraPosition.y + 1.5f)
 			{
 				quartsIndex.push_back(3);
 			}
 		}
-		if (boxPos.x < cameraPosition.x + size.x)
+		if (boxPos.x < cameraPosition.x + 1.0f)
 		{
-			if (boxPos.y > cameraPosition.y - size.y)
+			if (boxPos.y > cameraPosition.y - 1.0f)
 			{
 				quartsIndex.push_back(1);
 			}
-			if (boxPos.y < cameraPosition.y + size.y)
+			if (boxPos.y < cameraPosition.y + 1.0f)
 			{
 				quartsIndex.push_back(2);
 			}

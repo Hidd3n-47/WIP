@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ECS/AnchorPoints.h"
+#include "AnchorPoints.h"
 
 namespace jci {
 

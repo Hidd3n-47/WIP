@@ -130,17 +130,20 @@ void PlayerDashingState::OnStateEnter()
 	if (!m_player)
 	{
 		m_player = PlayerStateManager::Instance()->GetPlayer();
-		m_movingTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Scientist.png");
 	}
 
 	m_player->m_canDash = false;
 
-	m_player->playerEntity->GetComponent<jci::Animation>()->SetAnimationCount(1);
-	m_player->playerEntity->GetComponent<jci::SpriteRenderer>()->SetTexture(m_movingTexture);
+	jci::Animation* ani = m_player->playerEntity->GetComponent<jci::Animation>();
+	ani->SetStartIndex(5);
+	ani->SetAnimationCount(6);
 
 	vec2 direction = m_player->GetInputDirection();
 
 	m_player->playerEntity->GetComponent<jci::Impulse>()->ImpulseEntity(direction * vec2(20.0f));
+
+	m_player->m_iFrameActive = true;
+	m_player->m_iFrameTimer = new jci::Timer(0.1f);
 }
 
 void PlayerDashingState::OnStateUpdate(float dt)

@@ -208,11 +208,12 @@
     <ClCompile Include="Game\UIManager\PerkButton.cpp" />
     <ClCompile Include="Game\Perks\PerkParent.cpp" />
     <ClCompile Include="Game\Perks\tanky.cpp" />
+    <ClCompile Include="Game\Player\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\ECS\UiSprite.h" />
     <ClInclude Include="Engine\UI\UiManager.h" />
-    <ClInclude Include="Engine\ECS\AnchorPoints.h" />
+    <ClInclude Include="Engine\UI\AnchorPoints.h" />
     <ClInclude Include="Engine\ECS\UiButton.h" />
     <ClInclude Include="Game\Challenges\Survive.h" />
     <ClInclude Include="Game\Challenges\ChallengeParent.h" />
@@ -299,6 +300,7 @@
     <ClInclude Include="Game\Perks\PerkParent.h" />
     <ClInclude Include="Game\Perks\tanky.h" />
     <ClInclude Include="Engine\Graphics\Renderer\IRenderable.h" />
+    <ClInclude Include="Game\Player\Player.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Levels\NOLAGROOM.csv" />

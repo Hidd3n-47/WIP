@@ -8,38 +8,7 @@
 
 #include "PlayerStates.h"
 
-vec2 PlayerS::GetInputDirection()
-{
-	vec2 direction = vec2(0.0f);
 
-	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_w))
-	{
-		direction += vec2(0.0f, 1.0f);
-	}
-	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_s))
-	{
-		direction += vec2(0.0f, -1.0f);
-	}
-	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_a))
-	{
-		direction += vec2(-1.0f, 0.0f);
-	}
-	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_d))
-	{
-		direction += vec2(1.0f, 0.0f);
-	}
-
-	return direction;
-}
-
-PlayerS::~PlayerS()
-{
-	delete stabbin;
-	delete dashCD;
-	delete bulletCD;
-	delete meleeCD;
-	delete reload;
-}
 
 PlayerStateManager* PlayerStateManager::m_instance = nullptr;
 
@@ -65,11 +34,12 @@ PlayerStateManager::~PlayerStateManager()
 void PlayerStateManager::Init(vec2 playerStartPosition, Gun* theGun)
 {
 	// Set up the player.
-	m_player = PlayerS();
+	m_player = Player();
 	jci::Scene* currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	m_player.m_width = (float)jci::Engine::Instance()->GetScreenWidth();
 	m_player.m_height = (float)jci::Engine::Instance()->GetScreenHeight();
 	m_player.playerEntity = currentScene->CreateEmptyEntity();
+	m_player.m_healthUiEnt = currentScene->CreateEmptyEntity();
 	m_player.playerEntity->SetTag("Player");
 	m_player.playerEntity->AddComponent<jci::Impulse>();
 	m_player.playerEntity->GetComponent<jci::Impulse>()->SetDampening(1);
@@ -82,10 +52,17 @@ void PlayerStateManager::Init(vec2 playerStartPosition, Gun* theGun)
 	jci::SpriteRenderer* sr = m_player.playerEntity->AddComponent<jci::SpriteRenderer>();
 	sr->SetTexture(text);
 	sr->SetSize(vec2(0.6f, 1.2f));
+	sr->SetLayer(1);
 
 	jci::CapsuleCollider* cc = m_player.playerEntity->AddComponent<jci::CapsuleCollider>();
 	cc->SetBodyType(jci::BodyType::Kinematic);
 	cc->SetCollisionMethods(this);
+
+	jci::UiSprite* us = m_player.m_healthUiEnt->AddComponent<jci::UiSprite>();
+	us->SetTexture(jci::TextureManager::Instance()->CreateTexture("Assets/Texture/health-bar.png"));
+	us->SetAnchorPoint(jci::AnchorPoints::TopLeft);
+	us->SetPadding(vec2(2.0f, -0.55f));
+	us->SetSize(vec2(3.0f, 0.3f));
 
 	m_player.m_equippedGun = theGun;
 
@@ -135,6 +112,10 @@ void PlayerStateManager::Update(float dt)
 		m_player.hasReloaded = true;
 		m_player.m_equippedGun->m_inClip = m_player.m_equippedGun->m_magSize;
 	}
+	if (m_player.m_iFrameTimer && m_player.m_iFrameTimer->TimerTick() == jci::TimerStatus::TimerCompleted)
+	{
+		m_player.m_iFrameActive = false;
+	}
 }
 
 void PlayerStateManager::SetState(PlayerState state)
@@ -142,56 +123,6 @@ void PlayerStateManager::SetState(PlayerState state)
 	m_playerStates[(int)m_state]->OnStateExit(); 
 	m_state = state; 
 	m_playerStates[(int)m_state]->OnStateEnter();
-}
-
-void PlayerS::MaxHpUp()
-{
-	m_hp += 10;
-	m_maxHp += 10;
-}
-
-void PlayerS::FasterReload()
-{
-	if (m_equippedGun->m_reloadTimer > 0.5f)
-	{
-		m_equippedGun->m_reloadTimer -= 0.1f;
-	}
-}
-
-void PlayerS::FasterFireRate()
-{
-	if (m_equippedGun->GetFireRate() > 0.25f)
-	{
-		m_equippedGun->SetFireRate(m_equippedGun->GetFireRate() - 0.15f);
-	}
-}
-
-void PlayerS::DmgUpRateDown()
-{
-	m_equippedGun->SetBulletDamage(m_equippedGun->GetBulletDamage()+3.0f);
-	m_equippedGun->SetFireRate(m_equippedGun->GetFireRate() + 0.15f);
-}
-
-void PlayerS::RateUpDmgDown()
-{
-	if (m_equippedGun->GetFireRate() > 0.4f && m_equippedGun->GetBulletDamage() > 5)
-	{
-		m_equippedGun->SetBulletDamage(m_equippedGun->GetBulletDamage() - 1.0f);
-		m_equippedGun->SetFireRate(m_equippedGun->GetFireRate() - 0.3f);
-	}
-	else if (m_equippedGun->GetFireRate() > 0.25f && m_equippedGun->GetBulletDamage() > 5)
-	{
-		m_equippedGun->SetBulletDamage(m_equippedGun->GetBulletDamage() - 1.0f);
-		m_equippedGun->SetFireRate(0.25f);
-	}
-}
-
-void PlayerS::LessDashCD()
-{
-	if (m_dashTime > 0.5f)
-	{
-		m_dashTime -= 0.3f;
-	}
 }
 
 void PlayerStateManager::OnCollisionEnter(jci::Entity* other)

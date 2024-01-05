@@ -4243,16 +4243,20 @@ Created texture Assets/Texture/GunShooting.png
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 886
 Created Entity with id: 887
 Added component with id: ComponentTypes::Transform to Game Object: 887
+Created Entity with id: 888
+Added component with id: ComponentTypes::Transform to Game Object: 888
 Added component with id: ComponentTypes::Impulse to Game Object: 887
 Created texture Assets/Texture/PlayerSpriteSheet.png
 Created texture Assets/Texture/Blank.png
 Added component with id: ComponentTypes::Animation to Game Object: 887
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 887
 Added component with id: ComponentTypes::CapsuleCollider to Game Object: 887
-Created Entity with id: 888
-Added component with id: ComponentTypes::Transform to Game Object: 888
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 888
-Game object '888' already has component with id: 2
+Added component with id: ComponentTypes::UiSprite to Game Object: 888
+Created texture Assets/Texture/health-bar.png
+Created Entity with id: 889
+Added component with id: ComponentTypes::Transform to Game Object: 889
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 889
+Game object '889' already has component with id: 2
 Created texture Assets/Texture/Weapons/Bowie Knife.png
 Created scene with name: Start
 Destroyed Entity with id: 0
@@ -5144,5 +5148,6 @@ Destroyed Entity with id: 885
 Destroyed Entity with id: 886
 Destroyed Entity with id: 887
 Destroyed Entity with id: 888
+Destroyed Entity with id: 889
 Destroyed scene with name: MainScene
 Destroyed scene with name: Start
