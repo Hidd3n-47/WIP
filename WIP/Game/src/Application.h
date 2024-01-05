@@ -8,7 +8,7 @@ class Audio;
 class Zombie;
 class Gun;
 class BulletManager;
-class PlayerS;
+class Player;
 
 class Application
 {
@@ -38,6 +38,6 @@ private:
 	BulletManager* manager = nullptr;
 
 	jci::Audio* m_bgMusic = nullptr;
-	PlayerS* m_player = nullptr;
+	Player* m_player = nullptr;
 };
 

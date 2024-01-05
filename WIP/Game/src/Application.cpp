@@ -12,7 +12,7 @@
 #include "Game/EnemyManager/EnemyManager.h"
 #include "Game/Challenges/ChallengeManager.h"
 #include "Game/Player/PlayerStateManager.h"
-#include <Game/UIManager/GameUIManager.h>
+#include "Game/UIManager/GameUIManager.h"
 
 Application* Application::m_instance = nullptr;
 
@@ -21,6 +21,7 @@ void Application::Create()
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	m_gameScene = m_currentScene;
 	GameUIManager::getGameUIManager()->perkToggle();
+	GameUIManager::getGameUIManager()->perkSet();
 	Levels* map = Levels::getCurrentMap();
 	map->newLevel();
 	EnemyManager* em = EnemyManager::getEnemyManager();
@@ -38,16 +39,7 @@ void Application::Create()
 
 	PlayerStateManager::Instance()->Init(map->GetSpawnPoint(), g1);
 	em->setPlayer(m_player);
-	
 
-	/*jci::Entity* e1 = m_currentScene->CreateEmptyEntity();
-	jci::UiButton* b = e1->AddComponent<jci::UiButton>();
-	b->SetAnchorPoint(jci::AnchorPoints::TopLeft);
-	b->SetPadding(vec2(1.0f, -1.0f));
-
-	e1->AddComponent<jci::UiSprite>()->SetTexture(jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::Dbg_Box));*/
-
-	//m_gameScene = jci::SceneManager::Instance()->CreateScene("GameScene");
 	m_gameScene = jci::SceneManager::Instance()->GetScene("MainScene");
 	m_startMenu = jci::SceneManager::Instance()->CreateScene("Start");
 	//m_currentScene = m_startMenu;
@@ -88,23 +80,12 @@ void Application::StartUpdate(float dt)
 
 void Application::GameUpdate(float dt)
 {
-	/*if (!ChallengeManager::getChallengeManager()->getCurrentChallenge()->getCompleted())
-	{
-		PlayerStateManager::Instance()->Update(dt);
-		manager->Update(dt);
-		g1->Update(m_player->GetPosition());
-		EnemyManager::getEnemyManager()->Update(dt);
-		ChallengeManager::getChallengeManager()->getCurrentChallenge()->Update(dt);
-	}
-	else
-	{
-		GameUIManager::getGameUIManager()->perkToggle();
-	}*/
 	if (!GameUIManager::getGameUIManager()->getPerkToggle())
 	{
 		PlayerStateManager::Instance()->Update(dt);
 		manager->Update(dt);
-		EnemyManager::getEnemyManager()->Update(dt);
+		g1->Update(m_player->GetPosition());
+		EnemyManager::getEnemyManager()->Update(dt); 
 		ChallengeManager::getChallengeManager()->getCurrentChallenge()->Update(dt);
 	}
 }

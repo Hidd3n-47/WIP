@@ -17,7 +17,9 @@ void Camera::Update()
 {
 	if (!m_followPosition) { return; }
 
-	SetPosition(*m_followPosition);
+	vec2 postion = m_position + (*m_followPosition - m_position) * 1.0f / m_followSpeed;
+
+	SetPosition(postion);
 }
 
 void Camera::RecalculateViewMatrix()

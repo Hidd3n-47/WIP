@@ -76,7 +76,7 @@ void Levels::createWall(float x, float y)
 {
 	jci::Entity* e = m_currentScene->CreateEmptyEntity();
 	e->GetComponent<jci::Transform>()->SetPosition({ x, y });
-	e->AddComponent<jci::SpriteRenderer>()->SetTexture(wall, 25);
+	e->AddComponent<jci::SpriteRenderer>()->SetTexture(wall);
 	e->AddComponent<jci::BoxCollider>();
 	e->SetTag("Wall");
 	LevelSquare->push_back(e);

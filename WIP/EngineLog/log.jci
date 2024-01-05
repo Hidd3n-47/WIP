@@ -3037,1002 +3037,1200 @@ Added component with id: ComponentTypes::Audio to Game Object: 685
 Created texture Assets/Texture/Bullet.png
 Created Entity with id: 686
 Added component with id: ComponentTypes::Transform to Game Object: 686
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 686
 Added component with id: ComponentTypes::Animation to Game Object: 686
 Added component with id: ComponentTypes::BoxCollider to Game Object: 686
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 686
 Created Entity with id: 687
 Added component with id: ComponentTypes::Transform to Game Object: 687
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 687
 Added component with id: ComponentTypes::Animation to Game Object: 687
 Added component with id: ComponentTypes::BoxCollider to Game Object: 687
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 687
 Created Entity with id: 688
 Added component with id: ComponentTypes::Transform to Game Object: 688
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 688
 Added component with id: ComponentTypes::Animation to Game Object: 688
 Added component with id: ComponentTypes::BoxCollider to Game Object: 688
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 688
 Created Entity with id: 689
 Added component with id: ComponentTypes::Transform to Game Object: 689
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 689
 Added component with id: ComponentTypes::Animation to Game Object: 689
 Added component with id: ComponentTypes::BoxCollider to Game Object: 689
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 689
 Created Entity with id: 690
 Added component with id: ComponentTypes::Transform to Game Object: 690
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 690
 Added component with id: ComponentTypes::Animation to Game Object: 690
 Added component with id: ComponentTypes::BoxCollider to Game Object: 690
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 690
 Created Entity with id: 691
 Added component with id: ComponentTypes::Transform to Game Object: 691
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 691
 Added component with id: ComponentTypes::Animation to Game Object: 691
 Added component with id: ComponentTypes::BoxCollider to Game Object: 691
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 691
 Created Entity with id: 692
 Added component with id: ComponentTypes::Transform to Game Object: 692
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 692
 Added component with id: ComponentTypes::Animation to Game Object: 692
 Added component with id: ComponentTypes::BoxCollider to Game Object: 692
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 692
 Created Entity with id: 693
 Added component with id: ComponentTypes::Transform to Game Object: 693
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 693
 Added component with id: ComponentTypes::Animation to Game Object: 693
 Added component with id: ComponentTypes::BoxCollider to Game Object: 693
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 693
 Created Entity with id: 694
 Added component with id: ComponentTypes::Transform to Game Object: 694
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 694
 Added component with id: ComponentTypes::Animation to Game Object: 694
 Added component with id: ComponentTypes::BoxCollider to Game Object: 694
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 694
 Created Entity with id: 695
 Added component with id: ComponentTypes::Transform to Game Object: 695
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 695
 Added component with id: ComponentTypes::Animation to Game Object: 695
 Added component with id: ComponentTypes::BoxCollider to Game Object: 695
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 695
 Created Entity with id: 696
 Added component with id: ComponentTypes::Transform to Game Object: 696
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 696
 Added component with id: ComponentTypes::Animation to Game Object: 696
 Added component with id: ComponentTypes::BoxCollider to Game Object: 696
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 696
 Created Entity with id: 697
 Added component with id: ComponentTypes::Transform to Game Object: 697
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 697
 Added component with id: ComponentTypes::Animation to Game Object: 697
 Added component with id: ComponentTypes::BoxCollider to Game Object: 697
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 697
 Created Entity with id: 698
 Added component with id: ComponentTypes::Transform to Game Object: 698
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 698
 Added component with id: ComponentTypes::Animation to Game Object: 698
 Added component with id: ComponentTypes::BoxCollider to Game Object: 698
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 698
 Created Entity with id: 699
 Added component with id: ComponentTypes::Transform to Game Object: 699
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 699
 Added component with id: ComponentTypes::Animation to Game Object: 699
 Added component with id: ComponentTypes::BoxCollider to Game Object: 699
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 699
 Created Entity with id: 700
 Added component with id: ComponentTypes::Transform to Game Object: 700
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 700
 Added component with id: ComponentTypes::Animation to Game Object: 700
 Added component with id: ComponentTypes::BoxCollider to Game Object: 700
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 700
 Created Entity with id: 701
 Added component with id: ComponentTypes::Transform to Game Object: 701
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 701
 Added component with id: ComponentTypes::Animation to Game Object: 701
 Added component with id: ComponentTypes::BoxCollider to Game Object: 701
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 701
 Created Entity with id: 702
 Added component with id: ComponentTypes::Transform to Game Object: 702
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 702
 Added component with id: ComponentTypes::Animation to Game Object: 702
 Added component with id: ComponentTypes::BoxCollider to Game Object: 702
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 702
 Created Entity with id: 703
 Added component with id: ComponentTypes::Transform to Game Object: 703
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 703
 Added component with id: ComponentTypes::Animation to Game Object: 703
 Added component with id: ComponentTypes::BoxCollider to Game Object: 703
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 703
 Created Entity with id: 704
 Added component with id: ComponentTypes::Transform to Game Object: 704
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 704
 Added component with id: ComponentTypes::Animation to Game Object: 704
 Added component with id: ComponentTypes::BoxCollider to Game Object: 704
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 704
 Created Entity with id: 705
 Added component with id: ComponentTypes::Transform to Game Object: 705
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 705
 Added component with id: ComponentTypes::Animation to Game Object: 705
 Added component with id: ComponentTypes::BoxCollider to Game Object: 705
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 705
 Created Entity with id: 706
 Added component with id: ComponentTypes::Transform to Game Object: 706
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 706
 Added component with id: ComponentTypes::Animation to Game Object: 706
 Added component with id: ComponentTypes::BoxCollider to Game Object: 706
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 706
 Created Entity with id: 707
 Added component with id: ComponentTypes::Transform to Game Object: 707
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 707
 Added component with id: ComponentTypes::Animation to Game Object: 707
 Added component with id: ComponentTypes::BoxCollider to Game Object: 707
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 707
 Created Entity with id: 708
 Added component with id: ComponentTypes::Transform to Game Object: 708
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 708
 Added component with id: ComponentTypes::Animation to Game Object: 708
 Added component with id: ComponentTypes::BoxCollider to Game Object: 708
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 708
 Created Entity with id: 709
 Added component with id: ComponentTypes::Transform to Game Object: 709
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 709
 Added component with id: ComponentTypes::Animation to Game Object: 709
 Added component with id: ComponentTypes::BoxCollider to Game Object: 709
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 709
 Created Entity with id: 710
 Added component with id: ComponentTypes::Transform to Game Object: 710
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 710
 Added component with id: ComponentTypes::Animation to Game Object: 710
 Added component with id: ComponentTypes::BoxCollider to Game Object: 710
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 710
 Created Entity with id: 711
 Added component with id: ComponentTypes::Transform to Game Object: 711
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 711
 Added component with id: ComponentTypes::Animation to Game Object: 711
 Added component with id: ComponentTypes::BoxCollider to Game Object: 711
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 711
 Created Entity with id: 712
 Added component with id: ComponentTypes::Transform to Game Object: 712
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 712
 Added component with id: ComponentTypes::Animation to Game Object: 712
 Added component with id: ComponentTypes::BoxCollider to Game Object: 712
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 712
 Created Entity with id: 713
 Added component with id: ComponentTypes::Transform to Game Object: 713
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 713
 Added component with id: ComponentTypes::Animation to Game Object: 713
 Added component with id: ComponentTypes::BoxCollider to Game Object: 713
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 713
 Created Entity with id: 714
 Added component with id: ComponentTypes::Transform to Game Object: 714
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 714
 Added component with id: ComponentTypes::Animation to Game Object: 714
 Added component with id: ComponentTypes::BoxCollider to Game Object: 714
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 714
 Created Entity with id: 715
 Added component with id: ComponentTypes::Transform to Game Object: 715
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 715
 Added component with id: ComponentTypes::Animation to Game Object: 715
 Added component with id: ComponentTypes::BoxCollider to Game Object: 715
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 715
 Created Entity with id: 716
 Added component with id: ComponentTypes::Transform to Game Object: 716
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 716
 Added component with id: ComponentTypes::Animation to Game Object: 716
 Added component with id: ComponentTypes::BoxCollider to Game Object: 716
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 716
 Created Entity with id: 717
 Added component with id: ComponentTypes::Transform to Game Object: 717
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 717
 Added component with id: ComponentTypes::Animation to Game Object: 717
 Added component with id: ComponentTypes::BoxCollider to Game Object: 717
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 717
 Created Entity with id: 718
 Added component with id: ComponentTypes::Transform to Game Object: 718
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 718
 Added component with id: ComponentTypes::Animation to Game Object: 718
 Added component with id: ComponentTypes::BoxCollider to Game Object: 718
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 718
 Created Entity with id: 719
 Added component with id: ComponentTypes::Transform to Game Object: 719
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 719
 Added component with id: ComponentTypes::Animation to Game Object: 719
 Added component with id: ComponentTypes::BoxCollider to Game Object: 719
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 719
 Created Entity with id: 720
 Added component with id: ComponentTypes::Transform to Game Object: 720
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 720
 Added component with id: ComponentTypes::Animation to Game Object: 720
 Added component with id: ComponentTypes::BoxCollider to Game Object: 720
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 720
 Created Entity with id: 721
 Added component with id: ComponentTypes::Transform to Game Object: 721
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 721
 Added component with id: ComponentTypes::Animation to Game Object: 721
 Added component with id: ComponentTypes::BoxCollider to Game Object: 721
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 721
 Created Entity with id: 722
 Added component with id: ComponentTypes::Transform to Game Object: 722
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 722
 Added component with id: ComponentTypes::Animation to Game Object: 722
 Added component with id: ComponentTypes::BoxCollider to Game Object: 722
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 722
 Created Entity with id: 723
 Added component with id: ComponentTypes::Transform to Game Object: 723
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 723
 Added component with id: ComponentTypes::Animation to Game Object: 723
 Added component with id: ComponentTypes::BoxCollider to Game Object: 723
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 723
 Created Entity with id: 724
 Added component with id: ComponentTypes::Transform to Game Object: 724
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 724
 Added component with id: ComponentTypes::Animation to Game Object: 724
 Added component with id: ComponentTypes::BoxCollider to Game Object: 724
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 724
 Created Entity with id: 725
 Added component with id: ComponentTypes::Transform to Game Object: 725
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 725
 Added component with id: ComponentTypes::Animation to Game Object: 725
 Added component with id: ComponentTypes::BoxCollider to Game Object: 725
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 725
 Created Entity with id: 726
 Added component with id: ComponentTypes::Transform to Game Object: 726
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 726
 Added component with id: ComponentTypes::Animation to Game Object: 726
 Added component with id: ComponentTypes::BoxCollider to Game Object: 726
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 726
 Created Entity with id: 727
 Added component with id: ComponentTypes::Transform to Game Object: 727
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 727
 Added component with id: ComponentTypes::Animation to Game Object: 727
 Added component with id: ComponentTypes::BoxCollider to Game Object: 727
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 727
 Created Entity with id: 728
 Added component with id: ComponentTypes::Transform to Game Object: 728
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 728
 Added component with id: ComponentTypes::Animation to Game Object: 728
 Added component with id: ComponentTypes::BoxCollider to Game Object: 728
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 728
 Created Entity with id: 729
 Added component with id: ComponentTypes::Transform to Game Object: 729
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 729
 Added component with id: ComponentTypes::Animation to Game Object: 729
 Added component with id: ComponentTypes::BoxCollider to Game Object: 729
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 729
 Created Entity with id: 730
 Added component with id: ComponentTypes::Transform to Game Object: 730
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 730
 Added component with id: ComponentTypes::Animation to Game Object: 730
 Added component with id: ComponentTypes::BoxCollider to Game Object: 730
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 730
 Created Entity with id: 731
 Added component with id: ComponentTypes::Transform to Game Object: 731
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 731
 Added component with id: ComponentTypes::Animation to Game Object: 731
 Added component with id: ComponentTypes::BoxCollider to Game Object: 731
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 731
 Created Entity with id: 732
 Added component with id: ComponentTypes::Transform to Game Object: 732
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 732
 Added component with id: ComponentTypes::Animation to Game Object: 732
 Added component with id: ComponentTypes::BoxCollider to Game Object: 732
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 732
 Created Entity with id: 733
 Added component with id: ComponentTypes::Transform to Game Object: 733
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 733
 Added component with id: ComponentTypes::Animation to Game Object: 733
 Added component with id: ComponentTypes::BoxCollider to Game Object: 733
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 733
 Created Entity with id: 734
 Added component with id: ComponentTypes::Transform to Game Object: 734
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 734
 Added component with id: ComponentTypes::Animation to Game Object: 734
 Added component with id: ComponentTypes::BoxCollider to Game Object: 734
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 734
 Created Entity with id: 735
 Added component with id: ComponentTypes::Transform to Game Object: 735
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 735
 Added component with id: ComponentTypes::Animation to Game Object: 735
 Added component with id: ComponentTypes::BoxCollider to Game Object: 735
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 735
 Created Entity with id: 736
 Added component with id: ComponentTypes::Transform to Game Object: 736
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 736
 Added component with id: ComponentTypes::Animation to Game Object: 736
 Added component with id: ComponentTypes::BoxCollider to Game Object: 736
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 736
 Created Entity with id: 737
 Added component with id: ComponentTypes::Transform to Game Object: 737
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 737
 Added component with id: ComponentTypes::Animation to Game Object: 737
 Added component with id: ComponentTypes::BoxCollider to Game Object: 737
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 737
 Created Entity with id: 738
 Added component with id: ComponentTypes::Transform to Game Object: 738
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 738
 Added component with id: ComponentTypes::Animation to Game Object: 738
 Added component with id: ComponentTypes::BoxCollider to Game Object: 738
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 738
 Created Entity with id: 739
 Added component with id: ComponentTypes::Transform to Game Object: 739
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 739
 Added component with id: ComponentTypes::Animation to Game Object: 739
 Added component with id: ComponentTypes::BoxCollider to Game Object: 739
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 739
 Created Entity with id: 740
 Added component with id: ComponentTypes::Transform to Game Object: 740
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 740
 Added component with id: ComponentTypes::Animation to Game Object: 740
 Added component with id: ComponentTypes::BoxCollider to Game Object: 740
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 740
 Created Entity with id: 741
 Added component with id: ComponentTypes::Transform to Game Object: 741
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 741
 Added component with id: ComponentTypes::Animation to Game Object: 741
 Added component with id: ComponentTypes::BoxCollider to Game Object: 741
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 741
 Created Entity with id: 742
 Added component with id: ComponentTypes::Transform to Game Object: 742
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 742
 Added component with id: ComponentTypes::Animation to Game Object: 742
 Added component with id: ComponentTypes::BoxCollider to Game Object: 742
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 742
 Created Entity with id: 743
 Added component with id: ComponentTypes::Transform to Game Object: 743
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 743
 Added component with id: ComponentTypes::Animation to Game Object: 743
 Added component with id: ComponentTypes::BoxCollider to Game Object: 743
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 743
 Created Entity with id: 744
 Added component with id: ComponentTypes::Transform to Game Object: 744
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 744
 Added component with id: ComponentTypes::Animation to Game Object: 744
 Added component with id: ComponentTypes::BoxCollider to Game Object: 744
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 744
 Created Entity with id: 745
 Added component with id: ComponentTypes::Transform to Game Object: 745
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 745
 Added component with id: ComponentTypes::Animation to Game Object: 745
 Added component with id: ComponentTypes::BoxCollider to Game Object: 745
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 745
 Created Entity with id: 746
 Added component with id: ComponentTypes::Transform to Game Object: 746
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 746
 Added component with id: ComponentTypes::Animation to Game Object: 746
 Added component with id: ComponentTypes::BoxCollider to Game Object: 746
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 746
 Created Entity with id: 747
 Added component with id: ComponentTypes::Transform to Game Object: 747
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 747
 Added component with id: ComponentTypes::Animation to Game Object: 747
 Added component with id: ComponentTypes::BoxCollider to Game Object: 747
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 747
 Created Entity with id: 748
 Added component with id: ComponentTypes::Transform to Game Object: 748
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 748
 Added component with id: ComponentTypes::Animation to Game Object: 748
 Added component with id: ComponentTypes::BoxCollider to Game Object: 748
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 748
 Created Entity with id: 749
 Added component with id: ComponentTypes::Transform to Game Object: 749
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 749
 Added component with id: ComponentTypes::Animation to Game Object: 749
 Added component with id: ComponentTypes::BoxCollider to Game Object: 749
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 749
 Created Entity with id: 750
 Added component with id: ComponentTypes::Transform to Game Object: 750
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 750
 Added component with id: ComponentTypes::Animation to Game Object: 750
 Added component with id: ComponentTypes::BoxCollider to Game Object: 750
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 750
 Created Entity with id: 751
 Added component with id: ComponentTypes::Transform to Game Object: 751
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 751
 Added component with id: ComponentTypes::Animation to Game Object: 751
 Added component with id: ComponentTypes::BoxCollider to Game Object: 751
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 751
 Created Entity with id: 752
 Added component with id: ComponentTypes::Transform to Game Object: 752
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 752
 Added component with id: ComponentTypes::Animation to Game Object: 752
 Added component with id: ComponentTypes::BoxCollider to Game Object: 752
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 752
 Created Entity with id: 753
 Added component with id: ComponentTypes::Transform to Game Object: 753
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 753
 Added component with id: ComponentTypes::Animation to Game Object: 753
 Added component with id: ComponentTypes::BoxCollider to Game Object: 753
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 753
 Created Entity with id: 754
 Added component with id: ComponentTypes::Transform to Game Object: 754
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 754
 Added component with id: ComponentTypes::Animation to Game Object: 754
 Added component with id: ComponentTypes::BoxCollider to Game Object: 754
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 754
 Created Entity with id: 755
 Added component with id: ComponentTypes::Transform to Game Object: 755
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 755
 Added component with id: ComponentTypes::Animation to Game Object: 755
 Added component with id: ComponentTypes::BoxCollider to Game Object: 755
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 755
 Created Entity with id: 756
 Added component with id: ComponentTypes::Transform to Game Object: 756
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 756
 Added component with id: ComponentTypes::Animation to Game Object: 756
 Added component with id: ComponentTypes::BoxCollider to Game Object: 756
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 756
 Created Entity with id: 757
 Added component with id: ComponentTypes::Transform to Game Object: 757
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 757
 Added component with id: ComponentTypes::Animation to Game Object: 757
 Added component with id: ComponentTypes::BoxCollider to Game Object: 757
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 757
 Created Entity with id: 758
 Added component with id: ComponentTypes::Transform to Game Object: 758
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 758
 Added component with id: ComponentTypes::Animation to Game Object: 758
 Added component with id: ComponentTypes::BoxCollider to Game Object: 758
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 758
 Created Entity with id: 759
 Added component with id: ComponentTypes::Transform to Game Object: 759
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 759
 Added component with id: ComponentTypes::Animation to Game Object: 759
 Added component with id: ComponentTypes::BoxCollider to Game Object: 759
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 759
 Created Entity with id: 760
 Added component with id: ComponentTypes::Transform to Game Object: 760
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 760
 Added component with id: ComponentTypes::Animation to Game Object: 760
 Added component with id: ComponentTypes::BoxCollider to Game Object: 760
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 760
 Created Entity with id: 761
 Added component with id: ComponentTypes::Transform to Game Object: 761
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 761
 Added component with id: ComponentTypes::Animation to Game Object: 761
 Added component with id: ComponentTypes::BoxCollider to Game Object: 761
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 761
 Created Entity with id: 762
 Added component with id: ComponentTypes::Transform to Game Object: 762
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 762
 Added component with id: ComponentTypes::Animation to Game Object: 762
 Added component with id: ComponentTypes::BoxCollider to Game Object: 762
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 762
 Created Entity with id: 763
 Added component with id: ComponentTypes::Transform to Game Object: 763
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 763
 Added component with id: ComponentTypes::Animation to Game Object: 763
 Added component with id: ComponentTypes::BoxCollider to Game Object: 763
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 763
 Created Entity with id: 764
 Added component with id: ComponentTypes::Transform to Game Object: 764
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 764
 Added component with id: ComponentTypes::Animation to Game Object: 764
 Added component with id: ComponentTypes::BoxCollider to Game Object: 764
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 764
 Created Entity with id: 765
 Added component with id: ComponentTypes::Transform to Game Object: 765
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 765
 Added component with id: ComponentTypes::Animation to Game Object: 765
 Added component with id: ComponentTypes::BoxCollider to Game Object: 765
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 765
 Created Entity with id: 766
 Added component with id: ComponentTypes::Transform to Game Object: 766
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 766
 Added component with id: ComponentTypes::Animation to Game Object: 766
 Added component with id: ComponentTypes::BoxCollider to Game Object: 766
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 766
 Created Entity with id: 767
 Added component with id: ComponentTypes::Transform to Game Object: 767
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 767
 Added component with id: ComponentTypes::Animation to Game Object: 767
 Added component with id: ComponentTypes::BoxCollider to Game Object: 767
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 767
 Created Entity with id: 768
 Added component with id: ComponentTypes::Transform to Game Object: 768
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 768
 Added component with id: ComponentTypes::Animation to Game Object: 768
 Added component with id: ComponentTypes::BoxCollider to Game Object: 768
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 768
 Created Entity with id: 769
 Added component with id: ComponentTypes::Transform to Game Object: 769
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 769
 Added component with id: ComponentTypes::Animation to Game Object: 769
 Added component with id: ComponentTypes::BoxCollider to Game Object: 769
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 769
 Created Entity with id: 770
 Added component with id: ComponentTypes::Transform to Game Object: 770
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 770
 Added component with id: ComponentTypes::Animation to Game Object: 770
 Added component with id: ComponentTypes::BoxCollider to Game Object: 770
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 770
 Created Entity with id: 771
 Added component with id: ComponentTypes::Transform to Game Object: 771
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 771
 Added component with id: ComponentTypes::Animation to Game Object: 771
 Added component with id: ComponentTypes::BoxCollider to Game Object: 771
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 771
 Created Entity with id: 772
 Added component with id: ComponentTypes::Transform to Game Object: 772
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 772
 Added component with id: ComponentTypes::Animation to Game Object: 772
 Added component with id: ComponentTypes::BoxCollider to Game Object: 772
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 772
 Created Entity with id: 773
 Added component with id: ComponentTypes::Transform to Game Object: 773
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 773
 Added component with id: ComponentTypes::Animation to Game Object: 773
 Added component with id: ComponentTypes::BoxCollider to Game Object: 773
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 773
 Created Entity with id: 774
 Added component with id: ComponentTypes::Transform to Game Object: 774
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 774
 Added component with id: ComponentTypes::Animation to Game Object: 774
 Added component with id: ComponentTypes::BoxCollider to Game Object: 774
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 774
 Created Entity with id: 775
 Added component with id: ComponentTypes::Transform to Game Object: 775
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 775
 Added component with id: ComponentTypes::Animation to Game Object: 775
 Added component with id: ComponentTypes::BoxCollider to Game Object: 775
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 775
 Created Entity with id: 776
 Added component with id: ComponentTypes::Transform to Game Object: 776
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 776
 Added component with id: ComponentTypes::Animation to Game Object: 776
 Added component with id: ComponentTypes::BoxCollider to Game Object: 776
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 776
 Created Entity with id: 777
 Added component with id: ComponentTypes::Transform to Game Object: 777
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 777
 Added component with id: ComponentTypes::Animation to Game Object: 777
 Added component with id: ComponentTypes::BoxCollider to Game Object: 777
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 777
 Created Entity with id: 778
 Added component with id: ComponentTypes::Transform to Game Object: 778
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 778
 Added component with id: ComponentTypes::Animation to Game Object: 778
 Added component with id: ComponentTypes::BoxCollider to Game Object: 778
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 778
 Created Entity with id: 779
 Added component with id: ComponentTypes::Transform to Game Object: 779
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 779
 Added component with id: ComponentTypes::Animation to Game Object: 779
 Added component with id: ComponentTypes::BoxCollider to Game Object: 779
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 779
 Created Entity with id: 780
 Added component with id: ComponentTypes::Transform to Game Object: 780
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 780
 Added component with id: ComponentTypes::Animation to Game Object: 780
 Added component with id: ComponentTypes::BoxCollider to Game Object: 780
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 780
 Created Entity with id: 781
 Added component with id: ComponentTypes::Transform to Game Object: 781
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 781
 Added component with id: ComponentTypes::Animation to Game Object: 781
 Added component with id: ComponentTypes::BoxCollider to Game Object: 781
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 781
 Created Entity with id: 782
 Added component with id: ComponentTypes::Transform to Game Object: 782
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 782
 Added component with id: ComponentTypes::Animation to Game Object: 782
 Added component with id: ComponentTypes::BoxCollider to Game Object: 782
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 782
 Created Entity with id: 783
 Added component with id: ComponentTypes::Transform to Game Object: 783
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 783
 Added component with id: ComponentTypes::Animation to Game Object: 783
 Added component with id: ComponentTypes::BoxCollider to Game Object: 783
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 783
 Created Entity with id: 784
 Added component with id: ComponentTypes::Transform to Game Object: 784
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 784
 Added component with id: ComponentTypes::Animation to Game Object: 784
 Added component with id: ComponentTypes::BoxCollider to Game Object: 784
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 784
 Created Entity with id: 785
 Added component with id: ComponentTypes::Transform to Game Object: 785
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 785
 Added component with id: ComponentTypes::Animation to Game Object: 785
 Added component with id: ComponentTypes::BoxCollider to Game Object: 785
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 785
 Created Entity with id: 786
 Added component with id: ComponentTypes::Transform to Game Object: 786
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 786
 Added component with id: ComponentTypes::Animation to Game Object: 786
 Added component with id: ComponentTypes::BoxCollider to Game Object: 786
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 786
 Created Entity with id: 787
 Added component with id: ComponentTypes::Transform to Game Object: 787
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 787
 Added component with id: ComponentTypes::Animation to Game Object: 787
 Added component with id: ComponentTypes::BoxCollider to Game Object: 787
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 787
 Created Entity with id: 788
 Added component with id: ComponentTypes::Transform to Game Object: 788
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 788
 Added component with id: ComponentTypes::Animation to Game Object: 788
 Added component with id: ComponentTypes::BoxCollider to Game Object: 788
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 788
 Created Entity with id: 789
 Added component with id: ComponentTypes::Transform to Game Object: 789
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 789
 Added component with id: ComponentTypes::Animation to Game Object: 789
 Added component with id: ComponentTypes::BoxCollider to Game Object: 789
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 789
 Created Entity with id: 790
 Added component with id: ComponentTypes::Transform to Game Object: 790
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 790
 Added component with id: ComponentTypes::Animation to Game Object: 790
 Added component with id: ComponentTypes::BoxCollider to Game Object: 790
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 790
 Created Entity with id: 791
 Added component with id: ComponentTypes::Transform to Game Object: 791
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 791
 Added component with id: ComponentTypes::Animation to Game Object: 791
 Added component with id: ComponentTypes::BoxCollider to Game Object: 791
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 791
 Created Entity with id: 792
 Added component with id: ComponentTypes::Transform to Game Object: 792
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 792
 Added component with id: ComponentTypes::Animation to Game Object: 792
 Added component with id: ComponentTypes::BoxCollider to Game Object: 792
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 792
 Created Entity with id: 793
 Added component with id: ComponentTypes::Transform to Game Object: 793
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 793
 Added component with id: ComponentTypes::Animation to Game Object: 793
 Added component with id: ComponentTypes::BoxCollider to Game Object: 793
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 793
 Created Entity with id: 794
 Added component with id: ComponentTypes::Transform to Game Object: 794
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 794
 Added component with id: ComponentTypes::Animation to Game Object: 794
 Added component with id: ComponentTypes::BoxCollider to Game Object: 794
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 794
 Created Entity with id: 795
 Added component with id: ComponentTypes::Transform to Game Object: 795
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 795
 Added component with id: ComponentTypes::Animation to Game Object: 795
 Added component with id: ComponentTypes::BoxCollider to Game Object: 795
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 795
 Created Entity with id: 796
 Added component with id: ComponentTypes::Transform to Game Object: 796
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 796
 Added component with id: ComponentTypes::Animation to Game Object: 796
 Added component with id: ComponentTypes::BoxCollider to Game Object: 796
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 796
 Created Entity with id: 797
 Added component with id: ComponentTypes::Transform to Game Object: 797
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 797
 Added component with id: ComponentTypes::Animation to Game Object: 797
 Added component with id: ComponentTypes::BoxCollider to Game Object: 797
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 797
 Created Entity with id: 798
 Added component with id: ComponentTypes::Transform to Game Object: 798
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 798
 Added component with id: ComponentTypes::Animation to Game Object: 798
 Added component with id: ComponentTypes::BoxCollider to Game Object: 798
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 798
 Created Entity with id: 799
 Added component with id: ComponentTypes::Transform to Game Object: 799
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 799
 Added component with id: ComponentTypes::Animation to Game Object: 799
 Added component with id: ComponentTypes::BoxCollider to Game Object: 799
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 799
 Created Entity with id: 800
 Added component with id: ComponentTypes::Transform to Game Object: 800
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 800
 Added component with id: ComponentTypes::Animation to Game Object: 800
 Added component with id: ComponentTypes::BoxCollider to Game Object: 800
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 800
 Created Entity with id: 801
 Added component with id: ComponentTypes::Transform to Game Object: 801
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 801
 Added component with id: ComponentTypes::Animation to Game Object: 801
 Added component with id: ComponentTypes::BoxCollider to Game Object: 801
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 801
 Created Entity with id: 802
 Added component with id: ComponentTypes::Transform to Game Object: 802
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 802
 Added component with id: ComponentTypes::Animation to Game Object: 802
 Added component with id: ComponentTypes::BoxCollider to Game Object: 802
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 802
 Created Entity with id: 803
 Added component with id: ComponentTypes::Transform to Game Object: 803
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 803
 Added component with id: ComponentTypes::Animation to Game Object: 803
 Added component with id: ComponentTypes::BoxCollider to Game Object: 803
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 803
 Created Entity with id: 804
 Added component with id: ComponentTypes::Transform to Game Object: 804
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 804
 Added component with id: ComponentTypes::Animation to Game Object: 804
 Added component with id: ComponentTypes::BoxCollider to Game Object: 804
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 804
 Created Entity with id: 805
 Added component with id: ComponentTypes::Transform to Game Object: 805
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 805
 Added component with id: ComponentTypes::Animation to Game Object: 805
 Added component with id: ComponentTypes::BoxCollider to Game Object: 805
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 805
 Created Entity with id: 806
 Added component with id: ComponentTypes::Transform to Game Object: 806
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 806
 Added component with id: ComponentTypes::Animation to Game Object: 806
 Added component with id: ComponentTypes::BoxCollider to Game Object: 806
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 806
 Created Entity with id: 807
 Added component with id: ComponentTypes::Transform to Game Object: 807
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 807
 Added component with id: ComponentTypes::Animation to Game Object: 807
 Added component with id: ComponentTypes::BoxCollider to Game Object: 807
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 807
 Created Entity with id: 808
 Added component with id: ComponentTypes::Transform to Game Object: 808
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 808
 Added component with id: ComponentTypes::Animation to Game Object: 808
 Added component with id: ComponentTypes::BoxCollider to Game Object: 808
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 808
 Created Entity with id: 809
 Added component with id: ComponentTypes::Transform to Game Object: 809
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 809
 Added component with id: ComponentTypes::Animation to Game Object: 809
 Added component with id: ComponentTypes::BoxCollider to Game Object: 809
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 809
 Created Entity with id: 810
 Added component with id: ComponentTypes::Transform to Game Object: 810
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 810
 Added component with id: ComponentTypes::Animation to Game Object: 810
 Added component with id: ComponentTypes::BoxCollider to Game Object: 810
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 810
 Created Entity with id: 811
 Added component with id: ComponentTypes::Transform to Game Object: 811
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 811
 Added component with id: ComponentTypes::Animation to Game Object: 811
 Added component with id: ComponentTypes::BoxCollider to Game Object: 811
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 811
 Created Entity with id: 812
 Added component with id: ComponentTypes::Transform to Game Object: 812
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 812
 Added component with id: ComponentTypes::Animation to Game Object: 812
 Added component with id: ComponentTypes::BoxCollider to Game Object: 812
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 812
 Created Entity with id: 813
 Added component with id: ComponentTypes::Transform to Game Object: 813
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 813
 Added component with id: ComponentTypes::Animation to Game Object: 813
 Added component with id: ComponentTypes::BoxCollider to Game Object: 813
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 813
 Created Entity with id: 814
 Added component with id: ComponentTypes::Transform to Game Object: 814
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 814
 Added component with id: ComponentTypes::Animation to Game Object: 814
 Added component with id: ComponentTypes::BoxCollider to Game Object: 814
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 814
 Created Entity with id: 815
 Added component with id: ComponentTypes::Transform to Game Object: 815
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 815
 Added component with id: ComponentTypes::Animation to Game Object: 815
 Added component with id: ComponentTypes::BoxCollider to Game Object: 815
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 815
 Created Entity with id: 816
 Added component with id: ComponentTypes::Transform to Game Object: 816
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 816
 Added component with id: ComponentTypes::Animation to Game Object: 816
 Added component with id: ComponentTypes::BoxCollider to Game Object: 816
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 816
 Created Entity with id: 817
 Added component with id: ComponentTypes::Transform to Game Object: 817
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 817
 Added component with id: ComponentTypes::Animation to Game Object: 817
 Added component with id: ComponentTypes::BoxCollider to Game Object: 817
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 817
 Created Entity with id: 818
 Added component with id: ComponentTypes::Transform to Game Object: 818
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 818
 Added component with id: ComponentTypes::Animation to Game Object: 818
 Added component with id: ComponentTypes::BoxCollider to Game Object: 818
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 818
 Created Entity with id: 819
 Added component with id: ComponentTypes::Transform to Game Object: 819
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 819
 Added component with id: ComponentTypes::Animation to Game Object: 819
 Added component with id: ComponentTypes::BoxCollider to Game Object: 819
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 819
 Created Entity with id: 820
 Added component with id: ComponentTypes::Transform to Game Object: 820
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 820
 Added component with id: ComponentTypes::Animation to Game Object: 820
 Added component with id: ComponentTypes::BoxCollider to Game Object: 820
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 820
 Created Entity with id: 821
 Added component with id: ComponentTypes::Transform to Game Object: 821
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 821
 Added component with id: ComponentTypes::Animation to Game Object: 821
 Added component with id: ComponentTypes::BoxCollider to Game Object: 821
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 821
 Created Entity with id: 822
 Added component with id: ComponentTypes::Transform to Game Object: 822
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 822
 Added component with id: ComponentTypes::Animation to Game Object: 822
 Added component with id: ComponentTypes::BoxCollider to Game Object: 822
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 822
 Created Entity with id: 823
 Added component with id: ComponentTypes::Transform to Game Object: 823
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 823
 Added component with id: ComponentTypes::Animation to Game Object: 823
 Added component with id: ComponentTypes::BoxCollider to Game Object: 823
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 823
 Created Entity with id: 824
 Added component with id: ComponentTypes::Transform to Game Object: 824
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 824
 Added component with id: ComponentTypes::Animation to Game Object: 824
 Added component with id: ComponentTypes::BoxCollider to Game Object: 824
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 824
 Created Entity with id: 825
 Added component with id: ComponentTypes::Transform to Game Object: 825
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 825
 Added component with id: ComponentTypes::Animation to Game Object: 825
 Added component with id: ComponentTypes::BoxCollider to Game Object: 825
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 825
 Created Entity with id: 826
 Added component with id: ComponentTypes::Transform to Game Object: 826
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 826
 Added component with id: ComponentTypes::Animation to Game Object: 826
 Added component with id: ComponentTypes::BoxCollider to Game Object: 826
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 826
 Created Entity with id: 827
 Added component with id: ComponentTypes::Transform to Game Object: 827
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 827
 Added component with id: ComponentTypes::Animation to Game Object: 827
 Added component with id: ComponentTypes::BoxCollider to Game Object: 827
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 827
 Created Entity with id: 828
 Added component with id: ComponentTypes::Transform to Game Object: 828
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 828
 Added component with id: ComponentTypes::Animation to Game Object: 828
 Added component with id: ComponentTypes::BoxCollider to Game Object: 828
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 828
 Created Entity with id: 829
 Added component with id: ComponentTypes::Transform to Game Object: 829
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 829
 Added component with id: ComponentTypes::Animation to Game Object: 829
 Added component with id: ComponentTypes::BoxCollider to Game Object: 829
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 829
 Created Entity with id: 830
 Added component with id: ComponentTypes::Transform to Game Object: 830
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 830
 Added component with id: ComponentTypes::Animation to Game Object: 830
 Added component with id: ComponentTypes::BoxCollider to Game Object: 830
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 830
 Created Entity with id: 831
 Added component with id: ComponentTypes::Transform to Game Object: 831
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 831
 Added component with id: ComponentTypes::Animation to Game Object: 831
 Added component with id: ComponentTypes::BoxCollider to Game Object: 831
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 831
 Created Entity with id: 832
 Added component with id: ComponentTypes::Transform to Game Object: 832
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 832
 Added component with id: ComponentTypes::Animation to Game Object: 832
 Added component with id: ComponentTypes::BoxCollider to Game Object: 832
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 832
 Created Entity with id: 833
 Added component with id: ComponentTypes::Transform to Game Object: 833
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 833
 Added component with id: ComponentTypes::Animation to Game Object: 833
 Added component with id: ComponentTypes::BoxCollider to Game Object: 833
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 833
 Created Entity with id: 834
 Added component with id: ComponentTypes::Transform to Game Object: 834
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 834
 Added component with id: ComponentTypes::Animation to Game Object: 834
 Added component with id: ComponentTypes::BoxCollider to Game Object: 834
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 834
 Created Entity with id: 835
 Added component with id: ComponentTypes::Transform to Game Object: 835
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 835
 Added component with id: ComponentTypes::Animation to Game Object: 835
 Added component with id: ComponentTypes::BoxCollider to Game Object: 835
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 835
 Created Entity with id: 836
 Added component with id: ComponentTypes::Transform to Game Object: 836
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 836
 Added component with id: ComponentTypes::Animation to Game Object: 836
 Added component with id: ComponentTypes::BoxCollider to Game Object: 836
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 836
 Created Entity with id: 837
 Added component with id: ComponentTypes::Transform to Game Object: 837
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 837
 Added component with id: ComponentTypes::Animation to Game Object: 837
 Added component with id: ComponentTypes::BoxCollider to Game Object: 837
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 837
 Created Entity with id: 838
 Added component with id: ComponentTypes::Transform to Game Object: 838
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 838
 Added component with id: ComponentTypes::Animation to Game Object: 838
 Added component with id: ComponentTypes::BoxCollider to Game Object: 838
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 838
 Created Entity with id: 839
 Added component with id: ComponentTypes::Transform to Game Object: 839
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 839
 Added component with id: ComponentTypes::Animation to Game Object: 839
 Added component with id: ComponentTypes::BoxCollider to Game Object: 839
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 839
 Created Entity with id: 840
 Added component with id: ComponentTypes::Transform to Game Object: 840
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 840
 Added component with id: ComponentTypes::Animation to Game Object: 840
 Added component with id: ComponentTypes::BoxCollider to Game Object: 840
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 840
 Created Entity with id: 841
 Added component with id: ComponentTypes::Transform to Game Object: 841
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 841
 Added component with id: ComponentTypes::Animation to Game Object: 841
 Added component with id: ComponentTypes::BoxCollider to Game Object: 841
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 841
 Created Entity with id: 842
 Added component with id: ComponentTypes::Transform to Game Object: 842
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 842
 Added component with id: ComponentTypes::Animation to Game Object: 842
 Added component with id: ComponentTypes::BoxCollider to Game Object: 842
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 842
 Created Entity with id: 843
 Added component with id: ComponentTypes::Transform to Game Object: 843
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 843
 Added component with id: ComponentTypes::Animation to Game Object: 843
 Added component with id: ComponentTypes::BoxCollider to Game Object: 843
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 843
 Created Entity with id: 844
 Added component with id: ComponentTypes::Transform to Game Object: 844
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 844
 Added component with id: ComponentTypes::Animation to Game Object: 844
 Added component with id: ComponentTypes::BoxCollider to Game Object: 844
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 844
 Created Entity with id: 845
 Added component with id: ComponentTypes::Transform to Game Object: 845
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 845
 Added component with id: ComponentTypes::Animation to Game Object: 845
 Added component with id: ComponentTypes::BoxCollider to Game Object: 845
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 845
 Created Entity with id: 846
 Added component with id: ComponentTypes::Transform to Game Object: 846
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 846
 Added component with id: ComponentTypes::Animation to Game Object: 846
 Added component with id: ComponentTypes::BoxCollider to Game Object: 846
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 846
 Created Entity with id: 847
 Added component with id: ComponentTypes::Transform to Game Object: 847
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 847
 Added component with id: ComponentTypes::Animation to Game Object: 847
 Added component with id: ComponentTypes::BoxCollider to Game Object: 847
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 847
 Created Entity with id: 848
 Added component with id: ComponentTypes::Transform to Game Object: 848
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 848
 Added component with id: ComponentTypes::Animation to Game Object: 848
 Added component with id: ComponentTypes::BoxCollider to Game Object: 848
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 848
 Created Entity with id: 849
 Added component with id: ComponentTypes::Transform to Game Object: 849
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 849
 Added component with id: ComponentTypes::Animation to Game Object: 849
 Added component with id: ComponentTypes::BoxCollider to Game Object: 849
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 849
 Created Entity with id: 850
 Added component with id: ComponentTypes::Transform to Game Object: 850
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 850
 Added component with id: ComponentTypes::Animation to Game Object: 850
 Added component with id: ComponentTypes::BoxCollider to Game Object: 850
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 850
 Created Entity with id: 851
 Added component with id: ComponentTypes::Transform to Game Object: 851
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 851
 Added component with id: ComponentTypes::Animation to Game Object: 851
 Added component with id: ComponentTypes::BoxCollider to Game Object: 851
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 851
 Created Entity with id: 852
 Added component with id: ComponentTypes::Transform to Game Object: 852
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 852
 Added component with id: ComponentTypes::Animation to Game Object: 852
 Added component with id: ComponentTypes::BoxCollider to Game Object: 852
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 852
 Created Entity with id: 853
 Added component with id: ComponentTypes::Transform to Game Object: 853
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 853
 Added component with id: ComponentTypes::Animation to Game Object: 853
 Added component with id: ComponentTypes::BoxCollider to Game Object: 853
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 853
 Created Entity with id: 854
 Added component with id: ComponentTypes::Transform to Game Object: 854
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 854
 Added component with id: ComponentTypes::Animation to Game Object: 854
 Added component with id: ComponentTypes::BoxCollider to Game Object: 854
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 854
 Created Entity with id: 855
 Added component with id: ComponentTypes::Transform to Game Object: 855
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 855
 Added component with id: ComponentTypes::Animation to Game Object: 855
 Added component with id: ComponentTypes::BoxCollider to Game Object: 855
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 855
 Created Entity with id: 856
 Added component with id: ComponentTypes::Transform to Game Object: 856
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 856
 Added component with id: ComponentTypes::Animation to Game Object: 856
 Added component with id: ComponentTypes::BoxCollider to Game Object: 856
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 856
 Created Entity with id: 857
 Added component with id: ComponentTypes::Transform to Game Object: 857
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 857
 Added component with id: ComponentTypes::Animation to Game Object: 857
 Added component with id: ComponentTypes::BoxCollider to Game Object: 857
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 857
 Created Entity with id: 858
 Added component with id: ComponentTypes::Transform to Game Object: 858
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 858
 Added component with id: ComponentTypes::Animation to Game Object: 858
 Added component with id: ComponentTypes::BoxCollider to Game Object: 858
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 858
 Created Entity with id: 859
 Added component with id: ComponentTypes::Transform to Game Object: 859
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 859
 Added component with id: ComponentTypes::Animation to Game Object: 859
 Added component with id: ComponentTypes::BoxCollider to Game Object: 859
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 859
 Created Entity with id: 860
 Added component with id: ComponentTypes::Transform to Game Object: 860
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 860
 Added component with id: ComponentTypes::Animation to Game Object: 860
 Added component with id: ComponentTypes::BoxCollider to Game Object: 860
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 860
 Created Entity with id: 861
 Added component with id: ComponentTypes::Transform to Game Object: 861
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 861
 Added component with id: ComponentTypes::Animation to Game Object: 861
 Added component with id: ComponentTypes::BoxCollider to Game Object: 861
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 861
 Created Entity with id: 862
 Added component with id: ComponentTypes::Transform to Game Object: 862
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 862
 Added component with id: ComponentTypes::Animation to Game Object: 862
 Added component with id: ComponentTypes::BoxCollider to Game Object: 862
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 862
 Created Entity with id: 863
 Added component with id: ComponentTypes::Transform to Game Object: 863
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 863
 Added component with id: ComponentTypes::Animation to Game Object: 863
 Added component with id: ComponentTypes::BoxCollider to Game Object: 863
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 863
 Created Entity with id: 864
 Added component with id: ComponentTypes::Transform to Game Object: 864
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 864
 Added component with id: ComponentTypes::Animation to Game Object: 864
 Added component with id: ComponentTypes::BoxCollider to Game Object: 864
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 864
 Created Entity with id: 865
 Added component with id: ComponentTypes::Transform to Game Object: 865
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 865
 Added component with id: ComponentTypes::Animation to Game Object: 865
 Added component with id: ComponentTypes::BoxCollider to Game Object: 865
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 865
 Created Entity with id: 866
 Added component with id: ComponentTypes::Transform to Game Object: 866
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 866
 Added component with id: ComponentTypes::Animation to Game Object: 866
 Added component with id: ComponentTypes::BoxCollider to Game Object: 866
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 866
 Created Entity with id: 867
 Added component with id: ComponentTypes::Transform to Game Object: 867
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 867
 Added component with id: ComponentTypes::Animation to Game Object: 867
 Added component with id: ComponentTypes::BoxCollider to Game Object: 867
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 867
 Created Entity with id: 868
 Added component with id: ComponentTypes::Transform to Game Object: 868
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 868
 Added component with id: ComponentTypes::Animation to Game Object: 868
 Added component with id: ComponentTypes::BoxCollider to Game Object: 868
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 868
 Created Entity with id: 869
 Added component with id: ComponentTypes::Transform to Game Object: 869
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 869
 Added component with id: ComponentTypes::Animation to Game Object: 869
 Added component with id: ComponentTypes::BoxCollider to Game Object: 869
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 869
 Created Entity with id: 870
 Added component with id: ComponentTypes::Transform to Game Object: 870
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 870
 Added component with id: ComponentTypes::Animation to Game Object: 870
 Added component with id: ComponentTypes::BoxCollider to Game Object: 870
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 870
 Created Entity with id: 871
 Added component with id: ComponentTypes::Transform to Game Object: 871
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 871
 Added component with id: ComponentTypes::Animation to Game Object: 871
 Added component with id: ComponentTypes::BoxCollider to Game Object: 871
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 871
 Created Entity with id: 872
 Added component with id: ComponentTypes::Transform to Game Object: 872
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 872
 Added component with id: ComponentTypes::Animation to Game Object: 872
 Added component with id: ComponentTypes::BoxCollider to Game Object: 872
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 872
 Created Entity with id: 873
 Added component with id: ComponentTypes::Transform to Game Object: 873
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 873
 Added component with id: ComponentTypes::Animation to Game Object: 873
 Added component with id: ComponentTypes::BoxCollider to Game Object: 873
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 873
 Created Entity with id: 874
 Added component with id: ComponentTypes::Transform to Game Object: 874
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 874
 Added component with id: ComponentTypes::Animation to Game Object: 874
 Added component with id: ComponentTypes::BoxCollider to Game Object: 874
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 874
 Created Entity with id: 875
 Added component with id: ComponentTypes::Transform to Game Object: 875
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 875
 Added component with id: ComponentTypes::Animation to Game Object: 875
 Added component with id: ComponentTypes::BoxCollider to Game Object: 875
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 875
 Created Entity with id: 876
 Added component with id: ComponentTypes::Transform to Game Object: 876
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 876
 Added component with id: ComponentTypes::Animation to Game Object: 876
 Added component with id: ComponentTypes::BoxCollider to Game Object: 876
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 876
 Created Entity with id: 877
 Added component with id: ComponentTypes::Transform to Game Object: 877
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 877
 Added component with id: ComponentTypes::Animation to Game Object: 877
 Added component with id: ComponentTypes::BoxCollider to Game Object: 877
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 877
 Created Entity with id: 878
 Added component with id: ComponentTypes::Transform to Game Object: 878
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 878
 Added component with id: ComponentTypes::Animation to Game Object: 878
 Added component with id: ComponentTypes::BoxCollider to Game Object: 878
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 878
 Created Entity with id: 879
 Added component with id: ComponentTypes::Transform to Game Object: 879
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 879
 Added component with id: ComponentTypes::Animation to Game Object: 879
 Added component with id: ComponentTypes::BoxCollider to Game Object: 879
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 879
 Created Entity with id: 880
 Added component with id: ComponentTypes::Transform to Game Object: 880
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 880
 Added component with id: ComponentTypes::Animation to Game Object: 880
 Added component with id: ComponentTypes::BoxCollider to Game Object: 880
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 880
 Created Entity with id: 881
 Added component with id: ComponentTypes::Transform to Game Object: 881
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 881
 Added component with id: ComponentTypes::Animation to Game Object: 881
 Added component with id: ComponentTypes::BoxCollider to Game Object: 881
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 881
 Created Entity with id: 882
 Added component with id: ComponentTypes::Transform to Game Object: 882
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 882
 Added component with id: ComponentTypes::Animation to Game Object: 882
 Added component with id: ComponentTypes::BoxCollider to Game Object: 882
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 882
 Created Entity with id: 883
 Added component with id: ComponentTypes::Transform to Game Object: 883
-Added component with id: ComponentTypes::Animation to Game Object: 883
-Added component with id: ComponentTypes::BoxCollider to Game Object: 883
-Added component with id: ComponentTypes::ParticleEmission to Game Object: 883
+Added component with id: ComponentTypes::Audio to Game Object: 883
+Created texture Assets/Texture/Gun.png
+Created texture Assets/Texture/GunShooting.png
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 883
 Created Entity with id: 884
 Added component with id: ComponentTypes::Transform to Game Object: 884
-Added component with id: ComponentTypes::Animation to Game Object: 884
-Added component with id: ComponentTypes::BoxCollider to Game Object: 884
-Added component with id: ComponentTypes::ParticleEmission to Game Object: 884
+Added component with id: ComponentTypes::UiButton to Game Object: 884
+Added component with id: ComponentTypes::UiSprite to Game Object: 884
+Created texture Assets/Texture/Scientist.png
 Created Entity with id: 885
 Added component with id: ComponentTypes::Transform to Game Object: 885
-Added component with id: ComponentTypes::Animation to Game Object: 885
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 885
 Added component with id: ComponentTypes::BoxCollider to Game Object: 885
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 885
 Created Entity with id: 886
@@ -4043,89 +4241,44 @@ Created texture Assets/Texture/GunShooting.png
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 886
 Created Entity with id: 887
 Added component with id: ComponentTypes::Transform to Game Object: 887
-Added component with id: ComponentTypes::Impulse to Game Object: 887
-Created texture Assets/Texture/PlayerSpriteSheet.png
-Created texture Assets/Texture/Blank.png
-Added component with id: ComponentTypes::Animation to Game Object: 887
-Added component with id: ComponentTypes::CapsuleCollider to Game Object: 887
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 887
+Added component with id: ComponentTypes::BoxCollider to Game Object: 887
 Created Entity with id: 888
 Added component with id: ComponentTypes::Transform to Game Object: 888
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 888
-Game object '888' already has component with id: 2
-Created texture Assets/Texture/Weapons/Bowie Knife.png
-Created scene with name: Start
+Added component with id: ComponentTypes::BoxCollider to Game Object: 888
 Created Entity with id: 889
 Added component with id: ComponentTypes::Transform to Game Object: 889
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 889
 Added component with id: ComponentTypes::BoxCollider to Game Object: 889
-Added component with id: ComponentTypes::Audio to Game Object: 889
-Added component with id: ComponentTypes::Animation to Game Object: 889
 Created Entity with id: 890
 Added component with id: ComponentTypes::Transform to Game Object: 890
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 890
 Added component with id: ComponentTypes::BoxCollider to Game Object: 890
-Added component with id: ComponentTypes::Audio to Game Object: 890
-Added component with id: ComponentTypes::Animation to Game Object: 890
 Created Entity with id: 891
 Added component with id: ComponentTypes::Transform to Game Object: 891
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 891
 Added component with id: ComponentTypes::BoxCollider to Game Object: 891
-Added component with id: ComponentTypes::Audio to Game Object: 891
-Added component with id: ComponentTypes::Animation to Game Object: 891
 Created Entity with id: 892
 Added component with id: ComponentTypes::Transform to Game Object: 892
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 892
 Added component with id: ComponentTypes::BoxCollider to Game Object: 892
-Added component with id: ComponentTypes::Audio to Game Object: 892
-Added component with id: ComponentTypes::Animation to Game Object: 892
 Created Entity with id: 893
 Added component with id: ComponentTypes::Transform to Game Object: 893
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 893
 Added component with id: ComponentTypes::BoxCollider to Game Object: 893
-Added component with id: ComponentTypes::Audio to Game Object: 893
-Added component with id: ComponentTypes::Animation to Game Object: 893
 Created Entity with id: 894
 Added component with id: ComponentTypes::Transform to Game Object: 894
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 894
 Added component with id: ComponentTypes::BoxCollider to Game Object: 894
-Added component with id: ComponentTypes::Audio to Game Object: 894
-Added component with id: ComponentTypes::Animation to Game Object: 894
 Created Entity with id: 895
 Added component with id: ComponentTypes::Transform to Game Object: 895
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 895
 Added component with id: ComponentTypes::BoxCollider to Game Object: 895
-Added component with id: ComponentTypes::Audio to Game Object: 895
-Added component with id: ComponentTypes::Animation to Game Object: 895
 Created Entity with id: 896
 Added component with id: ComponentTypes::Transform to Game Object: 896
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 896
 Added component with id: ComponentTypes::BoxCollider to Game Object: 896
-Added component with id: ComponentTypes::Audio to Game Object: 896
-Added component with id: ComponentTypes::Animation to Game Object: 896
-Created Entity with id: 897
-Added component with id: ComponentTypes::Transform to Game Object: 897
-Added component with id: ComponentTypes::BoxCollider to Game Object: 897
-Added component with id: ComponentTypes::Audio to Game Object: 897
-Added component with id: ComponentTypes::Animation to Game Object: 897
-Created Entity with id: 898
-Added component with id: ComponentTypes::Transform to Game Object: 898
-Added component with id: ComponentTypes::BoxCollider to Game Object: 898
-Added component with id: ComponentTypes::Audio to Game Object: 898
-Added component with id: ComponentTypes::Animation to Game Object: 898
-Created Entity with id: 899
-Added component with id: ComponentTypes::Transform to Game Object: 899
-Added component with id: ComponentTypes::BoxCollider to Game Object: 899
-Added component with id: ComponentTypes::Audio to Game Object: 899
-Added component with id: ComponentTypes::Animation to Game Object: 899
-Created Entity with id: 900
-Added component with id: ComponentTypes::Transform to Game Object: 900
-Added component with id: ComponentTypes::BoxCollider to Game Object: 900
-Added component with id: ComponentTypes::Audio to Game Object: 900
-Added component with id: ComponentTypes::Animation to Game Object: 900
-Destroyed Entity with id: 900
-Destroyed Entity with id: 899
-Destroyed Entity with id: 898
-Destroyed Entity with id: 897
-Destroyed Entity with id: 896
-Destroyed Entity with id: 895
-Destroyed Entity with id: 894
-Destroyed Entity with id: 893
-Destroyed Entity with id: 892
-Destroyed Entity with id: 891
-Destroyed Entity with id: 890
-Destroyed Entity with id: 889
 Destroyed Entity with id: 0
 Destroyed Entity with id: 1
 Destroyed Entity with id: 2
@@ -5015,5 +5168,13 @@ Destroyed Entity with id: 885
 Destroyed Entity with id: 886
 Destroyed Entity with id: 887
 Destroyed Entity with id: 888
+Destroyed Entity with id: 889
+Destroyed Entity with id: 890
+Destroyed Entity with id: 891
+Destroyed Entity with id: 892
+Destroyed Entity with id: 893
+Destroyed Entity with id: 894
+Destroyed Entity with id: 895
+Destroyed Entity with id: 896
 Destroyed scene with name: MainScene
 Destroyed scene with name: Start

@@ -30,7 +30,6 @@ Bullet::Bullet(jci::Entity* e)
 
 void Bullet::bulletFire(vec2 d)
 {
-	//body->GetComponent<jci::Transform>()->SetPosition(vec2(200.0f, 200.0f));
 	direction = d;
 	spawnTime = SDL_GetTicks();
 	isMove = true;
@@ -40,11 +39,13 @@ void Bullet::SetActive(vec2 playerPosition, vec2 dir, float angle)
 {
 	body->SetActive(true);
 	isMove = true;
-	body->GetComponent<jci::Transform>()->SetPosition(playerPosition);
-	//body->GetComponent<jci::SpriteRenderer>()->SetRotation(angle);
+
+	jci::Transform* t = body->GetComponent<jci::Transform>();
+	t->SetPosition(playerPosition);
+	t->SetRotation(angle);
+	
 	jci::Animation* a = body->GetComponent<jci::Animation>();
 	a->SetAnimationCount(4);
-	a->SetRotation(angle);
 
 	direction = dir;
 }

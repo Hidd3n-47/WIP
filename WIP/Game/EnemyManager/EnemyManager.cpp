@@ -34,7 +34,7 @@ Uint32 EnemyManager::getZombieTexture()
 bool EnemyManager::PlayerOutOfRange(jci::Entity* spawner)
 {
 	float minDistance = 3.0f;//Not directly overlapping
-	//if (glm::length(player->GetPos() - spawner->GetComponent<jci::Transform>()->GetPosition()) < minDistance)
+	
 	if (glm::length(player->GetPosition() - spawner->GetComponent<jci::Transform>()->GetPosition()) < minDistance)
 	{
 		return false;//fail at first overlap
@@ -55,11 +55,6 @@ EnemyManager* EnemyManager::getEnemyManager()
 	}
 }
 
-//std::vector<jci::Entity*> EnemyManager::getEnemySquares()
-//{
-//	return EnemySquares;
-//}
-
 void EnemyManager::clearSquares()
 {
 	EnemySquares.clear();
@@ -74,12 +69,12 @@ void EnemyManager::clearZombies()
 	Zombies.clear();
 }
 
-PlayerS* EnemyManager::getPlayer()
+Player* EnemyManager::getPlayer()
 {
 	return player;
 }
 
-void EnemyManager::setPlayer(PlayerS* playertemp)
+void EnemyManager::setPlayer(Player* playertemp)
 {
 	player = playertemp;
 }
@@ -120,22 +115,12 @@ void EnemyManager::Update(float dt)
 				{
 					if (PlayerOutOfRange(f) && f->IsActive())
 					{
-						//DLOG("Spawning zomb");
 						CreateZombie(f->GetComponent<jci::Transform>()->GetPosition());
 					}
 				}
 			}
 		}
 	}
-
-	//if (PlayerOutOfRange())
-	//{
-	//	DLOG("Player out of Range");
-	//}
-	//else
-	//{
-	//	DLOG("Player in range");
-	//}
 	
 	//Update logic
 

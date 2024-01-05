@@ -2,15 +2,16 @@
 
 #include <Engine/Collision/ICollision.h>
 
-class PlayerS;
+class Player;
 
 namespace jci
 {
-	class Audio;
-	class Entity;
-	class Transform;
-	class Animation;
-	class ParticleEmission;
+class Timer;
+class Audio;
+class Entity;
+class Transform;
+class Animation;
+class ParticleEmission;
 }
 
 class Zombie : public jci::ICollision
@@ -18,20 +19,23 @@ class Zombie : public jci::ICollision
 public:
 	Zombie();
 	~Zombie();
-	void Create(vec2 point, PlayerS* play, uint32 zombieTexture);
+	void Create(vec2 point, Player* play, uint32 zombieTexture);
 	void Update(float time);
 	//void Create(Levels map, Player* play);
 	jci::Entity* getEntity();
 	jci::Scene* m_currentScene;
 
 private:
-	PlayerS* player;
+	Player* player;
 	jci::Entity* zombert;
-	jci::Audio* m_audio;
-	jci::Animation* m_animator;
 
 	float hp;
-	vec2* m_position;
+	int m_damage = 15;
+	float m_damageCooldown = 0.6f;
+	vec2* m_position = nullptr;
+
+	jci::Timer* m_damagePlayerCooldown = nullptr;
+
 	void OnCollisionEnter(jci::Entity* other) final;
 	void OnCollisionStay(jci::Entity* other) final { }
 	void OnCollisionExit(jci::Entity* other) final { }

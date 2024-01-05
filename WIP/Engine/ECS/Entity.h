@@ -3,8 +3,6 @@
 
 #include "IComponent.h"
 
-#include "src/Engine.h"
-
 #include "ComponentManager.h"
 
 namespace jci {

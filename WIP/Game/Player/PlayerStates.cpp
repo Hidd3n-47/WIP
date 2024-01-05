@@ -15,11 +15,10 @@ void PlayerIdleState::OnStateEnter()
 	if (!m_player)
 	{
 		m_player = PlayerStateManager::Instance()->GetPlayer();
-		m_animator = m_player->playerEntity->GetComponent<jci::Animation>();
 	}
-
-	m_animator->SetStartIndex(0);
-	m_animator->SetAnimationCount(4);
+	jci::Animation* ani = m_player->playerEntity->GetComponent<jci::Animation>();
+	ani->SetStartIndex(0);
+	ani->SetAnimationCount(4);
 }
 
 void PlayerIdleState::OnStateUpdate(float dt)
@@ -64,11 +63,10 @@ void PlayerMovingState::OnStateEnter()
 	if (!m_player)
 	{
 		m_player = PlayerStateManager::Instance()->GetPlayer();
-		m_animator = m_player->playerEntity->GetComponent<jci::Animation>();
 	}
-
-	m_animator->SetStartIndex(4);
-	m_animator->SetAnimationCount(6);
+	jci::Animation* ani = m_player->playerEntity->GetComponent<jci::Animation>();
+	ani->SetStartIndex(4);
+	ani->SetAnimationCount(6);
 }
 
 void PlayerMovingState::OnStateUpdate(float dt)
@@ -107,13 +105,15 @@ void PlayerMovingState::OnStateUpdate(float dt)
 
 	*(m_player->m_position) += direction * m_player->speed * dt;
 
+	jci::SpriteRenderer* sr = m_player->playerEntity->GetComponent<jci::SpriteRenderer>();
+
 	if (direction.x < 0.0f)
 	{
-		m_animator->SetVerticalFlip(true);
+		sr->SetFlipY(true);
 	}
 	else
 	{
-		m_animator->SetVerticalFlip(false);
+		sr->SetFlipY(false);
 	}
 }
 
@@ -130,16 +130,20 @@ void PlayerDashingState::OnStateEnter()
 	if (!m_player)
 	{
 		m_player = PlayerStateManager::Instance()->GetPlayer();
-		m_movingTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Scientist.png");
 	}
 
 	m_player->m_canDash = false;
-	jci::Animation* anim = m_player->playerEntity->GetComponent<jci::Animation>();
-	anim->SetTexture(m_movingTexture);
-	anim->SetAnimationCount(1);
+
+	jci::Animation* ani = m_player->playerEntity->GetComponent<jci::Animation>();
+	ani->SetStartIndex(5);
+	ani->SetAnimationCount(6);
+
 	vec2 direction = m_player->GetInputDirection();
 
 	m_player->playerEntity->GetComponent<jci::Impulse>()->ImpulseEntity(direction * vec2(20.0f));
+
+	m_player->m_iFrameActive = true;
+	m_player->m_iFrameTimer = new jci::Timer(0.1f);
 }
 
 void PlayerDashingState::OnStateUpdate(float dt)
