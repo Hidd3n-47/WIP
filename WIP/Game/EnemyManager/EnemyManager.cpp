@@ -10,20 +10,30 @@ static EnemyManager* enemyManager;
 void EnemyManager::Destroy()
 { 
 	delete spawnCD; 
-	delete enemyManager; 
+	for (auto i : Zombies)
+	{
+		jci::Engine::Instance()->DestroyEntity(i->getEntity());
+	}
+	delete enemyManager;
 }
 
-void EnemyManager::CreateZombie(vec2 point)
+Zombie* EnemyManager::CreateZombie(vec2 point)
 {
 	Zombie* zombie = new Zombie;
 	zombie->Create(point, player, zombieText);
 	Zombies.push_back(zombie);
+	return zombie;
 }
 
 EnemyManager::EnemyManager()
 {
 	PlayerInCollisionRange = true;
 	zombieText = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Enemy.png", 6, 1);
+	for (int i = 0; i < 200; i++)
+	{
+		Zombie* f = CreateZombie(vec2(0,0));
+		f->getEntity()->SetActive(false);
+	}
 }
 
 Uint32 EnemyManager::getZombieTexture()
@@ -64,9 +74,38 @@ void EnemyManager::clearZombies()
 {
 	for (auto i : Zombies)
 	{
-		jci::Engine::Instance()->DestroyEntity(i->getEntity());
+		//jci::Engine::Instance()->DestroyEntity(i->getEntity());
+		i->getEntity()->SetActive(false);
+
 	}
-	Zombies.clear();
+	//Zombies.clear();
+}
+
+bool EnemyManager::isZombiesWiped()
+{
+	for (std::list<Zombie*>::iterator i = Zombies.begin(); i != Zombies.end(); i++)
+	{
+		if ((*i)->getEntity()->IsActive())
+		{
+			//Zombie alive
+			return false;
+		}
+	}
+	return true;
+}
+
+int EnemyManager::zombiesAlive()
+{
+	int temp = 0;
+	for (std::list<Zombie*>::iterator i = Zombies.begin(); i != Zombies.end(); i++)
+	{
+		if ((*i)->getEntity()->IsActive())
+		{
+			//Zombie alive
+			temp++;
+		}
+	}
+	return temp;
 }
 
 Player* EnemyManager::getPlayer()
@@ -115,7 +154,19 @@ void EnemyManager::Update(float dt)
 				{
 					if (PlayerOutOfRange(f) && f->IsActive())
 					{
-						CreateZombie(f->GetComponent<jci::Transform>()->GetPosition());
+						bool Set = false;
+						//DLOG("Spawning zomb");
+						//CreateZombie(f->GetComponent<jci::Transform>()->GetPosition());
+						for (std::list<Zombie*>::iterator i = Zombies.begin(); i != Zombies.end(); i++)
+						{
+							if (!(*i)->getEntity()->IsActive() && !Set)
+							{
+								(*i)->getEntity()->SetActive(true);
+								(*i)->reset();
+								(*i)->getEntity()->GetComponent<jci::Transform>()->SetPosition(f->GetComponent<jci::Transform>()->GetPosition());
+								Set = true;
+							}
+						}
 					}
 				}
 			}

@@ -19,9 +19,12 @@ GameUIManager::GameUIManager()
 	perkLeft = new PerkButton();
 	perkMiddle = new PerkButton();
 	perkRight = new PerkButton();
-	perkLeft->getButton()->GetComponent<jci::Transform>()->SetPosition(vec2(0+jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->GetHalfExtents().x/2, jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->GetHalfExtents().y));//pos;
-	perkMiddle->getButton()->GetComponent<jci::Transform>()->SetPosition(vec2(jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->GetHalfExtents().x, jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->GetHalfExtents().y));//pos;
-	perkRight->getButton()->GetComponent<jci::Transform>()->SetPosition(vec2(jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->GetHalfExtents().x+ jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->GetHalfExtents().x / 2, jci::SceneManager::Instance()->GetCurrentScene()->GetCamera()->GetHalfExtents().y));//pos;
+	perkLeft->getButton()->GetComponent<jci::UiButton>()->SetAnchorPoint(jci::AnchorPoints::MidLeftOneQuarter);
+	perkMiddle->getButton()->GetComponent<jci::UiButton>()->SetAnchorPoint(jci::AnchorPoints::Middle);
+	perkRight->getButton()->GetComponent<jci::UiButton>()->SetAnchorPoint(jci::AnchorPoints::MidRightThreeQuarters);
+	perkLeft->getButton()->GetComponent<jci::Transform>()->SetPosition(vec2(0,0));
+	perkMiddle->getButton()->GetComponent<jci::Transform>()->SetPosition(vec2(0, 0));
+	perkRight->getButton()->GetComponent<jci::Transform>()->SetPosition(vec2(0, 0));
 	perkToggle();
 	perkButtons.push_back(perkLeft);
 	perkButtons.push_back(perkMiddle);
