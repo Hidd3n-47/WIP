@@ -6,7 +6,6 @@
 
 #include <Game/Bullet/BulletManager.h>
 #include <Game/Bullet/Bullet.h>
-#include <Game/Player/Player.h>
 
 Gun::Gun(BulletManager* bM)
 {

@@ -5,6 +5,18 @@ Created texture Assets/Texture/dbg/no_texture.png
 Created texture Assets/Texture/dbg/dbg_box.png
 Created texture Assets/Texture/dbg/dbg_circle.png
 Created texture Assets/Texture/dbg/dbg_cap.png
+Created Entity with id: 0
+Added component with id: ComponentTypes::Transform to Game Object: 0
+Added component with id: ComponentTypes::UiButton to Game Object: 0
+Added component with id: ComponentTypes::UiSprite to Game Object: 0
+Created Entity with id: 1
+Added component with id: ComponentTypes::Transform to Game Object: 1
+Added component with id: ComponentTypes::UiButton to Game Object: 1
+Added component with id: ComponentTypes::UiSprite to Game Object: 1
+Created Entity with id: 2
+Added component with id: ComponentTypes::Transform to Game Object: 2
+Added component with id: ComponentTypes::UiButton to Game Object: 2
+Added component with id: ComponentTypes::UiSprite to Game Object: 2
 Created texture Assets/Texture/squareWITHAW!!.png
 Created texture Assets/Texture/Front left wall.png
 Created texture Assets/Texture/Floor.png
@@ -23,21 +35,6 @@ Created texture Assets/Texture/Inv back right wall.png
 Created texture Assets/Texture/Enemy.png
 Created texture Assets/Texture/Open Door.png
 Created texture Assets/Texture/Door.png
-Created Entity with id: 0
-Added component with id: ComponentTypes::Transform to Game Object: 0
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 0
-Added component with id: ComponentTypes::BoxCollider to Game Object: 0
-Game object '0' already has component with id: 2
-Created Entity with id: 1
-Added component with id: ComponentTypes::Transform to Game Object: 1
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 1
-Added component with id: ComponentTypes::BoxCollider to Game Object: 1
-Game object '1' already has component with id: 2
-Created Entity with id: 2
-Added component with id: ComponentTypes::Transform to Game Object: 2
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 2
-Added component with id: ComponentTypes::BoxCollider to Game Object: 2
-Game object '2' already has component with id: 2
 Created Entity with id: 3
 Added component with id: ComponentTypes::Transform to Game Object: 3
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 3
@@ -65,16 +62,19 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 7
 Game object '7' already has component with id: 2
 Created Entity with id: 8
 Added component with id: ComponentTypes::Transform to Game Object: 8
-Added component with id: ComponentTypes::NavBlock to Game Object: 8
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 8
+Added component with id: ComponentTypes::BoxCollider to Game Object: 8
+Game object '8' already has component with id: 2
 Created Entity with id: 9
 Added component with id: ComponentTypes::Transform to Game Object: 9
-Added component with id: ComponentTypes::NavBlock to Game Object: 9
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 9
+Added component with id: ComponentTypes::BoxCollider to Game Object: 9
+Game object '9' already has component with id: 2
 Created Entity with id: 10
 Added component with id: ComponentTypes::Transform to Game Object: 10
-Added component with id: ComponentTypes::NavBlock to Game Object: 10
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 10
+Added component with id: ComponentTypes::BoxCollider to Game Object: 10
+Game object '10' already has component with id: 2
 Created Entity with id: 11
 Added component with id: ComponentTypes::Transform to Game Object: 11
 Added component with id: ComponentTypes::NavBlock to Game Object: 11
@@ -85,26 +85,26 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 12
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 12
 Created Entity with id: 13
 Added component with id: ComponentTypes::Transform to Game Object: 13
+Added component with id: ComponentTypes::NavBlock to Game Object: 13
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 13
-Added component with id: ComponentTypes::BoxCollider to Game Object: 13
-Game object '13' already has component with id: 2
 Created Entity with id: 14
 Added component with id: ComponentTypes::Transform to Game Object: 14
+Added component with id: ComponentTypes::NavBlock to Game Object: 14
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 14
-Added component with id: ComponentTypes::BoxCollider to Game Object: 14
-Game object '14' already has component with id: 2
 Created Entity with id: 15
 Added component with id: ComponentTypes::Transform to Game Object: 15
 Added component with id: ComponentTypes::NavBlock to Game Object: 15
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 15
 Created Entity with id: 16
 Added component with id: ComponentTypes::Transform to Game Object: 16
-Added component with id: ComponentTypes::NavBlock to Game Object: 16
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 16
+Added component with id: ComponentTypes::BoxCollider to Game Object: 16
+Game object '16' already has component with id: 2
 Created Entity with id: 17
 Added component with id: ComponentTypes::Transform to Game Object: 17
-Added component with id: ComponentTypes::NavBlock to Game Object: 17
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 17
+Added component with id: ComponentTypes::BoxCollider to Game Object: 17
+Game object '17' already has component with id: 2
 Created Entity with id: 18
 Added component with id: ComponentTypes::Transform to Game Object: 18
 Added component with id: ComponentTypes::NavBlock to Game Object: 18
@@ -115,26 +115,26 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 19
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 19
 Created Entity with id: 20
 Added component with id: ComponentTypes::Transform to Game Object: 20
+Added component with id: ComponentTypes::NavBlock to Game Object: 20
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 20
-Added component with id: ComponentTypes::BoxCollider to Game Object: 20
-Game object '20' already has component with id: 2
 Created Entity with id: 21
 Added component with id: ComponentTypes::Transform to Game Object: 21
+Added component with id: ComponentTypes::NavBlock to Game Object: 21
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 21
-Added component with id: ComponentTypes::BoxCollider to Game Object: 21
-Game object '21' already has component with id: 2
 Created Entity with id: 22
 Added component with id: ComponentTypes::Transform to Game Object: 22
 Added component with id: ComponentTypes::NavBlock to Game Object: 22
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 22
 Created Entity with id: 23
 Added component with id: ComponentTypes::Transform to Game Object: 23
-Added component with id: ComponentTypes::NavBlock to Game Object: 23
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 23
+Added component with id: ComponentTypes::BoxCollider to Game Object: 23
+Game object '23' already has component with id: 2
 Created Entity with id: 24
 Added component with id: ComponentTypes::Transform to Game Object: 24
-Added component with id: ComponentTypes::NavBlock to Game Object: 24
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 24
+Added component with id: ComponentTypes::BoxCollider to Game Object: 24
+Game object '24' already has component with id: 2
 Created Entity with id: 25
 Added component with id: ComponentTypes::Transform to Game Object: 25
 Added component with id: ComponentTypes::NavBlock to Game Object: 25
@@ -145,19 +145,16 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 26
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 26
 Created Entity with id: 27
 Added component with id: ComponentTypes::Transform to Game Object: 27
+Added component with id: ComponentTypes::NavBlock to Game Object: 27
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 27
-Added component with id: ComponentTypes::BoxCollider to Game Object: 27
-Game object '27' already has component with id: 2
 Created Entity with id: 28
 Added component with id: ComponentTypes::Transform to Game Object: 28
+Added component with id: ComponentTypes::NavBlock to Game Object: 28
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 28
-Added component with id: ComponentTypes::BoxCollider to Game Object: 28
-Game object '28' already has component with id: 2
 Created Entity with id: 29
 Added component with id: ComponentTypes::Transform to Game Object: 29
+Added component with id: ComponentTypes::NavBlock to Game Object: 29
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 29
-Added component with id: ComponentTypes::BoxCollider to Game Object: 29
-Game object '29' already has component with id: 2
 Created Entity with id: 30
 Added component with id: ComponentTypes::Transform to Game Object: 30
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 30
@@ -172,6 +169,7 @@ Created Entity with id: 32
 Added component with id: ComponentTypes::Transform to Game Object: 32
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 32
 Added component with id: ComponentTypes::BoxCollider to Game Object: 32
+Game object '32' already has component with id: 2
 Created Entity with id: 33
 Added component with id: ComponentTypes::Transform to Game Object: 33
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 33
@@ -184,16 +182,18 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 34
 Game object '34' already has component with id: 2
 Created Entity with id: 35
 Added component with id: ComponentTypes::Transform to Game Object: 35
-Added component with id: ComponentTypes::NavBlock to Game Object: 35
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 35
+Added component with id: ComponentTypes::BoxCollider to Game Object: 35
 Created Entity with id: 36
 Added component with id: ComponentTypes::Transform to Game Object: 36
-Added component with id: ComponentTypes::NavBlock to Game Object: 36
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 36
+Added component with id: ComponentTypes::BoxCollider to Game Object: 36
+Game object '36' already has component with id: 2
 Created Entity with id: 37
 Added component with id: ComponentTypes::Transform to Game Object: 37
-Added component with id: ComponentTypes::NavBlock to Game Object: 37
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 37
+Added component with id: ComponentTypes::BoxCollider to Game Object: 37
+Game object '37' already has component with id: 2
 Created Entity with id: 38
 Added component with id: ComponentTypes::Transform to Game Object: 38
 Added component with id: ComponentTypes::NavBlock to Game Object: 38
@@ -204,19 +204,16 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 39
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 39
 Created Entity with id: 40
 Added component with id: ComponentTypes::Transform to Game Object: 40
+Added component with id: ComponentTypes::NavBlock to Game Object: 40
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 40
-Added component with id: ComponentTypes::BoxCollider to Game Object: 40
-Game object '40' already has component with id: 2
 Created Entity with id: 41
 Added component with id: ComponentTypes::Transform to Game Object: 41
+Added component with id: ComponentTypes::NavBlock to Game Object: 41
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 41
-Added component with id: ComponentTypes::BoxCollider to Game Object: 41
-Game object '41' already has component with id: 2
 Created Entity with id: 42
 Added component with id: ComponentTypes::Transform to Game Object: 42
+Added component with id: ComponentTypes::NavBlock to Game Object: 42
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 42
-Added component with id: ComponentTypes::BoxCollider to Game Object: 42
-Game object '42' already has component with id: 2
 Created Entity with id: 43
 Added component with id: ComponentTypes::Transform to Game Object: 43
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 43
@@ -224,36 +221,39 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 43
 Game object '43' already has component with id: 2
 Created Entity with id: 44
 Added component with id: ComponentTypes::Transform to Game Object: 44
-Added component with id: ComponentTypes::NavBlock to Game Object: 44
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 44
+Added component with id: ComponentTypes::BoxCollider to Game Object: 44
+Game object '44' already has component with id: 2
 Created Entity with id: 45
 Added component with id: ComponentTypes::Transform to Game Object: 45
-Added component with id: ComponentTypes::NavBlock to Game Object: 45
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 45
+Added component with id: ComponentTypes::BoxCollider to Game Object: 45
+Game object '45' already has component with id: 2
 Created Entity with id: 46
 Added component with id: ComponentTypes::Transform to Game Object: 46
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 46
 Added component with id: ComponentTypes::BoxCollider to Game Object: 46
+Game object '46' already has component with id: 2
 Created Entity with id: 47
 Added component with id: ComponentTypes::Transform to Game Object: 47
+Added component with id: ComponentTypes::NavBlock to Game Object: 47
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 47
-Added component with id: ComponentTypes::BoxCollider to Game Object: 47
 Created Entity with id: 48
 Added component with id: ComponentTypes::Transform to Game Object: 48
+Added component with id: ComponentTypes::NavBlock to Game Object: 48
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 48
-Added component with id: ComponentTypes::BoxCollider to Game Object: 48
 Created Entity with id: 49
 Added component with id: ComponentTypes::Transform to Game Object: 49
-Added component with id: ComponentTypes::NavBlock to Game Object: 49
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 49
+Added component with id: ComponentTypes::BoxCollider to Game Object: 49
 Created Entity with id: 50
 Added component with id: ComponentTypes::Transform to Game Object: 50
-Added component with id: ComponentTypes::NavBlock to Game Object: 50
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 50
+Added component with id: ComponentTypes::BoxCollider to Game Object: 50
 Created Entity with id: 51
 Added component with id: ComponentTypes::Transform to Game Object: 51
-Added component with id: ComponentTypes::NavBlock to Game Object: 51
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 51
+Added component with id: ComponentTypes::BoxCollider to Game Object: 51
 Created Entity with id: 52
 Added component with id: ComponentTypes::Transform to Game Object: 52
 Added component with id: ComponentTypes::NavBlock to Game Object: 52
@@ -276,26 +276,26 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 56
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 56
 Created Entity with id: 57
 Added component with id: ComponentTypes::Transform to Game Object: 57
+Added component with id: ComponentTypes::NavBlock to Game Object: 57
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 57
-Added component with id: ComponentTypes::BoxCollider to Game Object: 57
-Game object '57' already has component with id: 2
 Created Entity with id: 58
 Added component with id: ComponentTypes::Transform to Game Object: 58
+Added component with id: ComponentTypes::NavBlock to Game Object: 58
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 58
-Added component with id: ComponentTypes::BoxCollider to Game Object: 58
-Game object '58' already has component with id: 2
 Created Entity with id: 59
 Added component with id: ComponentTypes::Transform to Game Object: 59
 Added component with id: ComponentTypes::NavBlock to Game Object: 59
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 59
 Created Entity with id: 60
 Added component with id: ComponentTypes::Transform to Game Object: 60
-Added component with id: ComponentTypes::NavBlock to Game Object: 60
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 60
+Added component with id: ComponentTypes::BoxCollider to Game Object: 60
+Game object '60' already has component with id: 2
 Created Entity with id: 61
 Added component with id: ComponentTypes::Transform to Game Object: 61
-Added component with id: ComponentTypes::NavBlock to Game Object: 61
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 61
+Added component with id: ComponentTypes::BoxCollider to Game Object: 61
+Game object '61' already has component with id: 2
 Created Entity with id: 62
 Added component with id: ComponentTypes::Transform to Game Object: 62
 Added component with id: ComponentTypes::NavBlock to Game Object: 62
@@ -338,26 +338,26 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 71
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 71
 Created Entity with id: 72
 Added component with id: ComponentTypes::Transform to Game Object: 72
+Added component with id: ComponentTypes::NavBlock to Game Object: 72
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 72
-Added component with id: ComponentTypes::BoxCollider to Game Object: 72
-Game object '72' already has component with id: 2
 Created Entity with id: 73
 Added component with id: ComponentTypes::Transform to Game Object: 73
+Added component with id: ComponentTypes::NavBlock to Game Object: 73
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 73
-Added component with id: ComponentTypes::BoxCollider to Game Object: 73
-Game object '73' already has component with id: 2
 Created Entity with id: 74
 Added component with id: ComponentTypes::Transform to Game Object: 74
 Added component with id: ComponentTypes::NavBlock to Game Object: 74
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 74
 Created Entity with id: 75
 Added component with id: ComponentTypes::Transform to Game Object: 75
-Added component with id: ComponentTypes::NavBlock to Game Object: 75
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 75
+Added component with id: ComponentTypes::BoxCollider to Game Object: 75
+Game object '75' already has component with id: 2
 Created Entity with id: 76
 Added component with id: ComponentTypes::Transform to Game Object: 76
-Added component with id: ComponentTypes::NavBlock to Game Object: 76
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 76
+Added component with id: ComponentTypes::BoxCollider to Game Object: 76
+Game object '76' already has component with id: 2
 Created Entity with id: 77
 Added component with id: ComponentTypes::Transform to Game Object: 77
 Added component with id: ComponentTypes::NavBlock to Game Object: 77
@@ -400,26 +400,26 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 86
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 86
 Created Entity with id: 87
 Added component with id: ComponentTypes::Transform to Game Object: 87
+Added component with id: ComponentTypes::NavBlock to Game Object: 87
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 87
-Added component with id: ComponentTypes::BoxCollider to Game Object: 87
-Game object '87' already has component with id: 2
 Created Entity with id: 88
 Added component with id: ComponentTypes::Transform to Game Object: 88
+Added component with id: ComponentTypes::NavBlock to Game Object: 88
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 88
-Added component with id: ComponentTypes::BoxCollider to Game Object: 88
-Game object '88' already has component with id: 2
 Created Entity with id: 89
 Added component with id: ComponentTypes::Transform to Game Object: 89
 Added component with id: ComponentTypes::NavBlock to Game Object: 89
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 89
 Created Entity with id: 90
 Added component with id: ComponentTypes::Transform to Game Object: 90
-Added component with id: ComponentTypes::NavBlock to Game Object: 90
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 90
+Added component with id: ComponentTypes::BoxCollider to Game Object: 90
+Game object '90' already has component with id: 2
 Created Entity with id: 91
 Added component with id: ComponentTypes::Transform to Game Object: 91
-Added component with id: ComponentTypes::NavBlock to Game Object: 91
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 91
+Added component with id: ComponentTypes::BoxCollider to Game Object: 91
+Game object '91' already has component with id: 2
 Created Entity with id: 92
 Added component with id: ComponentTypes::Transform to Game Object: 92
 Added component with id: ComponentTypes::NavBlock to Game Object: 92
@@ -462,26 +462,26 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 101
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 101
 Created Entity with id: 102
 Added component with id: ComponentTypes::Transform to Game Object: 102
+Added component with id: ComponentTypes::NavBlock to Game Object: 102
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 102
-Added component with id: ComponentTypes::BoxCollider to Game Object: 102
-Game object '102' already has component with id: 2
 Created Entity with id: 103
 Added component with id: ComponentTypes::Transform to Game Object: 103
+Added component with id: ComponentTypes::NavBlock to Game Object: 103
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 103
-Added component with id: ComponentTypes::BoxCollider to Game Object: 103
-Game object '103' already has component with id: 2
 Created Entity with id: 104
 Added component with id: ComponentTypes::Transform to Game Object: 104
 Added component with id: ComponentTypes::NavBlock to Game Object: 104
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 104
 Created Entity with id: 105
 Added component with id: ComponentTypes::Transform to Game Object: 105
-Added component with id: ComponentTypes::NavBlock to Game Object: 105
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 105
+Added component with id: ComponentTypes::BoxCollider to Game Object: 105
+Game object '105' already has component with id: 2
 Created Entity with id: 106
 Added component with id: ComponentTypes::Transform to Game Object: 106
-Added component with id: ComponentTypes::NavBlock to Game Object: 106
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 106
+Added component with id: ComponentTypes::BoxCollider to Game Object: 106
+Game object '106' already has component with id: 2
 Created Entity with id: 107
 Added component with id: ComponentTypes::Transform to Game Object: 107
 Added component with id: ComponentTypes::NavBlock to Game Object: 107
@@ -524,19 +524,16 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 116
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 116
 Created Entity with id: 117
 Added component with id: ComponentTypes::Transform to Game Object: 117
+Added component with id: ComponentTypes::NavBlock to Game Object: 117
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 117
-Added component with id: ComponentTypes::BoxCollider to Game Object: 117
-Game object '117' already has component with id: 2
 Created Entity with id: 118
 Added component with id: ComponentTypes::Transform to Game Object: 118
+Added component with id: ComponentTypes::NavBlock to Game Object: 118
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 118
-Added component with id: ComponentTypes::BoxCollider to Game Object: 118
-Game object '118' already has component with id: 2
 Created Entity with id: 119
 Added component with id: ComponentTypes::Transform to Game Object: 119
+Added component with id: ComponentTypes::NavBlock to Game Object: 119
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 119
-Added component with id: ComponentTypes::BoxCollider to Game Object: 119
-Game object '119' already has component with id: 2
 Created Entity with id: 120
 Added component with id: ComponentTypes::Transform to Game Object: 120
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 120
@@ -684,16 +681,19 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 148
 Game object '148' already has component with id: 2
 Created Entity with id: 149
 Added component with id: ComponentTypes::Transform to Game Object: 149
-Added component with id: ComponentTypes::NavBlock to Game Object: 149
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 149
+Added component with id: ComponentTypes::BoxCollider to Game Object: 149
+Game object '149' already has component with id: 2
 Created Entity with id: 150
 Added component with id: ComponentTypes::Transform to Game Object: 150
-Added component with id: ComponentTypes::NavBlock to Game Object: 150
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 150
+Added component with id: ComponentTypes::BoxCollider to Game Object: 150
+Game object '150' already has component with id: 2
 Created Entity with id: 151
 Added component with id: ComponentTypes::Transform to Game Object: 151
-Added component with id: ComponentTypes::NavBlock to Game Object: 151
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 151
+Added component with id: ComponentTypes::BoxCollider to Game Object: 151
+Game object '151' already has component with id: 2
 Created Entity with id: 152
 Added component with id: ComponentTypes::Transform to Game Object: 152
 Added component with id: ComponentTypes::NavBlock to Game Object: 152
@@ -736,26 +736,26 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 161
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 161
 Created Entity with id: 162
 Added component with id: ComponentTypes::Transform to Game Object: 162
+Added component with id: ComponentTypes::NavBlock to Game Object: 162
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 162
-Added component with id: ComponentTypes::BoxCollider to Game Object: 162
-Game object '162' already has component with id: 2
 Created Entity with id: 163
 Added component with id: ComponentTypes::Transform to Game Object: 163
+Added component with id: ComponentTypes::NavBlock to Game Object: 163
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 163
-Added component with id: ComponentTypes::BoxCollider to Game Object: 163
-Game object '163' already has component with id: 2
 Created Entity with id: 164
 Added component with id: ComponentTypes::Transform to Game Object: 164
 Added component with id: ComponentTypes::NavBlock to Game Object: 164
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 164
 Created Entity with id: 165
 Added component with id: ComponentTypes::Transform to Game Object: 165
-Added component with id: ComponentTypes::NavBlock to Game Object: 165
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 165
+Added component with id: ComponentTypes::BoxCollider to Game Object: 165
+Game object '165' already has component with id: 2
 Created Entity with id: 166
 Added component with id: ComponentTypes::Transform to Game Object: 166
-Added component with id: ComponentTypes::NavBlock to Game Object: 166
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 166
+Added component with id: ComponentTypes::BoxCollider to Game Object: 166
+Game object '166' already has component with id: 2
 Created Entity with id: 167
 Added component with id: ComponentTypes::Transform to Game Object: 167
 Added component with id: ComponentTypes::NavBlock to Game Object: 167
@@ -798,14 +798,12 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 176
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 176
 Created Entity with id: 177
 Added component with id: ComponentTypes::Transform to Game Object: 177
+Added component with id: ComponentTypes::NavBlock to Game Object: 177
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 177
-Added component with id: ComponentTypes::BoxCollider to Game Object: 177
-Game object '177' already has component with id: 2
 Created Entity with id: 178
 Added component with id: ComponentTypes::Transform to Game Object: 178
+Added component with id: ComponentTypes::NavBlock to Game Object: 178
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 178
-Added component with id: ComponentTypes::BoxCollider to Game Object: 178
-Game object '178' already has component with id: 2
 Created Entity with id: 179
 Added component with id: ComponentTypes::Transform to Game Object: 179
 Added component with id: ComponentTypes::NavBlock to Game Object: 179
@@ -826,12 +824,14 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 182
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 182
 Created Entity with id: 183
 Added component with id: ComponentTypes::Transform to Game Object: 183
-Added component with id: ComponentTypes::NavBlock to Game Object: 183
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 183
+Added component with id: ComponentTypes::BoxCollider to Game Object: 183
+Game object '183' already has component with id: 2
 Created Entity with id: 184
 Added component with id: ComponentTypes::Transform to Game Object: 184
-Added component with id: ComponentTypes::NavBlock to Game Object: 184
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 184
+Added component with id: ComponentTypes::BoxCollider to Game Object: 184
+Game object '184' already has component with id: 2
 Created Entity with id: 185
 Added component with id: ComponentTypes::Transform to Game Object: 185
 Added component with id: ComponentTypes::NavBlock to Game Object: 185
@@ -850,14 +850,12 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 188
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 188
 Created Entity with id: 189
 Added component with id: ComponentTypes::Transform to Game Object: 189
+Added component with id: ComponentTypes::NavBlock to Game Object: 189
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 189
-Added component with id: ComponentTypes::BoxCollider to Game Object: 189
-Game object '189' already has component with id: 2
 Created Entity with id: 190
 Added component with id: ComponentTypes::Transform to Game Object: 190
+Added component with id: ComponentTypes::NavBlock to Game Object: 190
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 190
-Added component with id: ComponentTypes::BoxCollider to Game Object: 190
-Game object '190' already has component with id: 2
 Created Entity with id: 191
 Added component with id: ComponentTypes::Transform to Game Object: 191
 Added component with id: ComponentTypes::NavBlock to Game Object: 191
@@ -892,12 +890,14 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 197
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 197
 Created Entity with id: 198
 Added component with id: ComponentTypes::Transform to Game Object: 198
-Added component with id: ComponentTypes::NavBlock to Game Object: 198
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 198
+Added component with id: ComponentTypes::BoxCollider to Game Object: 198
+Game object '198' already has component with id: 2
 Created Entity with id: 199
 Added component with id: ComponentTypes::Transform to Game Object: 199
-Added component with id: ComponentTypes::NavBlock to Game Object: 199
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 199
+Added component with id: ComponentTypes::BoxCollider to Game Object: 199
+Game object '199' already has component with id: 2
 Created Entity with id: 200
 Added component with id: ComponentTypes::Transform to Game Object: 200
 Added component with id: ComponentTypes::NavBlock to Game Object: 200
@@ -916,14 +916,12 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 203
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 203
 Created Entity with id: 204
 Added component with id: ComponentTypes::Transform to Game Object: 204
+Added component with id: ComponentTypes::NavBlock to Game Object: 204
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 204
-Added component with id: ComponentTypes::BoxCollider to Game Object: 204
-Game object '204' already has component with id: 2
 Created Entity with id: 205
 Added component with id: ComponentTypes::Transform to Game Object: 205
+Added component with id: ComponentTypes::NavBlock to Game Object: 205
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 205
-Added component with id: ComponentTypes::BoxCollider to Game Object: 205
-Game object '205' already has component with id: 2
 Created Entity with id: 206
 Added component with id: ComponentTypes::Transform to Game Object: 206
 Added component with id: ComponentTypes::NavBlock to Game Object: 206
@@ -944,12 +942,14 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 209
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 209
 Created Entity with id: 210
 Added component with id: ComponentTypes::Transform to Game Object: 210
-Added component with id: ComponentTypes::NavBlock to Game Object: 210
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 210
+Added component with id: ComponentTypes::BoxCollider to Game Object: 210
+Game object '210' already has component with id: 2
 Created Entity with id: 211
 Added component with id: ComponentTypes::Transform to Game Object: 211
-Added component with id: ComponentTypes::NavBlock to Game Object: 211
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 211
+Added component with id: ComponentTypes::BoxCollider to Game Object: 211
+Game object '211' already has component with id: 2
 Created Entity with id: 212
 Added component with id: ComponentTypes::Transform to Game Object: 212
 Added component with id: ComponentTypes::NavBlock to Game Object: 212
@@ -992,26 +992,26 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 221
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 221
 Created Entity with id: 222
 Added component with id: ComponentTypes::Transform to Game Object: 222
+Added component with id: ComponentTypes::NavBlock to Game Object: 222
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 222
-Added component with id: ComponentTypes::BoxCollider to Game Object: 222
-Game object '222' already has component with id: 2
 Created Entity with id: 223
 Added component with id: ComponentTypes::Transform to Game Object: 223
+Added component with id: ComponentTypes::NavBlock to Game Object: 223
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 223
-Added component with id: ComponentTypes::BoxCollider to Game Object: 223
-Game object '223' already has component with id: 2
 Created Entity with id: 224
 Added component with id: ComponentTypes::Transform to Game Object: 224
 Added component with id: ComponentTypes::NavBlock to Game Object: 224
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 224
 Created Entity with id: 225
 Added component with id: ComponentTypes::Transform to Game Object: 225
-Added component with id: ComponentTypes::NavBlock to Game Object: 225
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 225
+Added component with id: ComponentTypes::BoxCollider to Game Object: 225
+Game object '225' already has component with id: 2
 Created Entity with id: 226
 Added component with id: ComponentTypes::Transform to Game Object: 226
-Added component with id: ComponentTypes::NavBlock to Game Object: 226
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 226
+Added component with id: ComponentTypes::BoxCollider to Game Object: 226
+Game object '226' already has component with id: 2
 Created Entity with id: 227
 Added component with id: ComponentTypes::Transform to Game Object: 227
 Added component with id: ComponentTypes::NavBlock to Game Object: 227
@@ -1054,26 +1054,26 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 236
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 236
 Created Entity with id: 237
 Added component with id: ComponentTypes::Transform to Game Object: 237
+Added component with id: ComponentTypes::NavBlock to Game Object: 237
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 237
-Added component with id: ComponentTypes::BoxCollider to Game Object: 237
-Game object '237' already has component with id: 2
 Created Entity with id: 238
 Added component with id: ComponentTypes::Transform to Game Object: 238
+Added component with id: ComponentTypes::NavBlock to Game Object: 238
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 238
-Added component with id: ComponentTypes::BoxCollider to Game Object: 238
-Game object '238' already has component with id: 2
 Created Entity with id: 239
 Added component with id: ComponentTypes::Transform to Game Object: 239
 Added component with id: ComponentTypes::NavBlock to Game Object: 239
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 239
 Created Entity with id: 240
 Added component with id: ComponentTypes::Transform to Game Object: 240
-Added component with id: ComponentTypes::NavBlock to Game Object: 240
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 240
+Added component with id: ComponentTypes::BoxCollider to Game Object: 240
+Game object '240' already has component with id: 2
 Created Entity with id: 241
 Added component with id: ComponentTypes::Transform to Game Object: 241
-Added component with id: ComponentTypes::NavBlock to Game Object: 241
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 241
+Added component with id: ComponentTypes::BoxCollider to Game Object: 241
+Game object '241' already has component with id: 2
 Created Entity with id: 242
 Added component with id: ComponentTypes::Transform to Game Object: 242
 Added component with id: ComponentTypes::NavBlock to Game Object: 242
@@ -1116,26 +1116,26 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 251
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 251
 Created Entity with id: 252
 Added component with id: ComponentTypes::Transform to Game Object: 252
+Added component with id: ComponentTypes::NavBlock to Game Object: 252
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 252
-Added component with id: ComponentTypes::BoxCollider to Game Object: 252
-Game object '252' already has component with id: 2
 Created Entity with id: 253
 Added component with id: ComponentTypes::Transform to Game Object: 253
+Added component with id: ComponentTypes::NavBlock to Game Object: 253
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 253
-Added component with id: ComponentTypes::BoxCollider to Game Object: 253
-Game object '253' already has component with id: 2
 Created Entity with id: 254
 Added component with id: ComponentTypes::Transform to Game Object: 254
 Added component with id: ComponentTypes::NavBlock to Game Object: 254
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 254
 Created Entity with id: 255
 Added component with id: ComponentTypes::Transform to Game Object: 255
-Added component with id: ComponentTypes::NavBlock to Game Object: 255
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 255
+Added component with id: ComponentTypes::BoxCollider to Game Object: 255
+Game object '255' already has component with id: 2
 Created Entity with id: 256
 Added component with id: ComponentTypes::Transform to Game Object: 256
-Added component with id: ComponentTypes::NavBlock to Game Object: 256
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 256
+Added component with id: ComponentTypes::BoxCollider to Game Object: 256
+Game object '256' already has component with id: 2
 Created Entity with id: 257
 Added component with id: ComponentTypes::Transform to Game Object: 257
 Added component with id: ComponentTypes::NavBlock to Game Object: 257
@@ -1178,26 +1178,26 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 266
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 266
 Created Entity with id: 267
 Added component with id: ComponentTypes::Transform to Game Object: 267
+Added component with id: ComponentTypes::NavBlock to Game Object: 267
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 267
-Added component with id: ComponentTypes::BoxCollider to Game Object: 267
-Game object '267' already has component with id: 2
 Created Entity with id: 268
 Added component with id: ComponentTypes::Transform to Game Object: 268
+Added component with id: ComponentTypes::NavBlock to Game Object: 268
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 268
-Added component with id: ComponentTypes::BoxCollider to Game Object: 268
-Game object '268' already has component with id: 2
 Created Entity with id: 269
 Added component with id: ComponentTypes::Transform to Game Object: 269
 Added component with id: ComponentTypes::NavBlock to Game Object: 269
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 269
 Created Entity with id: 270
 Added component with id: ComponentTypes::Transform to Game Object: 270
-Added component with id: ComponentTypes::NavBlock to Game Object: 270
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 270
+Added component with id: ComponentTypes::BoxCollider to Game Object: 270
+Game object '270' already has component with id: 2
 Created Entity with id: 271
 Added component with id: ComponentTypes::Transform to Game Object: 271
-Added component with id: ComponentTypes::NavBlock to Game Object: 271
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 271
+Added component with id: ComponentTypes::BoxCollider to Game Object: 271
+Game object '271' already has component with id: 2
 Created Entity with id: 272
 Added component with id: ComponentTypes::Transform to Game Object: 272
 Added component with id: ComponentTypes::NavBlock to Game Object: 272
@@ -1240,14 +1240,12 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 281
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 281
 Created Entity with id: 282
 Added component with id: ComponentTypes::Transform to Game Object: 282
+Added component with id: ComponentTypes::NavBlock to Game Object: 282
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 282
-Added component with id: ComponentTypes::BoxCollider to Game Object: 282
-Game object '282' already has component with id: 2
 Created Entity with id: 283
 Added component with id: ComponentTypes::Transform to Game Object: 283
+Added component with id: ComponentTypes::NavBlock to Game Object: 283
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 283
-Added component with id: ComponentTypes::BoxCollider to Game Object: 283
-Game object '283' already has component with id: 2
 Created Entity with id: 284
 Added component with id: ComponentTypes::Transform to Game Object: 284
 Added component with id: ComponentTypes::NavBlock to Game Object: 284
@@ -1268,12 +1266,14 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 287
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 287
 Created Entity with id: 288
 Added component with id: ComponentTypes::Transform to Game Object: 288
-Added component with id: ComponentTypes::NavBlock to Game Object: 288
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 288
+Added component with id: ComponentTypes::BoxCollider to Game Object: 288
+Game object '288' already has component with id: 2
 Created Entity with id: 289
 Added component with id: ComponentTypes::Transform to Game Object: 289
-Added component with id: ComponentTypes::NavBlock to Game Object: 289
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 289
+Added component with id: ComponentTypes::BoxCollider to Game Object: 289
+Game object '289' already has component with id: 2
 Created Entity with id: 290
 Added component with id: ComponentTypes::Transform to Game Object: 290
 Added component with id: ComponentTypes::NavBlock to Game Object: 290
@@ -1292,14 +1292,12 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 293
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 293
 Created Entity with id: 294
 Added component with id: ComponentTypes::Transform to Game Object: 294
+Added component with id: ComponentTypes::NavBlock to Game Object: 294
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 294
-Added component with id: ComponentTypes::BoxCollider to Game Object: 294
-Game object '294' already has component with id: 2
 Created Entity with id: 295
 Added component with id: ComponentTypes::Transform to Game Object: 295
+Added component with id: ComponentTypes::NavBlock to Game Object: 295
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 295
-Added component with id: ComponentTypes::BoxCollider to Game Object: 295
-Game object '295' already has component with id: 2
 Created Entity with id: 296
 Added component with id: ComponentTypes::Transform to Game Object: 296
 Added component with id: ComponentTypes::NavBlock to Game Object: 296
@@ -1334,12 +1332,14 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 302
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 302
 Created Entity with id: 303
 Added component with id: ComponentTypes::Transform to Game Object: 303
-Added component with id: ComponentTypes::NavBlock to Game Object: 303
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 303
+Added component with id: ComponentTypes::BoxCollider to Game Object: 303
+Game object '303' already has component with id: 2
 Created Entity with id: 304
 Added component with id: ComponentTypes::Transform to Game Object: 304
-Added component with id: ComponentTypes::NavBlock to Game Object: 304
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 304
+Added component with id: ComponentTypes::BoxCollider to Game Object: 304
+Game object '304' already has component with id: 2
 Created Entity with id: 305
 Added component with id: ComponentTypes::Transform to Game Object: 305
 Added component with id: ComponentTypes::NavBlock to Game Object: 305
@@ -1358,14 +1358,12 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 308
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 308
 Created Entity with id: 309
 Added component with id: ComponentTypes::Transform to Game Object: 309
+Added component with id: ComponentTypes::NavBlock to Game Object: 309
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 309
-Added component with id: ComponentTypes::BoxCollider to Game Object: 309
-Game object '309' already has component with id: 2
 Created Entity with id: 310
 Added component with id: ComponentTypes::Transform to Game Object: 310
+Added component with id: ComponentTypes::NavBlock to Game Object: 310
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 310
-Added component with id: ComponentTypes::BoxCollider to Game Object: 310
-Game object '310' already has component with id: 2
 Created Entity with id: 311
 Added component with id: ComponentTypes::Transform to Game Object: 311
 Added component with id: ComponentTypes::NavBlock to Game Object: 311
@@ -1386,12 +1384,14 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 314
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 314
 Created Entity with id: 315
 Added component with id: ComponentTypes::Transform to Game Object: 315
-Added component with id: ComponentTypes::NavBlock to Game Object: 315
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 315
+Added component with id: ComponentTypes::BoxCollider to Game Object: 315
+Game object '315' already has component with id: 2
 Created Entity with id: 316
 Added component with id: ComponentTypes::Transform to Game Object: 316
-Added component with id: ComponentTypes::NavBlock to Game Object: 316
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 316
+Added component with id: ComponentTypes::BoxCollider to Game Object: 316
+Game object '316' already has component with id: 2
 Created Entity with id: 317
 Added component with id: ComponentTypes::Transform to Game Object: 317
 Added component with id: ComponentTypes::NavBlock to Game Object: 317
@@ -1402,28 +1402,28 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 318
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 318
 Created Entity with id: 319
 Added component with id: ComponentTypes::Transform to Game Object: 319
+Added component with id: ComponentTypes::NavBlock to Game Object: 319
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 319
-Added component with id: ComponentTypes::BoxCollider to Game Object: 319
 Created Entity with id: 320
 Added component with id: ComponentTypes::Transform to Game Object: 320
+Added component with id: ComponentTypes::NavBlock to Game Object: 320
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 320
-Added component with id: ComponentTypes::BoxCollider to Game Object: 320
 Created Entity with id: 321
 Added component with id: ComponentTypes::Transform to Game Object: 321
+Added component with id: ComponentTypes::NavBlock to Game Object: 321
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 321
-Added component with id: ComponentTypes::BoxCollider to Game Object: 321
 Created Entity with id: 322
 Added component with id: ComponentTypes::Transform to Game Object: 322
-Added component with id: ComponentTypes::NavBlock to Game Object: 322
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 322
+Added component with id: ComponentTypes::BoxCollider to Game Object: 322
 Created Entity with id: 323
 Added component with id: ComponentTypes::Transform to Game Object: 323
-Added component with id: ComponentTypes::NavBlock to Game Object: 323
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 323
+Added component with id: ComponentTypes::BoxCollider to Game Object: 323
 Created Entity with id: 324
 Added component with id: ComponentTypes::Transform to Game Object: 324
-Added component with id: ComponentTypes::NavBlock to Game Object: 324
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 324
+Added component with id: ComponentTypes::BoxCollider to Game Object: 324
 Created Entity with id: 325
 Added component with id: ComponentTypes::Transform to Game Object: 325
 Added component with id: ComponentTypes::NavBlock to Game Object: 325
@@ -1434,19 +1434,16 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 326
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 326
 Created Entity with id: 327
 Added component with id: ComponentTypes::Transform to Game Object: 327
+Added component with id: ComponentTypes::NavBlock to Game Object: 327
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 327
-Added component with id: ComponentTypes::BoxCollider to Game Object: 327
-Game object '327' already has component with id: 2
 Created Entity with id: 328
 Added component with id: ComponentTypes::Transform to Game Object: 328
+Added component with id: ComponentTypes::NavBlock to Game Object: 328
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 328
-Added component with id: ComponentTypes::BoxCollider to Game Object: 328
-Game object '328' already has component with id: 2
 Created Entity with id: 329
 Added component with id: ComponentTypes::Transform to Game Object: 329
+Added component with id: ComponentTypes::NavBlock to Game Object: 329
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 329
-Added component with id: ComponentTypes::BoxCollider to Game Object: 329
-Game object '329' already has component with id: 2
 Created Entity with id: 330
 Added component with id: ComponentTypes::Transform to Game Object: 330
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 330
@@ -1476,6 +1473,7 @@ Created Entity with id: 335
 Added component with id: ComponentTypes::Transform to Game Object: 335
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 335
 Added component with id: ComponentTypes::BoxCollider to Game Object: 335
+Game object '335' already has component with id: 2
 Created Entity with id: 336
 Added component with id: ComponentTypes::Transform to Game Object: 336
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 336
@@ -1490,7 +1488,6 @@ Created Entity with id: 338
 Added component with id: ComponentTypes::Transform to Game Object: 338
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 338
 Added component with id: ComponentTypes::BoxCollider to Game Object: 338
-Game object '338' already has component with id: 2
 Created Entity with id: 339
 Added component with id: ComponentTypes::Transform to Game Object: 339
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 339
@@ -1603,16 +1600,19 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 360
 Game object '360' already has component with id: 2
 Created Entity with id: 361
 Added component with id: ComponentTypes::Transform to Game Object: 361
-Added component with id: ComponentTypes::NavBlock to Game Object: 361
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 361
+Added component with id: ComponentTypes::BoxCollider to Game Object: 361
+Game object '361' already has component with id: 2
 Created Entity with id: 362
 Added component with id: ComponentTypes::Transform to Game Object: 362
-Added component with id: ComponentTypes::NavBlock to Game Object: 362
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 362
+Added component with id: ComponentTypes::BoxCollider to Game Object: 362
+Game object '362' already has component with id: 2
 Created Entity with id: 363
 Added component with id: ComponentTypes::Transform to Game Object: 363
-Added component with id: ComponentTypes::NavBlock to Game Object: 363
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 363
+Added component with id: ComponentTypes::BoxCollider to Game Object: 363
+Game object '363' already has component with id: 2
 Created Entity with id: 364
 Added component with id: ComponentTypes::Transform to Game Object: 364
 Added component with id: ComponentTypes::NavBlock to Game Object: 364
@@ -1663,14 +1663,12 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 375
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 375
 Created Entity with id: 376
 Added component with id: ComponentTypes::Transform to Game Object: 376
+Added component with id: ComponentTypes::NavBlock to Game Object: 376
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 376
-Added component with id: ComponentTypes::BoxCollider to Game Object: 376
-Game object '376' already has component with id: 2
 Created Entity with id: 377
 Added component with id: ComponentTypes::Transform to Game Object: 377
+Added component with id: ComponentTypes::NavBlock to Game Object: 377
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 377
-Added component with id: ComponentTypes::BoxCollider to Game Object: 377
-Game object '377' already has component with id: 2
 Created Entity with id: 378
 Added component with id: ComponentTypes::Transform to Game Object: 378
 Added component with id: ComponentTypes::NavBlock to Game Object: 378
@@ -1687,17 +1685,18 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 380
 Game object '380' already has component with id: 2
 Created Entity with id: 381
 Added component with id: ComponentTypes::Transform to Game Object: 381
+Added component with id: ComponentTypes::NavBlock to Game Object: 381
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 381
-Added component with id: ComponentTypes::BoxCollider to Game Object: 381
-Game object '381' already has component with id: 2
 Created Entity with id: 382
 Added component with id: ComponentTypes::Transform to Game Object: 382
-Added component with id: ComponentTypes::NavBlock to Game Object: 382
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 382
+Added component with id: ComponentTypes::BoxCollider to Game Object: 382
+Game object '382' already has component with id: 2
 Created Entity with id: 383
 Added component with id: ComponentTypes::Transform to Game Object: 383
-Added component with id: ComponentTypes::NavBlock to Game Object: 383
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 383
+Added component with id: ComponentTypes::BoxCollider to Game Object: 383
+Game object '383' already has component with id: 2
 Created Entity with id: 384
 Added component with id: ComponentTypes::Transform to Game Object: 384
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 384
@@ -1705,22 +1704,22 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 384
 Game object '384' already has component with id: 2
 Created Entity with id: 385
 Added component with id: ComponentTypes::Transform to Game Object: 385
+Added component with id: ComponentTypes::NavBlock to Game Object: 385
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 385
-Added component with id: ComponentTypes::BoxCollider to Game Object: 385
-Game object '385' already has component with id: 2
 Created Entity with id: 386
 Added component with id: ComponentTypes::Transform to Game Object: 386
+Added component with id: ComponentTypes::NavBlock to Game Object: 386
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 386
-Added component with id: ComponentTypes::BoxCollider to Game Object: 386
-Game object '386' already has component with id: 2
 Created Entity with id: 387
 Added component with id: ComponentTypes::Transform to Game Object: 387
-Added component with id: ComponentTypes::NavBlock to Game Object: 387
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 387
+Added component with id: ComponentTypes::BoxCollider to Game Object: 387
+Game object '387' already has component with id: 2
 Created Entity with id: 388
 Added component with id: ComponentTypes::Transform to Game Object: 388
-Added component with id: ComponentTypes::NavBlock to Game Object: 388
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 388
+Added component with id: ComponentTypes::BoxCollider to Game Object: 388
+Game object '388' already has component with id: 2
 Created Entity with id: 389
 Added component with id: ComponentTypes::Transform to Game Object: 389
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 389
@@ -1728,18 +1727,17 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 389
 Game object '389' already has component with id: 2
 Created Entity with id: 390
 Added component with id: ComponentTypes::Transform to Game Object: 390
+Added component with id: ComponentTypes::NavBlock to Game Object: 390
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 390
-Added component with id: ComponentTypes::BoxCollider to Game Object: 390
-Game object '390' already has component with id: 2
 Created Entity with id: 391
 Added component with id: ComponentTypes::Transform to Game Object: 391
+Added component with id: ComponentTypes::NavBlock to Game Object: 391
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 391
-Added component with id: ComponentTypes::BoxCollider to Game Object: 391
-Game object '391' already has component with id: 2
 Created Entity with id: 392
 Added component with id: ComponentTypes::Transform to Game Object: 392
-Added component with id: ComponentTypes::NavBlock to Game Object: 392
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 392
+Added component with id: ComponentTypes::BoxCollider to Game Object: 392
+Game object '392' already has component with id: 2
 Created Entity with id: 393
 Added component with id: ComponentTypes::Transform to Game Object: 393
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 393
@@ -1770,8 +1768,9 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 398
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 398
 Created Entity with id: 399
 Added component with id: ComponentTypes::Transform to Game Object: 399
-Added component with id: ComponentTypes::NavBlock to Game Object: 399
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 399
+Added component with id: ComponentTypes::BoxCollider to Game Object: 399
+Game object '399' already has component with id: 2
 Created Entity with id: 400
 Added component with id: ComponentTypes::Transform to Game Object: 400
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 400
@@ -1779,17 +1778,17 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 400
 Game object '400' already has component with id: 2
 Created Entity with id: 401
 Added component with id: ComponentTypes::Transform to Game Object: 401
+Added component with id: ComponentTypes::NavBlock to Game Object: 401
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 401
-Added component with id: ComponentTypes::BoxCollider to Game Object: 401
-Game object '401' already has component with id: 2
 Created Entity with id: 402
 Added component with id: ComponentTypes::Transform to Game Object: 402
 Added component with id: ComponentTypes::NavBlock to Game Object: 402
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 402
 Created Entity with id: 403
 Added component with id: ComponentTypes::Transform to Game Object: 403
-Added component with id: ComponentTypes::NavBlock to Game Object: 403
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 403
+Added component with id: ComponentTypes::BoxCollider to Game Object: 403
+Game object '403' already has component with id: 2
 Created Entity with id: 404
 Added component with id: ComponentTypes::Transform to Game Object: 404
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 404
@@ -1797,9 +1796,8 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 404
 Game object '404' already has component with id: 2
 Created Entity with id: 405
 Added component with id: ComponentTypes::Transform to Game Object: 405
+Added component with id: ComponentTypes::NavBlock to Game Object: 405
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 405
-Added component with id: ComponentTypes::BoxCollider to Game Object: 405
-Game object '405' already has component with id: 2
 Created Entity with id: 406
 Added component with id: ComponentTypes::Transform to Game Object: 406
 Added component with id: ComponentTypes::NavBlock to Game Object: 406
@@ -1830,17 +1828,18 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 411
 Game object '411' already has component with id: 2
 Created Entity with id: 412
 Added component with id: ComponentTypes::Transform to Game Object: 412
+Added component with id: ComponentTypes::NavBlock to Game Object: 412
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 412
-Added component with id: ComponentTypes::BoxCollider to Game Object: 412
-Game object '412' already has component with id: 2
 Created Entity with id: 413
 Added component with id: ComponentTypes::Transform to Game Object: 413
-Added component with id: ComponentTypes::NavBlock to Game Object: 413
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 413
+Added component with id: ComponentTypes::BoxCollider to Game Object: 413
+Game object '413' already has component with id: 2
 Created Entity with id: 414
 Added component with id: ComponentTypes::Transform to Game Object: 414
-Added component with id: ComponentTypes::NavBlock to Game Object: 414
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 414
+Added component with id: ComponentTypes::BoxCollider to Game Object: 414
+Game object '414' already has component with id: 2
 Created Entity with id: 415
 Added component with id: ComponentTypes::Transform to Game Object: 415
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 415
@@ -1848,22 +1847,22 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 415
 Game object '415' already has component with id: 2
 Created Entity with id: 416
 Added component with id: ComponentTypes::Transform to Game Object: 416
+Added component with id: ComponentTypes::NavBlock to Game Object: 416
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 416
-Added component with id: ComponentTypes::BoxCollider to Game Object: 416
-Game object '416' already has component with id: 2
 Created Entity with id: 417
 Added component with id: ComponentTypes::Transform to Game Object: 417
+Added component with id: ComponentTypes::NavBlock to Game Object: 417
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 417
-Added component with id: ComponentTypes::BoxCollider to Game Object: 417
-Game object '417' already has component with id: 2
 Created Entity with id: 418
 Added component with id: ComponentTypes::Transform to Game Object: 418
-Added component with id: ComponentTypes::NavBlock to Game Object: 418
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 418
+Added component with id: ComponentTypes::BoxCollider to Game Object: 418
+Game object '418' already has component with id: 2
 Created Entity with id: 419
 Added component with id: ComponentTypes::Transform to Game Object: 419
-Added component with id: ComponentTypes::NavBlock to Game Object: 419
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 419
+Added component with id: ComponentTypes::BoxCollider to Game Object: 419
+Game object '419' already has component with id: 2
 Created Entity with id: 420
 Added component with id: ComponentTypes::Transform to Game Object: 420
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 420
@@ -1871,18 +1870,17 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 420
 Game object '420' already has component with id: 2
 Created Entity with id: 421
 Added component with id: ComponentTypes::Transform to Game Object: 421
+Added component with id: ComponentTypes::NavBlock to Game Object: 421
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 421
-Added component with id: ComponentTypes::BoxCollider to Game Object: 421
-Game object '421' already has component with id: 2
 Created Entity with id: 422
 Added component with id: ComponentTypes::Transform to Game Object: 422
+Added component with id: ComponentTypes::NavBlock to Game Object: 422
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 422
-Added component with id: ComponentTypes::BoxCollider to Game Object: 422
-Game object '422' already has component with id: 2
 Created Entity with id: 423
 Added component with id: ComponentTypes::Transform to Game Object: 423
-Added component with id: ComponentTypes::NavBlock to Game Object: 423
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 423
+Added component with id: ComponentTypes::BoxCollider to Game Object: 423
+Game object '423' already has component with id: 2
 Created Entity with id: 424
 Added component with id: ComponentTypes::Transform to Game Object: 424
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 424
@@ -1899,12 +1897,14 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 426
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 426
 Created Entity with id: 427
 Added component with id: ComponentTypes::Transform to Game Object: 427
-Added component with id: ComponentTypes::NavBlock to Game Object: 427
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 427
+Added component with id: ComponentTypes::BoxCollider to Game Object: 427
+Game object '427' already has component with id: 2
 Created Entity with id: 428
 Added component with id: ComponentTypes::Transform to Game Object: 428
-Added component with id: ComponentTypes::NavBlock to Game Object: 428
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 428
+Added component with id: ComponentTypes::BoxCollider to Game Object: 428
+Game object '428' already has component with id: 2
 Created Entity with id: 429
 Added component with id: ComponentTypes::Transform to Game Object: 429
 Added component with id: ComponentTypes::NavBlock to Game Object: 429
@@ -1955,31 +1955,31 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 440
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 440
 Created Entity with id: 441
 Added component with id: ComponentTypes::Transform to Game Object: 441
+Added component with id: ComponentTypes::NavBlock to Game Object: 441
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 441
-Added component with id: ComponentTypes::BoxCollider to Game Object: 441
-Game object '441' already has component with id: 2
 Created Entity with id: 442
 Added component with id: ComponentTypes::Transform to Game Object: 442
+Added component with id: ComponentTypes::NavBlock to Game Object: 442
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 442
-Added component with id: ComponentTypes::BoxCollider to Game Object: 442
-Game object '442' already has component with id: 2
 Created Entity with id: 443
 Added component with id: ComponentTypes::Transform to Game Object: 443
+Added component with id: ComponentTypes::NavBlock to Game Object: 443
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 443
-Added component with id: ComponentTypes::BoxCollider to Game Object: 443
-Game object '443' already has component with id: 2
 Created Entity with id: 444
 Added component with id: ComponentTypes::Transform to Game Object: 444
-Added component with id: ComponentTypes::NavBlock to Game Object: 444
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 444
+Added component with id: ComponentTypes::BoxCollider to Game Object: 444
+Game object '444' already has component with id: 2
 Created Entity with id: 445
 Added component with id: ComponentTypes::Transform to Game Object: 445
-Added component with id: ComponentTypes::NavBlock to Game Object: 445
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 445
+Added component with id: ComponentTypes::BoxCollider to Game Object: 445
+Game object '445' already has component with id: 2
 Created Entity with id: 446
 Added component with id: ComponentTypes::Transform to Game Object: 446
-Added component with id: ComponentTypes::NavBlock to Game Object: 446
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 446
+Added component with id: ComponentTypes::BoxCollider to Game Object: 446
+Game object '446' already has component with id: 2
 Created Entity with id: 447
 Added component with id: ComponentTypes::Transform to Game Object: 447
 Added component with id: ComponentTypes::NavBlock to Game Object: 447
@@ -2022,31 +2022,31 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 456
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 456
 Created Entity with id: 457
 Added component with id: ComponentTypes::Transform to Game Object: 457
+Added component with id: ComponentTypes::NavBlock to Game Object: 457
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 457
-Added component with id: ComponentTypes::BoxCollider to Game Object: 457
-Game object '457' already has component with id: 2
 Created Entity with id: 458
 Added component with id: ComponentTypes::Transform to Game Object: 458
+Added component with id: ComponentTypes::NavBlock to Game Object: 458
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 458
-Added component with id: ComponentTypes::BoxCollider to Game Object: 458
-Game object '458' already has component with id: 2
 Created Entity with id: 459
 Added component with id: ComponentTypes::Transform to Game Object: 459
+Added component with id: ComponentTypes::NavBlock to Game Object: 459
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 459
-Added component with id: ComponentTypes::BoxCollider to Game Object: 459
-Game object '459' already has component with id: 2
 Created Entity with id: 460
 Added component with id: ComponentTypes::Transform to Game Object: 460
-Added component with id: ComponentTypes::NavBlock to Game Object: 460
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 460
+Added component with id: ComponentTypes::BoxCollider to Game Object: 460
+Game object '460' already has component with id: 2
 Created Entity with id: 461
 Added component with id: ComponentTypes::Transform to Game Object: 461
-Added component with id: ComponentTypes::NavBlock to Game Object: 461
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 461
+Added component with id: ComponentTypes::BoxCollider to Game Object: 461
+Game object '461' already has component with id: 2
 Created Entity with id: 462
 Added component with id: ComponentTypes::Transform to Game Object: 462
-Added component with id: ComponentTypes::NavBlock to Game Object: 462
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 462
+Added component with id: ComponentTypes::BoxCollider to Game Object: 462
+Game object '462' already has component with id: 2
 Created Entity with id: 463
 Added component with id: ComponentTypes::Transform to Game Object: 463
 Added component with id: ComponentTypes::NavBlock to Game Object: 463
@@ -2089,26 +2089,26 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 472
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 472
 Created Entity with id: 473
 Added component with id: ComponentTypes::Transform to Game Object: 473
+Added component with id: ComponentTypes::NavBlock to Game Object: 473
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 473
-Added component with id: ComponentTypes::BoxCollider to Game Object: 473
-Game object '473' already has component with id: 2
 Created Entity with id: 474
 Added component with id: ComponentTypes::Transform to Game Object: 474
+Added component with id: ComponentTypes::NavBlock to Game Object: 474
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 474
-Added component with id: ComponentTypes::BoxCollider to Game Object: 474
-Game object '474' already has component with id: 2
 Created Entity with id: 475
 Added component with id: ComponentTypes::Transform to Game Object: 475
 Added component with id: ComponentTypes::NavBlock to Game Object: 475
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 475
 Created Entity with id: 476
 Added component with id: ComponentTypes::Transform to Game Object: 476
-Added component with id: ComponentTypes::NavBlock to Game Object: 476
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 476
+Added component with id: ComponentTypes::BoxCollider to Game Object: 476
+Game object '476' already has component with id: 2
 Created Entity with id: 477
 Added component with id: ComponentTypes::Transform to Game Object: 477
-Added component with id: ComponentTypes::NavBlock to Game Object: 477
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 477
+Added component with id: ComponentTypes::BoxCollider to Game Object: 477
+Game object '477' already has component with id: 2
 Created Entity with id: 478
 Added component with id: ComponentTypes::Transform to Game Object: 478
 Added component with id: ComponentTypes::NavBlock to Game Object: 478
@@ -2151,31 +2151,31 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 487
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 487
 Created Entity with id: 488
 Added component with id: ComponentTypes::Transform to Game Object: 488
+Added component with id: ComponentTypes::NavBlock to Game Object: 488
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 488
-Added component with id: ComponentTypes::BoxCollider to Game Object: 488
-Game object '488' already has component with id: 2
 Created Entity with id: 489
 Added component with id: ComponentTypes::Transform to Game Object: 489
+Added component with id: ComponentTypes::NavBlock to Game Object: 489
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 489
-Added component with id: ComponentTypes::BoxCollider to Game Object: 489
-Game object '489' already has component with id: 2
 Created Entity with id: 490
 Added component with id: ComponentTypes::Transform to Game Object: 490
+Added component with id: ComponentTypes::NavBlock to Game Object: 490
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 490
-Added component with id: ComponentTypes::BoxCollider to Game Object: 490
-Game object '490' already has component with id: 2
 Created Entity with id: 491
 Added component with id: ComponentTypes::Transform to Game Object: 491
-Added component with id: ComponentTypes::NavBlock to Game Object: 491
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 491
+Added component with id: ComponentTypes::BoxCollider to Game Object: 491
+Game object '491' already has component with id: 2
 Created Entity with id: 492
 Added component with id: ComponentTypes::Transform to Game Object: 492
-Added component with id: ComponentTypes::NavBlock to Game Object: 492
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 492
+Added component with id: ComponentTypes::BoxCollider to Game Object: 492
+Game object '492' already has component with id: 2
 Created Entity with id: 493
 Added component with id: ComponentTypes::Transform to Game Object: 493
-Added component with id: ComponentTypes::NavBlock to Game Object: 493
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 493
+Added component with id: ComponentTypes::BoxCollider to Game Object: 493
+Game object '493' already has component with id: 2
 Created Entity with id: 494
 Added component with id: ComponentTypes::Transform to Game Object: 494
 Added component with id: ComponentTypes::NavBlock to Game Object: 494
@@ -2218,31 +2218,31 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 503
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 503
 Created Entity with id: 504
 Added component with id: ComponentTypes::Transform to Game Object: 504
+Added component with id: ComponentTypes::NavBlock to Game Object: 504
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 504
-Added component with id: ComponentTypes::BoxCollider to Game Object: 504
-Game object '504' already has component with id: 2
 Created Entity with id: 505
 Added component with id: ComponentTypes::Transform to Game Object: 505
+Added component with id: ComponentTypes::NavBlock to Game Object: 505
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 505
-Added component with id: ComponentTypes::BoxCollider to Game Object: 505
-Game object '505' already has component with id: 2
 Created Entity with id: 506
 Added component with id: ComponentTypes::Transform to Game Object: 506
+Added component with id: ComponentTypes::NavBlock to Game Object: 506
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 506
-Added component with id: ComponentTypes::BoxCollider to Game Object: 506
-Game object '506' already has component with id: 2
 Created Entity with id: 507
 Added component with id: ComponentTypes::Transform to Game Object: 507
-Added component with id: ComponentTypes::NavBlock to Game Object: 507
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 507
+Added component with id: ComponentTypes::BoxCollider to Game Object: 507
+Game object '507' already has component with id: 2
 Created Entity with id: 508
 Added component with id: ComponentTypes::Transform to Game Object: 508
-Added component with id: ComponentTypes::NavBlock to Game Object: 508
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 508
+Added component with id: ComponentTypes::BoxCollider to Game Object: 508
+Game object '508' already has component with id: 2
 Created Entity with id: 509
 Added component with id: ComponentTypes::Transform to Game Object: 509
-Added component with id: ComponentTypes::NavBlock to Game Object: 509
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 509
+Added component with id: ComponentTypes::BoxCollider to Game Object: 509
+Game object '509' already has component with id: 2
 Created Entity with id: 510
 Added component with id: ComponentTypes::Transform to Game Object: 510
 Added component with id: ComponentTypes::NavBlock to Game Object: 510
@@ -2293,14 +2293,12 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 521
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 521
 Created Entity with id: 522
 Added component with id: ComponentTypes::Transform to Game Object: 522
+Added component with id: ComponentTypes::NavBlock to Game Object: 522
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 522
-Added component with id: ComponentTypes::BoxCollider to Game Object: 522
-Game object '522' already has component with id: 2
 Created Entity with id: 523
 Added component with id: ComponentTypes::Transform to Game Object: 523
+Added component with id: ComponentTypes::NavBlock to Game Object: 523
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 523
-Added component with id: ComponentTypes::BoxCollider to Game Object: 523
-Game object '523' already has component with id: 2
 Created Entity with id: 524
 Added component with id: ComponentTypes::Transform to Game Object: 524
 Added component with id: ComponentTypes::NavBlock to Game Object: 524
@@ -2317,17 +2315,18 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 526
 Game object '526' already has component with id: 2
 Created Entity with id: 527
 Added component with id: ComponentTypes::Transform to Game Object: 527
+Added component with id: ComponentTypes::NavBlock to Game Object: 527
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 527
-Added component with id: ComponentTypes::BoxCollider to Game Object: 527
-Game object '527' already has component with id: 2
 Created Entity with id: 528
 Added component with id: ComponentTypes::Transform to Game Object: 528
-Added component with id: ComponentTypes::NavBlock to Game Object: 528
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 528
+Added component with id: ComponentTypes::BoxCollider to Game Object: 528
+Game object '528' already has component with id: 2
 Created Entity with id: 529
 Added component with id: ComponentTypes::Transform to Game Object: 529
-Added component with id: ComponentTypes::NavBlock to Game Object: 529
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 529
+Added component with id: ComponentTypes::BoxCollider to Game Object: 529
+Game object '529' already has component with id: 2
 Created Entity with id: 530
 Added component with id: ComponentTypes::Transform to Game Object: 530
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 530
@@ -2335,22 +2334,22 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 530
 Game object '530' already has component with id: 2
 Created Entity with id: 531
 Added component with id: ComponentTypes::Transform to Game Object: 531
+Added component with id: ComponentTypes::NavBlock to Game Object: 531
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 531
-Added component with id: ComponentTypes::BoxCollider to Game Object: 531
-Game object '531' already has component with id: 2
 Created Entity with id: 532
 Added component with id: ComponentTypes::Transform to Game Object: 532
+Added component with id: ComponentTypes::NavBlock to Game Object: 532
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 532
-Added component with id: ComponentTypes::BoxCollider to Game Object: 532
-Game object '532' already has component with id: 2
 Created Entity with id: 533
 Added component with id: ComponentTypes::Transform to Game Object: 533
-Added component with id: ComponentTypes::NavBlock to Game Object: 533
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 533
+Added component with id: ComponentTypes::BoxCollider to Game Object: 533
+Game object '533' already has component with id: 2
 Created Entity with id: 534
 Added component with id: ComponentTypes::Transform to Game Object: 534
-Added component with id: ComponentTypes::NavBlock to Game Object: 534
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 534
+Added component with id: ComponentTypes::BoxCollider to Game Object: 534
+Game object '534' already has component with id: 2
 Created Entity with id: 535
 Added component with id: ComponentTypes::Transform to Game Object: 535
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 535
@@ -2358,18 +2357,17 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 535
 Game object '535' already has component with id: 2
 Created Entity with id: 536
 Added component with id: ComponentTypes::Transform to Game Object: 536
+Added component with id: ComponentTypes::NavBlock to Game Object: 536
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 536
-Added component with id: ComponentTypes::BoxCollider to Game Object: 536
-Game object '536' already has component with id: 2
 Created Entity with id: 537
 Added component with id: ComponentTypes::Transform to Game Object: 537
+Added component with id: ComponentTypes::NavBlock to Game Object: 537
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 537
-Added component with id: ComponentTypes::BoxCollider to Game Object: 537
-Game object '537' already has component with id: 2
 Created Entity with id: 538
 Added component with id: ComponentTypes::Transform to Game Object: 538
-Added component with id: ComponentTypes::NavBlock to Game Object: 538
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 538
+Added component with id: ComponentTypes::BoxCollider to Game Object: 538
+Game object '538' already has component with id: 2
 Created Entity with id: 539
 Added component with id: ComponentTypes::Transform to Game Object: 539
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 539
@@ -2400,8 +2398,9 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 544
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 544
 Created Entity with id: 545
 Added component with id: ComponentTypes::Transform to Game Object: 545
-Added component with id: ComponentTypes::NavBlock to Game Object: 545
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 545
+Added component with id: ComponentTypes::BoxCollider to Game Object: 545
+Game object '545' already has component with id: 2
 Created Entity with id: 546
 Added component with id: ComponentTypes::Transform to Game Object: 546
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 546
@@ -2409,17 +2408,17 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 546
 Game object '546' already has component with id: 2
 Created Entity with id: 547
 Added component with id: ComponentTypes::Transform to Game Object: 547
+Added component with id: ComponentTypes::NavBlock to Game Object: 547
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 547
-Added component with id: ComponentTypes::BoxCollider to Game Object: 547
-Game object '547' already has component with id: 2
 Created Entity with id: 548
 Added component with id: ComponentTypes::Transform to Game Object: 548
 Added component with id: ComponentTypes::NavBlock to Game Object: 548
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 548
 Created Entity with id: 549
 Added component with id: ComponentTypes::Transform to Game Object: 549
-Added component with id: ComponentTypes::NavBlock to Game Object: 549
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 549
+Added component with id: ComponentTypes::BoxCollider to Game Object: 549
+Game object '549' already has component with id: 2
 Created Entity with id: 550
 Added component with id: ComponentTypes::Transform to Game Object: 550
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 550
@@ -2427,9 +2426,8 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 550
 Game object '550' already has component with id: 2
 Created Entity with id: 551
 Added component with id: ComponentTypes::Transform to Game Object: 551
+Added component with id: ComponentTypes::NavBlock to Game Object: 551
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 551
-Added component with id: ComponentTypes::BoxCollider to Game Object: 551
-Game object '551' already has component with id: 2
 Created Entity with id: 552
 Added component with id: ComponentTypes::Transform to Game Object: 552
 Added component with id: ComponentTypes::NavBlock to Game Object: 552
@@ -2460,17 +2458,18 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 557
 Game object '557' already has component with id: 2
 Created Entity with id: 558
 Added component with id: ComponentTypes::Transform to Game Object: 558
+Added component with id: ComponentTypes::NavBlock to Game Object: 558
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 558
-Added component with id: ComponentTypes::BoxCollider to Game Object: 558
-Game object '558' already has component with id: 2
 Created Entity with id: 559
 Added component with id: ComponentTypes::Transform to Game Object: 559
-Added component with id: ComponentTypes::NavBlock to Game Object: 559
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 559
+Added component with id: ComponentTypes::BoxCollider to Game Object: 559
+Game object '559' already has component with id: 2
 Created Entity with id: 560
 Added component with id: ComponentTypes::Transform to Game Object: 560
-Added component with id: ComponentTypes::NavBlock to Game Object: 560
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 560
+Added component with id: ComponentTypes::BoxCollider to Game Object: 560
+Game object '560' already has component with id: 2
 Created Entity with id: 561
 Added component with id: ComponentTypes::Transform to Game Object: 561
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 561
@@ -2478,22 +2477,22 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 561
 Game object '561' already has component with id: 2
 Created Entity with id: 562
 Added component with id: ComponentTypes::Transform to Game Object: 562
+Added component with id: ComponentTypes::NavBlock to Game Object: 562
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 562
-Added component with id: ComponentTypes::BoxCollider to Game Object: 562
-Game object '562' already has component with id: 2
 Created Entity with id: 563
 Added component with id: ComponentTypes::Transform to Game Object: 563
+Added component with id: ComponentTypes::NavBlock to Game Object: 563
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 563
-Added component with id: ComponentTypes::BoxCollider to Game Object: 563
-Game object '563' already has component with id: 2
 Created Entity with id: 564
 Added component with id: ComponentTypes::Transform to Game Object: 564
-Added component with id: ComponentTypes::NavBlock to Game Object: 564
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 564
+Added component with id: ComponentTypes::BoxCollider to Game Object: 564
+Game object '564' already has component with id: 2
 Created Entity with id: 565
 Added component with id: ComponentTypes::Transform to Game Object: 565
-Added component with id: ComponentTypes::NavBlock to Game Object: 565
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 565
+Added component with id: ComponentTypes::BoxCollider to Game Object: 565
+Game object '565' already has component with id: 2
 Created Entity with id: 566
 Added component with id: ComponentTypes::Transform to Game Object: 566
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 566
@@ -2501,18 +2500,17 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 566
 Game object '566' already has component with id: 2
 Created Entity with id: 567
 Added component with id: ComponentTypes::Transform to Game Object: 567
+Added component with id: ComponentTypes::NavBlock to Game Object: 567
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 567
-Added component with id: ComponentTypes::BoxCollider to Game Object: 567
-Game object '567' already has component with id: 2
 Created Entity with id: 568
 Added component with id: ComponentTypes::Transform to Game Object: 568
+Added component with id: ComponentTypes::NavBlock to Game Object: 568
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 568
-Added component with id: ComponentTypes::BoxCollider to Game Object: 568
-Game object '568' already has component with id: 2
 Created Entity with id: 569
 Added component with id: ComponentTypes::Transform to Game Object: 569
-Added component with id: ComponentTypes::NavBlock to Game Object: 569
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 569
+Added component with id: ComponentTypes::BoxCollider to Game Object: 569
+Game object '569' already has component with id: 2
 Created Entity with id: 570
 Added component with id: ComponentTypes::Transform to Game Object: 570
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 570
@@ -2529,12 +2527,14 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 572
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 572
 Created Entity with id: 573
 Added component with id: ComponentTypes::Transform to Game Object: 573
-Added component with id: ComponentTypes::NavBlock to Game Object: 573
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 573
+Added component with id: ComponentTypes::BoxCollider to Game Object: 573
+Game object '573' already has component with id: 2
 Created Entity with id: 574
 Added component with id: ComponentTypes::Transform to Game Object: 574
-Added component with id: ComponentTypes::NavBlock to Game Object: 574
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 574
+Added component with id: ComponentTypes::BoxCollider to Game Object: 574
+Game object '574' already has component with id: 2
 Created Entity with id: 575
 Added component with id: ComponentTypes::Transform to Game Object: 575
 Added component with id: ComponentTypes::NavBlock to Game Object: 575
@@ -2549,28 +2549,28 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 577
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 577
 Created Entity with id: 578
 Added component with id: ComponentTypes::Transform to Game Object: 578
+Added component with id: ComponentTypes::NavBlock to Game Object: 578
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 578
-Added component with id: ComponentTypes::BoxCollider to Game Object: 578
 Created Entity with id: 579
 Added component with id: ComponentTypes::Transform to Game Object: 579
+Added component with id: ComponentTypes::NavBlock to Game Object: 579
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 579
-Added component with id: ComponentTypes::BoxCollider to Game Object: 579
 Created Entity with id: 580
 Added component with id: ComponentTypes::Transform to Game Object: 580
+Added component with id: ComponentTypes::NavBlock to Game Object: 580
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 580
-Added component with id: ComponentTypes::BoxCollider to Game Object: 580
 Created Entity with id: 581
 Added component with id: ComponentTypes::Transform to Game Object: 581
-Added component with id: ComponentTypes::NavBlock to Game Object: 581
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 581
+Added component with id: ComponentTypes::BoxCollider to Game Object: 581
 Created Entity with id: 582
 Added component with id: ComponentTypes::Transform to Game Object: 582
-Added component with id: ComponentTypes::NavBlock to Game Object: 582
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 582
+Added component with id: ComponentTypes::BoxCollider to Game Object: 582
 Created Entity with id: 583
 Added component with id: ComponentTypes::Transform to Game Object: 583
-Added component with id: ComponentTypes::NavBlock to Game Object: 583
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 583
+Added component with id: ComponentTypes::BoxCollider to Game Object: 583
 Created Entity with id: 584
 Added component with id: ComponentTypes::Transform to Game Object: 584
 Added component with id: ComponentTypes::NavBlock to Game Object: 584
@@ -2585,19 +2585,16 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 586
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 586
 Created Entity with id: 587
 Added component with id: ComponentTypes::Transform to Game Object: 587
+Added component with id: ComponentTypes::NavBlock to Game Object: 587
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 587
-Added component with id: ComponentTypes::BoxCollider to Game Object: 587
-Game object '587' already has component with id: 2
 Created Entity with id: 588
 Added component with id: ComponentTypes::Transform to Game Object: 588
+Added component with id: ComponentTypes::NavBlock to Game Object: 588
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 588
-Added component with id: ComponentTypes::BoxCollider to Game Object: 588
-Game object '588' already has component with id: 2
 Created Entity with id: 589
 Added component with id: ComponentTypes::Transform to Game Object: 589
+Added component with id: ComponentTypes::NavBlock to Game Object: 589
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 589
-Added component with id: ComponentTypes::BoxCollider to Game Object: 589
-Game object '589' already has component with id: 2
 Created Entity with id: 590
 Added component with id: ComponentTypes::Transform to Game Object: 590
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 590
@@ -2632,6 +2629,7 @@ Created Entity with id: 596
 Added component with id: ComponentTypes::Transform to Game Object: 596
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 596
 Added component with id: ComponentTypes::BoxCollider to Game Object: 596
+Game object '596' already has component with id: 2
 Created Entity with id: 597
 Added component with id: ComponentTypes::Transform to Game Object: 597
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 597
@@ -2646,7 +2644,6 @@ Created Entity with id: 599
 Added component with id: ComponentTypes::Transform to Game Object: 599
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 599
 Added component with id: ComponentTypes::BoxCollider to Game Object: 599
-Game object '599' already has component with id: 2
 Created Entity with id: 600
 Added component with id: ComponentTypes::Transform to Game Object: 600
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 600
@@ -2721,6 +2718,7 @@ Created Entity with id: 614
 Added component with id: ComponentTypes::Transform to Game Object: 614
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 614
 Added component with id: ComponentTypes::BoxCollider to Game Object: 614
+Game object '614' already has component with id: 2
 Created Entity with id: 615
 Added component with id: ComponentTypes::Transform to Game Object: 615
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 615
@@ -2733,16 +2731,18 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 616
 Game object '616' already has component with id: 2
 Created Entity with id: 617
 Added component with id: ComponentTypes::Transform to Game Object: 617
-Added component with id: ComponentTypes::NavBlock to Game Object: 617
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 617
+Added component with id: ComponentTypes::BoxCollider to Game Object: 617
 Created Entity with id: 618
 Added component with id: ComponentTypes::Transform to Game Object: 618
-Added component with id: ComponentTypes::NavBlock to Game Object: 618
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 618
+Added component with id: ComponentTypes::BoxCollider to Game Object: 618
+Game object '618' already has component with id: 2
 Created Entity with id: 619
 Added component with id: ComponentTypes::Transform to Game Object: 619
-Added component with id: ComponentTypes::NavBlock to Game Object: 619
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 619
+Added component with id: ComponentTypes::BoxCollider to Game Object: 619
+Game object '619' already has component with id: 2
 Created Entity with id: 620
 Added component with id: ComponentTypes::Transform to Game Object: 620
 Added component with id: ComponentTypes::NavBlock to Game Object: 620
@@ -2761,30 +2761,29 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 623
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 623
 Created Entity with id: 624
 Added component with id: ComponentTypes::Transform to Game Object: 624
+Added component with id: ComponentTypes::NavBlock to Game Object: 624
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 624
-Added component with id: ComponentTypes::BoxCollider to Game Object: 624
 Created Entity with id: 625
 Added component with id: ComponentTypes::Transform to Game Object: 625
+Added component with id: ComponentTypes::NavBlock to Game Object: 625
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 625
-Added component with id: ComponentTypes::BoxCollider to Game Object: 625
 Created Entity with id: 626
 Added component with id: ComponentTypes::Transform to Game Object: 626
+Added component with id: ComponentTypes::NavBlock to Game Object: 626
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 626
-Added component with id: ComponentTypes::BoxCollider to Game Object: 626
-Game object '626' already has component with id: 2
 Created Entity with id: 627
 Added component with id: ComponentTypes::Transform to Game Object: 627
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 627
 Added component with id: ComponentTypes::BoxCollider to Game Object: 627
-Game object '627' already has component with id: 2
 Created Entity with id: 628
 Added component with id: ComponentTypes::Transform to Game Object: 628
-Added component with id: ComponentTypes::NavBlock to Game Object: 628
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 628
+Added component with id: ComponentTypes::BoxCollider to Game Object: 628
 Created Entity with id: 629
 Added component with id: ComponentTypes::Transform to Game Object: 629
-Added component with id: ComponentTypes::NavBlock to Game Object: 629
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 629
+Added component with id: ComponentTypes::BoxCollider to Game Object: 629
+Game object '629' already has component with id: 2
 Created Entity with id: 630
 Added component with id: ComponentTypes::Transform to Game Object: 630
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 630
@@ -2792,21 +2791,22 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 630
 Game object '630' already has component with id: 2
 Created Entity with id: 631
 Added component with id: ComponentTypes::Transform to Game Object: 631
+Added component with id: ComponentTypes::NavBlock to Game Object: 631
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 631
-Added component with id: ComponentTypes::BoxCollider to Game Object: 631
-Game object '631' already has component with id: 2
 Created Entity with id: 632
 Added component with id: ComponentTypes::Transform to Game Object: 632
 Added component with id: ComponentTypes::NavBlock to Game Object: 632
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 632
 Created Entity with id: 633
 Added component with id: ComponentTypes::Transform to Game Object: 633
-Added component with id: ComponentTypes::NavBlock to Game Object: 633
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 633
+Added component with id: ComponentTypes::BoxCollider to Game Object: 633
+Game object '633' already has component with id: 2
 Created Entity with id: 634
 Added component with id: ComponentTypes::Transform to Game Object: 634
-Added component with id: ComponentTypes::NavBlock to Game Object: 634
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 634
+Added component with id: ComponentTypes::BoxCollider to Game Object: 634
+Game object '634' already has component with id: 2
 Created Entity with id: 635
 Added component with id: ComponentTypes::Transform to Game Object: 635
 Added component with id: ComponentTypes::NavBlock to Game Object: 635
@@ -2817,22 +2817,21 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 636
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 636
 Created Entity with id: 637
 Added component with id: ComponentTypes::Transform to Game Object: 637
+Added component with id: ComponentTypes::NavBlock to Game Object: 637
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 637
-Added component with id: ComponentTypes::BoxCollider to Game Object: 637
-Game object '637' already has component with id: 2
 Created Entity with id: 638
 Added component with id: ComponentTypes::Transform to Game Object: 638
+Added component with id: ComponentTypes::NavBlock to Game Object: 638
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 638
-Added component with id: ComponentTypes::BoxCollider to Game Object: 638
-Game object '638' already has component with id: 2
 Created Entity with id: 639
 Added component with id: ComponentTypes::Transform to Game Object: 639
 Added component with id: ComponentTypes::NavBlock to Game Object: 639
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 639
 Created Entity with id: 640
 Added component with id: ComponentTypes::Transform to Game Object: 640
-Added component with id: ComponentTypes::NavBlock to Game Object: 640
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 640
+Added component with id: ComponentTypes::BoxCollider to Game Object: 640
+Game object '640' already has component with id: 2
 Created Entity with id: 641
 Added component with id: ComponentTypes::Transform to Game Object: 641
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 641
@@ -2840,21 +2839,22 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 641
 Game object '641' already has component with id: 2
 Created Entity with id: 642
 Added component with id: ComponentTypes::Transform to Game Object: 642
+Added component with id: ComponentTypes::NavBlock to Game Object: 642
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 642
-Added component with id: ComponentTypes::BoxCollider to Game Object: 642
-Game object '642' already has component with id: 2
 Created Entity with id: 643
 Added component with id: ComponentTypes::Transform to Game Object: 643
 Added component with id: ComponentTypes::NavBlock to Game Object: 643
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 643
 Created Entity with id: 644
 Added component with id: ComponentTypes::Transform to Game Object: 644
-Added component with id: ComponentTypes::NavBlock to Game Object: 644
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 644
+Added component with id: ComponentTypes::BoxCollider to Game Object: 644
+Game object '644' already has component with id: 2
 Created Entity with id: 645
 Added component with id: ComponentTypes::Transform to Game Object: 645
-Added component with id: ComponentTypes::NavBlock to Game Object: 645
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 645
+Added component with id: ComponentTypes::BoxCollider to Game Object: 645
+Game object '645' already has component with id: 2
 Created Entity with id: 646
 Added component with id: ComponentTypes::Transform to Game Object: 646
 Added component with id: ComponentTypes::NavBlock to Game Object: 646
@@ -2865,22 +2865,21 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 647
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 647
 Created Entity with id: 648
 Added component with id: ComponentTypes::Transform to Game Object: 648
+Added component with id: ComponentTypes::NavBlock to Game Object: 648
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 648
-Added component with id: ComponentTypes::BoxCollider to Game Object: 648
-Game object '648' already has component with id: 2
 Created Entity with id: 649
 Added component with id: ComponentTypes::Transform to Game Object: 649
+Added component with id: ComponentTypes::NavBlock to Game Object: 649
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 649
-Added component with id: ComponentTypes::BoxCollider to Game Object: 649
-Game object '649' already has component with id: 2
 Created Entity with id: 650
 Added component with id: ComponentTypes::Transform to Game Object: 650
 Added component with id: ComponentTypes::NavBlock to Game Object: 650
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 650
 Created Entity with id: 651
 Added component with id: ComponentTypes::Transform to Game Object: 651
-Added component with id: ComponentTypes::NavBlock to Game Object: 651
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 651
+Added component with id: ComponentTypes::BoxCollider to Game Object: 651
+Game object '651' already has component with id: 2
 Created Entity with id: 652
 Added component with id: ComponentTypes::Transform to Game Object: 652
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 652
@@ -2888,21 +2887,22 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 652
 Game object '652' already has component with id: 2
 Created Entity with id: 653
 Added component with id: ComponentTypes::Transform to Game Object: 653
+Added component with id: ComponentTypes::NavBlock to Game Object: 653
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 653
-Added component with id: ComponentTypes::BoxCollider to Game Object: 653
-Game object '653' already has component with id: 2
 Created Entity with id: 654
 Added component with id: ComponentTypes::Transform to Game Object: 654
 Added component with id: ComponentTypes::NavBlock to Game Object: 654
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 654
 Created Entity with id: 655
 Added component with id: ComponentTypes::Transform to Game Object: 655
-Added component with id: ComponentTypes::NavBlock to Game Object: 655
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 655
+Added component with id: ComponentTypes::BoxCollider to Game Object: 655
+Game object '655' already has component with id: 2
 Created Entity with id: 656
 Added component with id: ComponentTypes::Transform to Game Object: 656
-Added component with id: ComponentTypes::NavBlock to Game Object: 656
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 656
+Added component with id: ComponentTypes::BoxCollider to Game Object: 656
+Game object '656' already has component with id: 2
 Created Entity with id: 657
 Added component with id: ComponentTypes::Transform to Game Object: 657
 Added component with id: ComponentTypes::NavBlock to Game Object: 657
@@ -2913,22 +2913,21 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 658
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 658
 Created Entity with id: 659
 Added component with id: ComponentTypes::Transform to Game Object: 659
+Added component with id: ComponentTypes::NavBlock to Game Object: 659
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 659
-Added component with id: ComponentTypes::BoxCollider to Game Object: 659
-Game object '659' already has component with id: 2
 Created Entity with id: 660
 Added component with id: ComponentTypes::Transform to Game Object: 660
+Added component with id: ComponentTypes::NavBlock to Game Object: 660
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 660
-Added component with id: ComponentTypes::BoxCollider to Game Object: 660
-Game object '660' already has component with id: 2
 Created Entity with id: 661
 Added component with id: ComponentTypes::Transform to Game Object: 661
 Added component with id: ComponentTypes::NavBlock to Game Object: 661
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 661
 Created Entity with id: 662
 Added component with id: ComponentTypes::Transform to Game Object: 662
-Added component with id: ComponentTypes::NavBlock to Game Object: 662
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 662
+Added component with id: ComponentTypes::BoxCollider to Game Object: 662
+Game object '662' already has component with id: 2
 Created Entity with id: 663
 Added component with id: ComponentTypes::Transform to Game Object: 663
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 663
@@ -2936,21 +2935,22 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 663
 Game object '663' already has component with id: 2
 Created Entity with id: 664
 Added component with id: ComponentTypes::Transform to Game Object: 664
+Added component with id: ComponentTypes::NavBlock to Game Object: 664
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 664
-Added component with id: ComponentTypes::BoxCollider to Game Object: 664
-Game object '664' already has component with id: 2
 Created Entity with id: 665
 Added component with id: ComponentTypes::Transform to Game Object: 665
 Added component with id: ComponentTypes::NavBlock to Game Object: 665
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 665
 Created Entity with id: 666
 Added component with id: ComponentTypes::Transform to Game Object: 666
-Added component with id: ComponentTypes::NavBlock to Game Object: 666
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 666
+Added component with id: ComponentTypes::BoxCollider to Game Object: 666
+Game object '666' already has component with id: 2
 Created Entity with id: 667
 Added component with id: ComponentTypes::Transform to Game Object: 667
-Added component with id: ComponentTypes::NavBlock to Game Object: 667
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 667
+Added component with id: ComponentTypes::BoxCollider to Game Object: 667
+Game object '667' already has component with id: 2
 Created Entity with id: 668
 Added component with id: ComponentTypes::Transform to Game Object: 668
 Added component with id: ComponentTypes::NavBlock to Game Object: 668
@@ -2961,19 +2961,16 @@ Added component with id: ComponentTypes::NavBlock to Game Object: 669
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 669
 Created Entity with id: 670
 Added component with id: ComponentTypes::Transform to Game Object: 670
+Added component with id: ComponentTypes::NavBlock to Game Object: 670
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 670
-Added component with id: ComponentTypes::BoxCollider to Game Object: 670
-Game object '670' already has component with id: 2
 Created Entity with id: 671
 Added component with id: ComponentTypes::Transform to Game Object: 671
+Added component with id: ComponentTypes::NavBlock to Game Object: 671
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 671
-Added component with id: ComponentTypes::BoxCollider to Game Object: 671
-Game object '671' already has component with id: 2
 Created Entity with id: 672
 Added component with id: ComponentTypes::Transform to Game Object: 672
+Added component with id: ComponentTypes::NavBlock to Game Object: 672
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 672
-Added component with id: ComponentTypes::BoxCollider to Game Object: 672
-Game object '672' already has component with id: 2
 Created Entity with id: 673
 Added component with id: ComponentTypes::Transform to Game Object: 673
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 673
@@ -3021,23 +3018,23 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 681
 Game object '681' already has component with id: 2
 Created Entity with id: 682
 Added component with id: ComponentTypes::Transform to Game Object: 682
-Added component with id: ComponentTypes::Audio to Game Object: 682
-Created texture Assets/Texture/Bullet.png
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 682
+Added component with id: ComponentTypes::BoxCollider to Game Object: 682
+Game object '682' already has component with id: 2
 Created Entity with id: 683
 Added component with id: ComponentTypes::Transform to Game Object: 683
-Added component with id: ComponentTypes::Animation to Game Object: 683
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 683
 Added component with id: ComponentTypes::BoxCollider to Game Object: 683
-Added component with id: ComponentTypes::ParticleEmission to Game Object: 683
+Game object '683' already has component with id: 2
 Created Entity with id: 684
 Added component with id: ComponentTypes::Transform to Game Object: 684
-Added component with id: ComponentTypes::Animation to Game Object: 684
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 684
 Added component with id: ComponentTypes::BoxCollider to Game Object: 684
-Added component with id: ComponentTypes::ParticleEmission to Game Object: 684
+Game object '684' already has component with id: 2
 Created Entity with id: 685
 Added component with id: ComponentTypes::Transform to Game Object: 685
-Added component with id: ComponentTypes::Animation to Game Object: 685
-Added component with id: ComponentTypes::BoxCollider to Game Object: 685
-Added component with id: ComponentTypes::ParticleEmission to Game Object: 685
+Added component with id: ComponentTypes::Audio to Game Object: 685
+Created texture Assets/Texture/Bullet.png
 Created Entity with id: 686
 Added component with id: ComponentTypes::Transform to Game Object: 686
 Added component with id: ComponentTypes::Animation to Game Object: 686
@@ -4025,63 +4022,110 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 882
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 882
 Created Entity with id: 883
 Added component with id: ComponentTypes::Transform to Game Object: 883
-Added component with id: ComponentTypes::Audio to Game Object: 883
-Created texture Assets/Texture/Gun.png
-Created texture Assets/Texture/GunShooting.png
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 883
+Added component with id: ComponentTypes::Animation to Game Object: 883
+Added component with id: ComponentTypes::BoxCollider to Game Object: 883
+Added component with id: ComponentTypes::ParticleEmission to Game Object: 883
 Created Entity with id: 884
 Added component with id: ComponentTypes::Transform to Game Object: 884
-Added component with id: ComponentTypes::UiButton to Game Object: 884
-Added component with id: ComponentTypes::UiSprite to Game Object: 884
-Created texture Assets/Texture/Scientist.png
+Added component with id: ComponentTypes::Animation to Game Object: 884
+Added component with id: ComponentTypes::BoxCollider to Game Object: 884
+Added component with id: ComponentTypes::ParticleEmission to Game Object: 884
 Created Entity with id: 885
 Added component with id: ComponentTypes::Transform to Game Object: 885
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 885
+Added component with id: ComponentTypes::Animation to Game Object: 885
 Added component with id: ComponentTypes::BoxCollider to Game Object: 885
+Added component with id: ComponentTypes::ParticleEmission to Game Object: 885
 Created Entity with id: 886
 Added component with id: ComponentTypes::Transform to Game Object: 886
+Added component with id: ComponentTypes::Audio to Game Object: 886
+Created texture Assets/Texture/Gun.png
+Created texture Assets/Texture/GunShooting.png
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 886
-Added component with id: ComponentTypes::BoxCollider to Game Object: 886
 Created Entity with id: 887
 Added component with id: ComponentTypes::Transform to Game Object: 887
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 887
-Added component with id: ComponentTypes::BoxCollider to Game Object: 887
+Added component with id: ComponentTypes::Impulse to Game Object: 887
+Created texture Assets/Texture/PlayerSpriteSheet.png
+Created texture Assets/Texture/Blank.png
+Added component with id: ComponentTypes::Animation to Game Object: 887
+Added component with id: ComponentTypes::CapsuleCollider to Game Object: 887
 Created Entity with id: 888
 Added component with id: ComponentTypes::Transform to Game Object: 888
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 888
-Added component with id: ComponentTypes::BoxCollider to Game Object: 888
+Game object '888' already has component with id: 2
+Created texture Assets/Texture/Weapons/Bowie Knife.png
+Created scene with name: Start
 Created Entity with id: 889
 Added component with id: ComponentTypes::Transform to Game Object: 889
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 889
 Added component with id: ComponentTypes::BoxCollider to Game Object: 889
+Added component with id: ComponentTypes::Audio to Game Object: 889
+Added component with id: ComponentTypes::Animation to Game Object: 889
 Created Entity with id: 890
 Added component with id: ComponentTypes::Transform to Game Object: 890
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 890
 Added component with id: ComponentTypes::BoxCollider to Game Object: 890
+Added component with id: ComponentTypes::Audio to Game Object: 890
+Added component with id: ComponentTypes::Animation to Game Object: 890
 Created Entity with id: 891
 Added component with id: ComponentTypes::Transform to Game Object: 891
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 891
 Added component with id: ComponentTypes::BoxCollider to Game Object: 891
+Added component with id: ComponentTypes::Audio to Game Object: 891
+Added component with id: ComponentTypes::Animation to Game Object: 891
 Created Entity with id: 892
 Added component with id: ComponentTypes::Transform to Game Object: 892
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 892
 Added component with id: ComponentTypes::BoxCollider to Game Object: 892
+Added component with id: ComponentTypes::Audio to Game Object: 892
+Added component with id: ComponentTypes::Animation to Game Object: 892
 Created Entity with id: 893
 Added component with id: ComponentTypes::Transform to Game Object: 893
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 893
 Added component with id: ComponentTypes::BoxCollider to Game Object: 893
+Added component with id: ComponentTypes::Audio to Game Object: 893
+Added component with id: ComponentTypes::Animation to Game Object: 893
 Created Entity with id: 894
 Added component with id: ComponentTypes::Transform to Game Object: 894
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 894
 Added component with id: ComponentTypes::BoxCollider to Game Object: 894
+Added component with id: ComponentTypes::Audio to Game Object: 894
+Added component with id: ComponentTypes::Animation to Game Object: 894
 Created Entity with id: 895
 Added component with id: ComponentTypes::Transform to Game Object: 895
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 895
 Added component with id: ComponentTypes::BoxCollider to Game Object: 895
+Added component with id: ComponentTypes::Audio to Game Object: 895
+Added component with id: ComponentTypes::Animation to Game Object: 895
 Created Entity with id: 896
 Added component with id: ComponentTypes::Transform to Game Object: 896
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 896
 Added component with id: ComponentTypes::BoxCollider to Game Object: 896
+Added component with id: ComponentTypes::Audio to Game Object: 896
+Added component with id: ComponentTypes::Animation to Game Object: 896
+Created Entity with id: 897
+Added component with id: ComponentTypes::Transform to Game Object: 897
+Added component with id: ComponentTypes::BoxCollider to Game Object: 897
+Added component with id: ComponentTypes::Audio to Game Object: 897
+Added component with id: ComponentTypes::Animation to Game Object: 897
+Created Entity with id: 898
+Added component with id: ComponentTypes::Transform to Game Object: 898
+Added component with id: ComponentTypes::BoxCollider to Game Object: 898
+Added component with id: ComponentTypes::Audio to Game Object: 898
+Added component with id: ComponentTypes::Animation to Game Object: 898
+Created Entity with id: 899
+Added component with id: ComponentTypes::Transform to Game Object: 899
+Added component with id: ComponentTypes::BoxCollider to Game Object: 899
+Added component with id: ComponentTypes::Audio to Game Object: 899
+Added component with id: ComponentTypes::Animation to Game Object: 899
+Created Entity with id: 900
+Added component with id: ComponentTypes::Transform to Game Object: 900
+Added component with id: ComponentTypes::BoxCollider to Game Object: 900
+Added component with id: ComponentTypes::Audio to Game Object: 900
+Added component with id: ComponentTypes::Animation to Game Object: 900
+Destroyed Entity with id: 900
+Destroyed Entity with id: 899
+Destroyed Entity with id: 898
+Destroyed Entity with id: 897
+Destroyed Entity with id: 896
+Destroyed Entity with id: 895
+Destroyed Entity with id: 894
+Destroyed Entity with id: 893
+Destroyed Entity with id: 892
+Destroyed Entity with id: 891
+Destroyed Entity with id: 890
+Destroyed Entity with id: 889
 Destroyed Entity with id: 0
 Destroyed Entity with id: 1
 Destroyed Entity with id: 2
@@ -4971,13 +5015,5 @@ Destroyed Entity with id: 885
 Destroyed Entity with id: 886
 Destroyed Entity with id: 887
 Destroyed Entity with id: 888
-Destroyed Entity with id: 889
-Destroyed Entity with id: 890
-Destroyed Entity with id: 891
-Destroyed Entity with id: 892
-Destroyed Entity with id: 893
-Destroyed Entity with id: 894
-Destroyed Entity with id: 895
-Destroyed Entity with id: 896
 Destroyed scene with name: MainScene
 Destroyed scene with name: Start
