@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Game/Gun/Gun.h"
+#include <Game/Bullet/BulletManager.h>
 
 namespace jci
 {
@@ -21,12 +22,14 @@ public:
 	Player() = default;
 	~Player();
 
+	void SetManager(BulletManager* mgr);
 	void MaxHpUp();
 	void FasterReload();
 	void FasterFireRate();
 	void DmgUpRateDown();
 	void RateUpDmgDown();
 	void LessDashCD();
+	void Pierce();
 	void DamagePlayer(int damage);
 	vec2 GetInputDirection();
 
@@ -48,6 +51,8 @@ private:
 	jci::Timer* m_iFrameTimer	= nullptr;
 
 	Gun* m_equippedGun = nullptr;
+
+	BulletManager* manager = nullptr;
 
 	uint32			m_blankTexture;
 	uint32			m_knifeTexture;

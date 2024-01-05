@@ -48,6 +48,10 @@ void Player::DamagePlayer(int damage)
 	}
 }
 
+void Player::SetManager(BulletManager* mgr)
+{
+	manager = mgr;
+}
 
 void Player::MaxHpUp()
 {
@@ -97,4 +101,9 @@ void Player::LessDashCD()
 	{
 		m_dashTime -= 0.3f;
 	}
+}
+
+void Player::Pierce()
+{
+	manager->m_pierceCount += 1;
 }

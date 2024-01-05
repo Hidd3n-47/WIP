@@ -5,6 +5,11 @@
 
 #include "Bullet.h"
 
+BulletManager::BulletManager()
+{
+	m_pierceCount = 1;
+}
+
 BulletManager::~BulletManager()
 {
 	for (size_t i = 0; i < bulletPool.size(); i++)
@@ -40,6 +45,7 @@ void BulletManager::Create()
 		bulletObj->SetTag("Bullet");
 		bulletObj->GetComponent<jci::BoxCollider>()->SetSize({ 0.1f, 0.05f });
 		Bullet* aBullet = new Bullet(bulletObj);
+		aBullet->PierceUp(m_pierceCount);
 		bulletPool.push_back(aBullet);
 	}
 }
@@ -62,7 +68,7 @@ void BulletManager::ShootBullet(vec2 d, vec2 playPos, float angle)
 		nextBullet = 0;
 	}
 	bulletPool.at(nextBullet)->SetActive(playPos, d, angle);
-	
+	bulletPool.at(nextBullet)->PierceUp(m_pierceCount);
 	nextBullet += 1;
 }
 
@@ -76,5 +82,5 @@ void BulletManager::SetBulletDamage(int bullDmg)
 
 int BulletManager::GetBulletDamage()
 {
-	return 	bulletPool.at(nextBullet)->GetDmg();
+	return bulletPool.at(nextBullet)->GetDmg();
 }
