@@ -17,7 +17,7 @@ class ParticleEmission;
 class Zombie : public jci::ICollision
 {
 public:
-	Zombie();
+	Zombie() = default;
 	~Zombie();
 	void Create(vec2 point, Player* play, uint32 zombieTexture);
 	void Update(float time);
@@ -32,12 +32,12 @@ private:
 
 	float hp;
 	int m_damage = 15;
-	float m_damageCooldown = 0.6f;
+	float m_damageCooldown = 1.5f;
 	vec2* m_position = nullptr;
 
 	jci::Timer* m_damagePlayerCooldown = nullptr;
 
 	void OnCollisionEnter(jci::Entity* other) final;
-	void OnCollisionStay(jci::Entity* other) final { }
+	void OnCollisionStay(jci::Entity* other) final;
 	void OnCollisionExit(jci::Entity* other) final { }
 };

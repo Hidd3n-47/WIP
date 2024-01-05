@@ -180,16 +180,3 @@ void EnemyManager::Update(float dt)
 		i->Update(dt);
 	}
 }
-
-void EnemyManager::OnCollisionEnter(jci::Entity* other)
-{
-}
-
-void EnemyManager::OnCollisionStay(jci::Entity* other)
-{
-
-}
-
-void EnemyManager::OnCollisionExit(jci::Entity* other)
-{
-}

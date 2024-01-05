@@ -10,6 +10,7 @@ private:
 	PerkParent* thisPerk;
 public:
 	PerkButton();
+	~PerkButton();
 	void setPerk(PerkParent* temp);
 	PerkParent* getPerk();
 	jci::Entity* getButton();

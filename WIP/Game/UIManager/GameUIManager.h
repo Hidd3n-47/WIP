@@ -16,6 +16,7 @@ private:
 	bool isPerksSet;
 	std::vector<jci::UiButton*> screenButtons;
 	GameUIManager();
+	~GameUIManager();
 public:
 	void perkSet();
 	bool getPerkToggle();
@@ -23,6 +24,6 @@ public:
 	std::vector<jci::UiButton*> GetscreenButtons();
 	void perkToggle();
 	static GameUIManager* getGameUIManager();
-
+	void Destroy();
 };
 

@@ -40,19 +40,19 @@ void Application::Create()
 	PlayerStateManager::Instance()->Init(map->GetSpawnPoint(), g1);
 	em->setPlayer(m_player);
 
-	m_gameScene = jci::SceneManager::Instance()->GetScene("MainScene");
-	m_startMenu = jci::SceneManager::Instance()->CreateScene("Start");
-	//m_currentScene = m_startMenu;
-	//jci::SceneManager::Instance()->SetCurrentScene(m_currentScene);
+	m_startMenu = jci::SceneManager::Instance()->CreateScene("StartScene");
+	jci::SceneManager::Instance()->SetCurrentScene(m_startMenu);
+	m_currentScene = m_startMenu;
+	m_menuTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/StartMenu.png", 1280, 720);
+	m_startMenuEntity = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();
+	m_startMenuEntity->AddComponent<jci::UiSprite>();
+	m_startMenuEntity->GetComponent<jci::UiSprite>()->SetTexture(m_menuTexture);
+	m_startMenuEntity->GetComponent<jci::Transform>()->SetPosition(vec2(0.0f, 0.0f));
+	m_startMenuEntity->GetComponent<jci::UiSprite>()->SetSize(m_currentScene->GetCamera()->GetHalfExtents() * 2.0f);
 }
 
 void Application::Update(float dt)
 {
-	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_o))
-	{
-		jci::SceneManager::Instance()->SetCurrentScene(m_gameScene);
-		m_currentScene = m_gameScene;
-	}
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_p))
 	{
 		jci::SceneManager::Instance()->SetCurrentScene(m_startMenu);
@@ -92,6 +92,8 @@ void Application::GameUpdate(float dt)
 
 void Application::Destroy()
 {
+	GameUIManager::getGameUIManager()->Destroy();
+
 	PlayerStateManager::Instance()->Destroy();
 
 	delete g1;

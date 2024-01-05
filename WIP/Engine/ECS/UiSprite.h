@@ -19,7 +19,7 @@ public:
 	UiSprite() = default;
 	~UiSprite() = default;
 
-	inline void OnComponentAdd(Entity* entity) final { m_entity = entity; }
+	inline void OnComponentAdd(Entity* entity) final { m_entity = entity; m_layer = 200; }
 	inline void OnComponentRemove() final { }
 
 	inline AnchorPoints		GetAnchorPoint()	const { return m_anchorPoint; }
