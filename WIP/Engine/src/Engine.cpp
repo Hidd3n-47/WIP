@@ -49,7 +49,7 @@ void Engine::Init()
 	std::cout << std::endl;
 #endif
 
-	SceneManager::Instance()->SetCurrentScene(SceneManager::Instance()->CreateScene("MainScene"));
+	SceneManager::Instance()->SetCurrentScene(SceneManager::Instance()->CreateScene("StartScene"));
 
 	TextureManager::Instance()->Init();
 

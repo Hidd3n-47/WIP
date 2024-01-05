@@ -31,6 +31,9 @@ private:
 	jci::Scene* m_gameScene = nullptr;
 	jci::Scene* m_startMenu = nullptr;
 
+	jci::Entity* m_startMenuEntity;
+	uint32 m_menuTexture;
+
 	std::vector<jci::Entity*> UpdatePool;
 
 	Zombie* z1 = nullptr;
