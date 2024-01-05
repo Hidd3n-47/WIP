@@ -26,7 +26,7 @@ public:
 	UiButton() = default;
 	~UiButton() = default;
 
-	inline void OnComponentAdd(Entity* entity) final { m_entity = entity; }
+	inline void OnComponentAdd(Entity* entity) final { m_entity = entity; m_layer = 200; }
 	inline void OnComponentRemove() final { }
 
 	inline IButtonMethods*	GetButtonMethods()	const { return m_buttonMethods; }

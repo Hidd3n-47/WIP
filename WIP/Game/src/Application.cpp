@@ -92,6 +92,8 @@ void Application::GameUpdate(float dt)
 
 void Application::Destroy()
 {
+	GameUIManager::getGameUIManager()->Destroy();
+
 	PlayerStateManager::Instance()->Destroy();
 
 	delete g1;

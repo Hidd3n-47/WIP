@@ -13,9 +13,9 @@
 #include "Game/Player/PlayerStateManager.h"
 #include "Game/src/Application.h"
 
-Zombie::Zombie()
+Zombie::~Zombie()
 {
-
+	delete m_damagePlayerCooldown;
 }
 
 void Zombie::Create(vec2 point, Player* play, uint32 zombieTexture) //Spawn at specifics
@@ -98,7 +98,11 @@ void Zombie::OnCollisionEnter(jci::Entity* other)
 			zombert->SetActive(false);
 		}
 	}
-	else if (other->GetTag() == "Player" && !m_damagePlayerCooldown)
+}
+
+void Zombie::OnCollisionStay(jci::Entity* other)
+{
+	if (other->GetTag() == "Player" && !m_damagePlayerCooldown)
 	{
 		m_damagePlayerCooldown = new jci::Timer(m_damageCooldown);
 		PlayerStateManager::Instance()->GetPlayer()->DamagePlayer(m_damage);

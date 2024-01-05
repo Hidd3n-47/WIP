@@ -10,6 +10,11 @@ PerkButton::PerkButton()
 	thisPerk = nullptr;
 }
 
+PerkButton::~PerkButton()
+{
+	delete thisPerk;
+}
+
 void PerkButton::setPerk(PerkParent* temp)
 {
 	thisPerk = temp;

@@ -28,47 +28,54 @@ GameUIManager::GameUIManager()
 	perkButtons.push_back(perkRight);
 }
 
+GameUIManager::~GameUIManager()
+{
+	delete perkRight;
+	delete perkMiddle;
+	delete perkLeft;
+}
+
 void GameUIManager::perkSet()
 {
-	for (auto i : perkButtons)
+	for (size_t i = 0; i < perkButtons.size(); i++)
 	{
-		if (!(i->getPerk() == nullptr))
+		if (perkButtons[i]->getPerk())
 		{
-			delete perkLeft->getPerk();
-			perkLeft->setPerk(nullptr);
+			delete perkButtons[i]->getPerk();
+			perkButtons[i]->setPerk(nullptr);
 		}
 		PerkParent* temp;
 		switch ((int)jci::Random::Instance()->Rand() * 6)
 		{
 		case 0:
 			temp = new tanky();
-			i->setPerk(temp);
-			i->getPerk()->setTag(Perks::Tanky);
+			perkButtons[i]->setPerk(temp);
+			perkButtons[i]->getPerk()->setTag(Perks::Tanky);
 			break;
 		case 1:
 			temp = new biggerBullets();
-			i->setPerk(temp);
-			i->getPerk()->setTag(Perks::BiggerBullets);
+			perkButtons[i]->setPerk(temp);
+			perkButtons[i]->getPerk()->setTag(Perks::BiggerBullets);
 			break;
 		case 2:
 			temp = new lighterBullets();
-			i->setPerk(temp);
-			i->getPerk()->setTag(Perks::LighterBullets);
+			perkButtons[i]->setPerk(temp);
+			perkButtons[i]->getPerk()->setTag(Perks::LighterBullets);
 			break;
 		case 3:
 			temp = new evasive();
-			i->setPerk(temp);
-			i->getPerk()->setTag(Perks::Evasive);
+			perkButtons[i]->setPerk(temp);
+			perkButtons[i]->getPerk()->setTag(Perks::Evasive);
 			break;
 		case 4:
 			temp = new doubleTap();
-			i->setPerk(temp);
-			i->getPerk()->setTag(Perks::DoubleTap);
+			perkButtons[i]->setPerk(temp);
+			perkButtons[i]->getPerk()->setTag(Perks::DoubleTap);
 			break;
 		case 5:
 			temp = new swiftHands();
-			i->setPerk(temp);
-			i->getPerk()->setTag(Perks::SwiftHands);
+			perkButtons[i]->setPerk(temp);
+			perkButtons[i]->getPerk()->setTag(Perks::SwiftHands);
 			break;
 		default:
 			break;
@@ -106,4 +113,9 @@ GameUIManager* GameUIManager::getGameUIManager()
 	{
 		return gameUIManager;
 	}
+}
+
+void GameUIManager::Destroy()
+{
+	delete gameUIManager;
 }
