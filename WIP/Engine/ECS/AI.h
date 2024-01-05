@@ -27,9 +27,12 @@ public:
 
 	inline AI& operator=(AI& other) noexcept
 	{
-		m_id = std::move(other.m_id);
+		/*m_id = std::move(other.m_id);
 		m_entity = std::move(other.m_entity);
 		
+		return *this;*/
+		memcpy(this, &other, sizeof(AI));
+
 		return *this;
 	}
 private:

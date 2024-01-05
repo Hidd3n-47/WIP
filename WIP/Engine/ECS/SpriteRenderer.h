@@ -23,7 +23,7 @@ public:
 
 	inline SpriteRenderer& operator=(SpriteRenderer& other) noexcept
 	{
-		m_id		= other.m_id;
+		/*m_id		= other.m_id;
 		m_entity	= other.m_entity;
 		
 		m_texture	= other.m_texture;
@@ -31,6 +31,9 @@ public:
 		m_size		= other.m_size;
 		m_layer		= other.m_layer;
 		m_flipY		= other.m_flipY;
+
+		return *this;*/
+		memcpy(this, &other, sizeof(SpriteRenderer));
 
 		return *this;
 	}

@@ -28,7 +28,7 @@ public:
 
 	inline Animation& operator=(Animation& other) noexcept
 	{
-		m_entity = other.m_entity;
+		/*m_entity = other.m_entity;
 		m_id = other.m_id;
 
 		m_frameTimer = other.m_frameTimer;
@@ -37,6 +37,9 @@ public:
 		m_animationCount = other.m_animationCount;
 		m_loop = other.m_loop;
 
+
+		return *this; */
+		memcpy(this, &other, sizeof(Animation));
 
 		return *this;
 	}

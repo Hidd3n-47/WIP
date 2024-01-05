@@ -23,7 +23,9 @@ public:
 
 	}
 
-	inline ~Entity()
+	inline ~Entity() = default;
+
+	inline void RemoveAllComponents()
 	{
 		for (auto it = m_componentIndices.begin(); it != m_componentIndices.end(); it++)
 		{
@@ -79,13 +81,15 @@ public:
 
 	void CacheComponets()
 	{
-		ASSERT(m_cachedComponents.size(), "Cached component vector size is not zero.");
-		if (m_componentIndices.size()) { return; }
+		ASSERT(!m_cachedComponents.size(), "Cached component vector size is not zero.");
+		if (!m_componentIndices.size()) { return; }
 
 		m_cachedComponents.resize(m_componentIndices.size());
-		for (auto it : m_componentIndices)
+		auto it = m_componentIndices.begin();
+		for (size_t i = 0; i < m_componentIndices.size(); i++, it++)
 		{
-			m_cachedComponents.push_back(ComponentManager::Instance()->GetComponentCopy(it.first, it.second));
+			m_cachedComponents[i] = ComponentManager::Instance()->GetComponentCopy(it->first, it->second);
+			ASSERT(m_cachedComponents[i], " ");
 		}
 	}
 
@@ -93,6 +97,7 @@ public:
 	{
 		for (IComponent* cachedComp : m_cachedComponents)
 		{
+			ASSERT(cachedComp, " ");
 			ComponentManager::Instance()->RegisterCachedComponent(cachedComp);
 		}
 
@@ -116,13 +121,16 @@ public:
 	
 	inline Entity& operator=(Entity& other) noexcept
 	{
-		m_componentIndices = std::move(other.m_componentIndices);
+		/*m_componentIndices = std::move(other.m_componentIndices);
 		m_scene = other.m_scene;
 		m_id = other.m_id;
 		m_componentMask = other.m_componentMask;
 		m_active = other.m_active;
 		m_tag = other.m_tag;
 		m_cachedComponents = std::move(other.m_cachedComponents);
+
+		return *this;*/
+		memcpy(this, &other, sizeof(Entity));
 
 		return *this;
 	}

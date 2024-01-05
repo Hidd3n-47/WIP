@@ -1,6 +1,10 @@
 #include "pch.h"
 #include "BulletManager.h"
 
+#include <Engine/Scene/SceneManager.h>
+
+#include "Bullet.h"
+
 BulletManager::~BulletManager()
 {
 	for (size_t i = 0; i < bulletPool.size(); i++)

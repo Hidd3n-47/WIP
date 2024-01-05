@@ -27,11 +27,14 @@ public:
 
 	inline CircleCollider& operator=(CircleCollider& other) noexcept
 	{
-		m_id = std::move(other.m_id);
+		/*m_id = std::move(other.m_id);
 		m_entity = std::move(other.m_entity);
 		m_radius = std::move(other.m_radius);
 		m_bodyType = std::move(other.m_bodyType);
 		
+		return *this;*/
+		memcpy(this, &other, sizeof(CircleCollider));
+
 		return *this;
 	}
 private:

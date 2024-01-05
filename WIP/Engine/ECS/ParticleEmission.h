@@ -23,9 +23,12 @@ public:
 
 	inline ParticleEmission& operator=(ParticleEmission& other) noexcept
 	{
-		m_id = std::move(other.m_id);
+		/*m_id = std::move(other.m_id);
 		m_entity = std::move(other.m_entity);
 		m_properties = std::move(other.m_properties);
+
+		return *this;*/
+		memcpy(this, &other, sizeof(ParticleEmission));
 
 		return *this;
 	}

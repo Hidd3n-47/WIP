@@ -148,7 +148,6 @@ void EnemyManager::Update(float dt)
 			}
 			else
 			{
-				vec2 SpawnPosition;
 				spawnQueue--;
 				for (auto f : EnemySquares)
 				{

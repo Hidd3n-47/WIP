@@ -42,7 +42,7 @@ public:
 
 	inline UiButton& operator=(UiButton& other) noexcept
 	{
-		m_id		= other.m_id;
+		/*m_id		= other.m_id;
 		m_entity	= other.m_entity;
 
 		m_buttonMethods = other.m_buttonMethods;
@@ -56,6 +56,9 @@ public:
 		m_size		= other.m_size;
 		m_layer		= other.m_layer;
 		m_flipY		= other.m_flipY;
+
+		return *this;*/
+		memcpy(this, &other, sizeof(UiButton));
 
 		return *this;
 	}

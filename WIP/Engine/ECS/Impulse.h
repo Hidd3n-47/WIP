@@ -26,11 +26,14 @@ public:
 
 	inline Impulse& operator=(Impulse& other) noexcept
 	{
-		m_id = std::move(other.m_id);
+		/*m_id = std::move(other.m_id);
 		m_entity = std::move(other.m_entity);
 		m_velocity = std::move(other.m_velocity);
 		m_dampening = std::move(other.m_dampening);
 		m_dampeningFactor = std::move(other.m_dampeningFactor);
+
+		return *this;*/
+		memcpy(this, &other, sizeof(Impulse));
 
 		return *this;
 	}
