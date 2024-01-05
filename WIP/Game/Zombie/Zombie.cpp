@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Zombie.h"
 #include <Engine/ECS/Audio.h>
+#include <Engine/Time/Timer.h>
 #include <Engine/ECS/Transform.h>
 #include <Engine/ECS/BoxCollider.h>
 #include <Engine/ECS/SpriteRenderer.h>
@@ -17,20 +18,7 @@ Zombie::Zombie()
 
 }
 
-//void Zombie::Create(Levels map, Player* play)//Debug
-//{
-//	player = play;
-//	uint32 text = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Zomb.png");
-//	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
-//	zombert = m_currentScene->CreateEmptyEntity();
-//	zombert->GetComponent<jci::Transform>()->SetPosition({ map.getSpawnPointX()+5,  map.getSpawnPointY() });
-//	zombert->AddComponent<jci::SpriteRenderer>()->SetTexture(text);
-//	jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::NoTexture);
-//	zombert->AddComponent<jci::BoxCollider>()->SetBodyType(jci::BodyType::Kinematic);
-//	zombert->GetComponent<jci::BoxCollider>()->SetSize({ 0.6f, 1.0f });
-//}
-
-void Zombie::Create(vec2 point, PlayerS* play, uint32 zombieTexture) //Spawn at specifics
+void Zombie::Create(vec2 point, Player* play, uint32 zombieTexture) //Spawn at specifics
 {
 	player = play;
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
@@ -84,6 +72,12 @@ void Zombie::Update(float time)
 			zombert->GetComponent<jci::SpriteRenderer>()->SetFlipY(false);
 		}
 	}
+
+	if (m_damagePlayerCooldown && m_damagePlayerCooldown->TimerTick() == jci::TimerStatus::TimerCompleted)
+	{
+		delete m_damagePlayerCooldown;
+		m_damagePlayerCooldown = nullptr;
+	}
 }
 
 jci::Entity* Zombie::getEntity()
@@ -101,16 +95,18 @@ void Zombie::OnCollisionEnter(jci::Entity* other)
 	if (other->GetTag() == "Bullet")
 	{
 		hp -= 10.0f;
-		std::cout << "Damaged the zombie for 10hp. Hp is " << hp << "\n";
 
 		zombert->GetComponent<jci::Audio>()->PlaySound();
 
 		if (hp <= 0.0f)
 		{
-			//jci::Engine::Instance()->DestroyEntity(zombert);
 			zombert->SetActive(false);
 			std::cout << "Remaining Zombies: " << EnemyManager::getEnemyManager()->zombiesAlive() << "\n";
 		}
-		
-	}	
+	}
+	else if (other->GetTag() == "Player" && !m_damagePlayerCooldown)
+	{
+		m_damagePlayerCooldown = new jci::Timer(m_damageCooldown);
+		PlayerStateManager::Instance()->GetPlayer()->DamagePlayer(m_damage);
+	}
 }

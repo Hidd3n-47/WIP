@@ -6,11 +6,9 @@
 #include "Graphics/Renderer/IRenderable.h"
 #include "Graphics/Renderer/RendererManager.h"
 #include "Graphics/Texture/TextureManager.h"
-#include "AnchorPoints.h"
+#include "UI/AnchorPoints.h"
 
 namespace jci {
-
-struct Quad;
 
 class UiSprite : public IComponent, public IRenderable
 {
@@ -23,15 +21,16 @@ public:
 
 	inline void OnComponentAdd(Entity* entity) final { m_entity = entity; }
 	inline void OnComponentRemove() final { }
-	
-	inline AnchorPoints		GetAnchorPoint()	const { return m_anchorPoint; }
 
+	inline AnchorPoints		GetAnchorPoint()	const { return m_anchorPoint; }
 	inline vec2		GetPadding()	const { return m_padding; }
 	inline bool		GetPressed()	const { return m_pressed; }
 
-	inline void SetAnchorPoint(AnchorPoints anchorPoint)		{ m_anchorPoint = anchorPoint; }
+	inline void SetAnchorPoint(AnchorPoints anchorPoint) { m_anchorPoint = anchorPoint; }
 
 	inline void SetPadding(vec2 padding)	{ m_padding = padding; }
+	inline void SetTextureRenderPercentage(float percent) { m_renderPercent = abs(percent); CalculateUV(0); }
+	inline void SetSize(vec2 size) final { m_size = size; m_originalSize = size; }
 
 	inline UiSprite& operator=(UiSprite& other) noexcept
 	{
@@ -49,6 +48,9 @@ public:
 		m_layer		= other.m_layer;
 		m_flipY		= other.m_flipY;
 
+		m_renderPercent = other.m_renderPercent;
+		m_originalSize = other.m_originalSize;
+
 		return *this;
 	}
 private:
@@ -59,6 +61,8 @@ private:
 
 	vec2 m_padding	= vec2(0.0f);
 	bool m_pressed	= false;
+	float m_renderPercent = 1.0f;
+	vec2 m_originalSize = vec2(1.0f);
 };
 
 } // Namespace jci.

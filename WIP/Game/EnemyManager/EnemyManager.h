@@ -14,7 +14,7 @@ namespace jci
 	class EnemyManager : public jci::ICollision
 	{
 	private:
-		PlayerS* player;
+		Player* player;
 		Uint32 zombieText;
 		int spawnQueue;
 		jci::Timer* spawnCD;

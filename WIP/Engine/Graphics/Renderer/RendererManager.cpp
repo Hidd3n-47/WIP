@@ -128,6 +128,7 @@ void RendererManager::Begin()
 	// ------------------------ Sprites ------------------------
 	m_verticesPtr = m_verticesBase;
 	m_indexCount = 0;
+
 	// Sprite Renderer component.
 	{
 		SpriteRenderer* sprite = ComponentManager::Instance()->GetComponentVector<SpriteRenderer>();

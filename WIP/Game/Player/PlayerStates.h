@@ -8,7 +8,7 @@ class Timer;
 class Animation;
 }
 
-struct PlayerS;
+struct Player;
 
 class PlayerIdleState : public jci::IState
 {
@@ -20,7 +20,7 @@ public:
 	virtual void OnStateUpdate(float dt) final;
 	virtual void OnStateExit() final;
 private:
-	PlayerS* m_player = nullptr;
+	Player* m_player = nullptr;
 };
 
 class PlayerMovingState : public jci::IState
@@ -33,7 +33,7 @@ public:
 	virtual void OnStateUpdate(float dt) final;
 	virtual void OnStateExit() final;
 private:
-	PlayerS* m_player = nullptr;
+	Player* m_player = nullptr;
 };
 
 class PlayerDashingState : public jci::IState
@@ -46,8 +46,7 @@ public:
 	virtual void OnStateUpdate(float dt) final;
 	virtual void OnStateExit() final;
 private:
-	PlayerS* m_player = nullptr;
-	uint32 m_movingTexture = 0;
+	Player* m_player = nullptr;
 };
 
 class PlayerMeleeState : public jci::IState
@@ -60,7 +59,7 @@ public:
 	virtual void OnStateUpdate(float dt) final;
 	virtual void OnStateExit() final;
 private:
-	PlayerS* m_player = nullptr;
+	Player* m_player = nullptr;
 	uint32 m_movingTexture = 0;
 };
 
@@ -74,7 +73,7 @@ public:
 	virtual void OnStateUpdate(float dt) final;
 	virtual void OnStateExit() final;
 private:
-	PlayerS* m_player = nullptr;
+	Player* m_player = nullptr;
 	uint32 m_movingTexture = 0;
 };
 
@@ -88,6 +87,6 @@ public:
 	virtual void OnStateUpdate(float dt) final;
 	virtual void OnStateExit() final;
 private:
-	PlayerS* m_player = nullptr;
+	Player* m_player = nullptr;
 	uint32 m_movingTexture = 0;
 };

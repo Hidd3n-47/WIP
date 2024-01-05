@@ -24,9 +24,9 @@ public:
 	// Mutators.
 	inline void SetTexture(Texture* texture) { m_texture = texture; }
 	inline void SetTexture(uint32 textureId) { m_texture = TextureManager::Instance()->GetTexture(textureId); }
-	inline void SetSize(vec2 size)			 { m_size = size; }
 	inline void SetLayer(uint8 layer)		 { m_layer = layer; }
 	inline void SetFlipY(bool flipY)		 { m_flipY = flipY; }
+	virtual void SetSize(vec2 size)			 { m_size = size; }
 protected:
 	Texture*	m_texture = nullptr;
 	vec4		m_uvRect = vec4(0.0f, 0.0f, 1.0f, 1.0f);

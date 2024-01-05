@@ -13,8 +13,7 @@
 
 #define DOUT(x) jci::Engine::Instance()->dout += x + "\n"
 
-#define DOUT_CLOSE() \
-	IOManager::Instance()->SaveToFile(dout, "EngineLog/log.jci")
+#define DOUT_CLOSE() IOManager::Instance()->SaveToFile(dout, "EngineLog/log.jci")
 
 #else
 #define ASSERT(x, ...)

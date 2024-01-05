@@ -17,9 +17,7 @@ void Camera::Update()
 {
 	if (!m_followPosition) { return; }
 
-	//vec2 direction = glm::normalize(*m_followPosition - m_position);
-
-	vec2 postion = m_position + (*m_followPosition - m_position) * 1.0f / 15.0f;
+	vec2 postion = m_position + (*m_followPosition - m_position) * 1.0f / m_followSpeed;
 
 	SetPosition(postion);
 }

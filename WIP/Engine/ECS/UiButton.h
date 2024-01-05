@@ -6,11 +6,9 @@
 #include "Graphics/Renderer/IRenderable.h"
 #include "Graphics/Renderer/RendererManager.h"
 #include "Graphics/Texture/TextureManager.h"
-#include "AnchorPoints.h"
+#include "UI/AnchorPoints.h"
 
 namespace jci {
-
-struct Quad;
 
 __interface IButtonMethods
 {

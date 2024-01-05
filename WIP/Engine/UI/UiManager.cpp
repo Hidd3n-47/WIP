@@ -66,50 +66,38 @@ void UiManager::Update()
 		}
 	}
 
-	/*UiSprite* sprites = ComponentManager::Instance()->GetComponentVector<UiSprite>();
+	UiSprite* sprites = ComponentManager::Instance()->GetComponentVector<UiSprite>();
 	for (entId i = 0; i < ComponentManager::Instance()->GetComponentCount(ComponentTypes::UiSprite); i++)
 	{
-		vec2 spritePosition = GetAnchorPosition(sprites[i].m_anchorPoint) + sprites[i].m_padding;
+		vec2 spritePosition = GetAnchorPosition(sprites[i].m_anchorPoint) + sprites[i].m_padding - vec2((1.0f - sprites[i].m_renderPercent) * sprites[i].m_originalSize.x * 0.5f, 0.0f);
+		sprites[i].m_size.x = sprites[i].m_originalSize.x * sprites[i].m_renderPercent;
 
-		sprites[i].m_position = spritePosition + m_camera->GetPosition();
-	}*/
+		sprites[i].m_entity->GetComponent<Transform>()->SetPosition(spritePosition + m_camera->GetPosition());
+	}
 }
 vec2 UiManager::GetAnchorPosition(AnchorPoints anchor)
 {
+	vec2 camHalf = m_camera->GetHalfExtents();
 	switch (anchor)
 	{
-	/*case AnchorPoints::TopLeft:
-		return vec2(-1.0f, 1.0f);
-	case AnchorPoints::TopMiddle:
-		return vec2(0.0f, 1.0f);
-	case AnchorPoints::TopRight:
-		return vec2(1.0f);
-	case AnchorPoints::Middle:
-		return vec2(0.0f);
-	case AnchorPoints::BotRight:
-		return vec2(1.0f, -1.0f);
-	case AnchorPoints::BotMiddle:
-		return vec2(0.0f, -1.0f);
-	case AnchorPoints::BotLeft:
-		return vec2(-1.0f);
-	default:
-		ASSERT(false, "Unhandled anchor position.");
-		return vec2(0.0f);*/
-
 	case AnchorPoints::TopLeft:
-		return vec2(-m_camera->GetHalfExtents().x, m_camera->GetHalfExtents().y);
+		return vec2(-camHalf.x, camHalf.y);
 	case AnchorPoints::TopMiddle:
-		return vec2(0.0f, m_camera->GetHalfExtents().y);
+		return vec2(0.0f, camHalf.y);
 	case AnchorPoints::TopRight:
-		return vec2(m_camera->GetHalfExtents());
+		return vec2(camHalf);
+	case AnchorPoints::MidRightThreeQuarters:
+		return vec2(0.75f * camHalf.x, 0.0f);
 	case AnchorPoints::Middle:
 		return vec2(0.0f);
+	case AnchorPoints::MidLeftOneQuarter:
+		return vec2(-0.75f * camHalf.x, 0.0f);
 	case AnchorPoints::BotRight:
-		return vec2(m_camera->GetHalfExtents().x, -m_camera->GetHalfExtents().y);
+		return vec2(camHalf.x, -camHalf.y);
 	case AnchorPoints::BotMiddle:
-		return vec2(0.0f, -m_camera->GetHalfExtents().y);
+		return vec2(0.0f, -camHalf.y);
 	case AnchorPoints::BotLeft:
-		return vec2(-m_camera->GetHalfExtents());
+		return vec2(-camHalf);
 	default:
 		ASSERT(false, "Unhandled anchor position.");
 		return vec2(-1.0f);

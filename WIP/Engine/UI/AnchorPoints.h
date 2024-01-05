@@ -8,10 +8,12 @@ enum class AnchorPoints
 	TopLeft,
 	TopMiddle,
 	TopRight,
+	MidRightThreeQuarters,
 	Middle,
-	BotRight,
+	MidLeftOneQuarter,
+	BotLeft,
 	BotMiddle,
-	BotLeft
+	BotRight
 };
 
 } // Namespace.
