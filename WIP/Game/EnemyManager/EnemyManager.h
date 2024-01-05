@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include "Game/Zombie/Zombie.h"
-#include "Game/Player/PlayerStateManager.h"
+#include "Game/Player/Player.h"
 
 namespace jci
 {
@@ -36,8 +36,8 @@ namespace jci
 		void clearZombies();
 		bool isZombiesWiped();
 		int zombiesAlive();
-		PlayerS* getPlayer();
-		void setPlayer(PlayerS* playertemp);
+		Player* getPlayer();
+		void setPlayer(Player* playertemp);
 		void spawnWave(int waveCount);
 		void Update(float dt);
 		void OnCollisionEnter(jci::Entity* other) final;
