@@ -75,4 +75,3 @@ private:
 	void OnCollisionStay(jci::Entity* other) final;
 	void OnCollisionExit(jci::Entity* other) final;
 };
-

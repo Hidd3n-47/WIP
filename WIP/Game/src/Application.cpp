@@ -41,7 +41,6 @@ void Application::Create()
 	em->setPlayer(m_player);
 
 	m_startMenu = jci::SceneManager::Instance()->CreateScene("StartScene");
-	//m_currentScene = m_gameScene;
 	jci::SceneManager::Instance()->SetCurrentScene(m_startMenu);
 	m_currentScene = m_startMenu;
 	m_menuTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/StartMenu.png", 1280, 720);
