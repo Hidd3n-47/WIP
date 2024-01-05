@@ -370,6 +370,7 @@
     <Image Include="Assets\Texture\square.png" />
     <Image Include="Assets\Texture\squareWITHANF!!.png" />
     <Image Include="Assets\Texture\squareWITHAW!!.png" />
+    <Image Include="Assets\Texture\StartMenu.png" />
     <Image Include="Assets\Texture\Weapons\Bowie Knife.png" />
     <Image Include="Assets\Texture\Zomb.png" />
   </ItemGroup>

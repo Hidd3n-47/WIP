@@ -4223,6 +4223,9 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 882
 Game object '882' already has component with id: 2
 Created Entity with id: 883
 Added component with id: ComponentTypes::Transform to Game Object: 883
+Added component with id: ComponentTypes::Audio to Game Object: 883
+Created texture Assets/Texture/Gun.png
+Created texture Assets/Texture/GunShooting.png
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 883
 Added component with id: ComponentTypes::BoxCollider to Game Object: 883
 Game object '883' already has component with id: 2
