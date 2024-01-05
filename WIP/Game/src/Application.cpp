@@ -26,13 +26,6 @@ void Application::Create()
 	map->newLevel();
 	EnemyManager* em = EnemyManager::getEnemyManager();
 
-	m_menuTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/StartMenu.png", 1280, 720);
-	m_startMenuEntity = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();
-	m_startMenuEntity->AddComponent<jci::SpriteRenderer>();
-	m_startMenuEntity->GetComponent<jci::SpriteRenderer>()->SetTexture(m_menuTexture);
-	m_startMenuEntity->GetComponent<jci::Transform>()->SetPosition(map->GetSpawnPoint());
-	m_startMenuEntity->GetComponent<jci::Transform>()->SetScale(vec2(1280.0f, 720.0f));
-
 	m_bgMusic = m_currentScene->CreateEmptyEntity()->AddComponent<jci::Audio>();
 	m_bgMusic->SetMusic("Assets/Audio/playingBg.mp3", 20);
 	m_bgMusic->PlayMusic();
@@ -47,19 +40,20 @@ void Application::Create()
 	PlayerStateManager::Instance()->Init(map->GetSpawnPoint(), g1);
 	em->setPlayer(m_player);
 
-	m_startMenu = jci::SceneManager::Instance()->GetScene("StartScene");
-	m_gameScene = jci::SceneManager::Instance()->CreateScene("MainScene");
+	m_startMenu = jci::SceneManager::Instance()->CreateScene("StartScene");
+	//m_currentScene = m_gameScene;
+	jci::SceneManager::Instance()->SetCurrentScene(m_startMenu);
 	m_currentScene = m_startMenu;
-	//jci::SceneManager::Instance()->SetCurrentScene(m_currentScene);
+	m_menuTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/StartMenu.png", 1280, 720);
+	m_startMenuEntity = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();
+	m_startMenuEntity->AddComponent<jci::UiSprite>();
+	m_startMenuEntity->GetComponent<jci::UiSprite>()->SetTexture(m_menuTexture);
+	m_startMenuEntity->GetComponent<jci::Transform>()->SetPosition(vec2(0.0f, 0.0f));
+	m_startMenuEntity->GetComponent<jci::UiSprite>()->SetSize(m_currentScene->GetCamera()->GetHalfExtents() * 2.0f);
 }
 
 void Application::Update(float dt)
 {
-	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_o))
-	{
-		jci::SceneManager::Instance()->SetCurrentScene(m_gameScene);
-		m_currentScene = m_gameScene;
-	}
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_p))
 	{
 		jci::SceneManager::Instance()->SetCurrentScene(m_startMenu);
