@@ -22,9 +22,6 @@ GameUIManager::GameUIManager()
 	perkLeft->getButton()->GetComponent<jci::UiButton>()->SetAnchorPoint(jci::AnchorPoints::MidLeftOneQuarter);
 	perkMiddle->getButton()->GetComponent<jci::UiButton>()->SetAnchorPoint(jci::AnchorPoints::Middle);
 	perkRight->getButton()->GetComponent<jci::UiButton>()->SetAnchorPoint(jci::AnchorPoints::MidRightThreeQuarters);
-	perkLeft->getButton()->GetComponent<jci::Transform>()->SetPosition(vec2(0,0));
-	perkMiddle->getButton()->GetComponent<jci::Transform>()->SetPosition(vec2(0, 0));
-	perkRight->getButton()->GetComponent<jci::Transform>()->SetPosition(vec2(0, 0));
 	perkToggle();
 	perkButtons.push_back(perkLeft);
 	perkButtons.push_back(perkMiddle);
@@ -48,37 +45,38 @@ void GameUIManager::perkSet()
 			perkButtons[i]->setPerk(nullptr);
 		}
 		PerkParent* temp;
-		switch ((int)jci::Random::Instance()->Rand() * 6)
+		int tempInt = (int)(jci::Random::Instance()->Rand() * 6);
+		switch (tempInt)
 		{
 		case 0:
 			temp = new tanky();
 			perkButtons[i]->setPerk(temp);
-			perkButtons[i]->getPerk()->setTag(Perks::Tanky);
+			perkButtons[i]->getPerk()->setTag(Perks::Tanky,"Tanky");
 			break;
 		case 1:
 			temp = new biggerBullets();
 			perkButtons[i]->setPerk(temp);
-			perkButtons[i]->getPerk()->setTag(Perks::BiggerBullets);
+			perkButtons[i]->getPerk()->setTag(Perks::BiggerBullets,"Bigger Bullets");
 			break;
 		case 2:
 			temp = new lighterBullets();
 			perkButtons[i]->setPerk(temp);
-			perkButtons[i]->getPerk()->setTag(Perks::LighterBullets);
+			perkButtons[i]->getPerk()->setTag(Perks::LighterBullets,"Lighter Bullets");
 			break;
 		case 3:
 			temp = new evasive();
 			perkButtons[i]->setPerk(temp);
-			perkButtons[i]->getPerk()->setTag(Perks::Evasive);
+			perkButtons[i]->getPerk()->setTag(Perks::Evasive,"Evasive");
 			break;
 		case 4:
 			temp = new doubleTap();
 			perkButtons[i]->setPerk(temp);
-			perkButtons[i]->getPerk()->setTag(Perks::DoubleTap);
+			perkButtons[i]->getPerk()->setTag(Perks::DoubleTap,"Double Tap");
 			break;
 		case 5:
 			temp = new swiftHands();
 			perkButtons[i]->setPerk(temp);
-			perkButtons[i]->getPerk()->setTag(Perks::SwiftHands);
+			perkButtons[i]->getPerk()->setTag(Perks::SwiftHands,"Swift Hands");
 			break;
 		default:
 			break;

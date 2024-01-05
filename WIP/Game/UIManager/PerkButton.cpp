@@ -5,8 +5,10 @@
 PerkButton::PerkButton()
 {
 	thisButton->AddComponent<jci::UiButton>();
-	thisButton->AddComponent<jci::UiSprite>()->SetTexture(jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::Dbg_Box));
+	thisButton->AddComponent<jci::SpriteRenderer>()->SetTexture(jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::Dbg_Box));
 	thisButton->GetComponent<jci::UiButton>()->SetButtonMethods(this);
+	//thisButton->GetComponent<jci::SpriteRenderer>()->SetSize(vec2(2, 4));
+	//thisButton->GetComponent<jci::SpriteRenderer>()->SetLayer(1);
 	thisPerk = nullptr;
 }
 
@@ -33,5 +35,6 @@ jci::Entity* PerkButton::getButton()
 void PerkButton::OnButtonPress()
 {
 	thisPerk->activate();
+	std::cout << "Perk selected: " << thisPerk->getTagStr() << "\n";
 	GameUIManager::getGameUIManager()->perkToggle();
 }
