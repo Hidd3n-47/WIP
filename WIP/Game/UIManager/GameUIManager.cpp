@@ -34,8 +34,8 @@ void GameUIManager::perkSet()
 	{
 		if (!(i->getPerk() == nullptr))
 		{
-			delete perkLeft->getPerk();
-			perkLeft->setPerk(nullptr);
+			delete i->getPerk();
+			i->setPerk(nullptr);
 		}
 		PerkParent* temp;
 		switch ((int)jci::Random::Instance()->Rand() * 6)

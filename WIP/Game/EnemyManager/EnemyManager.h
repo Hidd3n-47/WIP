@@ -20,7 +20,7 @@ namespace jci
 		jci::Timer* spawnCD;
 		bool PlayerInCollisionRange;
 		bool PlayerOutOfRange(jci::Entity* spawner);
-		void CreateZombie(vec2 point);
+		Zombie* CreateZombie(vec2 point);
 		EnemyManager();
 	public:
 		void Destroy();
@@ -28,12 +28,14 @@ namespace jci
 		uint32 getZombieTexture();
 
 		std::vector<jci::Entity*> EnemySquares;
-		std::vector<Zombie*> Zombies;
+		std::list<Zombie*> Zombies;
 		EnemyManager(const EnemyManager& obj) = delete;
 		static EnemyManager* getEnemyManager();
 		//std::vector<jci::Entity*> getEnemySquares();
 		void clearSquares();
 		void clearZombies();
+		bool isZombiesWiped();
+		int zombiesAlive();
 		PlayerS* getPlayer();
 		void setPlayer(PlayerS* playertemp);
 		void spawnWave(int waveCount);

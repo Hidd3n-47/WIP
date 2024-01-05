@@ -22,6 +22,7 @@ public:
 	void Update(float time);
 	//void Create(Levels map, Player* play);
 	jci::Entity* getEntity();
+	void reset();
 	jci::Scene* m_currentScene;
 
 private:
