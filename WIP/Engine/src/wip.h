@@ -40,9 +40,7 @@ inline static std::string		GetName()			{ return #x; }				\
 inline virtual void				SetId(entId id)		{ m_id = id; }				\
 inline virtual entId			GetId() const		{ return m_id; }			\
 inline virtual Entity*			GetEntity() final	{ return m_entity; }		\
-inline virtual ComponentTypes	GetComponentType() const final { return x;}
-
-__interface IProperties {};
+inline virtual ComponentTypes	GetComponentType() const final { return x;}		
 
 namespace jci {
 using		entId					= uint32;

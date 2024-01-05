@@ -5,6 +5,7 @@
 #include <Engine/ECS/Entity.h>
 #include <Engine/Input/InputManager.h>
 #include <Engine/Graphics/Texture/TextureManager.h>
+#include <Engine/Scene/SceneManager.h>
 
 #include "PlayerStateManager.h"
 

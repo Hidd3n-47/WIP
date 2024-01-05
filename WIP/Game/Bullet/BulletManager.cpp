@@ -1,6 +1,10 @@
 #include "pch.h"
 #include "BulletManager.h"
 
+#include <Engine/Scene/SceneManager.h>
+
+#include "Bullet.h"
+
 BulletManager::BulletManager()
 {
 	m_pierceCount = 1;

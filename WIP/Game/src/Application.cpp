@@ -28,7 +28,7 @@ void Application::Create()
 
 	m_bgMusic = m_currentScene->CreateEmptyEntity()->AddComponent<jci::Audio>();
 	m_bgMusic->SetMusic("Assets/Audio/playingBg.mp3", 20);
-	m_bgMusic->PlayMusic();
+	//m_bgMusic->PlayMusic();
 
 	manager = new BulletManager();
 	manager->Create();

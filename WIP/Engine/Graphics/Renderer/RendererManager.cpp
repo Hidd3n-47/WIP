@@ -189,7 +189,7 @@ void RendererManager::Begin()
 
 void RendererManager::End()
 {
-	uint32 size = (ubyte*)m_verticesPtr - (ubyte*)m_verticesBase;
+	uint64 size = (ubyte*)m_verticesPtr - (ubyte*)m_verticesBase;
 	m_vertexBuffer->Bind();
 	m_vertexBuffer->SetData(m_verticesBase, size);
 

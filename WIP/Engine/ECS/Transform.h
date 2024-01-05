@@ -73,11 +73,14 @@ public:
 
 	inline Transform& operator=(Transform& other) noexcept
 	{
-		m_id = std::move(other.m_id);
+		/*m_id = std::move(other.m_id);
 		m_entity = std::move(other.m_entity);
 		m_position = std::move(other.m_position);
 		m_scale = std::move(other.m_scale);
 		m_rotation = std::move(other.m_rotation);
+
+		*this = std::move(other);*/
+		memcpy(this, &other, sizeof(Transform));
 
 		return *this;
 	}

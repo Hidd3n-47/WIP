@@ -8,7 +8,7 @@ class Timer;
 class Animation;
 }
 
-struct Player;
+class Player;
 
 class PlayerIdleState : public jci::IState
 {

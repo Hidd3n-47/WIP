@@ -34,7 +34,7 @@ public:
 
 	inline UiSprite& operator=(UiSprite& other) noexcept
 	{
-		m_id		= other.m_id;
+		/*m_id		= other.m_id;
 		m_entity	= other.m_entity;
 
 		m_anchorPoint = other.m_anchorPoint;
@@ -50,6 +50,9 @@ public:
 
 		m_renderPercent = other.m_renderPercent;
 		m_originalSize = other.m_originalSize;
+
+		return *this;*/
+		memcpy(this, &other, sizeof(UiSprite));
 
 		return *this;
 	}

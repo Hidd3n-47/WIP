@@ -396,68 +396,81 @@ public:
 		{
 		case ComponentTypes::Transform:
 		{
-			Transform t = m_transforms[id];
-			return (IComponent*)&t;
+			//Transform t = m_transforms[id];
+			Transform* t = new Transform(m_transforms[id]);
+			return dynamic_cast<IComponent*>(t);
 		}
 		case ComponentTypes::SpriteRenderer:
 		{
-			SpriteRenderer sr = m_spriteRenderers[id];
-			return (IComponent*)&sr;
+			//SpriteRenderer sr = m_spriteRenderers[id];
+			SpriteRenderer* sr = new SpriteRenderer(m_spriteRenderers[id]);
+			return dynamic_cast<IComponent*>(sr);
 		}
 		case ComponentTypes::BoxCollider:
 		{
-			BoxCollider bc = m_boxColliders[id];
-			return (IComponent*)&bc;
+			//BoxCollider bc = m_boxColliders[id];
+			BoxCollider* bc = new BoxCollider(m_boxColliders[id]);
+			return dynamic_cast<IComponent*>(bc);
 		}
 		case ComponentTypes::CircleCollider:
 		{
-			CircleCollider cc = m_circleColliders[id];
-			return (IComponent*)&cc;
+			//CircleCollider cc = m_circleColliders[id];
+			CircleCollider* cc = new CircleCollider(m_circleColliders[id]);
+			return dynamic_cast<IComponent*>(cc);
 		}
 		case ComponentTypes::CapsuleCollider:
 		{
-			CapsuleCollider cc = m_capsuleColliders[id];
-			return (IComponent*)&cc;
+			//CapsuleCollider cc = m_capsuleColliders[id];
+			CapsuleCollider* cc = new CapsuleCollider(m_capsuleColliders[id]);
+			return dynamic_cast<IComponent*>(cc);
 		}
 		case ComponentTypes::NavBlock:
 		{
-			NavBlock nb = m_navBlocks[id];
-			return (IComponent*)&nb;
+			//NavBlock nb = m_navBlocks[id];
+			NavBlock* nb = new NavBlock(m_navBlocks[id]);
+			return dynamic_cast<IComponent*>(nb);
 		}
 		case ComponentTypes::AI:
 		{
-			AI ai = m_ais[id];
-			return (IComponent*)&ai;
+			//AI ai = m_ais[id];
+			AI* ai = new AI(m_ais[id]);
+			return dynamic_cast<IComponent*>(ai);
 		}
 		case ComponentTypes::Impulse:
 		{
-			Impulse i = m_impulses[id];
-			return (IComponent*)&i;
+			//Impulse i = m_impulses[id];
+			Impulse* i = new Impulse(m_impulses[id]);
+			return dynamic_cast<IComponent*>(i);
 		}
 		case ComponentTypes::Audio:
 		{
-			Audio a = m_audios[id];
-			return (IComponent*)&a;
+			//Audio a = m_audios[id];
+			Audio* a = new Audio(m_audios[id]);
+			return dynamic_cast<IComponent*>(a);
 		}
 		case ComponentTypes::Animation:
 		{
-			Animation a = m_animations[id];
-			return (IComponent*)&a;
+			//Animation a = m_animations[id];
+			Animation* a = new Animation(m_animations[id]);
+			return dynamic_cast<IComponent*>(a);
 		}
 		case ComponentTypes::ParticleEmission:
 		{
-			ParticleEmission pe = m_particleEmissions[id];
-			return (IComponent*)&pe;
+			//ParticleEmission pe = m_particleEmissions[id];
+			ParticleEmission* pe = new ParticleEmission(m_particleEmissions[id]);
+			return dynamic_cast<IComponent*>(pe);
 		}
 		case ComponentTypes::UiButton:
 		{
-			UiButton ub = m_uiButtons[id];
-			return (IComponent*)&ub;
+			//UiButton ub = m_uiButtons[id];
+			UiButton* ub = new UiButton(m_uiButtons[id]);
+			return dynamic_cast<IComponent*>(ub);
 		}
 		case ComponentTypes::UiSprite:
 		{
-			UiSprite us = m_uiSprites[id];
-			return (IComponent*)&us;
+			//UiSprite us = m_uiSprites[id];
+			UiSprite*us = new UiSprite(m_uiSprites[id]);
+			return dynamic_cast<IComponent*>(us);
 		}
 		default:
 			ASSERT(false, "Unhandled component removal.");
@@ -467,47 +480,47 @@ public:
 
 	void RegisterCachedComponent(IComponent* component)
 	{
-		ComponentTypes type = component->GetComponentType();
+		const ComponentTypes type = component->GetComponentType();
 		switch (type)
 		{
 		case ComponentTypes::Transform:
-			RegisterComponent(type, m_transforms, *(Transform*)component);
+			RegisterComponent(type, m_transforms, *dynamic_cast<Transform*>(component));
 			break;
 		case ComponentTypes::SpriteRenderer:
-			RegisterComponent(type, m_spriteRenderers, *(SpriteRenderer*)component);
+			RegisterComponent(type, m_spriteRenderers, *dynamic_cast<SpriteRenderer*>(component));
 			break;
 		case ComponentTypes::BoxCollider:
-			RegisterComponent(type, m_boxColliders, *(BoxCollider*)component);
+			RegisterComponent(type, m_boxColliders, *dynamic_cast<BoxCollider*>(component));
 			break;
 		case ComponentTypes::CircleCollider:
-			RegisterComponent(type, m_circleColliders, *(CircleCollider*)component);
+			RegisterComponent(type, m_circleColliders, *dynamic_cast<CircleCollider*>(component));
 			break;
 		case ComponentTypes::CapsuleCollider:
-			RegisterComponent(type, m_capsuleColliders, *(CapsuleCollider*)component);
+			RegisterComponent(type, m_capsuleColliders, *dynamic_cast<CapsuleCollider*>(component));
 			break;
 		case ComponentTypes::NavBlock:
-			RegisterComponent(type, m_navBlocks, *(NavBlock*)component);
+			RegisterComponent(type, m_navBlocks, *dynamic_cast<NavBlock*>(component));
 			break;
 		case ComponentTypes::AI:
-			RegisterComponent(type, m_ais, *(AI*)component);
+			RegisterComponent(type, m_ais, *dynamic_cast<AI*>(component));
 			break;
 		case ComponentTypes::Impulse:
-			RegisterComponent(type, m_impulses, *(Impulse*)component);
+			RegisterComponent(type, m_impulses, *dynamic_cast<Impulse*>(component));
 			break;
 		case ComponentTypes::Audio:
-			RegisterComponent(type, m_audios, *(Audio*)component);
+			RegisterComponent(type, m_audios, *dynamic_cast<Audio*>(component));
 			break;
 		case ComponentTypes::Animation:
-			RegisterComponent(type, m_animations, *(Animation*)component);
+			RegisterComponent(type, m_animations, *dynamic_cast<Animation*>(component));
 			break;
 		case ComponentTypes::ParticleEmission:
-			RegisterComponent(type, m_particleEmissions, *(ParticleEmission*)component);
+			RegisterComponent(type, m_particleEmissions, *dynamic_cast<ParticleEmission*>(component));
 			break;
 		case ComponentTypes::UiButton:
-			RegisterComponent(type, m_uiButtons, *(UiButton*)component);
+			RegisterComponent(type, m_uiButtons, *dynamic_cast<UiButton*>(component));
 			break;
 		case ComponentTypes::UiSprite:
-			RegisterComponent(type, m_uiSprites, *(UiSprite*)component);
+			RegisterComponent(type, m_uiSprites, *dynamic_cast<UiSprite*>(component));
 			break;
 		default:
 			ASSERT(false, "Unhandled component removal.");

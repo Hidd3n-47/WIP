@@ -333,8 +333,9 @@ int Levels::getSpawnPointX()
 	for (auto i : spawnPoints)
 	{
 		if (i->IsActive())
-			return i->GetComponent<jci::Transform>()->GetPosition().x;
+			return (int)i->GetComponent<jci::Transform>()->GetPosition().x;
 	}
+	return -1;
 }
 
 int Levels::getSpawnPointY()
@@ -342,8 +343,9 @@ int Levels::getSpawnPointY()
 	for (auto i : spawnPoints)
 	{
 		if (i->IsActive())
-			return i->GetComponent<jci::Transform>()->GetPosition().y;
+			return (int)i->GetComponent<jci::Transform>()->GetPosition().y;
 	}
+	return -1;
 }
 
 vec2 Levels::GetSpawnPoint()

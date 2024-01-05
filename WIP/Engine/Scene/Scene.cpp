@@ -40,6 +40,7 @@ void Scene::RemoveEnity(Entity* entity)
 	{
 		if (m_entities[i] == entity)
 		{
+			m_entities[i]->RemoveAllComponents();
 			delete m_entities[i];
 			m_entities[i] = m_entities.back();
 			m_entities.pop_back();
@@ -52,23 +53,25 @@ void Scene::RemoveEnity(Entity* entity)
 void Scene::CacheEntities()
 {
 	ASSERT(!m_cachedEntities.size(), "Cached entity vector size is not zero.");
-	if (m_entities.size()) { return; }
+	if (!m_entities.size()) { return; }
 
 	m_cachedEntities.resize(m_entities.size());
 
-	for (Entity* ent : m_entities)
+	for (size_t i = 0; i < m_entities.size(); i++)
 	{
-		ent->CacheComponets();
-		Entity e = *ent;
-		m_cachedEntities.push_back(e);
+		m_entities[i]->CacheComponets();
+		Entity e = *m_entities[i];
+		m_cachedEntities[i] = e;
 	}
 }
 
 void Scene::RetrieveCachedEntities()
 {
-	for (Entity e : m_cachedEntities)
+	int i = 0;
+	for (Entity& e : m_cachedEntities)
 	{
-		Entity* ent = new Entity(this, m_entityIndex);
+		i++;
+		Entity* ent = new Entity();
 		*ent = e;
 		ent->SetId(m_entityIndex++);
 		ent->RetrieveComponents();
