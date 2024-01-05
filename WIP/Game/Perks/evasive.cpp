@@ -3,5 +3,5 @@
 
 void evasive::activate()
 {
-	EnemyManager::getEnemyManager()->getPlayer()->LessDashCD();
+	PlayerStateManager::Instance()->GetPlayer()->LessDashCD();
 }

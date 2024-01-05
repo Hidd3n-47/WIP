@@ -11,13 +11,16 @@ void WaveDefence::Update(float dt)
 	}
 	if (!completed)
 	{
-		if (waveCount == 0 && waveCD != nullptr && !completed)
+		if (waveCount == 0 && EnemyManager::getEnemyManager()->zombiesAlive() == 0 && !completed)
 		{
-			delete waveCD;
-			waveCD = nullptr;
 			completed = true;
 			DLOG("Completed");
 			return;
+		}
+		if (waveCount == 0)
+		{
+			delete waveCD;
+			waveCD = nullptr;
 		}
 		if (waveCD == nullptr)
 		{

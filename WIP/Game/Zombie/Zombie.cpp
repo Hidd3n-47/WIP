@@ -13,9 +13,9 @@
 #include "Game/Player/PlayerStateManager.h"
 #include "Game/src/Application.h"
 
-Zombie::Zombie()
+Zombie::~Zombie()
 {
-
+	delete m_damagePlayerCooldown;
 }
 
 void Zombie::Create(vec2 point, Player* play, uint32 zombieTexture) //Spawn at specifics
@@ -52,7 +52,7 @@ void Zombie::Update(float time)
 	if (hp > 0)
 	{
 		const float SPEED = 0.008f;
-		vec2 direction = player->GetPosition() - zombert->GetComponent<jci::Transform>()->GetPosition();
+		vec2 direction = EnemyManager::getEnemyManager()->getPlayer()->GetPosition() - zombert->GetComponent<jci::Transform>()->GetPosition();
 
 		if (direction != vec2(0.0f))
 		{
@@ -85,6 +85,11 @@ jci::Entity* Zombie::getEntity()
 	return zombert;
 }
 
+void Zombie::reset()
+{
+	hp = 30;
+}
+
 void Zombie::OnCollisionEnter(jci::Entity* other)
 {
 	if (other->GetTag() == "Bullet")
@@ -96,9 +101,14 @@ void Zombie::OnCollisionEnter(jci::Entity* other)
 		if (hp <= 0.0f)
 		{
 			zombert->SetActive(false);
+			std::cout << "Remaining Zombies: " << EnemyManager::getEnemyManager()->zombiesAlive() << "\n";
 		}
 	}
-	else if (other->GetTag() == "Player" && !m_damagePlayerCooldown)
+}
+
+void Zombie::OnCollisionStay(jci::Entity* other)
+{
+	if (other->GetTag() == "Player" && !m_damagePlayerCooldown)
 	{
 		m_damagePlayerCooldown = new jci::Timer(m_damageCooldown);
 		PlayerStateManager::Instance()->GetPlayer()->DamagePlayer(m_damage);

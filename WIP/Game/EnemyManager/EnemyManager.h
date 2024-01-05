@@ -1,7 +1,7 @@
 #pragma once
-#include <vector>
+
 #include "Game/Zombie/Zombie.h"
-#include "Game/Player/PlayerStateManager.h"
+#include "Game/Player/Player.h"
 
 namespace jci
 {
@@ -11,7 +11,7 @@ namespace jci
 	class Timer;
 }
 
-	class EnemyManager : public jci::ICollision
+	class EnemyManager
 	{
 	private:
 		Player* player;
@@ -20,20 +20,35 @@ namespace jci
 		jci::Timer* spawnCD;
 		bool PlayerInCollisionRange;
 		bool PlayerOutOfRange(jci::Entity* spawner);
-		void CreateZombie(vec2 point);
+		Zombie* CreateZombie(vec2 point);
 		EnemyManager();
 	public:
 		void Destroy();
+class EnemyManager
+{
+private:
+	Player* player;
+	Uint32 zombieText;
+	int spawnQueue;
+	jci::Timer* spawnCD;
+	bool PlayerInCollisionRange;
+	bool PlayerOutOfRange(jci::Entity* spawner);
+	void CreateZombie(vec2 point);
+	EnemyManager();
+public:
+	void Destroy();
 
-		uint32 getZombieTexture();
+	uint32 getZombieTexture();
 
 		std::vector<jci::Entity*> EnemySquares;
-		std::vector<Zombie*> Zombies;
+		std::list<Zombie*> Zombies;
 		EnemyManager(const EnemyManager& obj) = delete;
 		static EnemyManager* getEnemyManager();
 		//std::vector<jci::Entity*> getEnemySquares();
 		void clearSquares();
 		void clearZombies();
+		bool isZombiesWiped();
+		int zombiesAlive();
 		Player* getPlayer();
 		void setPlayer(Player* playertemp);
 		void spawnWave(int waveCount);
