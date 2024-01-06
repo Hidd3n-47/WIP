@@ -206,6 +206,7 @@
     <ClCompile Include="Game\Perks\PerkParent.cpp" />
     <ClCompile Include="Game\Perks\tanky.cpp" />
     <ClCompile Include="Game\Player\Player.cpp" />
+    <ClCompile Include="Game\Player\Score.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\ECS\UiSprite.h" />
@@ -299,6 +300,7 @@
     <ClInclude Include="Engine\Graphics\Renderer\IRenderable.h" />
     <ClInclude Include="Game\Player\Player.h" />
     <ClInclude Include="Engine\ECS\UiText.h" />
+    <ClInclude Include="Game\Player\Score.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Levels\NOLAGROOM.csv" />

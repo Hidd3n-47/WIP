@@ -9,9 +9,10 @@
 #include <Engine/Input/InputManager.h>
 #include <Engine/ECS/ParticleEmission.h>
 
+#include "Game/Player/Score.h"
 #include "Game/Bullet/Bullet.h"
-#include "Game/Player/PlayerStateManager.h"
 #include "Game/src/Application.h"
+#include "Game/Player/PlayerStateManager.h"
 
 Zombie::~Zombie()
 {
@@ -100,8 +101,14 @@ void Zombie::OnCollisionEnter(jci::Entity* other)
 
 		if (hp <= 0.0f)
 		{
+			Score::Instance()->AddToScore(100);
+
 			zombert->SetActive(false);
 			std::cout << "Remaining Zombies: " << EnemyManager::getEnemyManager()->zombiesAlive() << "\n";
+		}
+		else
+		{
+			Score::Instance()->AddToScore(10);
 		}
 	}
 }

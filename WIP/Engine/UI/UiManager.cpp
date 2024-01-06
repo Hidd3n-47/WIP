@@ -71,6 +71,11 @@ void UiManager::Update()
 	count = ComponentManager::Instance()->GetComponentCount(ComponentTypes::UiSprite);
 	for (entId i = 0; i < ComponentManager::Instance()->GetComponentCount(ComponentTypes::UiSprite); i++)
 	{
+		if (!sprites[i].GetEntity()->IsActive())
+		{
+			continue;
+		}
+
 		vec2 spritePosition = GetAnchorPosition(sprites[i].m_anchorPoint) + sprites[i].m_padding - vec2((1.0f - sprites[i].m_renderPercent) * sprites[i].m_originalSize.x * 0.5f, 0.0f);
 		sprites[i].m_size.x = sprites[i].m_originalSize.x * sprites[i].m_renderPercent;
 
@@ -81,6 +86,13 @@ void UiManager::Update()
 	count = ComponentManager::Instance()->GetComponentCount(ComponentTypes::UiText);
 	for (entId i = 0; i < count; i++)
 	{
+		if (!texts[i].GetEntity()->IsActive())
+		{
+			continue;
+		}
+
+		texts[i].GetEntity()->GetComponent<Transform>()->SetPosition(GetAnchorPosition(texts[i].m_anchorPoint) + texts[i].m_padding + m_camera->GetPosition());
+
 		if (!texts[i].m_recalculateGlyphs)
 		{
 			continue;
@@ -101,11 +113,21 @@ void UiManager::Update()
 
 		for (size_t j = 0; j < digits.size(); j++)
 		{
-			vec2 position = texts[i].GetEntity()->GetComponent<Transform>()->GetPosition() + GetAnchorPosition(texts[i].m_anchorPoint) + texts[i].m_padding + m_camera->GetPosition();
-			position.x += (digits.size() - j) * size;
+			vec2 position = vec2(0.0f);
+
+			if (texts[i].m_textAlign == TextAlignment::Left)
+			{
+				position.x += (digits.size() - j) * size;
+			}
+			else
+			{
+				position.x -= j * size;
+			}
 
 			texts[i].m_glyphs.emplace_back(position, vec2(size), digits[j]);
 		}
+
+		texts[i].m_recalculateGlyphs = false;
 	}
 }
 vec2 UiManager::GetAnchorPosition(AnchorPoints anchor)

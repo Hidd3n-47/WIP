@@ -5449,6 +5449,8 @@ Created Entity with id: 1088
 Added component with id: ComponentTypes::Transform to Game Object: 1088
 Created Entity with id: 1089
 Added component with id: ComponentTypes::Transform to Game Object: 1089
+Created Entity with id: 1090
+Added component with id: ComponentTypes::Transform to Game Object: 1090
 Added component with id: ComponentTypes::Impulse to Game Object: 1088
 Created texture Assets/Texture/PlayerSpriteSheet.png
 Created texture Assets/Texture/Blank.png
@@ -5457,11 +5459,17 @@ Added component with id: ComponentTypes::SpriteRenderer to Game Object: 1088
 Added component with id: ComponentTypes::CapsuleCollider to Game Object: 1088
 Added component with id: ComponentTypes::UiSprite to Game Object: 1089
 Created texture Assets/Texture/health-bar.png
-Created Entity with id: 1090
-Added component with id: ComponentTypes::Transform to Game Object: 1090
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 1090
-Game object '1090' already has component with id: 2
+Added component with id: ComponentTypes::UiSprite to Game Object: 1090
+Created texture Assets/Texture/health-bar-bg.png
+Created Entity with id: 1091
+Added component with id: ComponentTypes::Transform to Game Object: 1091
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 1091
+Game object '1091' already has component with id: 2
 Created texture Assets/Texture/Weapons/Bowie Knife.png
+Created Entity with id: 1092
+Added component with id: ComponentTypes::Transform to Game Object: 1092
+Added component with id: ComponentTypes::UiText to Game Object: 1092
+Created texture Assets/Texture/ScoreFont.png
 Destroyed Entity with id: 0
 Destroyed Entity with id: 1
 Destroyed Entity with id: 2
@@ -6553,4 +6561,6 @@ Destroyed Entity with id: 1087
 Destroyed Entity with id: 1088
 Destroyed Entity with id: 1089
 Destroyed Entity with id: 1090
+Destroyed Entity with id: 1091
+Destroyed Entity with id: 1092
 Destroyed scene with name: MainScene
