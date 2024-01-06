@@ -101,7 +101,7 @@ void Bullet::OnCollisionEnter(jci::Entity* other)
 		m_particles->Emit();
 		m_pierced -= 1;
 	}
-	if (!(other->GetTag() == "Player" || other->GetTag() == "Bullet") && m_pierced < 1)
+	if (!(other->GetTag() == "Player" || other->GetTag() == "Bullet") && m_pierced < 1 || other->GetTag() == "Wall")
 	{
 		body->GetComponent<jci::Transform>()->SetPosition(vec2(10000000.0f));
 	}

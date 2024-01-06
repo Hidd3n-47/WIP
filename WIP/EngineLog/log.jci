@@ -5462,6 +5462,11 @@ Added component with id: ComponentTypes::Transform to Game Object: 1090
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 1090
 Game object '1090' already has component with id: 2
 Created texture Assets/Texture/Weapons/Bowie Knife.png
+Created scene with name: StartScene
+Created texture Assets/Texture/StartMenu.png
+Created Entity with id: 0
+Added component with id: ComponentTypes::Transform to Game Object: 0
+Added component with id: ComponentTypes::UiSprite to Game Object: 0
 Destroyed Entity with id: 0
 Destroyed Entity with id: 1
 Destroyed Entity with id: 2
@@ -6554,3 +6559,5 @@ Destroyed Entity with id: 1088
 Destroyed Entity with id: 1089
 Destroyed Entity with id: 1090
 Destroyed scene with name: MainScene
+Destroyed Entity with id: 0
+Destroyed scene with name: StartScene

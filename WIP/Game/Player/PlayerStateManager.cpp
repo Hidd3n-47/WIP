@@ -116,6 +116,10 @@ void PlayerStateManager::Update(float dt)
 	{
 		m_player.m_iFrameActive = false;
 	}
+	if (m_player.m_hp < 1)
+	{
+		m_alive = false;
+	}
 }
 
 void PlayerStateManager::SetState(PlayerState state)
