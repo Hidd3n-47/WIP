@@ -35,6 +35,7 @@ private:
 	BulletManager* bulletManager;
 
 	jci::Entity* m_entity;
+	jci::Entity* m_ammoUi;
 
 	uint32 m_gunTexture;
 	uint32 m_gunShootTexture;

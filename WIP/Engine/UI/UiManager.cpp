@@ -21,7 +21,8 @@ void UiManager::Update()
 	bool mouseDown = InputManager::Instance()->IsKeyPressed(Button_Left);
 	
 	UiButton* buttons = ComponentManager::Instance()->GetComponentVector<UiButton>();
-	for (entId i = 0; i < ComponentManager::Instance()->GetComponentCount(ComponentTypes::UiButton); i++)
+	entId count = ComponentManager::Instance()->GetComponentCount(ComponentTypes::UiButton);
+	for (entId i = 0; i < count; i++)
 	{
 		if (!buttons[i].GetEntity()->IsActive())
 		{
@@ -67,12 +68,44 @@ void UiManager::Update()
 	}
 
 	UiSprite* sprites = ComponentManager::Instance()->GetComponentVector<UiSprite>();
+	count = ComponentManager::Instance()->GetComponentCount(ComponentTypes::UiSprite);
 	for (entId i = 0; i < ComponentManager::Instance()->GetComponentCount(ComponentTypes::UiSprite); i++)
 	{
 		vec2 spritePosition = GetAnchorPosition(sprites[i].m_anchorPoint) + sprites[i].m_padding - vec2((1.0f - sprites[i].m_renderPercent) * sprites[i].m_originalSize.x * 0.5f, 0.0f);
 		sprites[i].m_size.x = sprites[i].m_originalSize.x * sprites[i].m_renderPercent;
 
 		sprites[i].m_entity->GetComponent<Transform>()->SetPosition(spritePosition + m_camera->GetPosition());
+	}
+
+	UiText* texts = ComponentManager::Instance()->GetComponentVector<UiText>();
+	count = ComponentManager::Instance()->GetComponentCount(ComponentTypes::UiText);
+	for (entId i = 0; i < count; i++)
+	{
+		if (!texts[i].m_recalculateGlyphs)
+		{
+			continue;
+		}
+
+		uint32 num = texts[i].m_text;
+		std::vector<uint16> digits;
+		texts[i].m_glyphs.clear();
+
+		do
+		{
+			uint32 digit = num % 10;
+			num = (uint32)(num / 10);
+			digits.push_back(digit);
+		} while (num != 0);
+
+		float size = 1.0f / 50.0f * texts[i].m_fontSize;
+
+		for (size_t j = 0; j < digits.size(); j++)
+		{
+			vec2 position = texts[i].GetEntity()->GetComponent<Transform>()->GetPosition() + GetAnchorPosition(texts[i].m_anchorPoint) + texts[i].m_padding + m_camera->GetPosition();
+			position.x += (digits.size() - j) * size;
+
+			texts[i].m_glyphs.emplace_back(position, vec2(size), digits[j]);
+		}
 	}
 }
 vec2 UiManager::GetAnchorPosition(AnchorPoints anchor)

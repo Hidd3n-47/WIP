@@ -79,6 +79,8 @@ private:
 	uint32 m_uiIndexCount = 0;
 
 	void AddRenderableToRenderBuffer(IRenderable* renderable, Entity* entity);
+	//void AddTextToRenderBuffer(Entity* entity, UiText* text);
+	void AddToRenderQueue(vec2 position, Texture* texture, vec2 halfSize, float angle, float layer, bool flipY, vec4 uvRect);
 };
 
 } // Namespace jci.

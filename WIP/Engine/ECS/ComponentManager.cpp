@@ -22,6 +22,7 @@ void ComponentManager::Init()
 	m_particleEmissions.resize(MAX_ENTITIES);
 	m_uiButtons.resize(MAX_ENTITIES);
 	m_uiSprites.resize(MAX_ENTITIES);
+	m_uiTexts.resize(MAX_ENTITIES);
 
 	ResetComponents();
 }
@@ -41,6 +42,7 @@ void ComponentManager::Destroy()
 	m_particleEmissions.clear();
 	m_uiButtons.clear();
 	m_uiSprites.clear();
+	m_uiTexts.clear();
 
 	delete m_instance;
 }

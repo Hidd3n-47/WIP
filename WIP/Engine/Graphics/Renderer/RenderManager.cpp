@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "RendererManager.h"
+#include "RenderManager.h"
 
 #include "ECS/Entity.h"
 #include "ECS/SpriteRenderer.h"
@@ -156,6 +156,21 @@ void RendererManager::Begin()
 			AddRenderableToRenderBuffer((IRenderable*)&uiButton[i], uiButton[i].GetEntity());
 		}
 	}
+	// UI Text component.
+	{
+		UiText* uiText = ComponentManager::Instance()->GetComponentVector<UiText>();
+		entId count = ComponentManager::Instance()->GetComponentCount(ComponentTypes::UiText);
+		for (entId i = 0; i < count; i++)
+		{
+			Entity* entity = uiText[i].GetEntity();
+			if (!entity->IsActive()) { continue; }
+
+			for (size_t j = 0; j < uiText->m_glyphs.size(); j++)
+			{
+				AddToRenderQueue(uiText[i].m_glyphs[j].position, uiText[i].m_texture, uiText[i].m_glyphs[j].size * 0.5f, 0.0f, uiText[i].GetLayer() / 256.0f, false, uiText[i].m_texture->GetUVRect(uiText[i].m_glyphs[j].textureIndex));
+			}
+		}
+	}
 
 	// ------------------------ Particle System ------------------------
 	m_particleVerticesPtr = m_particleVerticesBase;
@@ -223,18 +238,25 @@ void RendererManager::Flush()
 
 void RendererManager::AddRenderableToRenderBuffer(IRenderable* renderable, Entity* entity)
 {
-	Transform* transform = entity->GetComponent<Transform>();
-
 	if (!entity->IsActive())
 	{
 		return;
 	}
 
-	vec2 position = transform->GetPosition();
+	Transform* transform = entity->GetComponent<Transform>();
 
 	Texture* texture = renderable->GetTexture();
 	texture = texture ? texture : TextureManager::Instance()->GetTexture(EngineTextureIndex::NoTexture);
 
+	vec2 halfSize = renderable->m_size * 0.5f;
+
+	float layer = (float)(renderable->m_layer) / 256.0f;
+
+	AddToRenderQueue(transform->GetPosition(), texture, halfSize, transform->GetRotation(), layer, renderable->m_flipY, renderable->m_uvRect);
+}
+
+void RendererManager::AddToRenderQueue(vec2 position, Texture* texture, vec2 halfSize, float angle, float layer, bool flipY, vec4 uvRect)
+{
 	float textureIndex = -1.0f;
 	for (uint32 tex = 0; tex < m_textureSlotIndex; tex++)
 	{
@@ -252,11 +274,6 @@ void RendererManager::AddRenderableToRenderBuffer(IRenderable* renderable, Entit
 		m_textureSlotIndex++;
 	}
 
-	// Rotation.
-	vec2 halfSize = renderable->m_size * 0.5f;
-
-	float angle = transform->GetRotation();
-
 	float sina = glm::sin(glm::radians(angle));
 	float cosa = glm::cos(glm::radians(angle));
 
@@ -265,38 +282,34 @@ void RendererManager::AddRenderableToRenderBuffer(IRenderable* renderable, Entit
 	float ysina = halfSize.y * sina;
 	float ycosa = halfSize.y * cosa;
 
-	vec2 s1 = vec2( xcosa - ysina,  ycosa + xsina);
-	vec2 s2 = vec2( xcosa + ysina, -ycosa + xsina);
-	vec2 s3 = vec2(-xcosa - ysina,  ycosa - xsina);
-
-	float layer = (float)(renderable->m_layer) / 256.0f;
-
-	bool flipVertically = renderable->m_flipY;
+	vec2 s1 = vec2(xcosa - ysina, ycosa + xsina);
+	vec2 s2 = vec2(xcosa + ysina, -ycosa + xsina);
+	vec2 s3 = vec2(-xcosa - ysina, ycosa - xsina);
 
 	// uv calculations.
-	vec2 botL(renderable->m_uvRect.x, renderable->m_uvRect.y);
-	vec2 botR(renderable->m_uvRect.x + renderable->m_uvRect.z, renderable->m_uvRect.y);
-	vec2 topR(renderable->m_uvRect.x + renderable->m_uvRect.z, renderable->m_uvRect.y + renderable->m_uvRect.w);
-	vec2 topL(renderable->m_uvRect.x, renderable->m_uvRect.y + renderable->m_uvRect.w);
+	vec2 botL(uvRect.x, uvRect.y);
+	vec2 botR(uvRect.x + uvRect.z, uvRect.y);
+	vec2 topR(uvRect.x + uvRect.z, uvRect.y + uvRect.w);
+	vec2 topL(uvRect.x, uvRect.y + uvRect.w);
 
 	// Vertices.
 	m_verticesPtr->position = vec3(position - s1, layer);
-	m_verticesPtr->uvCoord = (flipVertically ? botR : botL);
+	m_verticesPtr->uvCoord = (flipY ? botR : botL);
 	m_verticesPtr->textureId = textureIndex;
 	m_verticesPtr++;
 
 	m_verticesPtr->position = vec3(position.x + s2.x, position.y + s2.y, layer);
-	m_verticesPtr->uvCoord = (flipVertically ? botL : botR);
+	m_verticesPtr->uvCoord = (flipY ? botL : botR);
 	m_verticesPtr->textureId = textureIndex;
 	m_verticesPtr++;
 
 	m_verticesPtr->position = vec3(position + s1, layer);
-	m_verticesPtr->uvCoord = (flipVertically ? topL : topR);
+	m_verticesPtr->uvCoord = (flipY ? topL : topR);
 	m_verticesPtr->textureId = textureIndex;
 	m_verticesPtr++;
 
 	m_verticesPtr->position = vec3(position.x + s3.x, position.y + s3.y, layer);
-	m_verticesPtr->uvCoord = (flipVertically ? topR : topL);
+	m_verticesPtr->uvCoord = (flipY ? topR : topL);
 	m_verticesPtr->textureId = textureIndex;
 	m_verticesPtr++;
 

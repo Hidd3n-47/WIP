@@ -27,7 +27,6 @@ Created texture Assets/Texture/Right wall.png
 Created texture Assets/Texture/Back left wall.png
 Created texture Assets/Texture/Back right wall.png
 Created texture Assets/Texture/Back wall.png
-Created texture Assets/Texture/Front wall.png
 Created texture Assets/Texture/Door.png
 Created texture Assets/Texture/Inv front left wall.png
 Created texture Assets/Texture/Inv front right wall.png
@@ -5444,20 +5443,24 @@ Created texture Assets/Texture/GunShooting.png
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 1086
 Created Entity with id: 1087
 Added component with id: ComponentTypes::Transform to Game Object: 1087
+Added component with id: ComponentTypes::UiText to Game Object: 1087
+Created texture Assets/Texture/Font.png
 Created Entity with id: 1088
 Added component with id: ComponentTypes::Transform to Game Object: 1088
-Added component with id: ComponentTypes::Impulse to Game Object: 1087
-Created texture Assets/Texture/PlayerSpriteSheet.png
-Created texture Assets/Texture/Blank.png
-Added component with id: ComponentTypes::Animation to Game Object: 1087
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 1087
-Added component with id: ComponentTypes::CapsuleCollider to Game Object: 1087
-Added component with id: ComponentTypes::UiSprite to Game Object: 1088
-Created texture Assets/Texture/health-bar.png
 Created Entity with id: 1089
 Added component with id: ComponentTypes::Transform to Game Object: 1089
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 1089
-Game object '1089' already has component with id: 2
+Added component with id: ComponentTypes::Impulse to Game Object: 1088
+Created texture Assets/Texture/PlayerSpriteSheet.png
+Created texture Assets/Texture/Blank.png
+Added component with id: ComponentTypes::Animation to Game Object: 1088
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 1088
+Added component with id: ComponentTypes::CapsuleCollider to Game Object: 1088
+Added component with id: ComponentTypes::UiSprite to Game Object: 1089
+Created texture Assets/Texture/health-bar.png
+Created Entity with id: 1090
+Added component with id: ComponentTypes::Transform to Game Object: 1090
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 1090
+Game object '1090' already has component with id: 2
 Created texture Assets/Texture/Weapons/Bowie Knife.png
 Destroyed Entity with id: 0
 Destroyed Entity with id: 1
@@ -6549,4 +6552,5 @@ Destroyed Entity with id: 1086
 Destroyed Entity with id: 1087
 Destroyed Entity with id: 1088
 Destroyed Entity with id: 1089
+Destroyed Entity with id: 1090
 Destroyed scene with name: MainScene

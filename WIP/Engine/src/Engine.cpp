@@ -13,7 +13,7 @@
 #include "Collision/CollisionManager.h"
 #include "Animation/AnimationManager.h"
 #include "Graphics/Texture/TextureManager.h"
-#include "Graphics/Renderer/RendererManager.h"
+#include "Graphics/Renderer/RenderManager.h"
 #include "Collision/CollisionCallbackManager.h"
 
 #include "Game/src/Application.h"

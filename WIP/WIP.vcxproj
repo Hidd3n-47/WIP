@@ -191,7 +191,7 @@
     <ClCompile Include="deps\include\stb_image\stb_image.cpp" />
     <ClCompile Include="Engine\Graphics\Renderer\IndexBuffer.cpp" />
     <ClCompile Include="Engine\Graphics\Renderer\VertexBuffer.cpp" />
-    <ClCompile Include="Engine\Graphics\Renderer\RendererManager.cpp" />
+    <ClCompile Include="Engine\Graphics\Renderer\RenderManager.cpp" />
     <ClCompile Include="Engine\Graphics\Texture\TextureManager.cpp" />
     <ClCompile Include="Game\Zombie\Zombie.cpp" />
     <ClCompile Include="Engine\Time\Timer.cpp" />
@@ -280,7 +280,7 @@
     <ClInclude Include="deps\include\stb_image\stb_image.h" />
     <ClInclude Include="Engine\Graphics\Renderer\IndexBuffer.h" />
     <ClInclude Include="Engine\Graphics\Renderer\VertexBuffer.h" />
-    <ClInclude Include="Engine\Graphics\Renderer\RendererManager.h" />
+    <ClInclude Include="Engine\Graphics\Renderer\RenderManager.h" />
     <ClInclude Include="Engine\Graphics\Texture\TextureManager.h" />
     <ClInclude Include="Game\Zombie\Zombie.h" />
     <ClInclude Include="Engine\Time\Timer.h" />
@@ -298,6 +298,7 @@
     <ClInclude Include="Game\Perks\tanky.h" />
     <ClInclude Include="Engine\Graphics\Renderer\IRenderable.h" />
     <ClInclude Include="Game\Player\Player.h" />
+    <ClInclude Include="Engine\ECS\UiText.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Levels\NOLAGROOM.csv" />

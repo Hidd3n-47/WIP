@@ -15,7 +15,8 @@ Gun::Gun(BulletManager* bM)
 	m_inClip = m_magSize;
 	m_reloadTimer = 1.0f;
 
-	m_entity = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();
+	jci::Scene* scene = jci::SceneManager::Instance()->GetCurrentScene();
+	m_entity = scene->CreateEmptyEntity();
 
 	m_entity->AddComponent<jci::Audio>()->SetSoundEffect(jci::AudioManager::Instance()->LoadSound("Assets/Audio/shot.mp3"));
 
@@ -26,6 +27,13 @@ Gun::Gun(BulletManager* bM)
 	sr->SetTexture(m_gunTexture);
 	sr->SetLayer(2);
 	sr->SetSize(vec2(2.f, 0.5f));
+
+	m_ammoUi = scene->CreateEmptyEntity();
+	jci::UiText* text = m_ammoUi->AddComponent<jci::UiText>();
+	text->SetTexture(jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Font.png", 10, 1));
+	text->SetText(m_inClip, 24);
+	text->SetAnchorPoint(jci::AnchorPoints::BotLeft);
+	text->SetPadding(vec2(0.35f));
 }
 
 Gun::~Gun()
@@ -71,6 +79,8 @@ void Gun::FireGun(float time, vec2 position, jci::Scene* currentScene)
 		m_entity->GetComponent<jci::Audio>()->PlaySound();
 
 		bulletManager->ShootBullet(moveDirection, position, m_gunAngle);
+
+		m_ammoUi->GetComponent<jci::UiText>()->SetText(m_inClip);
 	}
 }
 

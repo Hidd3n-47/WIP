@@ -22,7 +22,6 @@ public:
 
 	inline AnchorPoints		GetAnchorPoint()	const { return m_anchorPoint; }
 	inline vec2		GetPadding()	const { return m_padding; }
-	inline bool		GetPressed()	const { return m_pressed; }
 
 	inline void SetAnchorPoint(AnchorPoints anchorPoint) { m_anchorPoint = anchorPoint; }
 
@@ -43,7 +42,6 @@ private:
 	AnchorPoints	m_anchorPoint	= AnchorPoints::Middle;
 
 	vec2 m_padding	= vec2(0.0f);
-	bool m_pressed	= false;
 	float m_renderPercent = 1.0f;
 	vec2 m_originalSize   = vec2(1.0f);
 };
