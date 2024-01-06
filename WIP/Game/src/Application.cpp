@@ -11,6 +11,7 @@
 #include "Game/Player/Score.h"
 #include "Game/Levels/Levels.h"
 #include "Game/EnemyManager/EnemyManager.h"
+#include "Game/Bullet/BulletImpactManager.h"
 #include "Game/Challenges/ChallengeManager.h"
 #include "Game/Player/PlayerStateManager.h"
 #include "Game/UIManager/GameUIManager.h"
@@ -90,6 +91,7 @@ void Application::GameUpdate(float dt)
 		g1->Update(m_player->GetPosition());
 		EnemyManager::getEnemyManager()->Update(dt); 
 		ChallengeManager::getChallengeManager()->getCurrentChallenge()->Update(dt);
+		BulletImpactManager::Instance()->Update();
 	}
 }
 
