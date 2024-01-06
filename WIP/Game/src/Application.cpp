@@ -33,6 +33,7 @@ void Application::Create()
 	//m_bgMusic->PlayMusic();
 
 	manager = new BulletManager();
+	BulletImpactManager::Instance()->Init();
 	manager->Create();
 	g1 = new Gun(manager);
 	g1->Create(1);
@@ -106,6 +107,8 @@ void Application::Destroy()
 	PlayerStateManager::Instance()->Destroy();
 
 	delete g1;
+
+	BulletImpactManager::Instance()->Destory();
 
 	delete manager;
 

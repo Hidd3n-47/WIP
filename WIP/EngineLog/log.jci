@@ -17,6 +17,7 @@ Created Entity with id: 2
 Added component with id: ComponentTypes::Transform to Game Object: 2
 Added component with id: ComponentTypes::UiButton to Game Object: 2
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 2
+Created texture Assets/Texture/LabSpriteSheet.png
 Created texture Assets/Texture/squareWITHAW!!.png
 Created texture Assets/Texture/Front left wall.png
 Created texture Assets/Texture/Floor.png
@@ -24,10 +25,6 @@ Created texture Assets/Texture/Front right wall.png
 Created texture Assets/Texture/Front wall.png
 Created texture Assets/Texture/Left wall.png
 Created texture Assets/Texture/Right wall.png
-Created texture Assets/Texture/Back left wall.png
-Created texture Assets/Texture/Back right wall.png
-Created texture Assets/Texture/Back wall.png
-Created texture Assets/Texture/Door.png
 Created texture Assets/Texture/Inv front left wall.png
 Created texture Assets/Texture/Inv front right wall.png
 Created texture Assets/Texture/Inv back left wall.png
@@ -4234,37 +4231,28 @@ Game object '884' already has component with id: 2
 Created Entity with id: 885
 Added component with id: ComponentTypes::Transform to Game Object: 885
 Added component with id: ComponentTypes::Audio to Game Object: 885
-Created texture Assets/Texture/Bullet.png
+Created texture Assets/Texture/ImpactEffect.png
 Created Entity with id: 886
 Added component with id: ComponentTypes::Transform to Game Object: 886
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 886
 Added component with id: ComponentTypes::Animation to Game Object: 886
-Added component with id: ComponentTypes::BoxCollider to Game Object: 886
-Added component with id: ComponentTypes::ParticleEmission to Game Object: 886
 Created Entity with id: 887
 Added component with id: ComponentTypes::Transform to Game Object: 887
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 887
 Added component with id: ComponentTypes::Animation to Game Object: 887
-Added component with id: ComponentTypes::BoxCollider to Game Object: 887
-Added component with id: ComponentTypes::ParticleEmission to Game Object: 887
 Created Entity with id: 888
 Added component with id: ComponentTypes::Transform to Game Object: 888
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 888
 Added component with id: ComponentTypes::Animation to Game Object: 888
-Added component with id: ComponentTypes::BoxCollider to Game Object: 888
-Added component with id: ComponentTypes::ParticleEmission to Game Object: 888
 Created Entity with id: 889
 Added component with id: ComponentTypes::Transform to Game Object: 889
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 889
 Added component with id: ComponentTypes::Animation to Game Object: 889
-Added component with id: ComponentTypes::BoxCollider to Game Object: 889
-Added component with id: ComponentTypes::ParticleEmission to Game Object: 889
 Created Entity with id: 890
 Added component with id: ComponentTypes::Transform to Game Object: 890
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 890
 Added component with id: ComponentTypes::Animation to Game Object: 890
-Added component with id: ComponentTypes::BoxCollider to Game Object: 890
-Added component with id: ComponentTypes::ParticleEmission to Game Object: 890
+Created texture Assets/Texture/Bullet.png
 Created Entity with id: 891
 Added component with id: ComponentTypes::Transform to Game Object: 891
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 891
@@ -5437,39 +5425,74 @@ Added component with id: ComponentTypes::BoxCollider to Game Object: 1085
 Added component with id: ComponentTypes::ParticleEmission to Game Object: 1085
 Created Entity with id: 1086
 Added component with id: ComponentTypes::Transform to Game Object: 1086
-Added component with id: ComponentTypes::Audio to Game Object: 1086
-Created texture Assets/Texture/Gun.png
-Created texture Assets/Texture/GunShooting.png
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 1086
+Added component with id: ComponentTypes::Animation to Game Object: 1086
+Added component with id: ComponentTypes::BoxCollider to Game Object: 1086
+Added component with id: ComponentTypes::ParticleEmission to Game Object: 1086
 Created Entity with id: 1087
 Added component with id: ComponentTypes::Transform to Game Object: 1087
-Added component with id: ComponentTypes::UiText to Game Object: 1087
-Created texture Assets/Texture/Font.png
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 1087
+Added component with id: ComponentTypes::Animation to Game Object: 1087
+Added component with id: ComponentTypes::BoxCollider to Game Object: 1087
+Added component with id: ComponentTypes::ParticleEmission to Game Object: 1087
 Created Entity with id: 1088
 Added component with id: ComponentTypes::Transform to Game Object: 1088
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 1088
+Added component with id: ComponentTypes::Animation to Game Object: 1088
+Added component with id: ComponentTypes::BoxCollider to Game Object: 1088
+Added component with id: ComponentTypes::ParticleEmission to Game Object: 1088
 Created Entity with id: 1089
 Added component with id: ComponentTypes::Transform to Game Object: 1089
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 1089
+Added component with id: ComponentTypes::Animation to Game Object: 1089
+Added component with id: ComponentTypes::BoxCollider to Game Object: 1089
+Added component with id: ComponentTypes::ParticleEmission to Game Object: 1089
 Created Entity with id: 1090
 Added component with id: ComponentTypes::Transform to Game Object: 1090
-Added component with id: ComponentTypes::Impulse to Game Object: 1088
-Created texture Assets/Texture/PlayerSpriteSheet.png
-Created texture Assets/Texture/Blank.png
-Added component with id: ComponentTypes::Animation to Game Object: 1088
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 1088
-Added component with id: ComponentTypes::CapsuleCollider to Game Object: 1088
-Added component with id: ComponentTypes::UiSprite to Game Object: 1089
-Created texture Assets/Texture/health-bar.png
-Added component with id: ComponentTypes::UiSprite to Game Object: 1090
-Created texture Assets/Texture/health-bar-bg.png
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 1090
+Added component with id: ComponentTypes::Animation to Game Object: 1090
+Added component with id: ComponentTypes::BoxCollider to Game Object: 1090
+Added component with id: ComponentTypes::ParticleEmission to Game Object: 1090
 Created Entity with id: 1091
 Added component with id: ComponentTypes::Transform to Game Object: 1091
+Added component with id: ComponentTypes::Audio to Game Object: 1091
+Created texture Assets/Texture/Gun.png
+Created texture Assets/Texture/GunShooting.png
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 1091
-Game object '1091' already has component with id: 2
-Created texture Assets/Texture/Weapons/Bowie Knife.png
 Created Entity with id: 1092
 Added component with id: ComponentTypes::Transform to Game Object: 1092
 Added component with id: ComponentTypes::UiText to Game Object: 1092
+Created texture Assets/Texture/Font.png
+Created Entity with id: 1093
+Added component with id: ComponentTypes::Transform to Game Object: 1093
+Created Entity with id: 1094
+Added component with id: ComponentTypes::Transform to Game Object: 1094
+Created Entity with id: 1095
+Added component with id: ComponentTypes::Transform to Game Object: 1095
+Added component with id: ComponentTypes::Impulse to Game Object: 1093
+Created texture Assets/Texture/PlayerSpriteSheet.png
+Created texture Assets/Texture/Blank.png
+Added component with id: ComponentTypes::Animation to Game Object: 1093
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 1093
+Added component with id: ComponentTypes::CapsuleCollider to Game Object: 1093
+Added component with id: ComponentTypes::UiSprite to Game Object: 1094
+Created texture Assets/Texture/health-bar.png
+Added component with id: ComponentTypes::UiSprite to Game Object: 1095
+Created texture Assets/Texture/health-bar-bg.png
+Created Entity with id: 1096
+Added component with id: ComponentTypes::Transform to Game Object: 1096
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 1096
+Game object '1096' already has component with id: 2
+Created texture Assets/Texture/Weapons/Bowie Knife.png
+Created Entity with id: 1097
+Added component with id: ComponentTypes::Transform to Game Object: 1097
+Added component with id: ComponentTypes::UiText to Game Object: 1097
 Created texture Assets/Texture/ScoreFont.png
+Created scene with name: StartScene
+Created texture Assets/Texture/StartMenu.png
+Created Entity with id: 0
+Added component with id: ComponentTypes::Transform to Game Object: 0
+Added component with id: ComponentTypes::UiSprite to Game Object: 0
 Destroyed Entity with id: 0
 Destroyed Entity with id: 1
 Destroyed Entity with id: 2
@@ -6563,6 +6586,11 @@ Destroyed Entity with id: 1089
 Destroyed Entity with id: 1090
 Destroyed Entity with id: 1091
 Destroyed Entity with id: 1092
+Destroyed Entity with id: 1093
+Destroyed Entity with id: 1094
+Destroyed Entity with id: 1095
+Destroyed Entity with id: 1096
+Destroyed Entity with id: 1097
 Destroyed scene with name: MainScene
 Destroyed Entity with id: 0
 Destroyed scene with name: StartScene
