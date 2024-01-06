@@ -37,7 +37,7 @@ public:
 	inline void SetCollisionMethods(ICollision* collisionMethods) { m_collisionMethods = collisionMethods; }
 	inline void SetTrigger(bool trigger) { m_trigger = trigger; }
 protected:
-	ShapeBody m_body;
+	ShapeBody m_body = ShapeBody::Box;
 
 	ICollision* m_collisionMethods = nullptr;
 	bool m_trigger = false;

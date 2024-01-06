@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Camera/Camera.h"
-#include "ECS/Entity.h"
+
 /***
 =========================================================================================
 SCENE:
@@ -60,8 +60,10 @@ public:
 	*/
 	inline void ClearEntities() { m_entityIndex = 0; m_entities.clear(); }
 
-	void CacheEntities();
-	void RetrieveCachedEntities();
+	void ActivateEntities();
+	void DeactivateEntities();
+	/*void CacheEntities();
+	void RetrieveCachedEntities();*/
 private:
 	std::string m_name;
 	uint16 m_id;

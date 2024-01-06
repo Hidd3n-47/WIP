@@ -2,6 +2,7 @@
 #include "pch.h"
 
 #include "IComponent.h"
+
 #include "Pathfinding/Path.h"
 
 namespace jci {

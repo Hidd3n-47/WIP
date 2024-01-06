@@ -39,7 +39,7 @@ void Gun::Create(float rateOfFire)
 	m_fireRate = rateOfFire;
 }
 
-int Gun::GetFireRate()
+float Gun::GetFireRate()
 {
 	return m_fireRate;
 }

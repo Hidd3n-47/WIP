@@ -26,20 +26,13 @@ public:
 
 	inline Impulse& operator=(Impulse& other) noexcept
 	{
-		/*m_id = std::move(other.m_id);
-		m_entity = std::move(other.m_entity);
-		m_velocity = std::move(other.m_velocity);
-		m_dampening = std::move(other.m_dampening);
-		m_dampeningFactor = std::move(other.m_dampeningFactor);
-
-		return *this;*/
 		memcpy(this, &other, sizeof(Impulse));
 
 		return *this;
 	}
 private:
-	Entity* m_entity;
-	entId m_id;
+	Entity* m_entity = nullptr;
+	entId m_id = invalid_id;
 
 	vec2 m_velocity = vec2(0.0f);
 	float m_maxDapening = 5.0f;

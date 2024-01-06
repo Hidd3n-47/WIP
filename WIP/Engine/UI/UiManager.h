@@ -29,7 +29,7 @@ private:
 	uint16 m_screenWidth = -1;
 	uint16 m_screenHeight = -1;
 
-	Camera* m_camera;
+	Camera* m_camera = nullptr;
 };
 
 } // Namespace jci.

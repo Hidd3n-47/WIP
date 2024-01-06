@@ -101,7 +101,7 @@ void RendererManager::Init()
 		uint32* partIndices = new uint32[MAX_PARTICLES * 6];
 
 		int offset = 0;
-		for (uint32 i = 0; i < MAX_PARTICLES * 6; i += 6)
+		for (uint16 i = 0; i < MAX_PARTICLES * 6; i += 6)
 		{
 			partIndices[i + 0] = offset + 0;
 			partIndices[i + 1] = offset + 1;
@@ -189,7 +189,7 @@ void RendererManager::Begin()
 
 void RendererManager::End()
 {
-	uint64 size = (ubyte*)m_verticesPtr - (ubyte*)m_verticesBase;
+	uint32 size = (ubyte*)m_verticesPtr - (ubyte*)m_verticesBase;
 	m_vertexBuffer->Bind();
 	m_vertexBuffer->SetData(m_verticesBase, size);
 

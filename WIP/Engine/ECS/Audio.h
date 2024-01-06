@@ -2,6 +2,7 @@
 #include "pch.h"
 
 #include "IComponent.h"
+
 #include "Audio/AudioManager.h"
 #include "Audio/SoundEffect.h"
 
@@ -68,8 +69,8 @@ private:
 	Entity*	m_entity = nullptr;
 	entId	m_id = invalid_id;
 
-	uint32	m_sound;
-	uint32	m_music;
+	uint32	m_sound = -1;
+	uint32	m_music = -1;
 };
 
 } // Namespace jci.

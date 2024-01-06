@@ -15,7 +15,7 @@ public:
 	~Gun();
 
 	void Create(float rateOfFire);
-	int GetFireRate();
+	float GetFireRate();
 	void SetFireRate(float rateOfFire);
 	void FireGun(float time, vec2 position, jci::Scene* currentScene);
 	void SetBulletDamage(int bullDmg);

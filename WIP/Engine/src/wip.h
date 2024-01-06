@@ -46,5 +46,5 @@ namespace jci {
 using		entId					= uint32;
 constexpr	entId invalid_id		= -1;
 constexpr	uint8 MAX_COMPONENTS	= 16;
-const		uint16 MAX_ENTITIES		= 1 << (sizeof(entId) * 8 - MAX_COMPONENTS) - 1;
+const		uint16 MAX_ENTITIES		= (1 << (sizeof(entId) * 8 - MAX_COMPONENTS)) - 1;
 } // Namespace jci.

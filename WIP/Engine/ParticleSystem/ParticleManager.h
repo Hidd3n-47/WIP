@@ -4,14 +4,14 @@ namespace jci {
 
 struct ParticleProperties
 {
-	vec2	position;
-	vec2	direction;
-	float	speed;
-	vec2	velocityVariation;
-	vec4	color;
-	float	startSize;
-	float	endSize;
-	float	sizeVariation;
+	vec2	position			= vec2(0.0f);
+	vec2	direction			= vec2(1.0f, 0.0f);
+	float	speed				= 5.0f;
+	vec2	velocityVariation	= vec2(1.0f);
+	vec4	color				= vec4(1.0f);
+	float	startSize			= 1.0f;
+	float	endSize				= 1.0f;
+	float	sizeVariation		= 0.0f;
 
 	float	lifeTime			= 1.0f;
 	float	movementLifeTime	= 1.0f;

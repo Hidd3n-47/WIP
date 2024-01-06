@@ -2,7 +2,6 @@
 
 #include "IComponent.h"
 #include "Collision/ICollision.h"
-#include "Collision/CollisionBodyDetails.h"
 
 
 namespace jci {
@@ -28,13 +27,13 @@ public:
 
 	inline BoxCollider& operator=(BoxCollider& other) noexcept
 	{
-		/*m_id = std::move(other.m_id);
+		m_id = std::move(other.m_id);
 		m_entity = std::move(other.m_entity);
 		m_size = std::move(other.m_size);
 		m_bodyType = std::move(other.m_bodyType);
 
-		return *this;*/
-		memcpy(this, &other, sizeof(BoxCollider));
+		return *this;
+		//memcpy(this, &other, sizeof(BoxCollider));
 
 		return *this;
 	}

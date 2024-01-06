@@ -12,7 +12,7 @@ namespace jci {
 	class ParticleEmission;
 }
 
-struct Bullet : public jci::ICollision
+class Bullet : public jci::ICollision
 {
 public:
 	Bullet(jci::Entity* e);

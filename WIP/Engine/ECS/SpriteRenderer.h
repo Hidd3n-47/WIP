@@ -1,10 +1,8 @@
 #pragma once
 
 #include "IComponent.h"
-
-#include "Graphics/Texture/TextureManager.h"
-#include "Graphics/Renderer/RendererManager.h"
 #include "Graphics/Renderer/IRenderable.h"
+
 
 namespace jci {
 
@@ -23,16 +21,6 @@ public:
 
 	inline SpriteRenderer& operator=(SpriteRenderer& other) noexcept
 	{
-		/*m_id		= other.m_id;
-		m_entity	= other.m_entity;
-		
-		m_texture	= other.m_texture;
-		m_uvRect	= other.m_uvRect;
-		m_size		= other.m_size;
-		m_layer		= other.m_layer;
-		m_flipY		= other.m_flipY;
-
-		return *this;*/
 		memcpy(this, &other, sizeof(SpriteRenderer));
 
 		return *this;

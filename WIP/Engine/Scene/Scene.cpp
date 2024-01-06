@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "Scene.h"
 
+#include "ECS/Entity.h"
+
 namespace jci {
 
 Scene::Scene(const std::string& name, uint16 id) :
@@ -15,9 +17,9 @@ Scene::~Scene()
 {
 	for (int i = 0; i < m_entities.size(); i++)
 	{
-		Entity* go = m_entities[i];
-		delete go;
-		go = nullptr;
+		m_entities[i]->RemoveAllComponents();
+		delete m_entities[i];
+		m_entities[i] = nullptr;
 	}
 
 	delete m_camera;
@@ -29,7 +31,7 @@ Scene::~Scene()
 Entity* Scene::CreateEmptyEntity()
 {
 	Entity* go = new Entity(this, m_entityIndex++);
-	ASSERT(m_entityIndex != (1 << 16) - 1, "Reached maxed amount of Game Objects created.");
+	ASSERT(m_entityIndex != (1 << 16) - 1, "Reached maxed amount of Entities created.");
 	m_entities.push_back(go);
 	return go;
 }
@@ -50,34 +52,51 @@ void Scene::RemoveEnity(Entity* entity)
 	}
 }
 
-void Scene::CacheEntities()
+void Scene::ActivateEntities()
 {
-	ASSERT(!m_cachedEntities.size(), "Cached entity vector size is not zero.");
-	if (!m_entities.size()) { return; }
-
-	m_cachedEntities.resize(m_entities.size());
-
 	for (size_t i = 0; i < m_entities.size(); i++)
 	{
-		m_entities[i]->CacheComponets();
-		Entity e = *m_entities[i];
-		m_cachedEntities[i] = e;
+		m_entities[i]->RetrieveEntity();
 	}
 }
 
-void Scene::RetrieveCachedEntities()
+void Scene::DeactivateEntities()
 {
-	int i = 0;
-	for (Entity& e : m_cachedEntities)
+	for (size_t i = 0; i < m_entities.size(); i++)
 	{
-		i++;
-		Entity* ent = new Entity();
-		*ent = e;
-		ent->SetId(m_entityIndex++);
-		ent->RetrieveComponents();
-		m_entities.push_back(ent);
+		m_entities[i]->CacheEntity();
 	}
-	m_cachedEntities.clear();
 }
+
+
+//void Scene::CacheEntities()
+//{
+//	ASSERT(!m_cachedEntities.size(), "Cached entity vector size is not zero.");
+//	if (!m_entities.size()) { return; }
+//
+//	m_cachedEntities.resize(m_entities.size());
+//
+//	for (size_t i = 0; i < m_entities.size(); i++)
+//	{
+//		m_entities[i]->CacheComponets();
+//		Entity e = *m_entities[i];
+//		m_cachedEntities[i] = e;
+//	}
+//}
+//
+//void Scene::RetrieveCachedEntities()
+//{
+//	int i = 0;
+//	for (Entity& e : m_cachedEntities)
+//	{
+//		i++;
+//		Entity* ent = new Entity();
+//		*ent = e;
+//		ent->SetId(m_entityIndex++);
+//		ent->RetrieveComponents();
+//		m_entities.push_back(ent);
+//	}
+//	m_cachedEntities.clear();
+//}
 
 } // Namespace jci.

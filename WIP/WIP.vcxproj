@@ -142,8 +142,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Engine\ECS\UiButton.cpp" />
-    <ClCompile Include="Engine\ECS\UiSprite.cpp" />
     <ClCompile Include="Engine\UI\UiManager.cpp" />
     <ClCompile Include="Game\Challenges\Survive.cpp" />
     <ClCompile Include="Game\Challenges\ChallengeParent.cpp" />
@@ -201,7 +199,6 @@
     <ClCompile Include="Engine\Pathfinding\PathfindingManager.cpp" />
     <ClCompile Include="Engine\Pathfinding\NavMesh.cpp" />
     <ClCompile Include="Engine\Physics\PhysicsManager.cpp" />
-    <ClCompile Include="Engine\ECS\ParticleEmission.cpp" />
     <ClCompile Include="Engine\ParticleSystem\ParticleManager.cpp" />
     <ClCompile Include="Game\Challenges\WaveDefence.cpp" />
     <ClCompile Include="Game\UIManager\GameUIManager.cpp" />

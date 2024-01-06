@@ -4,12 +4,10 @@
 #include "IComponent.h"
 
 #include "ComponentManager.h"
+#include "Scene/SceneManager.h"
 
 namespace jci {
 
-class Scene;
-
-// TODO (Christian): look at restriciting the delete method.
 class Entity
 {
 public:
@@ -79,29 +77,21 @@ public:
 		return nullptr;
 	}
 
-	void CacheComponets()
-	{
-		ASSERT(!m_cachedComponents.size(), "Cached component vector size is not zero.");
-		if (!m_componentIndices.size()) { return; }
-
-		m_cachedComponents.resize(m_componentIndices.size());
-		auto it = m_componentIndices.begin();
-		for (size_t i = 0; i < m_componentIndices.size(); i++, it++)
-		{
-			m_cachedComponents[i] = ComponentManager::Instance()->GetComponentCopy(it->first, it->second);
-			ASSERT(m_cachedComponents[i], " ");
-		}
+	inline void SetActive(bool active) 
+	{ 
+		ASSERT(m_scene == SceneManager::Instance()->GetCurrentScene(), "Trying to change an entity to active/inactive in a different scene");
+		m_active = active; 
 	}
 
-	void RetrieveComponents()
+	inline void CacheEntity()
 	{
-		for (IComponent* cachedComp : m_cachedComponents)
-		{
-			ASSERT(cachedComp, " ");
-			ComponentManager::Instance()->RegisterCachedComponent(cachedComp);
-		}
+		m_cachedEntityActive = m_active;
+		m_active = false;
+	}
 
-		m_cachedComponents.clear();
+	inline void RetrieveEntity()
+	{
+		m_active = m_cachedEntityActive;
 	}
 
 	inline void DestoryEntity() { Engine::Instance()->DestroyEntity(this); }
@@ -116,20 +106,10 @@ public:
 
 	// Mutators.
 	inline void SetTag(const std::string& tag) { m_tag = tag; }
-	inline void SetActive(bool active) { m_active = active; }
 	inline void SetId(entId id) { m_id = id; }
 	
 	inline Entity& operator=(Entity& other) noexcept
 	{
-		/*m_componentIndices = std::move(other.m_componentIndices);
-		m_scene = other.m_scene;
-		m_id = other.m_id;
-		m_componentMask = other.m_componentMask;
-		m_active = other.m_active;
-		m_tag = other.m_tag;
-		m_cachedComponents = std::move(other.m_cachedComponents);
-
-		return *this;*/
 		memcpy(this, &other, sizeof(Entity));
 
 		return *this;
@@ -139,14 +119,15 @@ private:
 
 	inline void SetComponentId(ComponentTypes type, entId newId) { m_componentIndices[type] = newId; }
 
-	Scene* m_scene = nullptr;
-	entId m_id;
-	uint16 m_componentMask;
-	bool m_active = true;
+	Scene* m_scene  = nullptr;
+	entId m_id		= invalid_id;
+
+	uint16 m_componentMask  = 0;
+	bool m_active			= true;
 
 	std::string m_tag = "Untagged";
 
-	std::vector<IComponent*> m_cachedComponents;
+	bool m_cachedEntityActive = true;
 };
 
 } // Namespace jci.

@@ -12,8 +12,10 @@ void EnemyManager::Destroy()
 	delete spawnCD; 
 	for (auto i : Zombies)
 	{
-		jci::Engine::Instance()->DestroyEntity(i->getEntity());
+		jci::Engine::Instance()->DestroyEntity(i->GetEntity());
+		delete i;
 	}
+	Zombies.clear();
 	delete enemyManager;
 }
 
@@ -32,7 +34,7 @@ EnemyManager::EnemyManager()
 	for (int i = 0; i < 200; i++)
 	{
 		Zombie* f = CreateZombie(vec2(0,0));
-		f->getEntity()->SetActive(false);
+		f->GetEntity()->SetActive(false);
 	}
 }
 
@@ -75,7 +77,7 @@ void EnemyManager::clearZombies()
 	for (auto i : Zombies)
 	{
 		//jci::Engine::Instance()->DestroyEntity(i->getEntity());
-		i->getEntity()->SetActive(false);
+		i->GetEntity()->SetActive(false);
 
 	}
 	//Zombies.clear();
@@ -85,7 +87,7 @@ bool EnemyManager::isZombiesWiped()
 {
 	for (std::list<Zombie*>::iterator i = Zombies.begin(); i != Zombies.end(); i++)
 	{
-		if ((*i)->getEntity()->IsActive())
+		if ((*i)->GetEntity()->IsActive())
 		{
 			//Zombie alive
 			return false;
@@ -99,7 +101,7 @@ int EnemyManager::zombiesAlive()
 	int temp = 0;
 	for (std::list<Zombie*>::iterator i = Zombies.begin(); i != Zombies.end(); i++)
 	{
-		if ((*i)->getEntity()->IsActive())
+		if ((*i)->GetEntity()->IsActive())
 		{
 			//Zombie alive
 			temp++;
@@ -154,15 +156,14 @@ void EnemyManager::Update(float dt)
 					if (PlayerOutOfRange(f) && f->IsActive())
 					{
 						bool Set = false;
-						//DLOG("Spawning zomb");
-						//CreateZombie(f->GetComponent<jci::Transform>()->GetPosition());
+						
 						for (std::list<Zombie*>::iterator i = Zombies.begin(); i != Zombies.end(); i++)
 						{
-							if (!(*i)->getEntity()->IsActive() && !Set)
+							if (!(*i)->GetEntity()->IsActive() && !Set)
 							{
-								(*i)->getEntity()->SetActive(true);
-								(*i)->reset();
-								(*i)->getEntity()->GetComponent<jci::Transform>()->SetPosition(f->GetComponent<jci::Transform>()->GetPosition());
+								(*i)->GetEntity()->SetActive(true);
+								(*i)->Reset();
+								(*i)->GetEntity()->GetComponent<jci::Transform>()->SetPosition(f->GetComponent<jci::Transform>()->GetPosition());
 								Set = true;
 							}
 						}

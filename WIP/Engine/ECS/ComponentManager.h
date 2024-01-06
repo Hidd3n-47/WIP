@@ -390,93 +390,93 @@ public:
 
 	inline void ResetComponents() { memset(m_componentIndices, 0, (entId)ComponentTypes::Count * sizeof(entId)); }
 
-	inline IComponent* GetComponentCopy(ComponentTypes type, entId id)
-	{
-		switch (type)
-		{
-		case ComponentTypes::Transform:
-		{
-			//Transform t = m_transforms[id];
-			Transform* t = new Transform(m_transforms[id]);
-			return dynamic_cast<IComponent*>(t);
-		}
-		case ComponentTypes::SpriteRenderer:
-		{
-			//SpriteRenderer sr = m_spriteRenderers[id];
-			SpriteRenderer* sr = new SpriteRenderer(m_spriteRenderers[id]);
-			return dynamic_cast<IComponent*>(sr);
-		}
-		case ComponentTypes::BoxCollider:
-		{
-			//BoxCollider bc = m_boxColliders[id];
-			BoxCollider* bc = new BoxCollider(m_boxColliders[id]);
-			return dynamic_cast<IComponent*>(bc);
-		}
-		case ComponentTypes::CircleCollider:
-		{
-			//CircleCollider cc = m_circleColliders[id];
-			CircleCollider* cc = new CircleCollider(m_circleColliders[id]);
-			return dynamic_cast<IComponent*>(cc);
-		}
-		case ComponentTypes::CapsuleCollider:
-		{
-			//CapsuleCollider cc = m_capsuleColliders[id];
-			CapsuleCollider* cc = new CapsuleCollider(m_capsuleColliders[id]);
-			return dynamic_cast<IComponent*>(cc);
-		}
-		case ComponentTypes::NavBlock:
-		{
-			//NavBlock nb = m_navBlocks[id];
-			NavBlock* nb = new NavBlock(m_navBlocks[id]);
-			return dynamic_cast<IComponent*>(nb);
-		}
-		case ComponentTypes::AI:
-		{
-			//AI ai = m_ais[id];
-			AI* ai = new AI(m_ais[id]);
-			return dynamic_cast<IComponent*>(ai);
-		}
-		case ComponentTypes::Impulse:
-		{
-			//Impulse i = m_impulses[id];
-			Impulse* i = new Impulse(m_impulses[id]);
-			return dynamic_cast<IComponent*>(i);
-		}
-		case ComponentTypes::Audio:
-		{
-			//Audio a = m_audios[id];
-			Audio* a = new Audio(m_audios[id]);
-			return dynamic_cast<IComponent*>(a);
-		}
-		case ComponentTypes::Animation:
-		{
-			//Animation a = m_animations[id];
-			Animation* a = new Animation(m_animations[id]);
-			return dynamic_cast<IComponent*>(a);
-		}
-		case ComponentTypes::ParticleEmission:
-		{
-			//ParticleEmission pe = m_particleEmissions[id];
-			ParticleEmission* pe = new ParticleEmission(m_particleEmissions[id]);
-			return dynamic_cast<IComponent*>(pe);
-		}
-		case ComponentTypes::UiButton:
-		{
-			//UiButton ub = m_uiButtons[id];
-			UiButton* ub = new UiButton(m_uiButtons[id]);
-			return dynamic_cast<IComponent*>(ub);
-		}
-		case ComponentTypes::UiSprite:
-		{
-			//UiSprite us = m_uiSprites[id];
-			UiSprite*us = new UiSprite(m_uiSprites[id]);
-			return dynamic_cast<IComponent*>(us);
-		}
-		default:
-			ASSERT(false, "Unhandled component removal.");
-			return nullptr;
-		}
-	}
+	//inline IComponent* GetComponentCopy(ComponentTypes type, entId id)
+	//{
+	//	switch (type)
+	//	{
+	//	case ComponentTypes::Transform:
+	//	{
+	//		//Transform t = m_transforms[id];
+	//		Transform* t = new Transform(m_transforms[id]);
+	//		return dynamic_cast<IComponent*>(t);
+	//	}
+	//	case ComponentTypes::SpriteRenderer:
+	//	{
+	//		//SpriteRenderer sr = m_spriteRenderers[id];
+	//		SpriteRenderer* sr = new SpriteRenderer(m_spriteRenderers[id]);
+	//		return dynamic_cast<IComponent*>(sr);
+	//	}
+	//	case ComponentTypes::BoxCollider:
+	//	{
+	//		//BoxCollider bc = m_boxColliders[id];
+	//		BoxCollider* bc = new BoxCollider(m_boxColliders[id]);
+	//		return dynamic_cast<IComponent*>(bc);
+	//	}
+	//	case ComponentTypes::CircleCollider:
+	//	{
+	//		//CircleCollider cc = m_circleColliders[id];
+	//		CircleCollider* cc = new CircleCollider(m_circleColliders[id]);
+	//		return dynamic_cast<IComponent*>(cc);
+	//	}
+	//	case ComponentTypes::CapsuleCollider:
+	//	{
+	//		//CapsuleCollider cc = m_capsuleColliders[id];
+	//		CapsuleCollider* cc = new CapsuleCollider(m_capsuleColliders[id]);
+	//		return dynamic_cast<IComponent*>(cc);
+	//	}
+	//	case ComponentTypes::NavBlock:
+	//	{
+	//		//NavBlock nb = m_navBlocks[id];
+	//		NavBlock* nb = new NavBlock(m_navBlocks[id]);
+	//		return dynamic_cast<IComponent*>(nb);
+	//	}
+	//	case ComponentTypes::AI:
+	//	{
+	//		//AI ai = m_ais[id];
+	//		AI* ai = new AI(m_ais[id]);
+	//		return dynamic_cast<IComponent*>(ai);
+	//	}
+	//	case ComponentTypes::Impulse:
+	//	{
+	//		//Impulse i = m_impulses[id];
+	//		Impulse* i = new Impulse(m_impulses[id]);
+	//		return dynamic_cast<IComponent*>(i);
+	//	}
+	//	case ComponentTypes::Audio:
+	//	{
+	//		//Audio a = m_audios[id];
+	//		Audio* a = new Audio(m_audios[id]);
+	//		return dynamic_cast<IComponent*>(a);
+	//	}
+	//	case ComponentTypes::Animation:
+	//	{
+	//		//Animation a = m_animations[id];
+	//		Animation* a = new Animation(m_animations[id]);
+	//		return dynamic_cast<IComponent*>(a);
+	//	}
+	//	case ComponentTypes::ParticleEmission:
+	//	{
+	//		//ParticleEmission pe = m_particleEmissions[id];
+	//		ParticleEmission* pe = new ParticleEmission(m_particleEmissions[id]);
+	//		return dynamic_cast<IComponent*>(pe);
+	//	}
+	//	case ComponentTypes::UiButton:
+	//	{
+	//		//UiButton ub = m_uiButtons[id];
+	//		UiButton* ub = new UiButton(m_uiButtons[id]);
+	//		return dynamic_cast<IComponent*>(ub);
+	//	}
+	//	case ComponentTypes::UiSprite:
+	//	{
+	//		//UiSprite us = m_uiSprites[id];
+	//		UiSprite*us = new UiSprite(m_uiSprites[id]);
+	//		return dynamic_cast<IComponent*>(us);
+	//	}
+	//	default:
+	//		ASSERT(false, "Unhandled component removal.");
+	//		return nullptr;
+	//	}
+	//}
 
 	void RegisterCachedComponent(IComponent* component)
 	{
@@ -547,7 +547,7 @@ private:
 	std::vector<UiButton>			m_uiButtons;
 	std::vector<UiSprite>			m_uiSprites;
 
-	entId	m_componentIndices[(entId)ComponentTypes::Count];
+	entId	m_componentIndices[(entId)ComponentTypes::Count] = { 0 };
 };
 
 } // Namespace jci.

@@ -60,7 +60,7 @@ void PlayerStateManager::Init(vec2 playerStartPosition, Gun* theGun)
 
 	jci::UiSprite* us = m_player.m_healthUiEnt->AddComponent<jci::UiSprite>();
 	us->SetTexture(jci::TextureManager::Instance()->CreateTexture("Assets/Texture/health-bar.png"));
-	us->SetAnchorPoint(jci::AnchorPoints::MidLeftOneQuarter);
+	us->SetAnchorPoint(jci::AnchorPoints::TopLeft);
 	us->SetPadding(vec2(2.0f, -0.55f));
 	us->SetSize(vec2(3.0f, 0.3f));
 

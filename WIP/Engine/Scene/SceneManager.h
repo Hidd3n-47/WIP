@@ -2,8 +2,6 @@
 
 #include "Scene.h"
 
-#include "UI/UiManager.h"
-
 /***
 =========================================================================================
 SCENE_MANAGER:
@@ -43,7 +41,7 @@ public:
 	*
 	*/
 	Camera* UpdateCurrentScene(float dt);
-	
+
 	// Accessors.
 	/***
 	* Gets a scene by the passed in name.

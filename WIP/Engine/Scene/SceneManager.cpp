@@ -2,6 +2,8 @@
 #include "SceneManager.h"
 
 #include "ECS/Entity.h"
+#include "UI/UiManager.h"
+#include "Collision/CollisionManager.h"
 
 namespace jci {
 
@@ -110,26 +112,41 @@ void SceneManager::SetSceneName(uint16 id, const std::string newName)
 	ASSERT(false, "Scene with id '" + std::to_string(id) + "' is not a current scene.");
 }
 
-void SceneManager::SetCurrentScene(Scene* scene) 
-{ 
+void SceneManager::SetCurrentScene(Scene* scene)
+{
 	if (m_currentScene)
 	{
-		m_currentScene->CacheEntities();
-		m_currentScene->ClearEntities();
-		ComponentManager::Instance()->ResetComponents();
-
-		m_currentScene = scene;
-		m_currentScene->RetrieveCachedEntities();
-
-		UiManager::Instance()->SetCamera(m_currentScene->GetCamera());
+		m_currentScene->DeactivateEntities();
 	}
-	else
-	{
-		m_currentScene = scene;
-		UiManager::Instance()->SetCamera(m_currentScene->GetCamera());
-	}
-	
+
+	m_currentScene = scene;
+	m_currentScene->ActivateEntities();
+
+	UiManager::Instance()->SetCamera(m_currentScene->GetCamera());
+	CollisionManager::Instance()->ClearCollidedLastFrame();
 }
+
+
+//void SceneManager::SetCurrentScene(Scene* scene) 
+//{ 
+//	if (m_currentScene)
+//	{
+//		m_currentScene->CacheEntities();
+//		m_currentScene->ClearEntities();
+//		ComponentManager::Instance()->ResetComponents();
+//
+//		m_currentScene = scene;
+//		m_currentScene->RetrieveCachedEntities();
+//
+//		UiManager::Instance()->SetCamera(m_currentScene->GetCamera());
+//	}
+//	else
+//	{
+//		m_currentScene = scene;
+//		UiManager::Instance()->SetCamera(m_currentScene->GetCamera());
+//	}
+//	
+//}
 
 void SceneManager::Destory()
 { 

@@ -80,12 +80,12 @@ void Zombie::Update(float time)
 	}
 }
 
-jci::Entity* Zombie::getEntity()
+jci::Entity* Zombie::GetEntity()
 {
 	return zombert;
 }
 
-void Zombie::reset()
+void Zombie::Reset()
 {
 	hp = 30;
 }

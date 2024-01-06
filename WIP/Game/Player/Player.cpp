@@ -77,7 +77,7 @@ void Player::FasterFireRate()
 
 void Player::DmgUpRateDown()
 {
-	m_equippedGun->SetBulletDamage(m_equippedGun->GetBulletDamage() + 3.0f);
+	m_equippedGun->SetBulletDamage(m_equippedGun->GetBulletDamage() + 3);
 	m_equippedGun->SetFireRate(m_equippedGun->GetFireRate() + 0.15f);
 }
 
@@ -85,12 +85,12 @@ void Player::RateUpDmgDown()
 {
 	if (m_equippedGun->GetFireRate() > 0.4f && m_equippedGun->GetBulletDamage() > 5)
 	{
-		m_equippedGun->SetBulletDamage(m_equippedGun->GetBulletDamage() - 1.0f);
+		m_equippedGun->SetBulletDamage(m_equippedGun->GetBulletDamage() - 1);
 		m_equippedGun->SetFireRate(m_equippedGun->GetFireRate() - 0.3f);
 	}
 	else if (m_equippedGun->GetFireRate() > 0.25f && m_equippedGun->GetBulletDamage() > 5)
 	{
-		m_equippedGun->SetBulletDamage(m_equippedGun->GetBulletDamage() - 1.0f);
+		m_equippedGun->SetBulletDamage(m_equippedGun->GetBulletDamage() - 1);
 		m_equippedGun->SetFireRate(0.25f);
 	}
 }

@@ -39,6 +39,8 @@ public:
 	void Update(uint16 screenWidth, uint16 screenHeight, vec2 cameraPosition);
 
 	inline void Destroy() { delete m_instance; }
+
+	inline void ClearCollidedLastFrame() { m_collidedLastFrame.clear(); }
 private:
 	CollisionManager() = default;
 	~CollisionManager() = default;

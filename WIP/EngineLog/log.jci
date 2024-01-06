@@ -8,15 +8,15 @@ Created texture Assets/Texture/dbg/dbg_cap.png
 Created Entity with id: 0
 Added component with id: ComponentTypes::Transform to Game Object: 0
 Added component with id: ComponentTypes::UiButton to Game Object: 0
-Added component with id: ComponentTypes::UiSprite to Game Object: 0
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 0
 Created Entity with id: 1
 Added component with id: ComponentTypes::Transform to Game Object: 1
 Added component with id: ComponentTypes::UiButton to Game Object: 1
-Added component with id: ComponentTypes::UiSprite to Game Object: 1
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 1
 Created Entity with id: 2
 Added component with id: ComponentTypes::Transform to Game Object: 2
 Added component with id: ComponentTypes::UiButton to Game Object: 2
-Added component with id: ComponentTypes::UiSprite to Game Object: 2
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 2
 Created texture Assets/Texture/squareWITHAW!!.png
 Created texture Assets/Texture/Front left wall.png
 Created texture Assets/Texture/Floor.png
@@ -27,6 +27,7 @@ Created texture Assets/Texture/Right wall.png
 Created texture Assets/Texture/Back left wall.png
 Created texture Assets/Texture/Back right wall.png
 Created texture Assets/Texture/Back wall.png
+Created texture Assets/Texture/Front wall.png
 Created texture Assets/Texture/Door.png
 Created texture Assets/Texture/Inv front left wall.png
 Created texture Assets/Texture/Inv front right wall.png
@@ -5458,7 +5459,6 @@ Added component with id: ComponentTypes::Transform to Game Object: 1089
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 1089
 Game object '1089' already has component with id: 2
 Created texture Assets/Texture/Weapons/Bowie Knife.png
-Created scene with name: StartScene
 Destroyed Entity with id: 0
 Destroyed Entity with id: 1
 Destroyed Entity with id: 2
@@ -6550,4 +6550,3 @@ Destroyed Entity with id: 1087
 Destroyed Entity with id: 1088
 Destroyed Entity with id: 1089
 Destroyed scene with name: MainScene
-Destroyed scene with name: StartScene

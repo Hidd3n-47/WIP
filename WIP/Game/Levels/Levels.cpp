@@ -28,7 +28,7 @@ Levels::Levels()
 	botleftwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Back left wall.png");
 	botrightwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Back right wall.png");
 	botwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Back wall.png");
-	//botwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Front wall.png"); //Temporary fix, Back wall texture not working
+	botwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Front wall.png"); //Temporary fix, Back wall texture not working
 	door = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Door.png");
 	inversetopleft = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv front left wall.png");
 	inversetopright = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv front right wall.png");
@@ -333,7 +333,7 @@ int Levels::getSpawnPointX()
 	for (auto i : spawnPoints)
 	{
 		if (i->IsActive())
-			return (int)i->GetComponent<jci::Transform>()->GetPosition().x;
+			return (int)(i->GetComponent<jci::Transform>()->GetPosition().x);
 	}
 	return -1;
 }
@@ -343,7 +343,7 @@ int Levels::getSpawnPointY()
 	for (auto i : spawnPoints)
 	{
 		if (i->IsActive())
-			return (int)i->GetComponent<jci::Transform>()->GetPosition().y;
+			return (int)(i->GetComponent<jci::Transform>()->GetPosition().y);
 	}
 	return -1;
 }

@@ -2,10 +2,8 @@
 #include "pch.h"
 
 #include "IComponent.h"
-#include "Time/Timer.h"
 
-#include "Graphics/Texture/TextureManager.h"
-#include "Graphics/Renderer/RendererManager.h"
+#include "Time/Timer.h"
 
 namespace jci {
 

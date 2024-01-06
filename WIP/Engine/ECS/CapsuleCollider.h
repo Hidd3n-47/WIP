@@ -2,7 +2,6 @@
 
 #include "IComponent.h"
 #include "Collision/ICollision.h"
-#include "Collision/CollisionBodyDetails.h"
 
 namespace jci {
 
@@ -29,13 +28,13 @@ public:
 
 	inline CapsuleCollider& operator=(CapsuleCollider& other) noexcept
 	{
-		/*m_id = std::move(other.m_id);
+		m_id = std::move(other.m_id);
 		m_entity = std::move(other.m_entity);
 		m_radius = std::move(other.m_radius);
 		m_bodyType = std::move(other.m_bodyType);
 
-		return *this;*/
-		memcpy(this, &other, sizeof(CapsuleCollider));
+		return *this;
+		//memcpy(this, &other, sizeof(CapsuleCollider));
 
 		return *this;
 	}

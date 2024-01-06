@@ -2,10 +2,8 @@
 #include "pch.h"
 
 #include "IComponent.h"
-
 #include "Graphics/Renderer/IRenderable.h"
-#include "Graphics/Renderer/RendererManager.h"
-#include "Graphics/Texture/TextureManager.h"
+
 #include "UI/AnchorPoints.h"
 
 namespace jci {
@@ -34,38 +32,20 @@ public:
 
 	inline UiSprite& operator=(UiSprite& other) noexcept
 	{
-		/*m_id		= other.m_id;
-		m_entity	= other.m_entity;
-
-		m_anchorPoint = other.m_anchorPoint;
-
-		m_padding = other.m_padding;
-		m_pressed = other.m_pressed;
-
-		m_texture	= other.m_texture;
-		m_uvRect	= other.m_uvRect;
-		m_size		= other.m_size;
-		m_layer		= other.m_layer;
-		m_flipY		= other.m_flipY;
-
-		m_renderPercent = other.m_renderPercent;
-		m_originalSize = other.m_originalSize;
-
-		return *this;*/
 		memcpy(this, &other, sizeof(UiSprite));
 
 		return *this;
 	}
 private:
-	entId m_id;
-	Entity* m_entity;
+	Entity* m_entity = nullptr;
+	entId m_id = invalid_id;
 
 	AnchorPoints	m_anchorPoint	= AnchorPoints::Middle;
 
 	vec2 m_padding	= vec2(0.0f);
 	bool m_pressed	= false;
 	float m_renderPercent = 1.0f;
-	vec2 m_originalSize = vec2(1.0f);
+	vec2 m_originalSize   = vec2(1.0f);
 };
 
 } // Namespace jci.

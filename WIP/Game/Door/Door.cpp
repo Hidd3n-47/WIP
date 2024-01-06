@@ -1,6 +1,9 @@
 #include "pch.h"
 #include "Door.h"
+
+#include <Engine/ECS/Entity.h>
 #include <Engine/Scene/SceneManager.h>
+
 
 Door::Door()
 {

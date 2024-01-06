@@ -25,19 +25,14 @@ public:
 
 	inline NavBlock& operator=(NavBlock& other) noexcept
 	{
-		/*m_id = std::move(other.m_id);
-		m_entity = std::move(other.m_entity);
-		m_node = std::move(other.m_node);
-
-		return *this;*/
 		memcpy(this, &other, sizeof(NavBlock));
 
 		return *this;
 	}
 private:
-	Entity* m_entity;
+	Entity* m_entity = nullptr;
 	entId	m_id = invalid_id;
-	Node*	m_node;
+	Node*	m_node = nullptr;
 };
 
 } // Namespace jci.

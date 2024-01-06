@@ -19,18 +19,18 @@ class Zombie : public jci::ICollision
 public:
 	Zombie() = default;
 	~Zombie();
+
 	void Create(vec2 point, Player* play, uint32 zombieTexture);
 	void Update(float time);
-	//void Create(Levels map, Player* play);
-	jci::Entity* getEntity();
-	void reset();
-	jci::Scene* m_currentScene;
+	jci::Entity* GetEntity();
+	void Reset();
 
 private:
-	Player* player;
-	jci::Entity* zombert;
+	Player* player = nullptr;
+	jci::Entity* zombert = nullptr;
+	jci::Scene* m_currentScene = nullptr;
 
-	float hp;
+	float hp = 20;
 	int m_damage = 15;
 	float m_damageCooldown = 1.5f;
 	vec2* m_position = nullptr;

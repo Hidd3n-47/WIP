@@ -2,10 +2,8 @@
 #include "pch.h"
 
 #include "IComponent.h"
-
 #include "Graphics/Renderer/IRenderable.h"
-#include "Graphics/Renderer/RendererManager.h"
-#include "Graphics/Texture/TextureManager.h"
+
 #include "UI/AnchorPoints.h"
 
 namespace jci {
@@ -42,29 +40,13 @@ public:
 
 	inline UiButton& operator=(UiButton& other) noexcept
 	{
-		/*m_id		= other.m_id;
-		m_entity	= other.m_entity;
-
-		m_buttonMethods = other.m_buttonMethods;
-		m_anchorPoint	= other.m_anchorPoint;
-
-		m_padding = other.m_padding;
-		m_pressed = other.m_pressed;
-
-		m_texture	= other.m_texture;
-		m_uvRect	= other.m_uvRect;
-		m_size		= other.m_size;
-		m_layer		= other.m_layer;
-		m_flipY		= other.m_flipY;
-
-		return *this;*/
 		memcpy(this, &other, sizeof(UiButton));
 
 		return *this;
 	}
 private:
-	entId m_id;
-	Entity* m_entity;
+	Entity* m_entity = nullptr;
+	entId m_id = invalid_id;
 
 	IButtonMethods* m_buttonMethods	= nullptr;
 	AnchorPoints	m_anchorPoint	= AnchorPoints::Middle;
