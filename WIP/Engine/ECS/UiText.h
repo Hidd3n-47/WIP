@@ -7,6 +7,12 @@
 
 namespace jci {
 
+enum class TextAlignment
+{
+	Left,
+	Right
+};
+
 struct Glyph
 {
 	Glyph() = default;
@@ -43,6 +49,7 @@ public:
 	inline void SetFontSize(uint8 size)			 { m_fontSize = size; m_recalculateGlyphs = true;}
 	inline void SetPadding(vec2 padding)		 { m_padding = padding; }
 	inline void SetText(uint32 text, uint8 size) { m_text = text; m_fontSize = size; m_recalculateGlyphs = true; }
+	inline void SetTextAlign(TextAlignment align){ m_textAlign = align; m_recalculateGlyphs = true; }
 
 	inline UiText& operator=(UiText& other) noexcept
 	{
@@ -70,6 +77,7 @@ private:
 	bool m_recalculateGlyphs = false;
 
 	AnchorPoints	m_anchorPoint = AnchorPoints::Middle;
+	TextAlignment	m_textAlign   = TextAlignment::Left;
 
 	vec2 m_padding = vec2(0.0f);
 	uint8 m_fontSize = 12;

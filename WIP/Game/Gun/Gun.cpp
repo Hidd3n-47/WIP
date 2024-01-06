@@ -80,7 +80,7 @@ void Gun::FireGun(float time, vec2 position, jci::Scene* currentScene)
 
 		bulletManager->ShootBullet(moveDirection, position, m_gunAngle);
 
-		m_ammoUi->GetComponent<jci::UiText>()->SetText(m_inClip);
+		UpdateAmmoUi();
 	}
 }
 
@@ -143,4 +143,9 @@ void Gun::Update(vec2 playerPosition)
 		sr->SetFlipY(false);
 		m_entity->GetComponent<jci::Transform>()->SetRotation(m_gunAngle);
 	}
+}
+
+void Gun::UpdateAmmoUi() const
+{
+	m_ammoUi->GetComponent<jci::UiText>()->SetText(m_inClip);
 }

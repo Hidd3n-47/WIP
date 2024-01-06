@@ -40,6 +40,7 @@ void PlayerStateManager::Init(vec2 playerStartPosition, Gun* theGun)
 	m_player.m_height = (float)jci::Engine::Instance()->GetScreenHeight();
 	m_player.playerEntity = currentScene->CreateEmptyEntity();
 	m_player.m_healthUiEnt = currentScene->CreateEmptyEntity();
+	m_player.m_healthBarEnt = currentScene->CreateEmptyEntity();
 	m_player.playerEntity->SetTag("Player");
 	m_player.playerEntity->AddComponent<jci::Impulse>();
 	m_player.playerEntity->GetComponent<jci::Impulse>()->SetDampening(1);
@@ -63,6 +64,13 @@ void PlayerStateManager::Init(vec2 playerStartPosition, Gun* theGun)
 	us->SetAnchorPoint(jci::AnchorPoints::TopLeft);
 	us->SetPadding(vec2(2.0f, -0.55f));
 	us->SetSize(vec2(3.0f, 0.3f));
+
+	jci::UiSprite* bar = m_player.m_healthBarEnt->AddComponent<jci::UiSprite>();
+	bar->SetTexture(jci::TextureManager::Instance()->CreateTexture("Assets/Texture/health-bar-bg.png"));
+	bar->SetAnchorPoint(jci::AnchorPoints::TopLeft);
+	bar->SetPadding(vec2(2.0f, -0.55f));
+	bar->SetSize(vec2(3.0f, 0.3f));
+	bar->SetLayer(199);
 
 	m_player.m_equippedGun = theGun;
 
@@ -111,6 +119,7 @@ void PlayerStateManager::Update(float dt)
 	{
 		m_player.hasReloaded = true;
 		m_player.m_equippedGun->m_inClip = m_player.m_equippedGun->m_magSize;
+		m_player.UpdateAmmoUi();
 	}
 	if (m_player.m_iFrameTimer && m_player.m_iFrameTimer->TimerTick() == jci::TimerStatus::TimerCompleted)
 	{

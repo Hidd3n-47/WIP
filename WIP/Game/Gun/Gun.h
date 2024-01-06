@@ -20,6 +20,8 @@ public:
 	void FireGun(float time, vec2 position, jci::Scene* currentScene);
 	void SetBulletDamage(int bullDmg);
 	int GetBulletDamage();
+	void UpdateAmmoUi() const;
+
 	int m_magSize;
 	int m_inClip;
 	float m_reloadTimer;

@@ -165,9 +165,10 @@ void RendererManager::Begin()
 			Entity* entity = uiText[i].GetEntity();
 			if (!entity->IsActive()) { continue; }
 
-			for (size_t j = 0; j < uiText->m_glyphs.size(); j++)
+			for (size_t j = 0; j < uiText[i].m_glyphs.size(); j++)
 			{
-				AddToRenderQueue(uiText[i].m_glyphs[j].position, uiText[i].m_texture, uiText[i].m_glyphs[j].size * 0.5f, 0.0f, uiText[i].GetLayer() / 256.0f, false, uiText[i].m_texture->GetUVRect(uiText[i].m_glyphs[j].textureIndex));
+				vec2 pos = entity->GetComponent<Transform>()->GetPosition();
+				AddToRenderQueue(pos + uiText[i].m_glyphs[j].position, uiText[i].m_texture, uiText[i].m_glyphs[j].size * 0.5f, 0.0f, uiText[i].GetLayer() / 256.0f, false, uiText[i].m_texture->GetUVRect(uiText[i].m_glyphs[j].textureIndex));
 			}
 		}
 	}

@@ -2,9 +2,11 @@
 #include "Game/Door/DoorTrigger.h"
 #include <Engine/Scene/SceneManager.h>
 #include <Engine/Input/InputManager.h>
-#include <Game/Levels/Levels.h>
-#include <Game/Challenges/ChallengeManager.h>
-#include <Game/UIManager/GameUIManager.h>
+
+#include "Game/Player/Score.h"
+#include "Game/Levels/Levels.h"
+#include "Game/Challenges/ChallengeManager.h"
+#include "Game/UIManager/GameUIManager.h"
 
 DoorTrigger::DoorTrigger()
 {
@@ -59,17 +61,20 @@ void DoorTrigger::OnCollisionStay(jci::Entity* other)
 		{
 			//Load level script
 			//tempscript:
+			if (cm->getCurrentChallenge()->getCompleted())
 			{
-				if (cm->getCurrentChallenge()->getCompleted())
+				Score::Instance()->AddToScore(1000);
+				GameUIManager::getGameUIManager()->perkToggle();
+				if (GameUIManager::getGameUIManager()->getPerkToggle())
 				{
-					GameUIManager::getGameUIManager()->perkToggle();
-					if (GameUIManager::getGameUIManager()->getPerkToggle())
-					{
-						Levels* map = Levels::getCurrentMap();
-						map->newLevel();
-						other->GetComponent<jci::Transform>()->SetPosition(map->GetSpawnPoint());
-					}
+					Levels* map = Levels::getCurrentMap();
+					map->newLevel();
+					other->GetComponent<jci::Transform>()->SetPosition(map->GetSpawnPoint());
 				}
+			}
+			else
+			{
+				Score::Instance()->AddToScore(500);
 			}
 		}
 	}

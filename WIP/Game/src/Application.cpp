@@ -8,6 +8,7 @@
 #include <Engine/ECS/SpriteRenderer.h>
 #include <Engine/Scene/SceneManager.h>
 
+#include "Game/Player/Score.h"
 #include "Game/Levels/Levels.h"
 #include "Game/EnemyManager/EnemyManager.h"
 #include "Game/Challenges/ChallengeManager.h"
@@ -39,7 +40,7 @@ void Application::Create()
 	m_player->SetManager(manager);
 	PlayerStateManager::Instance()->Init(map->GetSpawnPoint(), g1);
 	em->setPlayer(m_player);
-
+	Score::Instance()->Init();
 	m_startMenu = jci::SceneManager::Instance()->CreateScene("StartScene");
 	jci::SceneManager::Instance()->SetCurrentScene(m_startMenu);
 	m_currentScene = m_startMenu;
@@ -94,6 +95,8 @@ void Application::GameUpdate(float dt)
 
 void Application::Destroy()
 {
+	Score::Instance()->Destroy();
+
 	GameUIManager::getGameUIManager()->Destroy();
 
 	Levels::getCurrentMap()->Destroy();
