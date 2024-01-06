@@ -82,7 +82,7 @@ void Application::StartUpdate(float dt)
 
 void Application::GameUpdate(float dt)
 {
-	if (GameUIManager::getGameUIManager()->getPerkToggle())
+	if (!GameUIManager::getGameUIManager()->getPerkToggle())
 	{
 		PlayerStateManager::Instance()->Update(dt);
 		manager->Update(dt);
