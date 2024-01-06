@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "PerkButton.h"
 #include "GameUIManager.h"
-
+#include "Game/Challenges/ChallengeManager.h"
 PerkButton::PerkButton()
 {
 	thisButton->AddComponent<jci::UiButton>();
@@ -37,4 +37,5 @@ void PerkButton::OnButtonPress()
 	thisPerk->activate();
 	std::cout << "Perk selected: " << thisPerk->getTagStr() << "\n";
 	GameUIManager::getGameUIManager()->perkToggle();
+	ChallengeManager::getChallengeManager()->getCurrentChallenge()->Reset();
 }
