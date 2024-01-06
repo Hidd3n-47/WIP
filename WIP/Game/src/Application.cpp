@@ -54,7 +54,7 @@ void Application::Create()
 
 void Application::Update(float dt)
 {
-	/*if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_p))
+	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_p))
 	{
 		jci::SceneManager::Instance()->SetCurrentScene(m_startMenu);
 		m_currentScene = m_startMenu;
@@ -66,7 +66,7 @@ void Application::Update(float dt)
 	else if (m_currentScene == m_gameScene)
 	{
 		GameUpdate(dt);
-	}*/
+	}
 }
 
 
