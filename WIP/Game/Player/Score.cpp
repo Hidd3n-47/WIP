@@ -43,7 +43,7 @@ void Score::HighscoreUI()
 	jci::UiText* uit = m_startUi->AddComponent<jci::UiText>();
 	uit->SetTexture(jci::TextureManager::Instance()->CreateTexture("Assets/Texture/ScoreFont.png", 10, 1));
 	uit->SetAnchorPoint(jci::AnchorPoints::Middle);
-	uit->SetTextAlign(jci::TextAlignment::Right);
+	uit->SetTextAlign(jci::TextAlignment::Center);
 	uit->SetPadding(vec2(-0.35f, 0.35f));
 	uit->SetText(m_highScore, 24);
 }

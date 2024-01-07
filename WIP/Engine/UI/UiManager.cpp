@@ -110,6 +110,7 @@ void UiManager::Update()
 		} while (num != 0);
 
 		float size = 1.0f / 50.0f * texts[i].m_fontSize;
+		float centerAlignmentMiddle = digits.size() / 2.0f - 0.5f;
 
 		for (size_t j = 0; j < digits.size(); j++)
 		{
@@ -119,9 +120,13 @@ void UiManager::Update()
 			{
 				position.x += (digits.size() - j) * size;
 			}
-			else
+			else if(texts[i].m_textAlign == TextAlignment::Right)
 			{
 				position.x -= j * size;
+			}
+			else
+			{
+				position.x += ( centerAlignmentMiddle - j) * size;
 			}
 
 			texts[i].m_glyphs.emplace_back(position, vec2(size), digits[j]);

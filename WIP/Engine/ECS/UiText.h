@@ -16,6 +16,7 @@ TEXT_ALIGNMENT (TEXT_ALIGNMENT):
 enum class TextAlignment
 {
 	Left,
+	Center,
 	Right
 };
 
@@ -107,7 +108,7 @@ public:
 	inline void SetText(uint32 text, uint8 size) { m_text = text; m_fontSize = size; m_recalculateGlyphs = true; }
 	/***
 	* Set the text alignment of the font.
-	* Alignments: Left, Right.
+	* 
 	*/
 	inline void SetTextAlign(TextAlignment align){ m_textAlign = align; m_recalculateGlyphs = true; }
 
