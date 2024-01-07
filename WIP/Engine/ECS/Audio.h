@@ -8,6 +8,12 @@
 
 namespace jci {
 
+/***
+=========================================================================================
+AUDIO (COMPONENT):
+	Audio component is used to play music/sound effects.
+=========================================================================================
+*/
 class Audio : public IComponent
 {
 public:
@@ -56,11 +62,6 @@ public:
 
 	inline Audio& operator=(Audio& other) noexcept
 	{
-		/*m_id = std::move(other.m_id);
-		m_entity = std::move(other.m_entity);
-		m_sound = std::move(other.m_sound);
-
-		return *this;*/
 		memcpy(this, &other, sizeof(Audio));
 
 		return *this;

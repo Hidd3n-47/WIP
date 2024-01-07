@@ -41,8 +41,8 @@ void PlayerStateManager::Init(vec2 playerStartPosition, Gun* theGun)
 	m_player.m_healthBarEnt = currentScene->CreateEmptyEntity();
 	m_player.m_playerEntity->SetTag("Player");
 	m_player.m_playerEntity->AddComponent<jci::Impulse>();
-	m_player.m_playerEntity->GetComponent<jci::Impulse>()->SetDampening(1);
-	m_player.m_playerEntity->GetComponent<jci::Impulse>()->SetDampeningFactor(0.75f);
+	m_player.m_playerEntity->GetComponent<jci::Impulse>()->SetAcceleration(1);
+	m_player.m_playerEntity->GetComponent<jci::Impulse>()->SetAccelerationDecreasingFactor(0.75f);
 
 	uint32 text = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/PlayerSpriteSheet.png", 10, 1);
 	m_player.m_blankTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Blank.png");

@@ -372,6 +372,7 @@ vec2 Levels::GetSpawnPoint()
 		if (i->IsActive())
 			return i->GetComponent<jci::Transform>()->GetPosition();
 	}
+	return vec2(0.0f);
 }
 
 EnemyManager* Levels::GetEnemyManager()

@@ -8,6 +8,13 @@
 
 namespace jci {
 
+/***
+=========================================================================================
+ENTITY (Entity):
+	Abstract object that exists in a scene.
+	Entities have components which can be attached to give it behaviours.
+=========================================================================================
+*/
 class Entity
 {
 public:
@@ -23,6 +30,10 @@ public:
 
 	inline ~Entity() = default;
 
+	/***
+	* Remove all the components off the entity.
+	*
+	*/
 	inline void RemoveAllComponents()
 	{
 		for (auto it = m_componentIndices.begin(); it != m_componentIndices.end(); it++)
@@ -37,7 +48,10 @@ public:
 		DOUT("Destroyed Entity with id: " + std::to_string(m_id));
 	}
 
-
+	/***
+	* Add a component to the entity.
+	*
+	*/
 	template<class T>
 	inline T* AddComponent()
 	{
@@ -60,6 +74,10 @@ public:
 		return comp;
 	}
 
+	/***
+	* Get the specified component.
+	* Returns nullptr if the component is not attached to the entity.
+	*/
 	template<class T>
 	inline T* GetComponent()
 	{
@@ -77,35 +95,69 @@ public:
 		return nullptr;
 	}
 
+	/***
+	* Set if the entity is active or not.
+	* If it is inactive, none of the components will affect the entity.
+	*/
 	inline void SetActive(bool active) 
 	{ 
 		ASSERT(m_scene == SceneManager::Instance()->GetCurrentScene(), "Trying to change an entity to active/inactive in a different scene");
 		m_active = active; 
 	}
 
+	/***
+	* Cache the entity when changing scenes.
+	* For internal use.
+	*/
 	inline void CacheEntity()
 	{
 		m_cachedEntityActive = m_active;
 		m_active = false;
 	}
-
+	/***
+	* Retriving the cached entity when making scene active.
+	* For internal use.
+	*/
 	inline void RetrieveEntity()
 	{
 		m_active = m_cachedEntityActive;
 	}
 
+	/***
+	* Flag if the entity should be destroyed.
+	* Note: Destruction occures at the end of the frame.
+	*/
 	inline void DestoryEntity() { Engine::Instance()->DestroyEntity(this); }
 	
 	inline Scene* GetScene() const { return m_scene; }
 
 	// Accessors.
+	/***
+	* Get the ID of the entity.
+	*
+	*/
 	inline uint16 GetId() const { return m_id; }
+	/***
+	* Get the tag of the entity.
+	* Note: Tags might not be unique, i.e. its not a unique identifier.
+	*/ 
 	inline std::string GetTag() const { return m_tag; }
+	/***
+	* Get if the entity is active or inactive.
+	*
+	*/
 	inline bool IsActive() const { return m_active; }
-	inline bool* GetActivePointer() { return &m_active; }
 
 	// Mutators.
+	/***
+	* Set the tag of the entity.
+	* Note: Tags might not be unique, i.e. it's not a unique identifier.
+	*/
 	inline void SetTag(const std::string& tag) { m_tag = tag; }
+	/***
+	* Set the id of an entity.
+	* For internal use.
+	*/
 	inline void SetId(entId id) { m_id = id; }
 	
 	inline Entity& operator=(Entity& other) noexcept

@@ -10,8 +10,8 @@
 
 DoorTrigger::DoorTrigger()
 {
-	m_dm = DoorManager::GetDoorManager();
-	m_cm = ChallengeManager::GetChallengeManager();
+	m_doorManager = DoorManager::GetDoorManager();
+	m_challengeManager = ChallengeManager::GetChallengeManager();
 }
 
 DoorTrigger::~DoorTrigger()
@@ -50,14 +50,14 @@ void DoorTrigger::OnCollisionEnter(jci::Entity* other)
 
 void DoorTrigger::OnCollisionStay(jci::Entity* other)
 {
-	if (other->GetTag() == "Player" && m_cm->GetCurrentChallenge()->GetCompleted())
+	if (other->GetTag() == "Player" && m_challengeManager->GetCurrentChallenge()->GetCompleted())
 	{
-		m_door->GetComponent<jci::SpriteRenderer>()->SetTexture(m_dm->GetOpenText());
+		m_door->GetComponent<jci::SpriteRenderer>()->SetTexture(m_doorManager->GetOpenText());
 		if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_e))
 		{
 			//Load level script
 			//tempscript:
-			if (m_cm->GetCurrentChallenge()->GetCompleted())
+			if (m_challengeManager->GetCurrentChallenge()->GetCompleted())
 			{
 				GameUIManager::GetGameUIManager()->PerkToggle();
 				if (GameUIManager::GetGameUIManager()->GetPerkToggle())
@@ -74,5 +74,5 @@ void DoorTrigger::OnCollisionStay(jci::Entity* other)
 void DoorTrigger::OnCollisionExit(jci::Entity* other)
 {
 	//if (door != nullptr)
-		m_door->GetComponent<jci::SpriteRenderer>()->SetTexture(m_dm->GetClosedText());
+		m_door->GetComponent<jci::SpriteRenderer>()->SetTexture(m_doorManager->GetClosedText());
 }

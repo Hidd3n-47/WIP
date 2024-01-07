@@ -9,6 +9,13 @@ namespace jci {
 
 class NavMesh;
 
+/***
+=========================================================================================
+AI (COMPONENT):
+	AI component will give the attached entity A* pathfinding.
+	Note this component will take control of the speed of the entity.
+=========================================================================================
+*/
 class AI : public IComponent
 {
 public:	
@@ -16,22 +23,46 @@ public:
 
 	void OnComponentAdd(Entity* entity) final;
 	inline void OnComponentRemove() final { }
-	int i = 0;
+	
+	/***
+	* Get the path associated with the AI.
+	*
+	*/
 	inline Path* GetPath() const { return m_path; }
+	/***
+	* Get the possition of the AI.
+	*
+	*/
 	inline vec2* GetPosition() const { return m_position; }
+	/***
+	* Get the target position of the AI.
+	*
+	*/
 	inline vec2* GetTargetPosition() const { return m_targetPosition; }
+	/***
+	* Get the speed of the AI.
+	*
+	*/
 	inline float* GetEntitySpeed() const { return m_entitySpeed; }
 
+	/***
+	* Set the path of the AI.
+	*
+	*/
 	inline void SetPath(Path* path) { delete m_path; m_path = path; }
+	/***
+	* Change the target position of the AI.
+	*
+	*/
 	inline void SetTargetPosition(vec2* position) { m_targetPosition = position; }
+	/***
+	* Set the speed of the AI.
+	*
+	*/
 	inline void SetEntitySpeed(float* speed) { m_entitySpeed = speed; }
 
 	inline AI& operator=(AI& other) noexcept
 	{
-		/*m_id = std::move(other.m_id);
-		m_entity = std::move(other.m_entity);
-		
-		return *this;*/
 		memcpy(this, &other, sizeof(AI));
 
 		return *this;
@@ -45,7 +76,6 @@ private:
 	vec2*		m_position			= nullptr;
 	vec2*		m_targetPosition	= nullptr;
 	float*		m_entitySpeed		= nullptr;
-	// Reference to path.
 };
 
 } // Namespace jci.

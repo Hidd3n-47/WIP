@@ -14,10 +14,10 @@ namespace jci
 class DoorTrigger : public jci::ICollision
 {
 private:
-	jci::Entity* m_door;
-	jci::Entity* m_trigger;
-	DoorManager* m_dm;
-	ChallengeManager* m_cm;
+	jci::Entity* m_door = nullptr;
+	jci::Entity* m_trigger = nullptr;
+	DoorManager* m_doorManager = nullptr;
+	ChallengeManager* m_challengeManager = nullptr;
 public:
 	DoorTrigger();
 	~DoorTrigger();
