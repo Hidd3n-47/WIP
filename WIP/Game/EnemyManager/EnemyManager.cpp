@@ -9,28 +9,28 @@ static EnemyManager* enemyManager;
 
 void EnemyManager::Destroy()
 { 
-	delete spawnCD; 
-	for (auto i : Zombies)
+	delete m_spawnCD; 
+	for (auto i : m_zombies)
 	{
 		jci::Engine::Instance()->DestroyEntity(i->GetEntity());
 		delete i;
 	}
-	Zombies.clear();
+	m_zombies.clear();
 	delete enemyManager;
 }
 
 Zombie* EnemyManager::CreateZombie(vec2 point)
 {
 	Zombie* zombie = new Zombie;
-	zombie->Create(point, player, zombieText);
-	Zombies.push_back(zombie);
+	zombie->Create(point, m_player, m_zombieText);
+	m_zombies.push_back(zombie);
 	return zombie;
 }
 
 EnemyManager::EnemyManager()
 {
-	PlayerInCollisionRange = true;
-	zombieText = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Enemy.png", 6, 1);
+	m_playerInCollisionRange = true;
+	m_zombieText = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Enemy.png", 6, 1);
 	for (int i = 0; i < 200; i++)
 	{
 		Zombie* f = CreateZombie(vec2(0,0));
@@ -38,23 +38,23 @@ EnemyManager::EnemyManager()
 	}
 }
 
-Uint32 EnemyManager::getZombieTexture()
+Uint32 EnemyManager::GetZombieTexture()
 {
-	return zombieText;
+	return m_zombieText;
 }
 
 bool EnemyManager::PlayerOutOfRange(jci::Entity* spawner)
 {
 	float minDistance = 3.0f;//Not directly overlapping
 	
-	if (glm::length(player->GetPosition() - spawner->GetComponent<jci::Transform>()->GetPosition()) < minDistance)
+	if (glm::length(m_player->GetPosition() - spawner->GetComponent<jci::Transform>()->GetPosition()) < minDistance)
 	{
 		return false;//fail at first overlap
 	}
 	return true;//success
 }
 
-EnemyManager* EnemyManager::getEnemyManager()
+EnemyManager* EnemyManager::GetEnemyManager()
 {
 	if (enemyManager == NULL)
 	{
@@ -67,14 +67,14 @@ EnemyManager* EnemyManager::getEnemyManager()
 	}
 }
 
-void EnemyManager::clearSquares()
+void EnemyManager::ClearSquares()
 {
 	EnemySquares.clear();
 }
 
-void EnemyManager::clearZombies()
+void EnemyManager::ClearZombies()
 {
-	for (auto i : Zombies)
+	for (auto i : m_zombies)
 	{
 		//jci::Engine::Instance()->DestroyEntity(i->getEntity());
 		i->GetEntity()->SetActive(false);
@@ -83,9 +83,9 @@ void EnemyManager::clearZombies()
 	//Zombies.clear();
 }
 
-bool EnemyManager::isZombiesWiped()
+bool EnemyManager::IsZombiesWiped()
 {
-	for (std::list<Zombie*>::iterator i = Zombies.begin(); i != Zombies.end(); i++)
+	for (std::list<Zombie*>::iterator i = m_zombies.begin(); i != m_zombies.end(); i++)
 	{
 		if ((*i)->GetEntity()->IsActive())
 		{
@@ -99,7 +99,7 @@ bool EnemyManager::isZombiesWiped()
 int EnemyManager::zombiesAlive()
 {
 	int temp = 0;
-	for (std::list<Zombie*>::iterator i = Zombies.begin(); i != Zombies.end(); i++)
+	for (std::list<Zombie*>::iterator i = m_zombies.begin(); i != m_zombies.end(); i++)
 	{
 		if ((*i)->GetEntity()->IsActive())
 		{
@@ -110,17 +110,17 @@ int EnemyManager::zombiesAlive()
 	return temp;
 }
 
-Player* EnemyManager::getPlayer()
+Player* EnemyManager::GetPlayer()
 {
-	return player;
+	return m_player;
 }
 
-void EnemyManager::setPlayer(Player* playertemp)
+void EnemyManager::SetPlayer(Player* playertemp)
 {
-	player = playertemp;
+	m_player = playertemp;
 }
 
-void EnemyManager::spawnWave(int waveCount)
+void EnemyManager::SpawnWave(int waveCount)
 {
 	//for (int i = 0; i < waveCount; i++)
 	//{
@@ -129,35 +129,35 @@ void EnemyManager::spawnWave(int waveCount)
 	//		CreateZombie(f->GetComponent<jci::Transform>()->GetPosition());
 	//	}
 	//}
-	spawnQueue += waveCount;
+	m_spawnQueue += waveCount;
 }
 
 void EnemyManager::Update(float dt)
 {//WaveSpawn logic runs timer loop
-	if (spawnCD == nullptr)
+	if (m_spawnCD == nullptr)
 	{
-		spawnCD = new jci::Timer(1, true);
+		m_spawnCD = new jci::Timer(1, true);
 	}
 	else
 	{
-		if (spawnCD->TimerTick() == jci::TimerStatus::TimeElapsed)
+		if (m_spawnCD->TimerTick() == jci::TimerStatus::TimeElapsed)
 		{
 			//DLOG("Timer Elapsed");
-			if (spawnQueue-1 < 0)
+			if (m_spawnQueue-1 < 0)
 			{
-				delete spawnCD;
-				spawnCD = nullptr;
+				delete m_spawnCD;
+				m_spawnCD = nullptr;
 			}
 			else
 			{
-				spawnQueue--;
+				m_spawnQueue--;
 				for (auto f : EnemySquares)
 				{
 					if (PlayerOutOfRange(f) && f->IsActive())
 					{
 						bool Set = false;
 						
-						for (std::list<Zombie*>::iterator i = Zombies.begin(); i != Zombies.end(); i++)
+						for (std::list<Zombie*>::iterator i = m_zombies.begin(); i != m_zombies.end(); i++)
 						{
 							if (!(*i)->GetEntity()->IsActive() && !Set)
 							{
@@ -175,7 +175,7 @@ void EnemyManager::Update(float dt)
 	
 	//Update logic
 
-	for (auto i : Zombies)
+	for (auto i : m_zombies)
 	{
 		i->Update(dt);
 	}

@@ -1,8 +1,8 @@
 #pragma once
 #include "PerkParent.h"
-class lighterBullets : public PerkParent
+class LighterBullets : public PerkParent
 {
 public:
-	void activate();
+	void Activate();
 };
 

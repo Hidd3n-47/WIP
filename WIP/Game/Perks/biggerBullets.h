@@ -1,8 +1,8 @@
 #pragma once
 #include "PerkParent.h"
-class biggerBullets : public PerkParent
+class BiggerBullets : public PerkParent
 {
 public:
-	void activate();
+	void Activate();
 };
 

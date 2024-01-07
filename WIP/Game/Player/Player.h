@@ -38,37 +38,35 @@ public:
 
 	inline vec2 GetPosition() const { return *m_position; }
 private:
-	jci::Entity* playerEntity	= nullptr;
+	jci::Entity* m_playerEntity	= nullptr;
 	jci::Entity* m_healthUiEnt	= nullptr;
 	jci::Entity* m_healthBarEnt	= nullptr;
 	jci::Entity* m_knife		= nullptr;
 
 	vec2* m_position = nullptr;
 
-	jci::Timer* stabbin			= nullptr;
-	jci::Timer* dashCD			= nullptr;
-	jci::Timer* bulletCD		= nullptr;
-	jci::Timer* meleeCD			= nullptr;
-	jci::Timer* reload			= nullptr;
+	jci::Timer* m_stabbin			= nullptr;
+	jci::Timer* m_dashCD			= nullptr;
+	jci::Timer* m_bulletCD		= nullptr;
+	jci::Timer* m_meleeCD			= nullptr;
+	jci::Timer* m_reload			= nullptr;
 	jci::Timer* m_iFrameTimer	= nullptr;
 
 	Gun* m_equippedGun = nullptr;
 
 	BulletManager* manager = nullptr;
 
-	uint32			m_blankTexture;
-	uint32			m_knifeTexture;
-	float			speed = 5.0f;
-	float			m_width;
-	float			m_height;
-	float			time;
+	uint32			m_blankTexture = 0;
+	uint32			m_knifeTexture = 0;
+	float			m_speed = 5.0f;
+	float			m_time = 0.0f;
 	bool			m_canFire = true;
 	bool			m_canStab = true;
 	bool			m_canDash = true;
-	bool			hasReloaded = false;
-	bool			tripSwitch = false;
-	float			m_dashTime;
-	float			m_stabTime;
+	bool			m_hasReloaded = false;
+	bool			m_tripSwitch = false;
+	float			m_dashTime = 0.0f;
+	float			m_stabTime = 0.0f;
 	int				m_maxHp = 100;
 	int				m_hp = m_maxHp;
 	bool			m_iFrameActive = false;

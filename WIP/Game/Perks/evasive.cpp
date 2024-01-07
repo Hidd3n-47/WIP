@@ -1,9 +1,9 @@
 #include "pch.h"
-#include "evasive.h"
+#include "Evasive.h"
 
 #include "Game/Player/PlayerStateManager.h"
 
-void evasive::activate()
+void Evasive::Activate()
 {
 	PlayerStateManager::Instance()->GetPlayer()->LessDashCD();
 }

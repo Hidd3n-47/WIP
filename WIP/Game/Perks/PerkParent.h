@@ -1,6 +1,6 @@
 #pragma once
 #include "Game/EnemyManager/EnemyManager.h"
-enum Perks
+enum class Perks
 {
 	Tanky,
 	SwiftHands,
@@ -13,14 +13,14 @@ enum Perks
 class PerkParent
 {
 protected:
-	Perks tag;
-	std::string strTag;
+	Perks m_tag;
+	std::string m_strTag;
 
 public:
 	virtual ~PerkParent() { }
-	void setTag(Perks temp, std::string temp2);
-	Perks getTag() { return tag; };
-	virtual void activate();
-	virtual std::string getTagStr() { return strTag; };
+	void SetTag(Perks temp, std::string temp2);
+	Perks GetTag() { return m_tag; };
+	virtual void Activate();
+	virtual std::string GetTagStr() { return m_strTag; };
 };
 

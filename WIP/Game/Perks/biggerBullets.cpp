@@ -1,7 +1,7 @@
 #include "pch.h"
-#include "biggerBullets.h"
+#include "BiggerBullets.h"
 
-void biggerBullets::activate()
+void BiggerBullets::Activate()
 {
-	EnemyManager::getEnemyManager()->getPlayer()->DmgUpRateDown();
+	EnemyManager::GetEnemyManager()->GetPlayer()->DmgUpRateDown();
 }

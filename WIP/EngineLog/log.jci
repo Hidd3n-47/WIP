@@ -5,18 +5,21 @@ Created texture Assets/Texture/dbg/no_texture.png
 Created texture Assets/Texture/dbg/dbg_box.png
 Created texture Assets/Texture/dbg/dbg_circle.png
 Created texture Assets/Texture/dbg/dbg_cap.png
+Created texture Assets/Texture/RateUpDmgDown.png
+Created texture Assets/Texture/RateDownDmgUp.png
+Created texture Assets/Texture/LessDashCD.png
+Created texture Assets/Texture/HpUp.png
+Created texture Assets/Texture/FasterFireRate.png
+Created texture Assets/Texture/FasterReload.png
 Created Entity with id: 0
 Added component with id: ComponentTypes::Transform to Game Object: 0
 Added component with id: ComponentTypes::UiButton to Game Object: 0
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 0
 Created Entity with id: 1
 Added component with id: ComponentTypes::Transform to Game Object: 1
 Added component with id: ComponentTypes::UiButton to Game Object: 1
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 1
 Created Entity with id: 2
 Added component with id: ComponentTypes::Transform to Game Object: 2
 Added component with id: ComponentTypes::UiButton to Game Object: 2
-Added component with id: ComponentTypes::SpriteRenderer to Game Object: 2
 Created texture Assets/Texture/LabSpriteSheet.png
 Created texture Assets/Texture/Enemy.png
 Created Entity with id: 3
@@ -5210,10 +5213,11 @@ Added component with id: ComponentTypes::Transform to Game Object: 1097
 Added component with id: ComponentTypes::UiText to Game Object: 1097
 Created texture Assets/Texture/ScoreFont.png
 Created scene with name: StartScene
-Created texture Assets/Texture/StartMenu.png
+Created texture Assets/Texture/StartMenuAnim.png
 Created Entity with id: 0
 Added component with id: ComponentTypes::Transform to Game Object: 0
-Added component with id: ComponentTypes::UiSprite to Game Object: 0
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 0
+Added component with id: ComponentTypes::Animation to Game Object: 0
 Destroyed Entity with id: 0
 Destroyed Entity with id: 1
 Destroyed Entity with id: 2

@@ -6,15 +6,15 @@
 class PerkButton : public jci::IButtonMethods
 {
 private:
-	jci::Entity* thisButton = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();
-	PerkParent* thisPerk;
+	jci::Entity* m_thisButton = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();
+	PerkParent* m_thisPerk;
 public:
 	PerkButton();
 	~PerkButton();
-	void setPerk(PerkParent* temp);
-	PerkParent* getPerk();
-	jci::Entity* getButton();
-	void setTexture(Uint32 texture);
+	void SetPerk(PerkParent* temp);
+	PerkParent* GetPerk();
+	jci::Entity* GetButton();
+	void SetTexture(Uint32 texture);
 
 	void OnButtonHover() final {};
 	void OnButtonPress() final;

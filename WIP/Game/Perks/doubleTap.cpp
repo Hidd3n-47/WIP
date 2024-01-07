@@ -1,7 +1,7 @@
 #include "pch.h"
-#include "doubleTap.h"
+#include "DoubleTap.h"
 
-void doubleTap::activate()
+void DoubleTap::Activate()
 {
-	EnemyManager::getEnemyManager()->getPlayer()->FasterFireRate();
+	EnemyManager::GetEnemyManager()->GetPlayer()->FasterFireRate();
 }

@@ -24,7 +24,7 @@ jci::Entity* Door::Create(vec2 point, uint32 TextureID)
 	return door;
 }
 
-void Door::setTexture(uint32 TextureID)
+void Door::SetTexture(uint32 TextureID)
 {
 	if (door == nullptr)
 	{
@@ -34,7 +34,7 @@ void Door::setTexture(uint32 TextureID)
 	door->AddComponent<jci::SpriteRenderer>()->SetTexture(TextureID);
 }
 
-jci::Entity* Door::getDoor()
+jci::Entity* Door::GetDoor()
 {
 	return door;
 }

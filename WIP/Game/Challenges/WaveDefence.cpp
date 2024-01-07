@@ -1,36 +1,37 @@
 #include "pch.h"
 #include "WaveDefence.h"
+
 #include "Game/EnemyManager/EnemyManager.h"
 
 void WaveDefence::Update(float dt)
 {
-	if (EnemyManager::getEnemyManager()->EnemySquares.size() == 0)
+	if (EnemyManager::GetEnemyManager()->EnemySquares.size() == 0)
 	{
 		DLOG("-----------------------3RR0R; N0 SP6WN P01NTS D3T3CT3D!!!1!!1!-----------------------\nWave Size: 6");
 
 	}
-	if (!completed)
+	if (!m_completed)
 	{
-		if (waveCount == 0 && EnemyManager::getEnemyManager()->zombiesAlive() == 0 && !completed)
+		if (m_waveCount == 0 && EnemyManager::GetEnemyManager()->zombiesAlive() == 0 && !m_completed)
 		{
-			completed = true;
+			m_completed = true;
 			DLOG("Completed");
 			return;
 		}
-		if (waveCount == 0)
+		if (m_waveCount == 0)
 		{
-			delete waveCD;
-			waveCD = nullptr;
+			delete m_waveCD;
+			m_waveCD = nullptr;
 		}
-		if (waveCD == nullptr)
+		if (m_waveCD == nullptr)
 		{
 			return;
 		}
-		if (waveCD->TimerTick() == jci::TimerStatus::TimeElapsed)
+		if (m_waveCD->TimerTick() == jci::TimerStatus::TimeElapsed)
 		{
 			DLOG("-----------------------Prep Over: Commencing Wave-----------------------\nWave Size: 6");
-			EnemyManager::getEnemyManager()->spawnWave(6);
-			waveCount--;
+			EnemyManager::GetEnemyManager()->SpawnWave(6);
+			m_waveCount--;
 		}
 	}
 }
@@ -38,10 +39,10 @@ void WaveDefence::Update(float dt)
 void WaveDefence::Reset()
 {
 	DLOG("-----------------------LOADED WAVE DEFENCE CHALLENGE-----------------------\nWave Count: 2\nWave Integral: 10");
-	completed = false;
-	if (waveCD == nullptr)
+	m_completed = false;
+	if (m_waveCD == nullptr)
 	{
-		waveCD = new jci::Timer(10, true);
+		m_waveCD = new jci::Timer(10, true);
 	}
-	waveCount = 2;
+	m_waveCount = 2;
 }

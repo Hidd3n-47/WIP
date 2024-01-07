@@ -26,11 +26,11 @@ public:
 	void Reset();
 
 private:
-	Player* player = nullptr;
-	jci::Entity* zombert = nullptr;
+	Player* m_player = nullptr;
+	jci::Entity* m_zombie = nullptr;
 	jci::Scene* m_currentScene = nullptr;
 
-	float hp = 20;
+	float m_hp = 20;
 	int m_damage = 15;
 	float m_damageCooldown = 1.5f;
 	vec2* m_position = nullptr;

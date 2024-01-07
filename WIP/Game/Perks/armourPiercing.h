@@ -1,6 +1,6 @@
 #pragma once
 #include "PerkParent.h"
-class armourPiercing :
+class ArmourPiercing :
     public PerkParent
 {
 };
