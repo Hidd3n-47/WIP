@@ -19,6 +19,7 @@ public:
 	void Update(float dt);
 	void StartUpdate(float dt);
 	void GameUpdate(float dt);
+	void DeadUpdate();
 	void Destroy();
 
 private:
@@ -30,10 +31,13 @@ private:
 	jci::Scene* m_currentScene = nullptr;
 	jci::Scene* m_gameScene = nullptr;
 	jci::Scene* m_startMenu = nullptr;
+	jci::Scene* m_deadMenu = nullptr;
 
 	jci::Entity* m_startMenuEntity = nullptr;
+	jci::Entity* m_deadEntity = nullptr;
 	jci::Entity* m_gameBackgroundMusic = nullptr;
 	uint32 m_menuTexture = 0;
+	uint32 m_deadTexture = 0;
 
 	std::vector<jci::Entity*> UpdatePool;
 
@@ -42,5 +46,7 @@ private:
 	BulletManager* manager = nullptr;
 
 	Player* m_player = nullptr;
+
+	bool m_hasRendered = false;
 };
 

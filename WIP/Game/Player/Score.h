@@ -12,7 +12,7 @@ public:
 	
 	void Init();
 	void Highscore();
-	//inline void Destroy() { delete m_instance; }
+	void DeathUI();
 	void Destroy();
 
 	void AddToScore(uint32 addition) { m_score += addition; UpdateUi(); }
@@ -24,6 +24,8 @@ private:
 
 	jci::Entity* m_ui = nullptr;
 	jci::Entity* m_startUi = nullptr;
+	jci::Entity* m_deadScoreUi = nullptr;
+	jci::Entity* m_deadHighscoreUi = nullptr;
 	uint32 m_score = 0;
 	uint32 m_highScore = 0;
 	std::string m_scoreStr;

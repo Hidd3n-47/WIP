@@ -5213,6 +5213,11 @@ Added component with id: ComponentTypes::Transform to Game Object: 1097
 Added component with id: ComponentTypes::UiText to Game Object: 1097
 Created texture Assets/Texture/ScoreFont.png
 Created scene with name: StartScene
+Created scene with name: DeadScene
+Created texture Assets/Texture/Deathscreen.png
+Created Entity with id: 0
+Added component with id: ComponentTypes::Transform to Game Object: 0
+Added component with id: ComponentTypes::SpriteRenderer to Game Object: 0
 Created texture Assets/Texture/StartMenuAnim.png
 Created Entity with id: 0
 Added component with id: ComponentTypes::Transform to Game Object: 0
@@ -5222,6 +5227,14 @@ Added component with id: ComponentTypes::Audio to Game Object: 0
 Created Entity with id: 1
 Added component with id: ComponentTypes::Transform to Game Object: 1
 Added component with id: ComponentTypes::UiText to Game Object: 1
+Created texture Assets/Texture/ScoreFont.png
+Created Entity with id: 1
+Added component with id: ComponentTypes::Transform to Game Object: 1
+Game object '1' already has component with id: 8192
+Created texture Assets/Texture/ScoreFont.png
+Created Entity with id: 2
+Added component with id: ComponentTypes::Transform to Game Object: 2
+Game object '1' already has component with id: 8192
 Created texture Assets/Texture/ScoreFont.png
 Destroyed Entity with id: 0
 Destroyed Entity with id: 1
@@ -6325,3 +6338,7 @@ Destroyed scene with name: MainScene
 Destroyed Entity with id: 0
 Destroyed Entity with id: 1
 Destroyed scene with name: StartScene
+Destroyed Entity with id: 0
+Destroyed Entity with id: 1
+Destroyed Entity with id: 2
+Destroyed scene with name: DeadScene

@@ -43,6 +43,13 @@ void Application::Create()
 	em->SetPlayer(m_player);
 	Score::Instance()->Init();
 	m_startMenu = jci::SceneManager::Instance()->CreateScene("StartScene");
+	m_deadMenu = jci::SceneManager::Instance()->CreateScene("DeadScene");
+	jci::SceneManager::Instance()->SetCurrentScene(m_deadMenu);
+	m_deadTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Deathscreen.png", 5, 1);
+	m_deadEntity = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();
+	jci::SpriteRenderer* spr = m_deadEntity->AddComponent<jci::SpriteRenderer>();
+	spr->SetTexture(m_deadTexture);
+	spr->SetSize(m_deadMenu->GetCamera()->GetHalfExtents() * 2.0f);
 	jci::SceneManager::Instance()->SetCurrentScene(m_startMenu);
 	m_currentScene = m_startMenu;
 	m_menuTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/StartMenuAnim.png", 5, 1);
@@ -63,11 +70,6 @@ void Application::Create()
 
 void Application::Update(float dt)
 {
-	if (jci::InputManager::Instance()->IsKeyPressed(jci::Keycode_p))
-	{
-		jci::SceneManager::Instance()->SetCurrentScene(m_startMenu);
-		m_currentScene = m_startMenu;
-	}
 	if (m_currentScene == m_startMenu)
 	{
 		StartUpdate(dt);
@@ -75,6 +77,10 @@ void Application::Update(float dt)
 	else if (m_currentScene == m_gameScene)
 	{
 		GameUpdate(dt);
+	}
+	else if (m_currentScene == m_deadMenu)
+	{
+		DeadUpdate();
 	}
 }
 
@@ -93,6 +99,7 @@ void Application::StartUpdate(float dt)
 
 void Application::GameUpdate(float dt)
 {
+	DLOG("" + (PlayerStateManager::Instance()->GetAlive()));
 	if (GameUIManager::GetGameUIManager()->GetPerkToggle() && PlayerStateManager::Instance()->GetAlive())
 	{
 		PlayerStateManager::Instance()->Update(dt);
@@ -102,6 +109,21 @@ void Application::GameUpdate(float dt)
 		ChallengeManager::GetChallengeManager()->GetCurrentChallenge()->Update(dt);
 		BulletImpactManager::Instance()->Update();
 	}
+	else if (!PlayerStateManager::Instance()->GetAlive())
+	{
+		jci::SceneManager::Instance()->SetCurrentScene(m_deadMenu);
+		m_currentScene = m_deadMenu;
+		//Score::Instance()->DeathUI();
+	}
+}
+
+void Application::DeadUpdate()
+{
+	if (!m_hasRendered)
+	{
+		Score::Instance()->DeathUI();
+	}
+	m_hasRendered = true;
 }
 
 void Application::Destroy()

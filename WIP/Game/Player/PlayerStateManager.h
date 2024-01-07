@@ -48,7 +48,7 @@ public:
 	*/
 	inline Player* GetPlayer() { return &m_player; }
 	/***
-	* Get the player.
+	* Get the players life status.
 	*
 	*/
 	inline bool GetAlive() { return m_alive; }

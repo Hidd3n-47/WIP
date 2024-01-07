@@ -53,6 +53,27 @@ void Score::UpdateUi()
 	m_ui->GetComponent<jci::UiText>()->SetText(m_score);
 }
 
+void Score::DeathUI()
+{
+	m_deadScoreUi = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();
+
+	jci::UiText* uit = m_startUi->AddComponent<jci::UiText>();
+	uit->SetTexture(jci::TextureManager::Instance()->CreateTexture("Assets/Texture/ScoreFont.png", 10, 1));
+	uit->SetAnchorPoint(jci::AnchorPoints::TopMiddle);
+	uit->SetTextAlign(jci::TextAlignment::Center);
+	uit->SetPadding(vec2(-0.35f, 0.35f));
+	uit->SetText(m_score, 24);
+
+	m_deadHighscoreUi = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();
+
+	jci::UiText* utxt = m_startUi->AddComponent<jci::UiText>();
+	utxt->SetTexture(jci::TextureManager::Instance()->CreateTexture("Assets/Texture/ScoreFont.png", 10, 1));
+	utxt->SetAnchorPoint(jci::AnchorPoints::BotMiddle);
+	utxt->SetTextAlign(jci::TextAlignment::Center);
+	utxt->SetPadding(vec2(-0.35f, 0.35f));
+	utxt->SetText(m_highScore, 24);
+}
+
 void Score::Destroy()
 {
 	if (m_score > m_highScore)
