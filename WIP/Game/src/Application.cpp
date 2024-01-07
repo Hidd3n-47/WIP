@@ -54,6 +54,11 @@ void Application::Create()
 	jci::Animation* anim = m_startMenuEntity->AddComponent<jci::Animation>();
 	anim->SetTimeBetweenFrames(0.35f);
 	anim->SetAnimationCount(5);
+	m_startMenuEntity->AddComponent<jci::UiSprite>();
+	m_startMenuEntity->GetComponent<jci::UiSprite>()->SetTexture(m_menuTexture);
+	m_startMenuEntity->GetComponent<jci::Transform>()->SetPosition(vec2(0.0f, 0.0f));
+	m_startMenuEntity->GetComponent<jci::UiSprite>()->SetSize(m_currentScene->GetCamera()->GetHalfExtents() * 2.0f);
+	Score::Instance()->Highscore();
 }
 
 void Application::Update(float dt)

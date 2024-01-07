@@ -60,6 +60,8 @@ void IOManager::SaveToFile(const std::string& content, const std::string& filePa
 	m_fileWrite << content;
 
 	m_fileWrite;
+
+	m_fileWrite.close();
 }
 
 } // Namespace jci.
