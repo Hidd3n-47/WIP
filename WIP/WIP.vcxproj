@@ -386,6 +386,7 @@
     <Image Include="Assets\Texture\Zomb.png" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Assets\Highscore.txt" />
     <Text Include="deps\include\Highscore.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

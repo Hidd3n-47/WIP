@@ -18,11 +18,6 @@ void Score::Init()
 	ut->SetTextAlign(jci::TextAlignment::Right);
 	ut->SetPadding(vec2(-0.35f, 0.35f));
 	ut->SetText(m_score, 24);
-	/*std::ifstream hsFile("Highscore.txt");
-	if (!hsFile.fail())
-	{
-		std::ofstream hsFile("Highscore.txt");
-	}*/
 }
 
 void Score::Highscore()
@@ -37,6 +32,20 @@ void Score::Highscore()
 	{
 		m_highScore = std::stoi(m_scoreStr);
 	}
+
+	HighscoreUI();
+}
+
+void Score::HighscoreUI()
+{
+	m_startUi = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();
+
+	jci::UiText* uit = m_startUi->AddComponent<jci::UiText>();
+	uit->SetTexture(jci::TextureManager::Instance()->CreateTexture("Assets/Texture/ScoreFont.png", 10, 1));
+	uit->SetAnchorPoint(jci::AnchorPoints::Middle);
+	uit->SetTextAlign(jci::TextAlignment::Right);
+	uit->SetPadding(vec2(-0.35f, 0.35f));
+	uit->SetText(m_highScore, 24);
 }
 
 void Score::UpdateUi()
