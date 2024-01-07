@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Score.h"
+#include "fstream"
 
 #include <Engine/Scene/SceneManager.h>
 #include <Engine/ECS/Entity.h>
@@ -16,6 +17,16 @@ void Score::Init()
 	ut->SetTextAlign(jci::TextAlignment::Right);
 	ut->SetPadding(vec2(-0.35f, 0.35f));
 	ut->SetText(m_score, 24);
+}
+
+void Score::Highscore()
+{
+	std::fstream hsFile;
+	hsFile.open("Highscore.txt");
+	if (!hsFile.fail())
+	{
+		//m_highScore = hsFile.getline();
+	}
 }
 
 void Score::UpdateUi()

@@ -360,12 +360,15 @@
     <Image Include="Assets\Texture\Front right wall.png" />
     <Image Include="Assets\Texture\Front wall.png" />
     <Image Include="Assets\Texture\green.png" />
+    <Image Include="Assets\Texture\HpUp.png" />
     <Image Include="Assets\Texture\Inv back left wall.png" />
     <Image Include="Assets\Texture\Inv back right wall.png" />
     <Image Include="Assets\Texture\Inv front left wall.png" />
     <Image Include="Assets\Texture\Inv front right wall.png" />
     <Image Include="Assets\Texture\Left wall.png" />
     <Image Include="Assets\Texture\Open Door.png" />
+    <Image Include="Assets\Texture\RateDownDmgUp.png" />
+    <Image Include="Assets\Texture\RateUpDmgDown.png" />
     <Image Include="Assets\Texture\Right wall.png" />
     <Image Include="Assets\Texture\RoboDoggoZomb.png" />
     <Image Include="Assets\Texture\RoboZomb.png" />

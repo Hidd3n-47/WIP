@@ -11,6 +11,7 @@ public:
 	inline static Score* Instance() { return !m_instance ? m_instance = new Score() : m_instance; }
 	
 	void Init();
+	void Highscore();
 	inline void Destroy() { delete m_instance; }
 
 	void AddToScore(uint32 addition) { m_score += addition; UpdateUi(); }
@@ -22,6 +23,7 @@ private:
 
 	jci::Entity* m_ui = nullptr;
 	uint32 m_score = 0;
+	uint32 m_highScore = 0;
 
 	void UpdateUi();
 };
