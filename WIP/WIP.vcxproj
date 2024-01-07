@@ -160,7 +160,6 @@
     <ClCompile Include="Engine\Pathfinding\AIManager.cpp" />
     <ClCompile Include="Engine\ECS\ComponentManager.cpp" />
     <ClCompile Include="Engine\Graphics\Renderer\VertexArray.cpp" />
-    <ClCompile Include="Engine\ECS\EntityManager.cpp" />
     <ClCompile Include="Game\Bullet\BulletManager.cpp" />
     <ClCompile Include="Game\Bullet\Bullet.cpp" />
     <ClCompile Include="Engine\Collision\CollisionManager.cpp" />
@@ -241,7 +240,6 @@
     <ClInclude Include="Engine\FSM\IState.h" />
     <ClInclude Include="Engine\Graphics\Renderer\Vertex.h" />
     <ClInclude Include="Engine\Graphics\Renderer\VertexArray.h" />
-    <ClInclude Include="Engine\ECS\EntityManager.h" />
     <ClInclude Include="Engine\Pathfinding\AIManager.h" />
     <ClInclude Include="Engine\Pathfinding\Node.h" />
     <ClInclude Include="Engine\Pathfinding\Path.h" />

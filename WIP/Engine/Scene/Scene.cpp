@@ -1,3 +1,6 @@
+/***
+	=============== Coded by Christian Lewis-Monto. ===============
+																	***/
 #include "pch.h"
 #include "Scene.h"
 

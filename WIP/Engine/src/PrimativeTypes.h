@@ -1,3 +1,6 @@
+/***
+	=============== Coded by Christian Lewis-Monto. ===============
+																	***/
 #include <stdint.h>
 #include <glm/glm.hpp>
 

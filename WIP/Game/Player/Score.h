@@ -1,3 +1,6 @@
+/***
+	=============== Coded by Christian Lewis-Monto. ===============
+																	***/
 #pragma once
 
 namespace jci
@@ -15,7 +18,7 @@ public:
 	void DeathUI();
 	void Destroy();
 
-	void AddToScore(uint32 addition) { m_score += addition; UpdateUi(); }
+	inline void AddToScore(uint32 addition) { m_score += addition; UpdateUi(); }
 private:
 	Score() = default;
 	~Score() = default;
@@ -28,7 +31,6 @@ private:
 	jci::Entity* m_deadHighscoreUi = nullptr;
 	uint32 m_score = 0;
 	uint32 m_highScore = 0;
-	std::string m_scoreStr;
 
 	void HighscoreUI();
 	void UpdateUi();

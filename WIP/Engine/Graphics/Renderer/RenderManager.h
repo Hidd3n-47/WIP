@@ -1,3 +1,6 @@
+/***
+	=============== Coded by Christian Lewis-Monto. ===============
+																	***/
 #pragma once
 
 #include "ECS/ComponentTypes.h"
@@ -12,26 +15,7 @@ class VertexBuffer;
 class Shader;
 class Texture;
 struct Vertex;
-
-struct ParticleVertex
-{
-	inline ParticleVertex() = default;
-	inline ParticleVertex(vec2 position, vec4 color) : position(vec3(position, 0.0f)), color(color) { /* Empty. */ }
-
-	vec3 position = vec3(0.0f);
-	vec4 color = vec4(1.0f);
-};
-
-struct UiVertex
-{
-	inline UiVertex() = default;
-	inline UiVertex(vec2 position, vec4 color, vec2 uv, float textureIndex) : position(position), color(color), uv(uv), textureIndex(textureIndex) { }
-
-	vec2 position = vec2(0.0f);
-	vec4 color = vec4(1.0f);
-	vec2 uv = vec2(0.0f);
-	float textureIndex = 0.0f;
-};
+struct ParticleVertex;
 
 class RendererManager
 {
@@ -79,7 +63,6 @@ private:
 	uint32 m_uiIndexCount = 0;
 
 	void AddRenderableToRenderBuffer(IRenderable* renderable, Entity* entity);
-	//void AddTextToRenderBuffer(Entity* entity, UiText* text);
 	void AddToRenderQueue(vec2 position, Texture* texture, vec2 halfSize, float angle, float layer, bool flipY, vec4 uvRect);
 };
 
