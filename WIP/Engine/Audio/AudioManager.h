@@ -1,3 +1,6 @@
+/***
+	=============== Coded by Christian Lewis-Monto. ===============
+																	***/
 #pragma once
 
 #include "audio/SDL_mixer.h"

@@ -1,7 +1,8 @@
+/***
+	=============== Coded by Christian Lewis-Monto. ===============
+																	***/
 #include "pch.h"
 #include "IndexBuffer.h"
-
-#include <gl/glew.h>
 
 namespace jci
 {

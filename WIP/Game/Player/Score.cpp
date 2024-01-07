@@ -1,6 +1,8 @@
+/***
+	=============== Coded by Christian Lewis-Monto. ===============
+																	***/
 #include "pch.h"
 #include "Score.h"
-#include "fstream"
 
 #include <Engine/Scene/SceneManager.h>
 #include <Engine/ECS/Entity.h>
@@ -18,20 +20,11 @@ void Score::Init()
 	ut->SetTextAlign(jci::TextAlignment::Right);
 	ut->SetPadding(vec2(-0.35f, 0.35f));
 	ut->SetText(m_score, 24);
-}
 
-void Score::Highscore()
-{
-	m_scoreStr = jci::IOManager::Instance()->LoadTextFile("Assets/Highscore.txt");
-	DLOG(m_scoreStr);
-	if (m_scoreStr == "")
-	{
-		m_highScore = 0;
-	}
-	else
-	{
-		m_highScore = std::stoi(m_scoreStr);
-	}
+	std::string scoreString = jci::IOManager::Instance()->LoadTextFile("Assets/Highscore.txt");
+	DLOG(scoreString);
+
+	m_highScore = scoreString == "" ? 0 : std::stoi(scoreString);
 
 	HighscoreUI();
 }
