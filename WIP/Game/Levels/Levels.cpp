@@ -382,7 +382,7 @@ void Levels::newLevel()
 			}
 		}
 	}
-
+	GameUIManager::getGameUIManager()->perkToggle();
 	ChallengeManager::getChallengeManager()->newChallenge();
 	*LevelSquare = activateLevel(LevelList.at((int)(jci::Random::Instance()->Rand()* LevelList.size())));
 }

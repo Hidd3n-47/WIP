@@ -21,7 +21,7 @@ void Application::Create()
 {
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	m_gameScene = m_currentScene;
-	GameUIManager::getGameUIManager()->perkToggle();
+	//GameUIManager::getGameUIManager()->perkToggle();
 	GameUIManager::getGameUIManager()->perkSet();
 	Levels* map = Levels::getCurrentMap();
 	map->newLevel();
@@ -85,7 +85,7 @@ void Application::StartUpdate(float dt)
 
 void Application::GameUpdate(float dt)
 {
-	if (!GameUIManager::getGameUIManager()->getPerkToggle())
+	if (GameUIManager::getGameUIManager()->getPerkToggle())
 	{
 		PlayerStateManager::Instance()->Update(dt);
 		manager->Update(dt);
