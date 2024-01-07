@@ -32,6 +32,7 @@ private:
 	jci::Scene* m_startMenu = nullptr;
 
 	jci::Entity* m_startMenuEntity = nullptr;
+	jci::Entity* m_gameBackgroundMusic = nullptr;
 	uint32 m_menuTexture = 0;
 
 	std::vector<jci::Entity*> UpdatePool;
@@ -40,7 +41,6 @@ private:
 	Gun* g1 = nullptr;
 	BulletManager* manager = nullptr;
 
-	jci::Audio* m_bgMusic = nullptr;
 	Player* m_player = nullptr;
 };
 

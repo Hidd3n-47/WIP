@@ -5218,7 +5218,7 @@ Created Entity with id: 0
 Added component with id: ComponentTypes::Transform to Game Object: 0
 Added component with id: ComponentTypes::SpriteRenderer to Game Object: 0
 Added component with id: ComponentTypes::Animation to Game Object: 0
-Added component with id: ComponentTypes::UiSprite to Game Object: 0
+Added component with id: ComponentTypes::Audio to Game Object: 0
 Created Entity with id: 1
 Added component with id: ComponentTypes::Transform to Game Object: 1
 Added component with id: ComponentTypes::UiText to Game Object: 1

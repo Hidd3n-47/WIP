@@ -49,6 +49,11 @@ public:
 	*
 	*/
 	void PlayMusic(uint32 musicId);
+	/***
+	* Pause the current playing music track.
+	*
+	*/
+	void PauseMusic(uint32 musicId);
 
 	/***
 	* Destroy a given sound effect with passed in ID.
@@ -60,12 +65,6 @@ public:
 	*
 	*/
 	void DestroyMusic(uint32 musicId);
-
-	/***
-	* Pause the current music playing.
-	*
-	*/
-	inline void PauseMusic() { Mix_PauseMusic(); }
 
 	/***
 	* Set the volume of given sound effect.
@@ -88,6 +87,8 @@ private:
 
 	std::unordered_map<uint32, Mix_Chunk*> m_sounds;
 	std::unordered_map<uint32, Mix_Music*> m_music;
+
+	uint32 m_currentPlayingMusicId = -1;
 };
 
 } // Namespace jci.

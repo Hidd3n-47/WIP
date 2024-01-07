@@ -28,9 +28,8 @@ void Application::Create()
 	map->NewLevel();
 	EnemyManager* em = EnemyManager::GetEnemyManager();
 
-	m_bgMusic = m_currentScene->CreateEmptyEntity()->AddComponent<jci::Audio>();
-	m_bgMusic->SetMusic("Assets/Audio/playingBg.mp3", 20);
-	//m_bgMusic->PlayMusic();
+	m_gameBackgroundMusic = m_currentScene->CreateEmptyEntity();
+	m_gameBackgroundMusic->AddComponent<jci::Audio>()->SetMusic("Assets/Audio/playingBg.mp3", 15);
 
 	manager = new BulletManager();
 	BulletImpactManager::Instance()->Init();
@@ -54,10 +53,11 @@ void Application::Create()
 	jci::Animation* anim = m_startMenuEntity->AddComponent<jci::Animation>();
 	anim->SetTimeBetweenFrames(0.35f);
 	anim->SetAnimationCount(5);
-	m_startMenuEntity->AddComponent<jci::UiSprite>();
-	m_startMenuEntity->GetComponent<jci::UiSprite>()->SetTexture(m_menuTexture);
-	m_startMenuEntity->GetComponent<jci::Transform>()->SetPosition(vec2(0.0f, 0.0f));
-	m_startMenuEntity->GetComponent<jci::UiSprite>()->SetSize(m_currentScene->GetCamera()->GetHalfExtents() * 2.0f);
+
+	jci::Audio* aud = m_startMenuEntity->AddComponent<jci::Audio>();
+	aud->SetMusic("Assets/Audio/mainMenuBg.mp3", 15);
+	aud->PlayMusic();
+
 	Score::Instance()->Highscore();
 }
 
@@ -83,9 +83,11 @@ void Application::StartUpdate(float dt)
 {
 	if (jci::InputManager::Instance()->IsKeyPressed(jci::Button_Left))
 	{
+		m_startMenuEntity->GetComponent<jci::Audio>()->PauseMusic();
 		jci::SceneManager::Instance()->SetCurrentScene(m_gameScene);
 		m_currentScene = m_gameScene;
 		m_currentScene->GetCamera()->SetFollowPosition(PlayerStateManager::Instance()->GetPlayerPositionPointer());
+		m_gameBackgroundMusic->GetComponent<jci::Audio>()->PlayMusic();
 	}
 }
 

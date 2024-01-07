@@ -86,8 +86,6 @@ void AudioManager::PlaySound(uint32 soundId)
 
 void AudioManager::PlayMusic(uint32 musicId)
 {
-	if (!Mix_PlayingMusic())
-	{
 		if (Mix_PlayMusic(m_music[musicId], -1) == -1)
 		{
 			Log::FatalError("Failed to play music with ID: " + std::to_string(musicId), ERR_CODE::SDL_ERROR);
@@ -96,6 +94,20 @@ void AudioManager::PlayMusic(uint32 musicId)
 		{
 			Mix_ResumeMusic();
 		}
+		m_currentPlayingMusicId = musicId;
+}
+
+void AudioManager::PauseMusic(uint32 musicId)
+{
+	if (Mix_PlayingMusic())
+	{
+		if (musicId != m_currentPlayingMusicId)
+		{
+			DLOG("Cannot pause track since that is not the music track playing.");
+			return;
+		}
+
+		Mix_PauseMusic();
 	}
 }
 

@@ -34,6 +34,11 @@ public:
 	*
 	*/
 	inline void PlayMusic() const { AudioManager::Instance()->PlayMusic(m_music); }
+	/***
+	* Pause the music
+	*
+	*/
+	inline void PauseMusic() const { AudioManager::Instance()->PauseMusic(m_music); }
 
 
 	// Accessors.
