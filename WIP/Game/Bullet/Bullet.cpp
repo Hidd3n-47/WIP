@@ -3,6 +3,8 @@
 
 #include <Engine/ECS/ParticleEmission.h>
 
+#include "BulletImpactManager.h"
+
 Bullet::Bullet(jci::Entity* e)
 {
 	body = e;
@@ -93,6 +95,8 @@ void Bullet::Destroy()
 
 void Bullet::OnCollisionEnter(jci::Entity* other)
 {
+	jci::Transform* trans = body->GetComponent<jci::Transform>();
+
 	if (other->GetTag() == "Enemy")
 	{
 		DLOG("Pierce: " + std::to_string(m_pierced));
@@ -100,11 +104,14 @@ void Bullet::OnCollisionEnter(jci::Entity* other)
 		m_particles->SetParticleDirection(glm::normalize(direction));
 		m_particles->Emit();
 		m_pierced -= 1;
+		BulletImpactManager::Instance()->SpawnBulletImpact(trans->GetPosition());
 	}
-	if (!(other->GetTag() == "Player" || other->GetTag() == "Bullet") && m_pierced < 1)
+	if (!(other->GetTag() == "Player" || other->GetTag() == "Bullet") && m_pierced < 1 || other->GetTag() == "Wall")
 	{
-		body->GetComponent<jci::Transform>()->SetPosition(vec2(10000000.0f));
+		BulletImpactManager::Instance()->SpawnBulletImpact(trans->GetPosition());
+		trans->SetPosition(vec2(10000000.0f));
 	}
+
 }
 
 void Bullet::OnCollisionStay(jci::Entity* other)

@@ -11,6 +11,7 @@
 #include "Game/Player/Score.h"
 #include "Game/Levels/Levels.h"
 #include "Game/EnemyManager/EnemyManager.h"
+#include "Game/Bullet/BulletImpactManager.h"
 #include "Game/Challenges/ChallengeManager.h"
 #include "Game/Player/PlayerStateManager.h"
 #include "Game/UIManager/GameUIManager.h"
@@ -32,6 +33,7 @@ void Application::Create()
 	//m_bgMusic->PlayMusic();
 
 	manager = new BulletManager();
+	BulletImpactManager::Instance()->Init();
 	manager->Create();
 	g1 = new Gun(manager);
 	g1->Create(1);
@@ -40,10 +42,8 @@ void Application::Create()
 	m_player->SetManager(manager);
 	PlayerStateManager::Instance()->Init(map->GetSpawnPoint(), g1);
 	em->setPlayer(m_player);
-
 	Score::Instance()->Init();
-
-	/*m_startMenu = jci::SceneManager::Instance()->CreateScene("StartScene");
+	m_startMenu = jci::SceneManager::Instance()->CreateScene("StartScene");
 	jci::SceneManager::Instance()->SetCurrentScene(m_startMenu);
 	m_currentScene = m_startMenu;
 	m_menuTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/StartMenu.png", 1280, 720);
@@ -51,7 +51,7 @@ void Application::Create()
 	m_startMenuEntity->AddComponent<jci::UiSprite>();
 	m_startMenuEntity->GetComponent<jci::UiSprite>()->SetTexture(m_menuTexture);
 	m_startMenuEntity->GetComponent<jci::Transform>()->SetPosition(vec2(0.0f, 0.0f));
-	m_startMenuEntity->GetComponent<jci::UiSprite>()->SetSize(m_currentScene->GetCamera()->GetHalfExtents() * 2.0f);*/
+	m_startMenuEntity->GetComponent<jci::UiSprite>()->SetSize(m_currentScene->GetCamera()->GetHalfExtents() * 2.0f);
 
 }
 
@@ -85,13 +85,14 @@ void Application::StartUpdate(float dt)
 
 void Application::GameUpdate(float dt)
 {
-	if (GameUIManager::getGameUIManager()->getPerkToggle())
+	if (GameUIManager::getGameUIManager()->getPerkToggle() && PlayerStateManager::Instance()->GetAlive())
 	{
 		PlayerStateManager::Instance()->Update(dt);
 		manager->Update(dt);
 		g1->Update(m_player->GetPosition());
 		EnemyManager::getEnemyManager()->Update(dt); 
 		ChallengeManager::getChallengeManager()->getCurrentChallenge()->Update(dt);
+		BulletImpactManager::Instance()->Update();
 	}
 }
 
@@ -106,6 +107,8 @@ void Application::Destroy()
 	PlayerStateManager::Instance()->Destroy();
 
 	delete g1;
+
+	BulletImpactManager::Instance()->Destory();
 
 	delete manager;
 

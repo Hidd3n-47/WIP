@@ -12,6 +12,11 @@ void AnimationManager::Update()
 
 	for (size_t i = 0; i < ComponentManager::Instance()->GetComponentCount(ComponentTypes::Animation); i++)
 	{
+		if (!animation[i].GetEntity()->IsActive())
+		{
+			continue;
+		}
+
 		if (animation[i].m_frameTimer.TimerTick() == TimerStatus::TimeElapsed)
 		{
 			if (++animation[i].m_animationIndex >= animation[i].m_animationCount)

@@ -48,6 +48,11 @@ public:
 	*/
 	inline Player* GetPlayer() { return &m_player; }
 	/***
+	* Get the player.
+	*
+	*/
+	inline bool GetAlive() { return m_alive; }
+	/***
 	* Set the position of the player.
 	* 
 	*/
@@ -69,6 +74,8 @@ private:
 	std::vector<jci::IState*> m_playerStates;
 
 	PlayerState m_state = PlayerState::Idle;
+
+	bool m_alive = true;
 
 	// Player Collision Callbacks.
 	void OnCollisionEnter(jci::Entity* other) final;

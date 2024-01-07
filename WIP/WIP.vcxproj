@@ -142,6 +142,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Bullet\BulletImpactManager.cpp" />
+    <ClCompile Include="Game\Bullet\BulletImpact.cpp" />
     <ClCompile Include="Engine\UI\UiManager.cpp" />
     <ClCompile Include="Game\Challenges\Survive.cpp" />
     <ClCompile Include="Game\Challenges\ChallengeParent.cpp" />
@@ -209,6 +211,8 @@
     <ClCompile Include="Game\Player\Score.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Bullet\BulletImpactManager.h" />
+    <ClInclude Include="Game\Bullet\BulletImpact.h" />
     <ClInclude Include="Engine\ECS\UiSprite.h" />
     <ClInclude Include="Engine\UI\UiManager.h" />
     <ClInclude Include="Engine\UI\AnchorPoints.h" />

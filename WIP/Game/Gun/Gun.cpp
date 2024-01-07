@@ -59,7 +59,7 @@ void Gun::SetFireRate(float rateOfFire)
 
 void Gun::FireGun(float time, vec2 position, jci::Scene* currentScene)
 {
-	if (m_inClip > 1)
+	if (m_inClip > 0)
 	{
 		m_inClip -= 1;
 		

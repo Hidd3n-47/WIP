@@ -20,7 +20,7 @@ private:
 public:
 	DoorTrigger();
 	~DoorTrigger();
-	jci::Entity* Create(vec2 point, uint32 TextureID);
+	jci::Entity* Create(vec2 point, uint32 TextureID, uint32 textureIndex);
 	jci::Entity* getThis();
 	void setDoor(jci::Entity* temp);
 	void OnCollisionEnter(jci::Entity* other) final;
