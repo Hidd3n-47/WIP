@@ -5,21 +5,21 @@
 class DoorManager
 {//for now only holds open and close text
 private:
-	Uint32 openText;
-	Uint32 closedText;
-	jci::Entity* door;//redundant
-	std::vector<jci::Entity*> doorRelatedSquares;
+	uint32 m_openText;
+	uint32 m_closedText;
+	jci::Entity* m_door;//redundant
+	std::vector<jci::Entity*> m_doorRelatedSquares;
 	DoorManager();
-	void doorToggle(int index);
+	void DoorToggle(int index);
 public:
 	DoorManager(const DoorManager& obj) = delete;
 	void Destroy();
-	std::vector<jci::Entity*> getDoorSquares();
-	jci::Entity* getDoor();
-	void clear();
-	void setDoor(jci::Entity* temp);
-	static DoorManager* getDoorManager();
-	uint32 getOpenText();
-	uint32 getClosedText();
+	std::vector<jci::Entity*> GetDoorSquares();
+	jci::Entity* GetDoor();
+	void Clear();
+	void SetDoor(jci::Entity* temp);
+	static DoorManager* GetDoorManager();
+	uint32 GetOpenText();
+	uint32 GetClosedText();
 };
 

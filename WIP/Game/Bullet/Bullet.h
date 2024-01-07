@@ -14,12 +14,13 @@ namespace jci {
 
 class Bullet : public jci::ICollision
 {
+	friend class BulletManager;
 public:
 	Bullet(jci::Entity* e);
 
 	void SetActive(vec2 playerPosition, vec2 dir, float angle);
 
-	void bulletFire(vec2 d);
+	void BulletFire(vec2 d);
 	void Update();
 	int GetSpawnTime();
 	void Destroy();
@@ -28,15 +29,14 @@ public:
 	void PierceUp(int pierceNum);
 	void SetDmg(int damage);
 	void Delete(); 
-	jci::Entity* body;
-	vec2 direction;
 
 private:
-	int spawnTime;
-	bool isMove;
-	int dmg;
-	int m_pierced;
-	jci::ParticleEmission* m_particles;
+	jci::Entity* m_body = nullptr;
+	vec2 m_direction = vec2(0.0f);
+	int m_spawnTime = 0.0f;
+	bool m_isMove = false;
+	int m_dmg = 0;
+	int m_pierced = 1;
 
 	void OnCollisionEnter(jci::Entity* other) final;
 	void OnCollisionStay(jci::Entity* other) final;

@@ -4,38 +4,42 @@
 #include "Game/Challenges/ChallengeManager.h"
 PerkButton::PerkButton()
 {
-	thisButton->AddComponent<jci::UiButton>();
-	thisButton->AddComponent<jci::SpriteRenderer>()->SetTexture(jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::Dbg_Box));
-	thisButton->GetComponent<jci::UiButton>()->SetButtonMethods(this);
+	m_thisButton->AddComponent<jci::UiButton>();
+	//thisButton->AddComponent<jci::UiSprite>();
+	m_thisButton->GetComponent<jci::UiButton>()->SetButtonMethods(this);
 	//thisButton->GetComponent<jci::SpriteRenderer>()->SetSize(vec2(2, 4));
 	//thisButton->GetComponent<jci::SpriteRenderer>()->SetLayer(1);
-	thisPerk = nullptr;
+	m_thisPerk = nullptr;
 }
 
 PerkButton::~PerkButton()
 {
-	delete thisPerk;
+	delete m_thisPerk;
 }
 
-void PerkButton::setPerk(PerkParent* temp)
+void PerkButton::SetPerk(PerkParent* temp)
 {
-	thisPerk = temp;
+	m_thisPerk = temp;
 }
 
-PerkParent* PerkButton::getPerk()
+PerkParent* PerkButton::GetPerk()
 {
-	return thisPerk;
+	return m_thisPerk;
 }
 
-jci::Entity* PerkButton::getButton()
+jci::Entity* PerkButton::GetButton()
 {
-	return thisButton;
+	return m_thisButton;
+}
+
+void PerkButton::SetTexture(Uint32 texture)
+{
+	m_thisButton->GetComponent<jci::UiButton>()->SetTexture(texture);
 }
 
 void PerkButton::OnButtonPress()
 {
-	thisPerk->activate();
-	std::cout << "Perk selected: " << thisPerk->getTagStr() << "\n";
-	GameUIManager::getGameUIManager()->perkToggle();
-	ChallengeManager::getChallengeManager()->getCurrentChallenge()->Reset();
+	m_thisPerk->Activate();
+	GameUIManager::GetGameUIManager()->PerkToggle();
+	ChallengeManager::GetChallengeManager()->GetCurrentChallenge()->Reset();
 }

@@ -18,10 +18,11 @@ public:
 	void Update(float dt);
 	void SetBulletDamage(int bullDmg);
 	int GetBulletDamage();
-	int m_pierceCount;
+
+	int pierceCount;
 private:
-	std::vector<Bullet*>	bulletPool;
+	std::vector<Bullet*>	m_bulletPool;
 	const int POOLSIZE = 200;
-	int nextBullet;
+	int m_nextBullet;
 	uint32 m_bulletTexture;
 };

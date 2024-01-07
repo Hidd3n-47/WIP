@@ -6,47 +6,47 @@ static DoorManager* doorManager;
 
 DoorManager::DoorManager()
 {
-	openText = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Open Door.png");
-	closedText = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Door.png");
+	m_openText = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Open Door.png");
+	m_closedText = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Door.png");
 }
 
 void DoorManager::Destroy()
 {
-	clear();
+	Clear();
 
 	delete doorManager;
 }
 
-void DoorManager::doorToggle(int index)
+void DoorManager::DoorToggle(int index)
 {
 
 }
 
-std::vector<jci::Entity*> DoorManager::getDoorSquares()
+std::vector<jci::Entity*> DoorManager::GetDoorSquares()
 {
-	return doorRelatedSquares;
+	return m_doorRelatedSquares;
 }
 
-jci::Entity* DoorManager::getDoor()
+jci::Entity* DoorManager::GetDoor()
 {
-	return door;
+	return m_door;
 }
 
-void DoorManager::clear()
+void DoorManager::Clear()
 {
-	for (auto i : doorRelatedSquares)
+	for (auto i : m_doorRelatedSquares)
 	{
 		delete i;
 	}
-	doorRelatedSquares.clear();
+	m_doorRelatedSquares.clear();
 }
 
-void DoorManager::setDoor(jci::Entity* temp)
+void DoorManager::SetDoor(jci::Entity* temp)
 {
-	door = temp;
+	m_door = temp;
 }
 
-DoorManager* DoorManager::getDoorManager()
+DoorManager* DoorManager::GetDoorManager()
 {
 	if (doorManager == NULL)
 	{
@@ -59,13 +59,13 @@ DoorManager* DoorManager::getDoorManager()
 	}
 }
 
-uint32 DoorManager::getOpenText()
+uint32 DoorManager::GetOpenText()
 {
-	return openText;
+	return m_openText;
 }
 
-uint32 DoorManager::getClosedText()
+uint32 DoorManager::GetClosedText()
 {
-	return closedText;
+	return m_closedText;
 }
 

@@ -7,11 +7,11 @@
 
 Player::~Player()
 {
-	delete stabbin;
-	delete dashCD;
-	delete bulletCD;
-	delete meleeCD;
-	delete reload;
+	delete m_stabbin;
+	delete m_dashCD;
+	delete m_bulletCD;
+	delete m_meleeCD;
+	delete m_reload;
 }
 
 vec2 Player::GetInputDirection()
@@ -61,9 +61,9 @@ void Player::MaxHpUp()
 
 void Player::FasterReload()
 {
-	if (m_equippedGun->m_reloadTimer > 0.5f)
+	if (m_equippedGun->GetReloadTimer() > 0.5f)
 	{
-		m_equippedGun->m_reloadTimer -= 0.1f;
+		m_equippedGun->SubtractFromReloadTimer(0.1f);
 	}
 }
 
@@ -105,5 +105,5 @@ void Player::LessDashCD()
 
 void Player::Pierce()
 {
-	manager->m_pierceCount += 1;
+	manager->pierceCount += 1;
 }

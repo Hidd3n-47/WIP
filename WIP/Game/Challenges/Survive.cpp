@@ -1,46 +1,47 @@
 #include "pch.h"
 #include "Survive.h"
+
 #include "Game/EnemyManager/EnemyManager.h"
 
 void Survive::Update(float dt)
 {
-	if (EnemyManager::getEnemyManager()->EnemySquares.size() == 0)
+	if (EnemyManager::GetEnemyManager()->EnemySquares.size() == 0)
 	{
 		DLOG("-----------------------3RR0R; N0 SP6WN P01NTS D3T3CT3D!!!1!!1!-----------------------\nWave Size: 6");
 
 	}
-	if (!completed)
+	if (!m_completed)
 	{
-		if (waveCD == nullptr)
+		if (m_waveCD == nullptr)
 		{
 			return;
 		}
 
-		if (countDown == nullptr)
+		if (m_countDown == nullptr)
 		{
 			return;
 		}
 
-		if (countDown->TimerTick() == jci::TimerStatus::TimerCompleted)
+		if (m_countDown->TimerTick() == jci::TimerStatus::TimerCompleted)
 		{
-			completed = true;
+			m_completed = true;
 		}
-		else if (waveCD->TimerTick() == jci::TimerStatus::TimeElapsed)
+		else if (m_waveCD->TimerTick() == jci::TimerStatus::TimeElapsed)
 		{
 			DLOG("-----------------------Prep Over: Commencing Wave-----------------------\nWave Size: 6");
-			EnemyManager::getEnemyManager()->spawnWave(6);
+			EnemyManager::GetEnemyManager()->SpawnWave(6);
 		}
 	}
 	else
 	{
-		if (waveCD != nullptr)
+		if (m_waveCD != nullptr)
 		{
-			delete waveCD;
+			delete m_waveCD;
 			return;
 		}
-		if (countDown != nullptr)
+		if (m_countDown != nullptr)
 		{
-			delete countDown;
+			delete m_countDown;
 			return;
 		}
 	}
@@ -49,13 +50,13 @@ void Survive::Update(float dt)
 void Survive::Reset()
 {
 	DLOG("-----------------------LOADED SURVIVE CHALLENGE-----------------------\nSurvive: 2 Minutes[DEBUG]");
-	completed = false;
-	if (waveCD == nullptr)
+	m_completed = false;
+	if (m_waveCD == nullptr)
 	{
-		waveCD = new jci::Timer(20, true);
+		m_waveCD = new jci::Timer(20, true);
 	}
-	if (countDown == nullptr)
+	if (m_countDown == nullptr)
 	{
-		countDown = new jci::Timer(120, false);
+		m_countDown = new jci::Timer(120, false);
 	}
 }

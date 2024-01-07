@@ -7,15 +7,15 @@
 
 Bullet::Bullet(jci::Entity* e)
 {
-	body = e;
-	direction = vec2(0,0);
-	spawnTime = 0;
-	isMove = false;
-	dmg = 10;
+	m_body = e;
+	m_direction = vec2(0,0);
+	m_spawnTime = 0;
+	m_isMove = false;
+	m_dmg = 10;
 	m_pierced = 1;
 
 	e->GetComponent<jci::BoxCollider>()->SetCollisionMethods(this);
-	m_particles = e->AddComponent<jci::ParticleEmission>();
+	jci::ParticleEmission* particles = e->AddComponent<jci::ParticleEmission>();
 
 	jci::ParticleProperties props;
 	props.position = vec2(6, -6);
@@ -28,29 +28,29 @@ Bullet::Bullet(jci::Entity* e)
 	props.speed = 8.0f;
 	props.velocityVariation = vec2(3.5f, 3.8f);
 	props.numParticles = 20;
-	m_particles->SetProperties(props);
+	particles->SetProperties(props);
 }
 
-void Bullet::bulletFire(vec2 d)
+void Bullet::BulletFire(vec2 d)
 {
-	direction = d;
-	spawnTime = SDL_GetTicks();
-	isMove = true;
+	m_direction = d;
+	m_spawnTime = SDL_GetTicks();
+	m_isMove = true;
 }
 
 void Bullet::SetActive(vec2 playerPosition, vec2 dir, float angle)
 {
-	body->SetActive(true);
-	isMove = true;
+	m_body->SetActive(true);
+	m_isMove = true;
 
-	jci::Transform* t = body->GetComponent<jci::Transform>();
+	jci::Transform* t = m_body->GetComponent<jci::Transform>();
 	t->SetPosition(playerPosition);
 	t->SetRotation(angle);
 	
-	jci::Animation* a = body->GetComponent<jci::Animation>();
+	jci::Animation* a = m_body->GetComponent<jci::Animation>();
 	a->SetAnimationCount(4);
 
-	direction = dir;
+	m_direction = dir;
 }
 
 void Bullet::Update()
@@ -60,12 +60,12 @@ void Bullet::Update()
 
 bool Bullet::GetMove()
 {
-	return isMove;
+	return m_isMove;
 }
 
 int Bullet::GetDmg()
 {
-	return dmg;
+	return m_dmg;
 }
 
 void Bullet::PierceUp(int pierceNum)
@@ -75,36 +75,36 @@ void Bullet::PierceUp(int pierceNum)
 
 void Bullet::SetDmg(int damage)
 {
-	dmg = damage;
+	m_dmg = damage;
 }
 
 void Bullet::Delete()
 {
-	isMove = false;
+	m_isMove = false;
 }
 
 int Bullet::GetSpawnTime()
 {
-	return spawnTime;
+	return m_spawnTime;
 }
 
 void Bullet::Destroy()
 {
-	delete body;
+	delete m_body;
 }
 
 void Bullet::OnCollisionEnter(jci::Entity* other)
 {
-	jci::Transform* trans = body->GetComponent<jci::Transform>();
+	jci::Transform* trans = m_body->GetComponent<jci::Transform>();
 
 	if (other->GetTag() == "Enemy")
 	{
 		DLOG("Pierce: " + std::to_string(m_pierced));
-		m_particles->SetParticlePosition(body->GetComponent<jci::Transform>()->GetPosition());
-		m_particles->SetParticleDirection(glm::normalize(direction));
-		m_particles->Emit();
+		jci::ParticleEmission* particles = m_body->GetComponent<jci::ParticleEmission>();
+		particles->SetParticlePosition(m_body->GetComponent<jci::Transform>()->GetPosition());
+		particles->SetParticleDirection(glm::normalize(m_direction));
+		particles->Emit();
 		m_pierced -= 1;
-		BulletImpactManager::Instance()->SpawnBulletImpact(trans->GetPosition());
 	}
 	if (!(other->GetTag() == "Player" || other->GetTag() == "Bullet") && m_pierced < 1 || other->GetTag() == "Wall")
 	{

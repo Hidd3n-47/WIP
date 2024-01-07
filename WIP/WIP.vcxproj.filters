@@ -45,9 +45,6 @@
     <ClCompile Include="Engine\Camera\Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\ECS\SpriteRenderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Game\src\Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -61,12 +58,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Graphics\Renderer\VertexBuffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Graphics\Renderer\RendererManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\ECS\BoxCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Collision\CollisionManager.cpp">
@@ -103,9 +94,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine\ECS\ComponentManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\FSM\StateMachineManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine\ECS\NavBlock.cpp">
@@ -150,9 +138,6 @@
     <ClCompile Include="Engine\Collision\CollisionCallbackManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\ECS\CapsuleCollider.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Door\DoorTrigger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -160,12 +145,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game\Door\DoorManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\ECS\CircleCollider.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\ECS\Animation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Animation\AnimationManager.cpp">
@@ -186,19 +165,10 @@
     <ClCompile Include="Engine\Physics\PhysicsManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\ECS\ParticleEmission.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\ParticleSystem\ParticleManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine\ECS\EntityManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\ECS\UiButton.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\ECS\UiSprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine\UI\UiManager.cpp">
@@ -225,22 +195,37 @@
     <ClCompile Include="Game\Perks\PerkParent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Perks\tanky.cpp">
+    <ClCompile Include="Game\Perks\Tanky.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Perks\biggerBullets.cpp">
+    <ClCompile Include="Game\Perks\BiggerBullets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Perks\doubleTap.cpp">
+    <ClCompile Include="Game\Perks\DoubleTap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Perks\evasive.cpp">
+    <ClCompile Include="Game\Perks\Evasive.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Perks\lighterBullets.cpp">
+    <ClCompile Include="Game\Perks\LighterBullets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Perks\swiftHands.cpp">
+    <ClCompile Include="Game\Perks\SwiftHands.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Bullet\BulletImpactManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Bullet\BulletImpact.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Graphics\Renderer\RenderManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Player\Score.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Perks\ArmourPiercing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -303,9 +288,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Graphics\Renderer\VertexBuffer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Graphics\Renderer\RendererManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine\ECS\Transform.h">
@@ -381,9 +363,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Utilities\Heap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\FSM\StateMachineManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine\FSM\IStateMachine.h">
@@ -470,9 +449,6 @@
     <ClInclude Include="Engine\UI\UiManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\ECS\AnchorPoints.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\ECS\UiButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -497,22 +473,46 @@
     <ClInclude Include="Game\Perks\PerkParent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Perks\tanky.h">
+    <ClInclude Include="Game\Perks\Tanky.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Perks\biggerBullets.h">
+    <ClInclude Include="Game\Perks\BiggerBullets.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Perks\doubleTap.h">
+    <ClInclude Include="Game\Perks\DoubleTap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Perks\evasive.h">
+    <ClInclude Include="Game\Perks\Evasive.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Perks\lighterBullets.h">
+    <ClInclude Include="Game\Perks\LighterBullets.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Perks\swiftHands.h">
+    <ClInclude Include="Game\Perks\SwiftHands.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Bullet\BulletImpactManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Bullet\BulletImpact.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\UI\AnchorPoints.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\Renderer\RenderManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\Renderer\IRenderable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\ECS\UiText.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\Score.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Perks\ArmourPiercing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -696,6 +696,24 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Assets\Texture\Zomb.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Texture\FasterFireRate.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Texture\HpUp.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Texture\LessDashCD.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Texture\RateDownDmgUp.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Texture\RateUpDmgDown.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Texture\StartMenu.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

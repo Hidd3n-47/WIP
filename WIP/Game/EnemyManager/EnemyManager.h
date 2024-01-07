@@ -15,30 +15,29 @@ namespace jci
 class EnemyManager
 {
 private:
-	Player* player;
-	Uint32 zombieText;
-	int spawnQueue;
-	jci::Timer* spawnCD;
-	bool PlayerInCollisionRange;
+	Player* m_player;
+	uint32 m_zombieText;
+	int m_spawnQueue;
+	jci::Timer* m_spawnCD;
+	bool m_playerInCollisionRange;
 	bool PlayerOutOfRange(jci::Entity* spawner);
 	Zombie* CreateZombie(vec2 point);
 	EnemyManager();
+	std::list<Zombie*> m_zombies;
 public:
+	EnemyManager(const EnemyManager& obj) = delete;
+
 	void Destroy();
 
-	uint32 getZombieTexture();
-
 	std::vector<jci::Entity*> EnemySquares;
-	std::list<Zombie*> Zombies;
-	EnemyManager(const EnemyManager& obj) = delete;
-	static EnemyManager* getEnemyManager();
-	//std::vector<jci::Entity*> getEnemySquares();
-	void clearSquares();
-	void clearZombies();
-	bool isZombiesWiped();
+	uint32 GetZombieTexture();
+	static EnemyManager* GetEnemyManager();
+	void ClearSquares();
+	void ClearZombies();
+	bool IsZombiesWiped();
 	int zombiesAlive();
-	Player* getPlayer();
-	void setPlayer(Player* playertemp);
-	void spawnWave(int waveCount);
+	Player* GetPlayer();
+	void SetPlayer(Player* playertemp);
+	void SpawnWave(int waveCount);
 	void Update(float dt);
 };

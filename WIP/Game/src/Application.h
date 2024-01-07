@@ -31,8 +31,8 @@ private:
 	jci::Scene* m_gameScene = nullptr;
 	jci::Scene* m_startMenu = nullptr;
 
-	jci::Entity* m_startMenuEntity;
-	uint32 m_menuTexture;
+	jci::Entity* m_startMenuEntity = nullptr;
+	uint32 m_menuTexture = 0;
 
 	std::vector<jci::Entity*> UpdatePool;
 

@@ -7,23 +7,23 @@
 
 BulletManager::BulletManager()
 {
-	m_pierceCount = 1;
+	pierceCount = 1;
 }
 
 BulletManager::~BulletManager()
 {
-	for (size_t i = 0; i < bulletPool.size(); i++)
+	for (size_t i = 0; i < m_bulletPool.size(); i++)
 	{
-		delete bulletPool[i];
+		delete m_bulletPool[i];
 	}
-	bulletPool.clear();
+	m_bulletPool.clear();
 }
 
 void BulletManager::Create()
 {
 	m_bulletTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Bullet.png", 4, 1);
 	jci::SceneManager::Instance()->GetCurrentScene();
-	nextBullet = 0;
+	m_nextBullet = 0;
 	for (int i = 0; i < POOLSIZE; i++)
 	{
 		jci::Entity* bulletObj = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();
@@ -45,36 +45,36 @@ void BulletManager::Create()
 		bulletObj->SetTag("Bullet");
 		bulletObj->GetComponent<jci::BoxCollider>()->SetSize({ 0.1f, 0.05f });
 		Bullet* aBullet = new Bullet(bulletObj);
-		aBullet->PierceUp(m_pierceCount);
-		bulletPool.push_back(aBullet);
+		aBullet->PierceUp(pierceCount);
+		m_bulletPool.push_back(aBullet);
 	}
 }
 
 void BulletManager::Update(float dt)
 {
-	for (int i = 0; i < bulletPool.size(); i++)
+	for (int i = 0; i < m_bulletPool.size(); i++)
 	{
-		if (bulletPool.at(i)->GetMove())
+		if (m_bulletPool.at(i)->GetMove())
 		{
-			bulletPool.at(i)->body->GetComponent<jci::Transform>()->AddToPosition(bulletPool.at(i)->direction * dt);
+			m_bulletPool.at(i)->m_body->GetComponent<jci::Transform>()->AddToPosition(m_bulletPool.at(i)->m_direction * dt);
 		}
 	}
 }
 
 void BulletManager::ShootBullet(vec2 d, vec2 playPos, float angle)
 {
-	if (nextBullet > POOLSIZE-1)
+	if (m_nextBullet > POOLSIZE-1)
 	{
-		nextBullet = 0;
+		m_nextBullet = 0;
 	}
-	bulletPool.at(nextBullet)->SetActive(playPos, d, angle);
-	bulletPool.at(nextBullet)->PierceUp(m_pierceCount);
-	nextBullet += 1;
+	m_bulletPool.at(m_nextBullet)->SetActive(playPos, d, angle);
+	m_bulletPool.at(m_nextBullet)->PierceUp(pierceCount);
+	m_nextBullet += 1;
 }
 
 void BulletManager::SetBulletDamage(int bullDmg)
 {
-	for (auto i : bulletPool)
+	for (auto i : m_bulletPool)
 	{
 		i->SetDmg(bullDmg);
 	}
@@ -82,5 +82,5 @@ void BulletManager::SetBulletDamage(int bullDmg)
 
 int BulletManager::GetBulletDamage()
 {
-	return bulletPool.at(nextBullet)->GetDmg();
+	return m_bulletPool.at(m_nextBullet)->GetDmg();
 }

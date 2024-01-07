@@ -2,13 +2,13 @@
 class ChallengeParent
 {
 protected:
-	bool completed;
+	bool m_completed;
 public:
 	virtual ~ChallengeParent() = default;
 
 	virtual void Update(float dt);
 	virtual void Reset();
-	bool getCompleted() { return completed; }
-	bool setCompleted(bool toggle) { completed = toggle; };
+	bool GetCompleted() { return m_completed; }
+	bool SetCompleted(bool toggle) { m_completed = toggle; };
 };
 

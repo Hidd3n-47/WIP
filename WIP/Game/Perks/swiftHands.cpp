@@ -1,7 +1,7 @@
 #include "pch.h"
-#include "swiftHands.h"
+#include "SwiftHands.h"
 
-void swiftHands::activate()
+void SwiftHands::Activate()
 {
-	EnemyManager::getEnemyManager()->getPlayer()->FasterReload();
+	EnemyManager::GetEnemyManager()->GetPlayer()->FasterReload();
 }

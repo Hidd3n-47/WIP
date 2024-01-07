@@ -22,14 +22,20 @@ public:
 	int GetBulletDamage();
 	void UpdateAmmoUi() const;
 
+	void Update(vec2 playerPosition);
+
+	inline int GetMagSize() const { return m_magSize; }
+	inline int GetInClip() const { return m_inClip; }
+	inline float GetReloadTimer() const { return m_reloadTimer; }
+	inline float GetFireRate() const { return m_fireRate; }
+
+	inline void SetInClip(int count) { m_inClip = count; }
+	inline void SubtractFromReloadTimer(float subtraction) { m_reloadTimer -= subtraction; }
+private:
 	int m_magSize;
 	int m_inClip;
 	float m_reloadTimer;
 	float m_fireRate;
-
-	void Update(vec2 playerPosition);
-
-private:
 	float m_bulletSpeed;
 	int m_inaccuracy; // +/- The angle the bullet will leave the gun at. 0 is going straight ahead
 	bool m_isBounce;

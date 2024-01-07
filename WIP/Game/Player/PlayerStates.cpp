@@ -17,7 +17,7 @@ void PlayerIdleState::OnStateEnter()
 	{
 		m_player = PlayerStateManager::Instance()->GetPlayer();
 	}
-	jci::Animation* ani = m_player->playerEntity->GetComponent<jci::Animation>();
+	jci::Animation* ani = m_player->m_playerEntity->GetComponent<jci::Animation>();
 	ani->SetStartIndex(0);
 	ani->SetAnimationCount(4);
 }
@@ -65,7 +65,7 @@ void PlayerMovingState::OnStateEnter()
 	{
 		m_player = PlayerStateManager::Instance()->GetPlayer();
 	}
-	jci::Animation* ani = m_player->playerEntity->GetComponent<jci::Animation>();
+	jci::Animation* ani = m_player->m_playerEntity->GetComponent<jci::Animation>();
 	ani->SetStartIndex(4);
 	ani->SetAnimationCount(6);
 }
@@ -104,9 +104,9 @@ void PlayerMovingState::OnStateUpdate(float dt)
 		return;
 	}
 
-	*(m_player->m_position) += direction * m_player->speed * dt;
+	*(m_player->m_position) += direction * m_player->m_speed * dt;
 
-	jci::SpriteRenderer* sr = m_player->playerEntity->GetComponent<jci::SpriteRenderer>();
+	jci::SpriteRenderer* sr = m_player->m_playerEntity->GetComponent<jci::SpriteRenderer>();
 
 	if (direction.x < 0.0f)
 	{
@@ -135,15 +135,16 @@ void PlayerDashingState::OnStateEnter()
 
 	m_player->m_canDash = false;
 
-	jci::Animation* ani = m_player->playerEntity->GetComponent<jci::Animation>();
+	jci::Animation* ani = m_player->m_playerEntity->GetComponent<jci::Animation>();
 	ani->SetStartIndex(5);
 	ani->SetAnimationCount(6);
 
 	vec2 direction = m_player->GetInputDirection();
 
-	m_player->playerEntity->GetComponent<jci::Impulse>()->ImpulseEntity(direction * vec2(20.0f));
+	m_player->m_playerEntity->GetComponent<jci::Impulse>()->ImpulseEntity(direction * vec2(20.0f));
 
 	m_player->m_iFrameActive = true;
+	delete m_player->m_iFrameTimer;
 	m_player->m_iFrameTimer = new jci::Timer(0.1f);
 }
 
@@ -165,8 +166,8 @@ void PlayerDashingState::OnStateUpdate(float dt)
 
 void PlayerDashingState::OnStateExit()
 {
-	delete m_player->dashCD;
-	m_player->dashCD = new jci::Timer(m_player->m_dashTime, false);
+	delete m_player->m_dashCD;
+	m_player->m_dashCD = new jci::Timer(m_player->m_dashTime, false);
 }
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
@@ -182,12 +183,12 @@ void PlayerMeleeState::OnStateEnter()
 
 	m_player->m_knife->AddComponent<jci::SpriteRenderer>()->SetTexture(m_player->m_knifeTexture);
 	m_player->m_knife->GetComponent<jci::Transform>()->SetPosition(*m_player->m_position + (m_player->GetInputDirection() * 0.7f));
-	m_player->stabbin = new jci::Timer(3, false);
+	m_player->m_stabbin = new jci::Timer(3, false);
 }
 
 void PlayerMeleeState::OnStateUpdate(float dt)
 {
-	if (m_player->stabbin->TimerTick() == jci::TimerStatus::TimerCompleted)
+	if (m_player->m_stabbin->TimerTick() == jci::TimerStatus::TimerCompleted)
 	{
 		vec2 direction = m_player->GetInputDirection();
 
@@ -206,11 +207,13 @@ void PlayerMeleeState::OnStateUpdate(float dt)
 
 void PlayerMeleeState::OnStateExit()
 {
-	delete m_player->stabbin;
-	delete m_player->meleeCD;
+	delete m_player->m_stabbin;
+	delete m_player->m_meleeCD;
+	m_player->m_stabbin = nullptr;
+	m_player->m_meleeCD = nullptr;
 	m_player->m_knife->AddComponent<jci::SpriteRenderer>()->SetTexture(m_player->m_blankTexture);
 	m_player->m_knife->GetComponent<jci::Transform>()->SetPosition(vec2(200.0f, 200.0f));
-	m_player->meleeCD = new jci::Timer(m_player->m_stabTime, false);
+	m_player->m_meleeCD = new jci::Timer(m_player->m_stabTime, false);
 }
 
 // ----------------------------------------------------------------------------------------------------------------------------------------
@@ -224,14 +227,14 @@ void PlayerShootingState::OnStateEnter()
 		m_player = PlayerStateManager::Instance()->GetPlayer();
 	}
 	m_player->m_canFire = false;
-	if (m_player->tripSwitch)
+	if (m_player->m_tripSwitch)
 	{
-		m_player->m_equippedGun->FireGun(m_player->time, *m_player->m_position, jci::SceneManager::Instance()->GetCurrentScene());
-		m_player->tripSwitch = false;
+		m_player->m_equippedGun->FireGun(m_player->m_time, *m_player->m_position, jci::SceneManager::Instance()->GetCurrentScene());
+		m_player->m_tripSwitch = false;
 	}
 	else
 	{
-		m_player->tripSwitch = true;
+		m_player->m_tripSwitch = true;
 	}
 }
 
@@ -252,8 +255,8 @@ void PlayerShootingState::OnStateUpdate(float dt)
 
 void PlayerShootingState::OnStateExit()
 {
-	delete m_player->bulletCD;
-	m_player->bulletCD = new jci::Timer(m_player->m_equippedGun->GetFireRate(), false);
+	delete m_player->m_bulletCD;
+	m_player->m_bulletCD = new jci::Timer(m_player->m_equippedGun->GetFireRate(), false);
 }
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
@@ -266,8 +269,9 @@ void PlayerReloadingState::OnStateEnter()
 	{
 		m_player = PlayerStateManager::Instance()->GetPlayer();
 	}
-	m_player->hasReloaded = false;
-	m_player->reload = new jci::Timer(m_player->m_equippedGun->m_reloadTimer, false);
+	m_player->m_hasReloaded = false;
+	delete m_player->m_reload;
+	m_player->m_reload = new jci::Timer(m_player->m_equippedGun->GetReloadTimer(), false);
 	//m_player->m_equippedGun->m_inClip = m_player->m_equippedGun->m_magSize;
 }
 

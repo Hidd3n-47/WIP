@@ -1,7 +1,7 @@
 #include "pch.h"
-#include "tanky.h"
+#include "Tanky.h"
 
-void tanky::activate()
+void Tanky::Activate()
 {
-	EnemyManager::getEnemyManager()->getPlayer()->MaxHpUp();
+	EnemyManager::GetEnemyManager()->GetPlayer()->MaxHpUp();
 }

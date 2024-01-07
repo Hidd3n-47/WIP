@@ -23,10 +23,10 @@ void Application::Create()
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	m_gameScene = m_currentScene;
 	//GameUIManager::getGameUIManager()->perkToggle();
-	GameUIManager::getGameUIManager()->perkSet();
-	Levels* map = Levels::getCurrentMap();
-	map->newLevel();
-	EnemyManager* em = EnemyManager::getEnemyManager();
+	GameUIManager::GetGameUIManager()->PerkSet();
+	Levels* map = Levels::GetCurrentMap();
+	map->NewLevel();
+	EnemyManager* em = EnemyManager::GetEnemyManager();
 
 	m_bgMusic = m_currentScene->CreateEmptyEntity()->AddComponent<jci::Audio>();
 	m_bgMusic->SetMusic("Assets/Audio/playingBg.mp3", 20);
@@ -41,13 +41,19 @@ void Application::Create()
 	m_player = PlayerStateManager::Instance()->GetPlayer();
 	m_player->SetManager(manager);
 	PlayerStateManager::Instance()->Init(map->GetSpawnPoint(), g1);
-	em->setPlayer(m_player);
+	em->SetPlayer(m_player);
 	Score::Instance()->Init();
 	m_startMenu = jci::SceneManager::Instance()->CreateScene("StartScene");
 	jci::SceneManager::Instance()->SetCurrentScene(m_startMenu);
 	m_currentScene = m_startMenu;
-	m_menuTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/StartMenu.png", 1280, 720);
+	m_menuTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/StartMenuAnim.png", 5, 1);
 	m_startMenuEntity = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();
+	jci::SpriteRenderer* sr = m_startMenuEntity->AddComponent<jci::SpriteRenderer>();
+	sr->SetTexture(m_menuTexture);
+	sr->SetSize(m_currentScene->GetCamera()->GetHalfExtents() * 2.0f);
+	jci::Animation* anim = m_startMenuEntity->AddComponent<jci::Animation>();
+	anim->SetTimeBetweenFrames(0.35f);
+	anim->SetAnimationCount(5);
 	m_startMenuEntity->AddComponent<jci::UiSprite>();
 	m_startMenuEntity->GetComponent<jci::UiSprite>()->SetTexture(m_menuTexture);
 	m_startMenuEntity->GetComponent<jci::Transform>()->SetPosition(vec2(0.0f, 0.0f));
@@ -85,13 +91,13 @@ void Application::StartUpdate(float dt)
 
 void Application::GameUpdate(float dt)
 {
-	if (GameUIManager::getGameUIManager()->getPerkToggle() && PlayerStateManager::Instance()->GetAlive())
+	if (GameUIManager::GetGameUIManager()->GetPerkToggle() && PlayerStateManager::Instance()->GetAlive())
 	{
 		PlayerStateManager::Instance()->Update(dt);
 		manager->Update(dt);
 		g1->Update(m_player->GetPosition());
-		EnemyManager::getEnemyManager()->Update(dt); 
-		ChallengeManager::getChallengeManager()->getCurrentChallenge()->Update(dt);
+		EnemyManager::GetEnemyManager()->Update(dt); 
+		ChallengeManager::GetChallengeManager()->GetCurrentChallenge()->Update(dt);
 		BulletImpactManager::Instance()->Update();
 	}
 }
@@ -100,9 +106,9 @@ void Application::Destroy()
 {
 	Score::Instance()->Destroy();
 
-	GameUIManager::getGameUIManager()->Destroy();
+	GameUIManager::GetGameUIManager()->Destroy();
 
-	Levels::getCurrentMap()->Destroy();
+	Levels::GetCurrentMap()->Destroy();
 
 	PlayerStateManager::Instance()->Destroy();
 
@@ -112,11 +118,11 @@ void Application::Destroy()
 
 	delete manager;
 
-	DoorManager::getDoorManager()->Destroy();
+	DoorManager::GetDoorManager()->Destroy();
 
-	EnemyManager::getEnemyManager()->Destroy();
+	EnemyManager::GetEnemyManager()->Destroy();
 
-	ChallengeManager::getChallengeManager()->Destroy();
+	ChallengeManager::GetChallengeManager()->Destroy();
 
 	delete m_instance;
 }

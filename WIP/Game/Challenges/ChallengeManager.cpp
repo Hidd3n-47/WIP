@@ -4,46 +4,46 @@
 #include "WaveDefence.h"
 #include "Survive.h"
 
-ChallengeManager* ChallengeManager::challengeManager = nullptr;
+ChallengeManager* ChallengeManager::m_challengeManager = nullptr;
 
 ChallengeManager::ChallengeManager()
 {
 	Survive* survive = new Survive();
 	WaveDefence* waveDefence = new WaveDefence();
-	challenges.push_back(waveDefence);
-	challenges.push_back(survive);
+	m_challenges.push_back(waveDefence);
+	m_challenges.push_back(survive);
 }
 
-ChallengeManager* ChallengeManager::getChallengeManager()
+ChallengeManager* ChallengeManager::GetChallengeManager()
 {
-	if (challengeManager == NULL)
+	if (m_challengeManager == NULL)
 	{
-		challengeManager = new ChallengeManager();
-		return challengeManager;
+		m_challengeManager = new ChallengeManager();
+		return m_challengeManager;
 	}
 	else
 	{
-		return challengeManager;
+		return m_challengeManager;
 	}
 }
 
-ChallengeParent* ChallengeManager::getCurrentChallenge()
+ChallengeParent* ChallengeManager::GetCurrentChallenge()
 {
-	return currentChallenge;
+	return m_currentChallenge;
 }
 
-void ChallengeManager::newChallenge()
+void ChallengeManager::NewChallenge()
 {
-	currentChallenge = challenges.at((int)jci::Random::Instance()->Rand() * challenges.size());
+	m_currentChallenge = m_challenges.at((int)jci::Random::Instance()->Rand() * m_challenges.size());
 }
 
 void ChallengeManager::Destroy()
 {
-	for (size_t i = 0; i < challenges.size(); i++)
+	for (size_t i = 0; i < m_challenges.size(); i++)
 	{
-		delete challenges[i];
+		delete m_challenges[i];
 	}
-	challenges.clear();
+	m_challenges.clear();
 
-	delete challengeManager;
+	delete m_challengeManager;
 }

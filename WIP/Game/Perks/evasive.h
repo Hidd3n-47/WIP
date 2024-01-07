@@ -1,8 +1,8 @@
 #pragma once
 #include "PerkParent.h"
-class evasive : public PerkParent
+class Evasive : public PerkParent
 {
 public:
-	void activate();
+	void Activate();
 };
 

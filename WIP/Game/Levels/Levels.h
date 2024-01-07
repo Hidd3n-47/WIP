@@ -10,39 +10,39 @@ class DoorTrigger;
 class Levels
 {
 private:
-	std::vector<jci::Entity*>* LevelSquare;
-	EnemyManager* em;
-	DoorManager* dm;
-	std::vector<std::vector<jci::Entity*>> LevelList;
+	std::vector<jci::Entity*>* m_levelSquare;
+	EnemyManager* m_enemyManager;
+	DoorManager* m_doorManager;
+	std::vector<std::vector<jci::Entity*>> m_levelList;
 	jci::Scene* m_currentScene;
-	std::vector<jci::Entity*> spawnPoints;
-	std::vector<Door*> doors;
-	std::vector<DoorTrigger*> doorTriggers;
+	std::vector<jci::Entity*> m_spawnPoints;
+	std::vector<Door*> m_doors;
+	std::vector<DoorTrigger*> m_doorTriggers;
+	uint32 m_environmentTexture = 0;
 	Levels();
 
-	void createWall(float x, float y);
-	void createFloor(float x, float y);
-	void createEnemySpawnPoint(float x, float y);
-	void createDoor(float x, float y);
-	void createDoorTrigger(float x, float y);
-	void createSpawnPoint(float x, float y);//Spawn point
-	std::vector<jci::Entity*> deactiveLevel(std::vector<jci::Entity*> squares);
-	std::vector<jci::Entity*> activateLevel(std::vector<jci::Entity*> squares);
-
+	void CreateWall(float x, float y);
+	void CreateFloor(float x, float y);
+	void CreateEnemySpawnPoint(float x, float y);
+	void CreateDoor(float x, float y);
+	void CreateDoorTrigger(float x, float y);
+	void CreateSpawnPoint(float x, float y);//Spawn point
+	std::vector<jci::Entity*> DeactiveLevel(std::vector<jci::Entity*> squares);
+	std::vector<jci::Entity*> ActivateLevel(std::vector<jci::Entity*> squares);
 
 public:
 	Levels(const EnemyManager& obj) = delete;
 //	~Levels();
-	static Levels* getCurrentMap();
-	std::vector<std::string> split(const std::string& string, const char splitter);//string parser;
+	static Levels* GetCurrentMap();
+	std::vector<std::string> Split(const std::string& string, const char splitter);//string parser;
 	void LoadLevelFromFile(std::string filepath);
 	void LoadLevel(std::string fileString);
 	void WipeLevel();
-	int getSpawnPointX();
-	int getSpawnPointY();
+	int GetSpawnPointX();
+	int GetSpawnPointY();
 	vec2 GetSpawnPoint();
-	EnemyManager* getEM();
-	void newLevel();
+	EnemyManager* GetEnemyManager();
+	void NewLevel();
 
 	void Destroy();
 
@@ -55,10 +55,9 @@ public:
 */
 
 	//square sizes used for calculating x and ys...
-	const float width = 1;
-	const float height = 1;//these can be replaced with getters if validated elsewhere....
+	const float WIDTH = 1;
+	const float HEIGHT = 1;//these can be replaced with getters if validated elsewhere....
 
-	uint32 m_environmentTexture = 0;
 
 	//key:              Currently just a ghost integer since the switch cases and if statements are a touch annoying and neither actually use a pure int... But yes if it really boils down to it we can do a bunch of casting to make this actually used...
 	/*

@@ -1,8 +1,8 @@
 #pragma once
 #include "PerkParent.h"
-class doubleTap : public PerkParent
+class DoubleTap : public PerkParent
 {
 public:
-	void activate();
+	void Activate();
 };
 

@@ -1,7 +1,7 @@
 #include "pch.h"
-#include "lighterBullets.h"
+#include "LighterBullets.h"
 
-void lighterBullets::activate()
+void LighterBullets::Activate()
 {
-	EnemyManager::getEnemyManager()->getPlayer()->RateUpDmgDown();
+	EnemyManager::GetEnemyManager()->GetPlayer()->RateUpDmgDown();
 }

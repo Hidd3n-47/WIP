@@ -36,26 +36,24 @@ void PlayerStateManager::Init(vec2 playerStartPosition, Gun* theGun)
 	// Set up the player.
 	m_player = Player();
 	jci::Scene* currentScene = jci::SceneManager::Instance()->GetCurrentScene();
-	m_player.m_width = (float)jci::Engine::Instance()->GetScreenWidth();
-	m_player.m_height = (float)jci::Engine::Instance()->GetScreenHeight();
-	m_player.playerEntity = currentScene->CreateEmptyEntity();
+	m_player.m_playerEntity = currentScene->CreateEmptyEntity();
 	m_player.m_healthUiEnt = currentScene->CreateEmptyEntity();
 	m_player.m_healthBarEnt = currentScene->CreateEmptyEntity();
-	m_player.playerEntity->SetTag("Player");
-	m_player.playerEntity->AddComponent<jci::Impulse>();
-	m_player.playerEntity->GetComponent<jci::Impulse>()->SetDampening(1);
-	m_player.playerEntity->GetComponent<jci::Impulse>()->SetDampeningFactor(0.75f);
+	m_player.m_playerEntity->SetTag("Player");
+	m_player.m_playerEntity->AddComponent<jci::Impulse>();
+	m_player.m_playerEntity->GetComponent<jci::Impulse>()->SetDampening(1);
+	m_player.m_playerEntity->GetComponent<jci::Impulse>()->SetDampeningFactor(0.75f);
 
 	uint32 text = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/PlayerSpriteSheet.png", 10, 1);
 	m_player.m_blankTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Blank.png");
-	m_player.playerEntity->AddComponent<jci::Animation>()->SetTimeBetweenFrames(0.3f);
+	m_player.m_playerEntity->AddComponent<jci::Animation>()->SetTimeBetweenFrames(0.3f);
 
-	jci::SpriteRenderer* sr = m_player.playerEntity->AddComponent<jci::SpriteRenderer>();
+	jci::SpriteRenderer* sr = m_player.m_playerEntity->AddComponent<jci::SpriteRenderer>();
 	sr->SetTexture(text);
 	sr->SetSize(vec2(0.6f, 1.2f));
 	sr->SetLayer(1);
 
-	jci::CapsuleCollider* cc = m_player.playerEntity->AddComponent<jci::CapsuleCollider>();
+	jci::CapsuleCollider* cc = m_player.m_playerEntity->AddComponent<jci::CapsuleCollider>();
 	cc->SetBodyType(jci::BodyType::Kinematic);
 	cc->SetCollisionMethods(this);
 
@@ -82,16 +80,16 @@ void PlayerStateManager::Init(vec2 playerStartPosition, Gun* theGun)
 
 	m_player.m_knifeTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Weapons/Bowie Knife.png");
 
-	m_player.dashCD = new jci::Timer(0, false);
-	m_player.bulletCD = new jci::Timer(0, false);
-	m_player.meleeCD = new jci::Timer(0, false);
-	m_player.stabbin = new jci::Timer(0, false);
-	m_player.reload = new jci::Timer(0, false);
+	m_player.m_dashCD = new jci::Timer(0, false);
+	m_player.m_bulletCD = new jci::Timer(0, false);
+	m_player.m_meleeCD = new jci::Timer(0, false);
+	m_player.m_stabbin = new jci::Timer(0, false);
+	m_player.m_reload = new jci::Timer(0, false);
 
 	m_player.m_dashTime = 2.0f;
 	m_player.m_stabTime = 2.0f;
 
-	m_player.m_position = m_player.playerEntity->GetComponent<jci::Transform>()->GetPositionPointer();
+	m_player.m_position = m_player.m_playerEntity->GetComponent<jci::Transform>()->GetPositionPointer();
 	*m_player.m_position = playerStartPosition;
 
 	currentScene->GetCamera()->SetFollowPosition(m_player.m_position);
@@ -102,23 +100,23 @@ void PlayerStateManager::Init(vec2 playerStartPosition, Gun* theGun)
 void PlayerStateManager::Update(float dt)
 {
 	m_playerStates[(int)m_state]->OnStateUpdate(dt);
-	m_player.time = dt;
-	if (m_player.dashCD->TimerTick() == jci::TimerStatus::TimerCompleted)
+	m_player.m_time = dt;
+	if (m_player.m_dashCD->TimerTick() == jci::TimerStatus::TimerCompleted)
 	{
 		m_player.m_canDash = true;
 	}
-	if (m_player.bulletCD->TimerTick() == jci::TimerStatus::TimerCompleted)
+	if (m_player.m_bulletCD->TimerTick() == jci::TimerStatus::TimerCompleted)
 	{
 		m_player.m_canFire = true;
 	}
-	if (m_player.meleeCD->TimerTick() == jci::TimerStatus::TimerCompleted)
+	if (m_player.m_meleeCD->TimerTick() == jci::TimerStatus::TimerCompleted)
 	{
 		m_player.m_canStab = true;
 	}
-	if (m_player.reload->TimerTick() == jci::TimerStatus::TimerCompleted && m_player.hasReloaded == false)
+	if (m_player.m_reload->TimerTick() == jci::TimerStatus::TimerCompleted && m_player.m_hasReloaded == false)
 	{
-		m_player.hasReloaded = true;
-		m_player.m_equippedGun->m_inClip = m_player.m_equippedGun->m_magSize;
+		m_player.m_hasReloaded = true;
+		m_player.m_equippedGun->SetInClip(m_player.m_equippedGun->GetMagSize());
 		m_player.UpdateAmmoUi();
 	}
 	if (m_player.m_iFrameTimer && m_player.m_iFrameTimer->TimerTick() == jci::TimerStatus::TimerCompleted)
