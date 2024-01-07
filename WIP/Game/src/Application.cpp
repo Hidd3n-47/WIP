@@ -52,7 +52,7 @@ void Application::Create()
 	m_startMenuEntity->GetComponent<jci::UiSprite>()->SetTexture(m_menuTexture);
 	m_startMenuEntity->GetComponent<jci::Transform>()->SetPosition(vec2(0.0f, 0.0f));
 	m_startMenuEntity->GetComponent<jci::UiSprite>()->SetSize(m_currentScene->GetCamera()->GetHalfExtents() * 2.0f);
-
+	Score::Instance()->Highscore();
 }
 
 void Application::Update(float dt)

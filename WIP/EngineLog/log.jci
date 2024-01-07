@@ -5,6 +5,11 @@ Created texture Assets/Texture/dbg/no_texture.png
 Created texture Assets/Texture/dbg/dbg_box.png
 Created texture Assets/Texture/dbg/dbg_circle.png
 Created texture Assets/Texture/dbg/dbg_cap.png
+Created texture Assets/Texture/RateUpDmgDown.png
+Created texture Assets/Texture/RateDownDmgUp.png
+Created texture Assets/Texture/LessDashCD.png
+Created texture Assets/Texture/HpUp.png
+Created texture Assets/Texture/FasterFireRate.png
 Created Entity with id: 0
 Added component with id: ComponentTypes::Transform to Game Object: 0
 Added component with id: ComponentTypes::UiButton to Game Object: 0

@@ -383,6 +383,9 @@
     <Image Include="Assets\Texture\Weapons\Bowie Knife.png" />
     <Image Include="Assets\Texture\Zomb.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="deps\include\Highscore.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
