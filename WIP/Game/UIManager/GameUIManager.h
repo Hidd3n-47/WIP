@@ -14,6 +14,7 @@ private:
 	uint32 Evasive = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/LessDashCD.png");
 	uint32 Tanky = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/HpUp.png");
 	uint32 DoubleTap = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/FasterFireRate.png");
+	uint32 SwiftHands = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/FasterReload.png");
 	PerkButton* perkLeft;
 	PerkButton* perkMiddle;
 	PerkButton* perkRight;

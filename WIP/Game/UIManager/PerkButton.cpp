@@ -5,7 +5,7 @@
 PerkButton::PerkButton()
 {
 	thisButton->AddComponent<jci::UiButton>();
-	thisButton->AddComponent<jci::SpriteRenderer>()->SetTexture(jci::TextureManager::Instance()->GetTexture(jci::EngineTextureIndex::Dbg_Box));
+	thisButton->AddComponent<jci::UiSprite>();
 	thisButton->GetComponent<jci::UiButton>()->SetButtonMethods(this);
 	//thisButton->GetComponent<jci::SpriteRenderer>()->SetSize(vec2(2, 4));
 	//thisButton->GetComponent<jci::SpriteRenderer>()->SetLayer(1);
@@ -30,6 +30,11 @@ PerkParent* PerkButton::getPerk()
 jci::Entity* PerkButton::getButton()
 {
 	return thisButton;
+}
+
+void PerkButton::setTexture(Uint32 texture)
+{
+	thisButton->GetComponent<jci::UiSprite>()->SetTexture(texture);
 }
 
 void PerkButton::OnButtonPress()

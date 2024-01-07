@@ -14,6 +14,7 @@ public:
 	void setPerk(PerkParent* temp);
 	PerkParent* getPerk();
 	jci::Entity* getButton();
+	void setTexture(Uint32 texture);
 
 	void OnButtonHover() final {};
 	void OnButtonPress() final;

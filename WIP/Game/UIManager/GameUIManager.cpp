@@ -52,36 +52,37 @@ void GameUIManager::perkSet()
 			temp = new tanky();
 			perkButtons[i]->setPerk(temp);
 			perkButtons[i]->getPerk()->setTag(Perks::Tanky,"Tanky");
-			perkButtons[i]->getButton()->GetComponent<jci::SpriteRenderer>()->SetTexture(Tanky);
+			perkButtons[i]->setTexture(Tanky);
 			break;
 		case 1:
 			temp = new biggerBullets();
 			perkButtons[i]->setPerk(temp);
 			perkButtons[i]->getPerk()->setTag(Perks::BiggerBullets,"Bigger Bullets");
-			perkButtons[i]->getButton()->GetComponent<jci::SpriteRenderer>()->SetTexture(RateDownDmgUp);
+			perkButtons[i]->setTexture(RateDownDmgUp);
 			break;
 		case 2:
 			temp = new lighterBullets();
 			perkButtons[i]->setPerk(temp);
 			perkButtons[i]->getPerk()->setTag(Perks::LighterBullets,"Lighter Bullets");
-			perkButtons[i]->getButton()->GetComponent<jci::SpriteRenderer>()->SetTexture(RateUpDmgDown);
+			perkButtons[i]->setTexture(RateUpDmgDown);
 			break;
 		case 3:
 			temp = new evasive();
 			perkButtons[i]->setPerk(temp);
 			perkButtons[i]->getPerk()->setTag(Perks::Evasive,"Evasive");
-			perkButtons[i]->getButton()->GetComponent<jci::SpriteRenderer>()->SetTexture(Evasive);
+			perkButtons[i]->setTexture(Evasive);
 			break;
 		case 4:
 			temp = new doubleTap();
 			perkButtons[i]->setPerk(temp);
 			perkButtons[i]->getPerk()->setTag(Perks::DoubleTap,"Double Tap");
-			perkButtons[i]->getButton()->GetComponent<jci::SpriteRenderer>()->SetTexture(DoubleTap);
+			perkButtons[i]->setTexture(DoubleTap);
 			break;
 		case 5:
 			temp = new swiftHands();
 			perkButtons[i]->setPerk(temp);
 			perkButtons[i]->getPerk()->setTag(Perks::SwiftHands,"Swift Hands");
+			perkButtons[i]->setTexture(SwiftHands);
 			break;
 		default:
 			break;
