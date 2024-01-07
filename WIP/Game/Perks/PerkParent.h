@@ -15,6 +15,7 @@ class PerkParent
 protected:
 	Perks tag;
 	std::string strTag;
+
 public:
 	virtual ~PerkParent() { }
 	void setTag(Perks temp, std::string temp2);
