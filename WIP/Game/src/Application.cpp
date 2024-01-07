@@ -41,7 +41,6 @@ void Application::Create()
 	m_player->SetManager(manager);
 	PlayerStateManager::Instance()->Init(map->GetSpawnPoint(), g1);
 	em->SetPlayer(m_player);
-	Score::Instance()->Init();
 	m_startMenu = jci::SceneManager::Instance()->CreateScene("StartScene");
 	m_deadMenu = jci::SceneManager::Instance()->CreateScene("DeadScene");
 	jci::SceneManager::Instance()->SetCurrentScene(m_deadMenu);
@@ -65,7 +64,7 @@ void Application::Create()
 	aud->SetMusic("Assets/Audio/mainMenuBg.mp3", 15);
 	aud->PlayMusic();
 
-	Score::Instance()->Highscore();
+	Score::Instance()->Init();
 }
 
 void Application::Update(float dt)
@@ -99,7 +98,6 @@ void Application::StartUpdate(float dt)
 
 void Application::GameUpdate(float dt)
 {
-	DLOG("" + (PlayerStateManager::Instance()->GetAlive()));
 	if (GameUIManager::GetGameUIManager()->GetPerkToggle() && PlayerStateManager::Instance()->GetAlive())
 	{
 		PlayerStateManager::Instance()->Update(dt);

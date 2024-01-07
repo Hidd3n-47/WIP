@@ -12,7 +12,7 @@ Score* Score::m_instance = nullptr;
 
 void Score::Init()
 {
-	m_ui = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();
+	m_ui = jci::SceneManager::Instance()->GetScene("MainScene")->CreateEmptyEntity();
 
 	jci::UiText* ut = m_ui->AddComponent<jci::UiText>();
 	ut->SetTexture(jci::TextureManager::Instance()->CreateTexture("Assets/Texture/ScoreFont.png", 10, 1));
@@ -37,7 +37,7 @@ void Score::HighscoreUI()
 	uit->SetTexture(jci::TextureManager::Instance()->CreateTexture("Assets/Texture/ScoreFont.png", 10, 1));
 	uit->SetAnchorPoint(jci::AnchorPoints::Middle);
 	uit->SetTextAlign(jci::TextAlignment::Center);
-	uit->SetPadding(vec2(-0.35f, 0.35f));
+	uit->SetPadding(vec2(0.0f, 0.0f));
 	uit->SetText(m_highScore, 24);
 }
 
@@ -50,20 +50,20 @@ void Score::DeathUI()
 {
 	m_deadScoreUi = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();
 
-	jci::UiText* uit = m_startUi->AddComponent<jci::UiText>();
+	jci::UiText* uit = m_deadScoreUi->AddComponent<jci::UiText>();
 	uit->SetTexture(jci::TextureManager::Instance()->CreateTexture("Assets/Texture/ScoreFont.png", 10, 1));
-	uit->SetAnchorPoint(jci::AnchorPoints::TopMiddle);
+	uit->SetAnchorPoint(jci::AnchorPoints::Middle);
 	uit->SetTextAlign(jci::TextAlignment::Center);
-	uit->SetPadding(vec2(-0.35f, 0.35f));
+	uit->SetPadding(vec2(0.0f, 2.0f));
 	uit->SetText(m_score, 24);
 
 	m_deadHighscoreUi = jci::SceneManager::Instance()->GetCurrentScene()->CreateEmptyEntity();
 
-	jci::UiText* utxt = m_startUi->AddComponent<jci::UiText>();
+	jci::UiText* utxt = m_deadHighscoreUi->AddComponent<jci::UiText>();
 	utxt->SetTexture(jci::TextureManager::Instance()->CreateTexture("Assets/Texture/ScoreFont.png", 10, 1));
-	utxt->SetAnchorPoint(jci::AnchorPoints::BotMiddle);
+	utxt->SetAnchorPoint(jci::AnchorPoints::Middle);
 	utxt->SetTextAlign(jci::TextAlignment::Center);
-	utxt->SetPadding(vec2(-0.35f, 0.35f));
+	utxt->SetPadding(vec2(0.0f, -0.7f));
 	utxt->SetText(m_highScore, 24);
 }
 

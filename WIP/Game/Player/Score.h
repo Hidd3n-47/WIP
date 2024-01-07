@@ -14,7 +14,6 @@ public:
 	inline static Score* Instance() { return !m_instance ? m_instance = new Score() : m_instance; }
 	
 	void Init();
-	void Highscore();
 	void DeathUI();
 	void Destroy();
 
