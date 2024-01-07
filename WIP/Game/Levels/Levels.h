@@ -58,24 +58,7 @@ public:
 	const float width = 1;
 	const float height = 1;//these can be replaced with getters if validated elsewhere....
 
-	uint32 m_environmentTexture;
-	uint32 wall;
-	uint32 topleftwall;
-	uint32 floor;
-	uint32 toprightwall;
-	uint32 topwall;
-	uint32 leftwall;
-	uint32 rightwall;
-	uint32 botleftwall;
-	uint32 botrightwall;
-	uint32 botwall;
-	uint32 door;
-	uint32 inversetopleft;
-	uint32 inversetopright;
-	uint32 inversebotleft;
-	uint32 inversebotright;
-	uint32 spawnPoint;
-
+	uint32 m_environmentTexture = 0;
 
 	//key:              Currently just a ghost integer since the switch cases and if statements are a touch annoying and neither actually use a pure int... But yes if it really boils down to it we can do a bunch of casting to make this actually used...
 	/*

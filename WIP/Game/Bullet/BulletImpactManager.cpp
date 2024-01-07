@@ -40,6 +40,7 @@ void BulletImpactManager::Update()
 		{
 			delete m_bulletImpactTimers[i];
 			m_bulletImpactTimers[i] = nullptr;
+			m_bulletImpact[i]->Deactivate();
 		}
 	}
 }
@@ -47,5 +48,5 @@ void BulletImpactManager::Update()
 void BulletImpactManager::SpawnBulletImpact(vec2 position)
 {
 	m_bulletImpact[m_impactPrefabIndex]->SetActive(position);
-	m_bulletImpactTimers[m_impactPrefabIndex] = new jci::Timer(0.3f);
+	m_bulletImpactTimers[m_impactPrefabIndex] = new jci::Timer(0.15f);
 }

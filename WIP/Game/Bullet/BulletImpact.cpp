@@ -8,9 +8,11 @@ BulletImpact::BulletImpact(uint32 textureId)
 	jci::SpriteRenderer* sr = m_entity->AddComponent<jci::SpriteRenderer>();
 	sr->SetTexture(textureId);
 	sr->SetSize(vec2(0.5f));
+	sr->SetLayer(2);
 	jci::Animation* anim = m_entity->AddComponent<jci::Animation>();
 	anim->SetAnimationCount(3);
-	anim->SetTimeBetweenFrames(0.1f);
+	anim->SetTimeBetweenFrames(0.05f);
+	anim->SetLooping(false);
 
 	m_entity->SetActive(false);
 }

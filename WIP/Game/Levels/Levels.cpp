@@ -19,21 +19,6 @@ Levels::Levels()
 	LevelSquare = new std::vector<jci::Entity*>;
 	m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	m_environmentTexture = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/LabSpriteSheet.png", 16, 1);
-	wall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/squareWITHAW!!.png");
-	topleftwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Front left wall.png");
-	floor = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Floor.png");
-	toprightwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Front right wall.png");
-	topwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Front wall.png");
-	leftwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Left wall.png");
-	rightwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Right wall.png");
-	//botleftwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Back left wall.png");
-	//botrightwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Back right wall.png");
-	//botwall = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Back wall.png");
-	//door = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Door.png");
-	inversetopleft = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv front left wall.png");
-	inversetopright = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv front right wall.png");
-	inversebotleft = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv back left wall.png");
-	inversebotright = jci::TextureManager::Instance()->CreateTexture("Assets/Texture/Inv back right wall.png"); 
 	em = EnemyManager::getEnemyManager();
 	dm = DoorManager::getDoorManager();
 
@@ -76,7 +61,7 @@ void Levels::createWall(float x, float y)
 {
 	jci::Entity* e = m_currentScene->CreateEmptyEntity();
 	e->GetComponent<jci::Transform>()->SetPosition({ x, y });
-	e->AddComponent<jci::SpriteRenderer>()->SetTexture(wall);
+	//e->AddComponent<jci::SpriteRenderer>()->SetTexture(wall);
 	e->AddComponent<jci::BoxCollider>();
 	e->SetTag("Wall");
 	LevelSquare->push_back(e);
@@ -114,7 +99,7 @@ void Levels::createDoor(float x, float y)
 void Levels::createDoorTrigger(float x, float y)
 {
 	DoorTrigger* newFloor = new DoorTrigger();
-	LevelSquare->push_back(newFloor->Create(vec2(x, y), floor));
+	LevelSquare->push_back(newFloor->Create(vec2(x, y), m_environmentTexture, 0));
 	newFloor->setDoor(dm->getDoor());
 	dm->getDoorSquares().push_back(newFloor->getThis());
 	doorTriggers.push_back(newFloor);
@@ -301,7 +286,7 @@ void Levels::LoadLevel(std::string fileString)
 			createWall(currentX, currentY);
 			jci::SpriteRenderer* sr = LevelSquare->back()->AddComponent<jci::SpriteRenderer>();
 			sr->SetTexture(m_environmentTexture);
-			sr->CalculateUV(9);
+			sr->CalculateUV(11);
 			currentX += width;
 		}
 		else if (i == "14")// inv back right
@@ -309,7 +294,7 @@ void Levels::LoadLevel(std::string fileString)
 			createWall(currentX, currentY);
 			jci::SpriteRenderer* sr = LevelSquare->back()->AddComponent<jci::SpriteRenderer>();
 			sr->SetTexture(m_environmentTexture);
-			sr->CalculateUV(8);
+			sr->CalculateUV(10);
 			currentX += width;
 		}
 		else if (i == "15")

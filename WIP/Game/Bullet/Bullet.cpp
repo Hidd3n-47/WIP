@@ -104,13 +104,14 @@ void Bullet::OnCollisionEnter(jci::Entity* other)
 		m_particles->SetParticleDirection(glm::normalize(direction));
 		m_particles->Emit();
 		m_pierced -= 1;
+		BulletImpactManager::Instance()->SpawnBulletImpact(trans->GetPosition());
 	}
 	if (!(other->GetTag() == "Player" || other->GetTag() == "Bullet") && m_pierced < 1 || other->GetTag() == "Wall")
 	{
+		BulletImpactManager::Instance()->SpawnBulletImpact(trans->GetPosition());
 		trans->SetPosition(vec2(10000000.0f));
 	}
 
-	BulletImpactManager::Instance()->SpawnBulletImpact(trans->GetPosition());
 }
 
 void Bullet::OnCollisionStay(jci::Entity* other)

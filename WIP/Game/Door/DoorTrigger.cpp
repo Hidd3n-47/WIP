@@ -18,12 +18,14 @@ DoorTrigger::~DoorTrigger()
 {
 }
 
-jci::Entity* DoorTrigger::Create(vec2 point, uint32 TextureID)
+jci::Entity* DoorTrigger::Create(vec2 point, uint32 TextureID, uint32 textureIndex)
 {
 	jci::Scene* m_currentScene = jci::SceneManager::Instance()->GetCurrentScene();
 	trigger = m_currentScene->CreateEmptyEntity();
 	trigger->GetComponent<jci::Transform>()->SetPosition(point);
-	trigger->AddComponent<jci::SpriteRenderer>()->SetTexture(TextureID);
+	jci::SpriteRenderer* sr = trigger->AddComponent<jci::SpriteRenderer>();
+	sr->SetTexture(TextureID);
+	sr->CalculateUV(textureIndex);
 	debugSpriteRenderRef = trigger->GetComponent<jci::SpriteRenderer>();
 	jci::BoxCollider* bc = trigger->AddComponent<jci::BoxCollider>();
 	bc->SetBodyType(jci::BodyType::Kinematic);
